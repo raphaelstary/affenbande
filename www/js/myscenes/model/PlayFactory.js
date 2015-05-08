@@ -1,4 +1,6 @@
-var PlayFactory = (function (Level, Grid, GridHelper, GridViewHelper, DomainGridHelper, World, WorldView) {
+var PlayFactory = (function (Level, Grid, GridHelper, GridViewHelper, DomainGridHelper, World, WorldView,
+    PlayerController) {
+
     "use strict";
 
     return {
@@ -9,6 +11,9 @@ var PlayFactory = (function (Level, Grid, GridHelper, GridViewHelper, DomainGrid
             var domainGridHelper = new DomainGridHelper(gridHelper, grid, grid.xTiles, grid.yTiles);
             var worldView = new WorldView(gridViewHelper);
             return new World(worldView, grid, gridHelper, domainGridHelper, gridViewHelper);
+        },
+        createPlayerController: function (world) {
+            return new PlayerController(world, world.gridViewHelper, world.gridHelper);
         }
     };
-})(Level, Grid, GridHelper, GridViewHelper, DomainGridHelper, World, WorldView);
+})(Level, Grid, GridHelper, GridViewHelper, DomainGridHelper, World, WorldView, PlayerController);

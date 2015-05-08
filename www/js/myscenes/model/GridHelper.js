@@ -1,4 +1,4 @@
-var GridHelper = (function () {
+var GridHelper = (function (Math) {
     "use strict";
 
     function GridHelper(grid, xTiles, yTiles) {
@@ -62,15 +62,15 @@ var GridHelper = (function () {
     };
 
     GridHelper.prototype.isNeighbor = function (a_u, a_v, b_u, b_v) {
-        var deltaX = a_u - b_u;
-        if (deltaX > 1 || deltaX < -1)
+        var deltaX = Math.abs(a_u - b_u);
+        if (deltaX > 1)
             return false;
-        var deltaY = a_v - b_v;
-        if (deltaY > 1 || deltaX < -1)
+        var deltaY = Math.abs(a_v - b_v);
+        if (deltaY > 1 || deltaX + deltaY > 1)
             return false;
         var neighbor = this.grid.get(b_u, b_v);
-        return neighbor != undefined;
+        return neighbor !== undefined;
     };
 
     return GridHelper;
-})();
+})(Math);

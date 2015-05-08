@@ -6,7 +6,7 @@ var WorldView = (function () {
 
         this.newParts = [];
         this.ground = [];
-        this.snake = [];
+        this.snake = {};
     }
 
     WorldView.prototype.drawLevel = function (snakeParts, groundTiles, newParts) {
@@ -19,7 +19,15 @@ var WorldView = (function () {
         }, this);
 
         snakeParts.forEach(function (part) {
-            this.snake.push(this.gridViewHelper.createRect(part.u, part.v, 'green'));
+            this.snake[part.type] = this.gridViewHelper.createRect(part.u, part.v, 'green');
+        }, this);
+    };
+
+    WorldView.prototype.moveSnake = function (changeSet) {
+        changeSet.forEach(function (change) {
+            if (change.type == 'changed') {
+                this.gridViewHelper.move(this.snake[change.tile], change.newU, change.newV);
+            }
         }, this);
     };
 
