@@ -10,7 +10,7 @@ var GameScreen = (function () {
     GameScreen.prototype.show = function (next) {
         var level = Level[1];
         var world = PlayFactory.createWorld(this.stage, this.timer, this.device, level);
-        world.drawLevel();
+        world.init();
     };
 
     return GameScreen;

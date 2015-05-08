@@ -1,4 +1,4 @@
-var PlayFactory = (function (Level, Grid, GridHelper, GridViewHelper, DomainGridHelper, World) {
+var PlayFactory = (function (Level, Grid, GridHelper, GridViewHelper, DomainGridHelper, World, WorldView) {
     "use strict";
 
     return {
@@ -7,7 +7,8 @@ var PlayFactory = (function (Level, Grid, GridHelper, GridViewHelper, DomainGrid
             var gridHelper = new GridHelper(grid, grid.xTiles, grid.yTiles);
             var gridViewHelper = new GridViewHelper(stage, timer, device, grid.xTiles, grid.yTiles);
             var domainGridHelper = new DomainGridHelper(gridHelper, grid, grid.xTiles, grid.yTiles);
-            return new World(grid, gridHelper, domainGridHelper, gridViewHelper);
+            var worldView = new WorldView(gridViewHelper);
+            return new World(worldView, grid, gridHelper, domainGridHelper, gridViewHelper);
         }
     };
-})(Level, Grid, GridHelper, GridViewHelper, DomainGridHelper, World);
+})(Level, Grid, GridHelper, GridViewHelper, DomainGridHelper, World, WorldView);
