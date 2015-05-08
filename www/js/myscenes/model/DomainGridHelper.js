@@ -160,10 +160,13 @@ var DomainGridHelper = (function () {
     };
 
     DomainGridHelper.prototype.undo = function (changeSet) {
-        changeSet.forEach(function (change) {
+        changeSet.reverse().forEach(function (change, index, array) {
             if (change.type == History.NEW)
                 return;
             this.grid.set(change.oldU, change.oldV, change.tile);
+            if (index == array.length - 1) {
+                this.grid.set(change.newU, change.newV, 0);
+            }
 
         }, this);
     };

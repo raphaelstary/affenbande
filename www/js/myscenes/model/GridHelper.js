@@ -63,7 +63,7 @@ var GridHelper = (function (Math) {
 
     GridHelper.prototype.isNeighbor = function (a_u, a_v, b_u, b_v) {
         var deltaX = Math.abs(a_u - b_u);
-        if (deltaX > 1)
+        if (deltaX > 1 || (a_u === b_u && a_v === b_v))
             return false;
         var deltaY = Math.abs(a_v - b_v);
         if (deltaY > 1 || deltaX + deltaY > 1)

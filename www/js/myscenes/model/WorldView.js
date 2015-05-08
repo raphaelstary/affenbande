@@ -23,10 +23,36 @@ var WorldView = (function () {
         }, this);
     };
 
-    WorldView.prototype.moveSnake = function (changeSet) {
+    WorldView.prototype.moveSnake = function (changeSet, callback) {
+        var callbacks = 0;
+
+        function itIsOver() {
+            if (--callbacks == 0)
+                if (callback)
+                    callback();
+        }
+
         changeSet.forEach(function (change) {
             if (change.type == 'changed') {
-                this.gridViewHelper.move(this.snake[change.tile], change.newU, change.newV);
+                this.gridViewHelper.move(this.snake[change.tile], change.newU, change.newV, 30, itIsOver);
+                callbacks++;
+            }
+        }, this);
+    };
+
+    WorldView.prototype.undoMove = function (changeSet, callback) {
+        var callbacks = 0;
+
+        function itIsOver() {
+            if (--callbacks == 0)
+                if (callback)
+                    callback();
+        }
+
+        changeSet.forEach(function (change) {
+            if (change.type == 'changed') {
+                this.gridViewHelper.move(this.snake[change.tile], change.oldU, change.oldV, 10, itIsOver);
+                callbacks++;
             }
         }, this);
     };

@@ -39,8 +39,8 @@ var GridViewHelper = (function (Height, Transition, Math) {
             true);
     };
 
-    GridViewHelper.prototype.move = function (drawable, u, v) {
-        return this.stage.move(drawable, this.__getX(u), this.__getY(v), 30, Transition.LINEAR)
+    GridViewHelper.prototype.move = function (drawable, u, v, speed, callback) {
+        return this.stage.move(drawable, this.__getX(u), this.__getY(v), speed, Transition.LINEAR, false, callback)
     };
 
     GridViewHelper.prototype.__edgeLength = function (height) {
