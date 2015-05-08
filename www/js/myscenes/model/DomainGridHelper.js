@@ -111,22 +111,25 @@ var DomainGridHelper = (function () {
         function moveTiles(tiles, u, v) {
             var head = tiles.shift();
             self.grid.set(u, v, head.type);
-            changeSet.push({
+            var change = {
                 oldU: head.u,
                 oldV: head.v,
                 newU: u,
                 newV: v,
                 tile: head.type,
                 type: History.CHANGED
-            });
+            };
+            changeSet.push(change);
+            head.u = u;
+            head.v = v;
 
             if (tiles.length > 0) {
-                moveTiles(tiles, head.u, head.v);
+                moveTiles(tiles, change.oldU, change.oldV);
             } else {
                 if (snakeIsJoining) {
                     var newPart = {
-                        u: head.u,
-                        v: head.v,
+                        u: change.oldU,
+                        v: change.oldV,
                         type: head.type + 1
                     };
                     self.grid.set(newPart.u, newPart.v, newPart.type);
@@ -138,7 +141,7 @@ var DomainGridHelper = (function () {
                         type: History.NEW
                     });
                 } else {
-                    self.grid.set(head.u, head.v, Tile.SKY);
+                    self.grid.set(change.oldU, change.oldV, Tile.SKY);
                 }
             }
         }
