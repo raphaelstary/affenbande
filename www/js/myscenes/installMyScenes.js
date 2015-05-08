@@ -6,6 +6,9 @@ var installMyScenes = (function (SceneManager) {
 
         var sceneManager = new SceneManager();
 
+        var gameScreen = new GameScreen(sceneServices);
+        sceneManager.add(gameScreen.show.bind(gameScreen));
+
         return sceneManager;
     }
 
