@@ -72,5 +72,9 @@ var GridHelper = (function (Math) {
         return neighbor !== undefined;
     };
 
+    GridHelper.prototype.equals = function (objectA, objectB) {
+        return objectA.u === objectB.u && objectA.v === objectB.v && objectA.type === objectB.type;
+    };
+
     return GridHelper;
 })(Math);

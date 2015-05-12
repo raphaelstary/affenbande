@@ -20,22 +20,30 @@ var PlayerController = (function () {
         }
 
         var target = this.gridViewHelper.getCoordinates(x, y);
-        var snakeHead = this.world.getHeadCoordinates();
-        if (this.gridHelper.isNeighbor(target.u, target.v, snakeHead.u, snakeHead.v)) {
-            if (snakeHead.u == target.u + 1) {
-                this.world.moveSnakeLeft(myCallback);
-            } else if (snakeHead.u == target.u - 1) {
-                this.world.moveSnakeRight(myCallback);
-            } else if (snakeHead.v == target.v + 1) {
-                this.world.moveSnakeTop(myCallback);
-            } else if (snakeHead.v == target.v - 1) {
-                this.world.moveSnakeBottom(myCallback);
-            } else {
-                this.moving = false;
+        var foundSmth = false;
+        this.world.heads.forEach(function (snakeHead) {
+            if (foundSmth)
+                return;
+
+            if (this.gridHelper.isNeighbor(target.u, target.v, snakeHead.u, snakeHead.v)) {
+                if (snakeHead.u == target.u + 1) {
+                    this.world.moveSnakeLeft(snakeHead, myCallback);
+                    foundSmth = true;
+                } else if (snakeHead.u == target.u - 1) {
+                    this.world.moveSnakeRight(snakeHead, myCallback);
+                    foundSmth = true;
+                } else if (snakeHead.v == target.v + 1) {
+                    this.world.moveSnakeTop(snakeHead, myCallback);
+                    foundSmth = true;
+                } else if (snakeHead.v == target.v - 1) {
+                    this.world.moveSnakeBottom(snakeHead, myCallback);
+                    foundSmth = true;
+                }
             }
-        } else {
+        }, this);
+
+        if (!foundSmth)
             this.moving = false;
-        }
     };
 
     return PlayerController;

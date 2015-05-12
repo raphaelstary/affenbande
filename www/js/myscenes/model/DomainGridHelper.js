@@ -11,8 +11,12 @@ var DomainGridHelper = (function () {
     var Tile = {
         SKY: 0,
         GROUND: 1,
-        NEW_PART: 2,
-        SNAKE_HEAD: 3
+        SPIKE: 2,
+        NEW_PART: 9
+    };
+
+    DomainGridHelper.prototype.getSpikes = function () {
+        return this.__getTiles(Tile.SPIKE);
     };
 
     DomainGridHelper.prototype.getNewParts = function () {
@@ -41,30 +45,24 @@ var DomainGridHelper = (function () {
         return parts;
     };
 
-    DomainGridHelper.prototype.getSnake = function () {
+    DomainGridHelper.prototype.getSnakes = function () {
         var self = this;
 
-        function findHead() {
+        function findHeads() {
+            var heads = [];
             for (var y = 0; y < self.yTiles; y++) {
                 for (var x = 0; x < self.xTiles; x++) {
                     var tile = self.grid.get(x, y);
-                    if (tile == Tile.SNAKE_HEAD)
-                        return {
+                    if (tile > 0 && tile % 20 == 0)
+                        heads.push({
                             u: x,
-                            v: y
-                        };
+                            v: y,
+                            type: tile
+                        });
                 }
             }
+            return heads;
         }
-
-        var head = findHead();
-        var snake = [
-            {
-                u: head.u,
-                v: head.v,
-                type: Tile.SNAKE_HEAD
-            }
-        ];
 
         function getNextBodyPart(snake, currentPart, x, y) {
             var nextPart = currentPart + 1;
@@ -76,9 +74,21 @@ var DomainGridHelper = (function () {
             });
         }
 
-        getNextBodyPart(snake, Tile.SNAKE_HEAD, head.u, head.v);
+        var snakes = [];
+        findHeads().forEach(function (head) {
+            var snake = [
+                {
+                    u: head.u,
+                    v: head.v,
+                    type: head.type
+                }
+            ];
 
-        return snake;
+            getNextBodyPart(snake, head.type, head.u, head.v);
+            snakes.push(snake);
+        });
+
+        return snakes;
     };
 
     DomainGridHelper.prototype.hasSnakeGround = function (snake) {
@@ -87,10 +97,17 @@ var DomainGridHelper = (function () {
         });
     };
 
-    DomainGridHelper.prototype.canSnakeMove = function (snake, u, v) {
-        var head = snake[0];
-        var isNeighbor = this.gridHelper.isNeighbor(head.u, head.v, u, v);
-        if (isNeighbor) {
+    DomainGridHelper.prototype.canSnakeMoveHead = function (snake, u, v) {
+        return this.__canSnakeMove(snake, snake[0], u, v);
+    };
+
+    DomainGridHelper.prototype.canSnakeMoveTail = function (snake, u, v) {
+        return this.__canSnakeMove(snake, snake[snake.length - 1], u, v);
+    };
+
+    DomainGridHelper.prototype.__canSnakeMove = function (snake, head, u, v) {
+        var isNeighborOfHead = this.gridHelper.isNeighbor(head.u, head.v, u, v);
+        if (isNeighborOfHead) {
             var tileType = this.grid.get(u, v);
             return tileType === Tile.SKY || tileType === Tile.NEW_PART;
         }
@@ -100,7 +117,32 @@ var DomainGridHelper = (function () {
     var History = {
         NEW: 'new',
         CHANGED: 'changed',
-        REMOVED: 'removed'
+        REMOVED: 'removed',
+        REVERSED: 'reversed'
+    };
+
+    DomainGridHelper.prototype.reverseSnake = function (snake) {
+        var self = this;
+
+        function swapCoordinates(snake) {
+            var head = snake.shift();
+            var tail = snake.pop();
+            var tempU = head.u;
+            var tempV = head.v;
+            head.u = tail.u;
+            head.v = tail.v;
+            self.grid.set(head.u, head.v, head.type);
+            tail.u = tempU;
+            tail.v = tempV;
+            self.grid.set(tail.u, tail.v, tail.type);
+
+            if (snake.length > 1)
+                swapCoordinates(snake);
+        }
+
+        swapCoordinates(snake.slice());
+
+        return [{type: History.REVERSED}];
     };
 
     DomainGridHelper.prototype.moveSnake = function (snake, u, v) {
@@ -140,20 +182,18 @@ var DomainGridHelper = (function () {
                         tile: newPart.type,
                         type: History.NEW
                     });
+                    changeSet.push({
+                        oldU: u,
+                        oldV: v,
+                        tile: Tile.NEW_PART,
+                        type: History.REMOVED
+                    });
                 } else {
                     self.grid.set(change.oldU, change.oldV, Tile.SKY);
                 }
             }
         }
 
-        if (snakeIsJoining) {
-            changeSet.push({
-                oldU: u,
-                oldV: v,
-                tile: Tile.NEW_PART,
-                type: History.REMOVED
-            });
-        }
         moveTiles(snake.slice(), u, v);
 
         return changeSet;
