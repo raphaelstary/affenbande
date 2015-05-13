@@ -110,6 +110,11 @@ var DomainGridHelper = (function () {
         });
     };
 
+    DomainGridHelper.prototype.isSnakeOutOfMap = function (snake) {
+        var neighbors = this.gridHelper.getBottomNeighbors(snake);
+        return neighbors.length < snake.length;
+    };
+
     DomainGridHelper.prototype.canSnakeMoveHead = function (snake, u, v) {
         return this.__canSnakeMove(snake, snake[0], u, v);
     };
@@ -219,15 +224,21 @@ var DomainGridHelper = (function () {
         return changeSet;
     };
 
-    DomainGridHelper.prototype.undo = function (changeSet) {
-        changeSet.reverse().forEach(function (change, index, array) {
+    DomainGridHelper.prototype.undo = function (changeSet, snake) {
+        changeSet.forEach(function (change) {
+            if (change.type != History.REVERSED && change.type != History.REMOVED) {
+                this.grid.set(change.newU, change.newV, Tile.SKY);
+            }
+        }, this);
+
+        changeSet.reverse().forEach(function (change) {
             if (change.type == History.NEW)
                 return;
-            this.grid.set(change.oldU, change.oldV, change.tile);
-            if (index == array.length - 1) {
-                this.grid.set(change.newU, change.newV, 0);
+            if (change.type == History.REVERSED) {
+                this.__reverseSnake(snake);
+            } else {
+                this.grid.set(change.oldU, change.oldV, change.tile);
             }
-
         }, this);
     };
 

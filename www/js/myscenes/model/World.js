@@ -72,14 +72,33 @@ var World = (function () {
 
         var self = this;
 
-        function extendedCallback() {
+        function postGravity() {
+            if (self.domainGridHelper.isSnakeOutOfMap(snake) || self.domainGridHelper.isSnakeOverSpike(snake)) {
+                var lastChangeSet = self.history.pop();
+                self.domainGridHelper.undo(lastChangeSet, snake);
+                self.worldView.undoMove(lastChangeSet, function () {
+                    var lastChangeSet = self.history.pop();
+                    self.domainGridHelper.undo(lastChangeSet, snake);
+                    self.updateModel();
+                    self.worldView.undoMove(lastChangeSet, callback);
+                });
+            } else {
+                if (callback)
+                    callback();
+            }
+        }
+
+        function postMove() {
             if (self.domainGridHelper.isSnakeInAir(snake)) {
-                //var lastChangeSet = self.history.pop();
-                //self.domainGridHelper.undo(lastChangeSet);
-                //self.updateModel();
-                //self.worldView.undoMove(lastChangeSet, callback);
                 var gravityChangeSet = self.domainGridHelper.applyGravity(snake);
-                self.worldView.moveSnake(gravityChangeSet, callback);
+                self.worldView.moveSnake(gravityChangeSet, postGravity);
+
+            } else if (self.domainGridHelper.isSnakeOverSpike(snake) || self.domainGridHelper.isSnakeOutOfMap(snake)) {
+                var lastChangeSet = self.history.pop();
+                self.domainGridHelper.undo(lastChangeSet, snake);
+                self.updateModel();
+                self.worldView.undoMove(lastChangeSet, callback);
+
             } else {
                 if (callback)
                     callback();
@@ -89,7 +108,7 @@ var World = (function () {
         var changeSet = (tailMove && !headMove) ? this.domainGridHelper.moveSnakeReverse(snake, u, v) :
             this.domainGridHelper.moveSnake(snake, u, v);
         this.history.push(changeSet);
-        this.worldView.moveSnake(changeSet, extendedCallback);
+        this.worldView.moveSnake(changeSet, postMove);
         return true;
     };
 
