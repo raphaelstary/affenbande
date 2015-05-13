@@ -93,6 +93,8 @@ var DomainGridHelper = (function () {
 
     DomainGridHelper.prototype.isSnakeInAir = function (snake) {
         var neighbors = this.gridHelper.getBottomNeighbors(snake);
+        if (neighbors.length < snake.length)
+            return false;
         var complement = this.gridHelper.complement(neighbors, snake);
         if (complement.length == 0)
             return false;
