@@ -247,7 +247,11 @@ var DomainGridHelper = (function () {
         function getToGround(snake) {
             if (self.isSnakeInAir(snake)) {
                 snake.forEach(function (tile) {
+                    self.grid.set(tile.u, tile.v, Tile.SKY);
+                });
+                snake.forEach(function (tile) {
                     tile.v++;
+                    self.grid.set(tile.u, tile.v, tile.type);
                 });
                 getToGround(snake);
             }
@@ -258,9 +262,6 @@ var DomainGridHelper = (function () {
         changeSet.forEach(function (change, index) {
             change.newU = snake[index].u;
             change.newV = snake[index].v;
-
-            self.grid.set(change.oldU, change.oldV, Tile.SKY);
-            self.grid.set(change.newU, change.newV, change.tile);
         });
 
         return changeSet;
