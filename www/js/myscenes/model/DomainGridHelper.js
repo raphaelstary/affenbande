@@ -94,8 +94,17 @@ var DomainGridHelper = (function () {
     DomainGridHelper.prototype.isSnakeInAir = function (snake) {
         var neighbors = this.gridHelper.getBottomNeighbors(snake);
         var complement = this.gridHelper.complement(neighbors, snake);
+        if (complement.length == 0)
+            return false;
         return complement.every(function (tile) {
             return tile.type === Tile.SKY;
+        });
+    };
+
+    DomainGridHelper.prototype.isSnakeOverSpike = function (snake) {
+        var neighbors = this.gridHelper.getBottomNeighbors(snake);
+        return neighbors.some(function (tile) {
+            return tile.type === Tile.SPIKE;
         });
     };
 
@@ -218,6 +227,43 @@ var DomainGridHelper = (function () {
             }
 
         }, this);
+    };
+
+    DomainGridHelper.prototype.applyGravity = function (snake) {
+        var changeSet = [];
+
+        var self = this;
+        snake.forEach(function (tile) {
+            changeSet.push({
+                oldU: tile.u,
+                oldV: tile.v,
+                newU: 0,
+                newV: 0,
+                tile: tile.type,
+                type: History.CHANGED
+            });
+        });
+
+        function getToGround(snake) {
+            if (self.isSnakeInAir(snake)) {
+                snake.forEach(function (tile) {
+                    tile.v++;
+                });
+                getToGround(snake);
+            }
+        }
+
+        getToGround(snake);
+
+        changeSet.forEach(function (change, index) {
+            change.newU = snake[index].u;
+            change.newV = snake[index].v;
+
+            self.grid.set(change.oldU, change.oldV, Tile.SKY);
+            self.grid.set(change.newU, change.newV, change.tile);
+        });
+
+        return changeSet;
     };
 
     return DomainGridHelper;

@@ -74,11 +74,12 @@ var World = (function () {
 
         function extendedCallback() {
             if (self.domainGridHelper.isSnakeInAir(snake)) {
-                var lastChangeSet = self.history.pop();
-
-                self.domainGridHelper.undo(lastChangeSet);
-                self.updateModel();
-                self.worldView.undoMove(lastChangeSet, callback);
+                //var lastChangeSet = self.history.pop();
+                //self.domainGridHelper.undo(lastChangeSet);
+                //self.updateModel();
+                //self.worldView.undoMove(lastChangeSet, callback);
+                var gravityChangeSet = self.domainGridHelper.applyGravity(snake);
+                self.worldView.moveSnake(gravityChangeSet, callback);
             } else {
                 if (callback)
                     callback();

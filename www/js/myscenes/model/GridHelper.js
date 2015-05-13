@@ -10,28 +10,28 @@ var GridHelper = (function (Math) {
     GridHelper.prototype.getNeighbors = function (u, v) {
         var neighbors = [];
         var n1 = this.grid.get(u, v + 1);
-        if (n1)
+        if (n1 !== undefined)
             neighbors.push({
                 u: u,
                 v: v + 1,
                 type: n1
             });
         var n2 = this.grid.get(u + 1, v);
-        if (n2)
+        if (n2 !== undefined)
             neighbors.push({
                 u: u + 1,
                 v: v,
                 type: n2
             });
         var n3 = this.grid.get(u, v - 1);
-        if (n3)
+        if (n3 !== undefined)
             neighbors.push({
                 u: u,
                 v: v - 1,
                 type: n3
             });
         var n4 = this.grid.get(u - 1, v);
-        if (n4)
+        if (n4 !== undefined)
             neighbors.push({
                 u: u - 1,
                 v: v,
@@ -43,7 +43,7 @@ var GridHelper = (function (Math) {
 
     GridHelper.prototype.getBottomNeighbor = function (u, v) {
         var n1 = this.grid.get(u, v + 1);
-        if (n1)
+        if (n1 !== undefined)
             return {
                 u: u,
                 v: v + 1,
