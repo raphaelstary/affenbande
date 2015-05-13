@@ -121,7 +121,7 @@ var DomainGridHelper = (function () {
         REVERSED: 'reversed'
     };
 
-    DomainGridHelper.prototype.reverseSnake = function (snake) {
+    DomainGridHelper.prototype.__reverseSnake = function (snake) {
         var self = this;
 
         function swapCoordinates(snake) {
@@ -142,7 +142,14 @@ var DomainGridHelper = (function () {
 
         swapCoordinates(snake.slice());
 
-        return [{type: History.REVERSED}];
+        return {type: History.REVERSED};
+    };
+
+    DomainGridHelper.prototype.moveSnakeReverse = function (snake, u, v) {
+        var historyItem = this.__reverseSnake(snake);
+        var changeSet = this.moveSnake(snake, u, v);
+        changeSet.unshift(historyItem);
+        return changeSet;
     };
 
     DomainGridHelper.prototype.moveSnake = function (snake, u, v) {

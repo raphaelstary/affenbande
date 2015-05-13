@@ -79,10 +79,7 @@ var World = (function () {
         function extendedCallback() {
             if (!self.domainGridHelper.hasSnakeGround(snake)) {
                 var lastChangeSet = self.history.pop();
-                if (lastChangeSet.length == 1 && lastChangeSet[0].type == 'reversed') {
-                    self.domainGridHelper.reverse(snake);
-                    lastChangeSet = self.history.pop();
-                }
+
                 self.domainGridHelper.undo(lastChangeSet);
                 self.updateModel();
                 self.worldView.undoMove(lastChangeSet, callback);
@@ -92,10 +89,8 @@ var World = (function () {
             }
         }
 
-        if (tailMove && !headMove)
-            this.history.push(this.domainGridHelper.reverseSnake(snake));
-
-        var changeSet = this.domainGridHelper.moveSnake(snake, u, v);
+        var changeSet = (tailMove && !headMove) ? this.domainGridHelper.moveSnakeReverse(snake, u, v) :
+            this.domainGridHelper.moveSnake(snake, u, v);
         this.history.push(changeSet);
         this.worldView.moveSnake(changeSet, extendedCallback);
     };

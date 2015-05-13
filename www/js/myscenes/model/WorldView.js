@@ -39,12 +39,25 @@ var WorldView = (function () {
                     callback();
         }
 
-        changeSet.forEach(function (change) {
-            if (change.type == 'changed') {
+        changeSet.forEach(function (change, index, array) {
+            if (change.type == 'reversed') {
+                this.__reverseSnake(array.slice(index + 1));
+
+            } else if (change.type == 'changed') {
                 this.gridViewHelper.move(this.snake[change.tile], change.newU, change.newV, 30, itIsOver);
                 callbacks++;
             }
         }, this);
+    };
+
+    WorldView.prototype.__reverseSnake = function (changeSetCopy) {
+        var head = changeSetCopy.shift();
+        var tail = changeSetCopy.pop();
+        var temp = this.snake[head.tile];
+        this.snake[head.tile] = this.snake[tail.tile];
+        this.snake[tail.tile] = temp;
+        if (changeSetCopy.length > 1)
+            this.__reverseSnake(changeSetCopy);
     };
 
     WorldView.prototype.undoMove = function (changeSet, callback) {
@@ -56,10 +69,12 @@ var WorldView = (function () {
                     callback();
         }
 
-        changeSet.forEach(function (change) {
+        changeSet.reverse().forEach(function (change, index, array) {
             if (change.type == 'changed') {
                 this.gridViewHelper.move(this.snake[change.tile], change.oldU, change.oldV, 10, itIsOver);
                 callbacks++;
+            } else if (change.type == 'reversed') {
+                this.__reverseSnake(array.slice(index + 1));
             }
         }, this);
     };
