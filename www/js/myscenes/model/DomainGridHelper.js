@@ -91,9 +91,11 @@ var DomainGridHelper = (function () {
         return snakes;
     };
 
-    DomainGridHelper.prototype.hasSnakeGround = function (snake) {
-        return this.gridHelper.getBottomNeighbors(snake).some(function (tile) {
-            return tile.type === Tile.GROUND;
+    DomainGridHelper.prototype.isSnakeInAir = function (snake) {
+        var neighbors = this.gridHelper.getBottomNeighbors(snake);
+        var complement = this.gridHelper.complement(neighbors, snake);
+        return complement.every(function (tile) {
+            return tile.type === Tile.SKY;
         });
     };
 

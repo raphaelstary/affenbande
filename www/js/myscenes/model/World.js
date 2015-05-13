@@ -31,53 +31,49 @@ var World = (function () {
     World.prototype.moveSnakeLeft = function (head, callback) {
         for (var i = 0; i < this.snakes.length; i++) {
             var snake = this.snakes[i];
-            if (this.gridHelper.equals(snake[0], head) || this.gridHelper.equals(snake[snake.length - 1], head)) {
-                this.__moveSnake(head.u - 1, head.v, snake, callback);
-                break;
-            }
+            if (this.gridHelper.equals(snake[0], head) || this.gridHelper.equals(snake[snake.length - 1], head))
+                return this.__moveSnake(head.u - 1, head.v, snake, callback);
         }
+        return false;
     };
 
     World.prototype.moveSnakeRight = function (head, callback) {
         for (var i = 0; i < this.snakes.length; i++) {
             var snake = this.snakes[i];
-            if (this.gridHelper.equals(snake[0], head) || this.gridHelper.equals(snake[snake.length - 1], head)) {
-                this.__moveSnake(head.u + 1, head.v, snake, callback);
-                break;
-            }
+            if (this.gridHelper.equals(snake[0], head) || this.gridHelper.equals(snake[snake.length - 1], head))
+                return this.__moveSnake(head.u + 1, head.v, snake, callback);
         }
+        return false;
     };
 
     World.prototype.moveSnakeTop = function (head, callback) {
         for (var i = 0; i < this.snakes.length; i++) {
             var snake = this.snakes[i];
-            if (this.gridHelper.equals(snake[0], head) || this.gridHelper.equals(snake[snake.length - 1], head)) {
-                this.__moveSnake(head.u, head.v - 1, snake, callback);
-                break;
-            }
+            if (this.gridHelper.equals(snake[0], head) || this.gridHelper.equals(snake[snake.length - 1], head))
+                return this.__moveSnake(head.u, head.v - 1, snake, callback);
         }
+        return false;
     };
 
     World.prototype.moveSnakeBottom = function (head, callback) {
         for (var i = 0; i < this.snakes.length; i++) {
             var snake = this.snakes[i];
-            if (this.gridHelper.equals(snake[0], head) || this.gridHelper.equals(snake[snake.length - 1], head)) {
-                this.__moveSnake(head.u, head.v + 1, snake, callback);
-                break;
-            }
+            if (this.gridHelper.equals(snake[0], head) || this.gridHelper.equals(snake[snake.length - 1], head))
+                return this.__moveSnake(head.u, head.v + 1, snake, callback);
         }
+        return false;
     };
 
     World.prototype.__moveSnake = function (u, v, snake, callback) {
         var headMove = this.domainGridHelper.canSnakeMoveHead(snake, u, v);
         var tailMove = this.domainGridHelper.canSnakeMoveTail(snake, u, v);
         if (!(headMove || tailMove))
-            return;
+            return false;
 
         var self = this;
 
         function extendedCallback() {
-            if (!self.domainGridHelper.hasSnakeGround(snake)) {
+            if (self.domainGridHelper.isSnakeInAir(snake)) {
                 var lastChangeSet = self.history.pop();
 
                 self.domainGridHelper.undo(lastChangeSet);
@@ -93,6 +89,7 @@ var World = (function () {
             this.domainGridHelper.moveSnake(snake, u, v);
         this.history.push(changeSet);
         this.worldView.moveSnake(changeSet, extendedCallback);
+        return true;
     };
 
     return World;

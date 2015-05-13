@@ -27,17 +27,13 @@ var PlayerController = (function () {
 
             if (this.gridHelper.isNeighbor(target.u, target.v, snakeHead.u, snakeHead.v)) {
                 if (snakeHead.u == target.u + 1) {
-                    this.world.moveSnakeLeft(snakeHead, myCallback);
-                    foundSmth = true;
+                    foundSmth = this.world.moveSnakeLeft(snakeHead, myCallback);
                 } else if (snakeHead.u == target.u - 1) {
-                    this.world.moveSnakeRight(snakeHead, myCallback);
-                    foundSmth = true;
+                    foundSmth = this.world.moveSnakeRight(snakeHead, myCallback);
                 } else if (snakeHead.v == target.v + 1) {
-                    this.world.moveSnakeTop(snakeHead, myCallback);
-                    foundSmth = true;
+                    foundSmth = this.world.moveSnakeTop(snakeHead, myCallback);
                 } else if (snakeHead.v == target.v - 1) {
-                    this.world.moveSnakeBottom(snakeHead, myCallback);
-                    foundSmth = true;
+                    foundSmth = this.world.moveSnakeBottom(snakeHead, myCallback);
                 }
             }
         }, this);

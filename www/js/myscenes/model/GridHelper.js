@@ -61,6 +61,14 @@ var GridHelper = (function (Math) {
         return neighbors;
     };
 
+    GridHelper.prototype.complement = function (setB, setA) {
+        return setB.filter(function (b) {
+            return setA.every(function (a) {
+                return b.type !== a.type;
+            });
+        });
+    };
+
     GridHelper.prototype.isNeighbor = function (a_u, a_v, b_u, b_v) {
         var deltaX = Math.abs(a_u - b_u);
         if (deltaX > 1 || (a_u === b_u && a_v === b_v))
