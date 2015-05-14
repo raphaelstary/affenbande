@@ -74,12 +74,12 @@ var World = (function () {
 
         function postGravity() {
             if (self.domainGridHelper.isSnakeOutOfMapNext(snake) || self.domainGridHelper.isSnakeJustOverSpike(snake)) {
-                var lastChangeSet = self.history.pop();
-                self.domainGridHelper.undo(lastChangeSet, snake);
-                self.worldView.undoMove(lastChangeSet, function () {
-                    var lastChangeSet = self.history.pop();
-                    self.domainGridHelper.undo(lastChangeSet, snake);
-                    self.worldView.undoMove(lastChangeSet, callback);
+                var lastHistory = self.history.pop();
+                self.domainGridHelper.undo(lastHistory.changes, lastHistory.entity);
+                self.worldView.undoMove(lastHistory.changes, function () {
+                    var lasHistory = self.history.pop();
+                    self.domainGridHelper.undo(lasHistory.changes, lasHistory.entity);
+                    self.worldView.undoMove(lasHistory.changes, callback);
                 });
             } else {
                 if (callback)
@@ -89,16 +89,16 @@ var World = (function () {
 
         function postMove() {
             if (self.domainGridHelper.isSnakeInAir(snake)) {
-                var gravityChangeSet = self.domainGridHelper.applyGravity(snake);
-                self.history.push(gravityChangeSet);
-                self.worldView.moveSnake(gravityChangeSet, postGravity);
+                var gravityHistory = self.domainGridHelper.applyGravity(snake);
+                self.history.push(gravityHistory);
+                self.worldView.moveSnake(gravityHistory.changes, postGravity);
 
             } else if (self.domainGridHelper.isSnakeJustOverSpike(snake) ||
                 self.domainGridHelper.isSnakeOutOfMapNext(snake)) {
 
-                var lastChangeSet = self.history.pop();
-                self.domainGridHelper.undo(lastChangeSet, snake);
-                self.worldView.undoMove(lastChangeSet, callback);
+                var deathHistory = self.history.pop();
+                self.domainGridHelper.undo(deathHistory.changes, deathHistory.entity);
+                self.worldView.undoMove(deathHistory.changes, callback);
 
             } else {
                 if (callback)
@@ -106,11 +106,15 @@ var World = (function () {
             }
         }
 
-        var changeSet = (tailMove && !headMove) ? this.domainGridHelper.moveSnakeReverse(snake, u, v) :
+        var historyEntry = (tailMove && !headMove) ? this.domainGridHelper.moveSnakeReverse(snake, u, v) :
             this.domainGridHelper.moveSnake(snake, u, v);
-        this.history.push(changeSet);
-        this.worldView.moveSnake(changeSet, postMove);
+        this.history.push(historyEntry);
+        this.worldView.moveSnake(historyEntry.changes, postMove);
         return true;
+    };
+
+    World.prototype.undoLastMove = function () {
+
     };
 
     return World;

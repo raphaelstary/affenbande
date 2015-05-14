@@ -138,6 +138,11 @@ var DomainGridHelper = (function () {
         REMOVED: 'removed',
         REVERSED: 'reversed'
     };
+    var Interaction = {
+        USER: 'user',
+        GRAVITY: 'gravity',
+        PUSH: 'push'
+    };
 
     DomainGridHelper.prototype.__reverseSnake = function (snake) {
         var self = this;
@@ -166,7 +171,7 @@ var DomainGridHelper = (function () {
     DomainGridHelper.prototype.moveSnakeReverse = function (snake, u, v) {
         var historyItem = this.__reverseSnake(snake);
         var changeSet = this.moveSnake(snake, u, v);
-        changeSet.unshift(historyItem);
+        changeSet.changes.unshift(historyItem);
         return changeSet;
     };
 
@@ -221,7 +226,11 @@ var DomainGridHelper = (function () {
 
         moveTiles(snake.slice(), u, v);
 
-        return changeSet;
+        return {
+            type: Interaction.USER,
+            entity: snake,
+            changes: changeSet
+        };
     };
 
     DomainGridHelper.prototype.undo = function (changeSet, snake) {
@@ -288,7 +297,11 @@ var DomainGridHelper = (function () {
             change.newV = snake[index].v;
         });
 
-        return changeSet;
+        return {
+            type: Interaction.GRAVITY,
+            entity: snake,
+            changes: changeSet
+        };
     };
 
     return DomainGridHelper;
