@@ -9,7 +9,7 @@ var PlayFactory = (function (Level, Grid, GridHelper, GridViewHelper, DomainGrid
             var gridHelper = new GridHelper(grid, grid.xTiles, grid.yTiles);
             var gridViewHelper = new GridViewHelper(stage, timer, device, grid.xTiles, grid.yTiles);
             var domainGridHelper = new DomainGridHelper(gridHelper, grid, grid.xTiles, grid.yTiles);
-            var worldView = new WorldView(gridViewHelper);
+            var worldView = new WorldView(stage, gridViewHelper);
             return new World(worldView, grid, gridHelper, domainGridHelper, gridViewHelper);
         },
         createPlayerController: function (world) {

@@ -215,8 +215,8 @@ var DomainGridHelper = (function () {
                         type: History.NEW
                     });
                     changeSet.push({
-                        oldU: u,
-                        oldV: v,
+                        oldU: snake[0].u,
+                        oldV: snake[0].v,
                         tile: Tile.NEW_PART,
                         type: History.REMOVED
                     });

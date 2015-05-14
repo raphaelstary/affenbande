@@ -1,7 +1,8 @@
 var WorldView = (function (calcCantorPairing) {
     "use strict";
 
-    function WorldView(gridViewHelper) {
+    function WorldView(stage, gridViewHelper) {
+        this.stage = stage;
         this.gridViewHelper = gridViewHelper;
 
         this.newParts = {};
@@ -42,15 +43,20 @@ var WorldView = (function (calcCantorPairing) {
 
         changeSet.forEach(function (change, index, array) {
             if (change.type == 'reversed') {
-                this.__reverseSnake(array.slice(index + 1));
+                this.__reverseSnake(onlyChanged(array));
 
             } else if (change.type == 'changed') {
                 this.gridViewHelper.move(this.snake[change.tile], change.newU, change.newV, 30, itIsOver);
                 callbacks++;
+
             } else if (change.type == 'removed') {
+                var hash = calcCantorPairing(change.oldU, change.oldV);
+                var forDeletion = this.newParts[hash];
+                this.stage.remove(forDeletion);
+                delete this.newParts[hash];
 
             } else if (change.type == 'new') {
-
+                this.snake[change.tile] = this.gridViewHelper.createRect(change.newU, change.newV, 'green');
             }
         }, this);
     };
@@ -79,10 +85,16 @@ var WorldView = (function (calcCantorPairing) {
                 this.gridViewHelper.move(this.snake[change.tile], change.oldU, change.oldV, 10, itIsOver);
                 callbacks++;
             } else if (change.type == 'reversed') {
-                this.__reverseSnake(array.slice(0, index));
+                this.__reverseSnake(onlyChanged(array));
             }
         }, this);
     };
+
+    function onlyChanged(changeSet) {
+        return changeSet.filter(function (change) {
+            return change.type == 'changed';
+        });
+    }
 
     return WorldView;
 })(calcCantorPairing);
