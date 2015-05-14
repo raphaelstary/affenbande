@@ -72,18 +72,11 @@ var World = (function () {
 
         var self = this;
 
-        function postGravity() {
-            if (self.domainGridHelper.isSnakeOutOfMapNext(snake) || self.domainGridHelper.isSnakeJustOverSpike(snake)) {
-                self.undoLastMove(callback);
-            } else if (callback)
-                callback();
-        }
-
         function postMove() {
             if (self.domainGridHelper.isSnakeInAir(snake)) {
                 var gravityHistory = self.domainGridHelper.applyGravity(snake);
                 self.history.push(gravityHistory);
-                self.worldView.moveSnake(gravityHistory.changes, postGravity);
+                self.worldView.moveSnake(gravityHistory.changes, postMove);
 
             } else if (self.domainGridHelper.isSnakeJustOverSpike(snake) ||
                 self.domainGridHelper.isSnakeOutOfMapNext(snake)) {
