@@ -110,9 +110,28 @@ var DomainGridHelper = (function () {
         });
     };
 
+    DomainGridHelper.prototype.isSnakeJustOverSpike = function (snake) {
+        var neighbors = this.gridHelper.getBottomNeighbors(snake);
+        var isSpike = neighbors.some(function (tile) {
+            return tile.type === Tile.SPIKE;
+        });
+        if (!isSpike)
+            return false;
+        var complement = this.gridHelper.complement(neighbors, snake);
+        return complement.every(function (tile) {
+            return tile.type === Tile.SKY || tile.type === Tile.SPIKE;
+        });
+    };
+
     DomainGridHelper.prototype.isSnakeOutOfMap = function (snake) {
         var neighbors = this.gridHelper.getBottomNeighbors(snake);
-        return neighbors.length < snake.length;
+        var isOut = neighbors.length < snake.length;
+        if (!isOut)
+            return false;
+        var complement = this.gridHelper.complement(neighbors, snake);
+        return complement.every(function (tile) {
+            return tile.type === Tile.SKY;
+        });
     };
 
     DomainGridHelper.prototype.canSnakeMoveHead = function (snake, u, v) {
