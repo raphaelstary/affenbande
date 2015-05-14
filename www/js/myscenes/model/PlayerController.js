@@ -6,20 +6,30 @@ var PlayerController = (function () {
         this.gridViewHelper = gridViewHelper;
         this.gridHelper = gridHelper;
 
-        this.moving = false;
+        this.doing = false;
     }
 
     PlayerController.prototype.handlePointer = function (x, y) {
-        if (this.moving)
+        if (this.doing)
             return;
-        this.moving = true;
+        this.doing = true;
         var self = this;
 
         function myCallback() {
-            self.moving = false;
+            self.doing = false;
         }
 
         var target = this.gridViewHelper.getCoordinates(x, y);
+
+        if (target.u == 0 && target.v == 0) {
+            this.doing = true;
+            var success = this.world.undoLastMove(myCallback);
+            if (!success) {
+                this.doing = false;
+            }
+            return;
+        }
+
         var foundSmth = false;
         this.world.heads.forEach(function (snakeHead) {
             if (foundSmth)
@@ -39,7 +49,7 @@ var PlayerController = (function () {
         }, this);
 
         if (!foundSmth)
-            this.moving = false;
+            this.doing = false;
     };
 
     return PlayerController;

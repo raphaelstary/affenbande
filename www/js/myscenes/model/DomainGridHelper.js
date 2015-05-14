@@ -92,10 +92,12 @@ var DomainGridHelper = (function () {
     };
 
     DomainGridHelper.prototype.isSnakeInAir = function (snake) {
-        var neighbors = this.gridHelper.getBottomNeighborsComplement(snake);
-        if (neighbors.length == 0)
+        var neighbors = this.gridHelper.getBottomNeighbors(snake);
+        var isOutNext = neighbors.length < snake.length;
+        if (isOutNext)
             return false;
-        return neighbors.every(function (tile) {
+        var complement = this.gridHelper.complement(neighbors, snake);
+        return complement.length != 0 && complement.every(function (tile) {
             return tile.type === Tile.SKY;
         });
     };

@@ -113,8 +113,31 @@ var World = (function () {
         return true;
     };
 
-    World.prototype.undoLastMove = function () {
+    World.prototype.undoLastMove = function (callback) {
+        if (this.history.length < 1)
+            return false;
 
+        var self = this;
+        var last;
+
+        function extendedCallback() {
+            if (last.type != 'user') {
+                undo();
+            } else {
+                if (callback)
+                    callback();
+            }
+        }
+
+        function undo() {
+            last = self.history.pop();
+            self.domainGridHelper.undo(last.changes, last.entity);
+            self.worldView.undoMove(last.changes, extendedCallback);
+            return last;
+        }
+
+        undo();
+        return true
     };
 
     return World;
