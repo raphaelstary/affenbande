@@ -73,7 +73,7 @@ var World = (function () {
         var self = this;
 
         function postGravity() {
-            if (self.domainGridHelper.isSnakeOutOfMap(snake) || self.domainGridHelper.isSnakeJustOverSpike(snake)) {
+            if (self.domainGridHelper.isSnakeOutOfMapNext(snake) || self.domainGridHelper.isSnakeJustOverSpike(snake)) {
                 var lastChangeSet = self.history.pop();
                 self.domainGridHelper.undo(lastChangeSet, snake);
                 self.worldView.undoMove(lastChangeSet, function () {
@@ -94,7 +94,7 @@ var World = (function () {
                 self.worldView.moveSnake(gravityChangeSet, postGravity);
 
             } else if (self.domainGridHelper.isSnakeJustOverSpike(snake) ||
-                self.domainGridHelper.isSnakeOutOfMap(snake)) {
+                self.domainGridHelper.isSnakeOutOfMapNext(snake)) {
 
                 var lastChangeSet = self.history.pop();
                 self.domainGridHelper.undo(lastChangeSet, snake);

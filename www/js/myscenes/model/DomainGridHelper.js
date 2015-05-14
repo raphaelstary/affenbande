@@ -92,44 +92,25 @@ var DomainGridHelper = (function () {
     };
 
     DomainGridHelper.prototype.isSnakeInAir = function (snake) {
-        var neighbors = this.gridHelper.getBottomNeighbors(snake);
-        if (neighbors.length < snake.length)
+        var neighbors = this.gridHelper.getBottomNeighborsComplement(snake);
+        if (neighbors.length == 0)
             return false;
-        var complement = this.gridHelper.complement(neighbors, snake);
-        if (complement.length == 0)
-            return false;
-        return complement.every(function (tile) {
+        return neighbors.every(function (tile) {
             return tile.type === Tile.SKY;
         });
     };
 
-    DomainGridHelper.prototype.isSnakeOverSpike = function (snake) {
-        var neighbors = this.gridHelper.getBottomNeighbors(snake);
-        return neighbors.some(function (tile) {
-            return tile.type === Tile.SPIKE;
-        });
-    };
-
     DomainGridHelper.prototype.isSnakeJustOverSpike = function (snake) {
-        var neighbors = this.gridHelper.getBottomNeighbors(snake);
-        var isSpike = neighbors.some(function (tile) {
-            return tile.type === Tile.SPIKE;
-        });
-        if (!isSpike)
-            return false;
-        var complement = this.gridHelper.complement(neighbors, snake);
-        return complement.every(function (tile) {
+        var neighbors = this.gridHelper.getBottomNeighborsComplement(snake);
+        return neighbors.every(function (tile) {
             return tile.type === Tile.SKY || tile.type === Tile.SPIKE;
         });
     };
 
-    DomainGridHelper.prototype.isSnakeOutOfMap = function (snake) {
+    DomainGridHelper.prototype.isSnakeOutOfMapNext = function (snake) {
         var neighbors = this.gridHelper.getBottomNeighbors(snake);
         var isOut = neighbors.length < snake.length;
-        if (!isOut)
-            return false;
-        var complement = this.gridHelper.complement(neighbors, snake);
-        return complement.every(function (tile) {
+        return isOut && this.gridHelper.complement(neighbors, snake).every(function (tile) {
             return tile.type === Tile.SKY;
         });
     };
