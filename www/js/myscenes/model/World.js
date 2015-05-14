@@ -74,17 +74,9 @@ var World = (function () {
 
         function postGravity() {
             if (self.domainGridHelper.isSnakeOutOfMapNext(snake) || self.domainGridHelper.isSnakeJustOverSpike(snake)) {
-                var lastHistory = self.history.pop();
-                self.domainGridHelper.undo(lastHistory.changes, lastHistory.entity);
-                self.worldView.undoMove(lastHistory.changes, function () {
-                    var lasHistory = self.history.pop();
-                    self.domainGridHelper.undo(lasHistory.changes, lasHistory.entity);
-                    self.worldView.undoMove(lasHistory.changes, callback);
-                });
-            } else {
-                if (callback)
-                    callback();
-            }
+                self.undoLastMove(callback);
+            } else if (callback)
+                callback();
         }
 
         function postMove() {
@@ -96,14 +88,10 @@ var World = (function () {
             } else if (self.domainGridHelper.isSnakeJustOverSpike(snake) ||
                 self.domainGridHelper.isSnakeOutOfMapNext(snake)) {
 
-                var deathHistory = self.history.pop();
-                self.domainGridHelper.undo(deathHistory.changes, deathHistory.entity);
-                self.worldView.undoMove(deathHistory.changes, callback);
+                self.undoLastMove(callback);
 
-            } else {
-                if (callback)
-                    callback();
-            }
+            } else if (callback)
+                callback();
         }
 
         var historyEntry = (tailMove && !headMove) ? this.domainGridHelper.moveSnakeReverse(snake, u, v) :
@@ -123,10 +111,8 @@ var World = (function () {
         function extendedCallback() {
             if (last.type != 'user') {
                 undo();
-            } else {
-                if (callback)
-                    callback();
-            }
+            } else if (callback)
+                callback();
         }
 
         function undo() {
