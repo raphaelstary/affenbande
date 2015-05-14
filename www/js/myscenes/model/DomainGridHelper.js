@@ -228,10 +228,21 @@ var DomainGridHelper = (function () {
         changeSet.forEach(function (change) {
             if (change.type != History.REVERSED && change.type != History.REMOVED) {
                 this.grid.set(change.newU, change.newV, Tile.SKY);
+                var tile = getSnakeTile(change.tile);
+                tile.u = change.oldU;
+                tile.v = change.oldV;
             }
         }, this);
 
-        changeSet.reverse().forEach(function (change) {
+        function getSnakeTile(type) {
+            for (var i = 0; i < snake.length; i++) {
+                var snakeTile = snake[i];
+                if (snakeTile.type == type)
+                    return snakeTile;
+            }
+        }
+
+        changeSet.slice().reverse().forEach(function (change) {
             if (change.type == History.NEW)
                 return;
             if (change.type == History.REVERSED) {

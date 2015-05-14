@@ -79,7 +79,6 @@ var World = (function () {
                 self.worldView.undoMove(lastChangeSet, function () {
                     var lastChangeSet = self.history.pop();
                     self.domainGridHelper.undo(lastChangeSet, snake);
-                    self.updateModel();
                     self.worldView.undoMove(lastChangeSet, callback);
                 });
             } else {
@@ -91,12 +90,12 @@ var World = (function () {
         function postMove() {
             if (self.domainGridHelper.isSnakeInAir(snake)) {
                 var gravityChangeSet = self.domainGridHelper.applyGravity(snake);
+                self.history.push(gravityChangeSet);
                 self.worldView.moveSnake(gravityChangeSet, postGravity);
 
             } else if (self.domainGridHelper.isSnakeOverSpike(snake) || self.domainGridHelper.isSnakeOutOfMap(snake)) {
                 var lastChangeSet = self.history.pop();
                 self.domainGridHelper.undo(lastChangeSet, snake);
-                self.updateModel();
                 self.worldView.undoMove(lastChangeSet, callback);
 
             } else {

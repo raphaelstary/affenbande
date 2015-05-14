@@ -69,12 +69,12 @@ var WorldView = (function () {
                     callback();
         }
 
-        changeSet.reverse().forEach(function (change, index, array) {
+        changeSet.slice().reverse().forEach(function (change, index, array) {
             if (change.type == 'changed') {
                 this.gridViewHelper.move(this.snake[change.tile], change.oldU, change.oldV, 10, itIsOver);
                 callbacks++;
             } else if (change.type == 'reversed') {
-                this.__reverseSnake(array.slice(index + 1));
+                this.__reverseSnake(array.slice(0, index));
             }
         }, this);
     };
