@@ -12,20 +12,18 @@ var World = (function () {
     }
 
     World.prototype.init = function () {
-        this.updateModel();
-        this.worldView.drawLevel(this.snakes, this.ground, this.newParts, this.spikes);
+        this.snakes = this.domainGridHelper.getSnakes();
+        this.worldView.drawLevel(this.snakes, this.domainGridHelper.getGround(), this.domainGridHelper.getNewParts(),
+            this.domainGridHelper.getSpikes());
     };
 
-    World.prototype.updateModel = function () {
-        this.snakes = this.domainGridHelper.getSnakes();
-        this.heads = [];
+    World.prototype.getHeads = function () {
+        var heads = [];
         this.snakes.forEach(function (snake) {
-            this.heads.push(snake[0]);
-            this.heads.push(snake[snake.length - 1]);
+            heads.push(snake[0]);
+            heads.push(snake[snake.length - 1]);
         }, this);
-        this.ground = this.domainGridHelper.getGround();
-        this.newParts = this.domainGridHelper.getNewParts();
-        this.spikes = this.domainGridHelper.getSpikes();
+        return heads;
     };
 
     World.prototype.moveSnakeLeft = function (head, callback) {

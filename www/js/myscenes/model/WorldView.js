@@ -1,10 +1,10 @@
-var WorldView = (function () {
+var WorldView = (function (calcCantorPairing) {
     "use strict";
 
     function WorldView(gridViewHelper) {
         this.gridViewHelper = gridViewHelper;
 
-        this.newParts = [];
+        this.newParts = {};
         this.ground = [];
         this.spikes = [];
         this.snake = {};
@@ -16,7 +16,8 @@ var WorldView = (function () {
         }, this);
 
         newParts.forEach(function (newPart) {
-            this.newParts.push(this.gridViewHelper.createRect(newPart.u, newPart.v, 'grey'));
+            this.newParts[calcCantorPairing(newPart.u, newPart.v)] = this.gridViewHelper.createRect(newPart.u,
+                newPart.v, 'grey');
         }, this);
 
         snakes.forEach(function (snakeParts) {
@@ -46,6 +47,10 @@ var WorldView = (function () {
             } else if (change.type == 'changed') {
                 this.gridViewHelper.move(this.snake[change.tile], change.newU, change.newV, 30, itIsOver);
                 callbacks++;
+            } else if (change.type == 'removed') {
+
+            } else if (change.type == 'new') {
+
             }
         }, this);
     };
@@ -80,4 +85,4 @@ var WorldView = (function () {
     };
 
     return WorldView;
-})();
+})(calcCantorPairing);

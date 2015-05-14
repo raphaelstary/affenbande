@@ -31,7 +31,7 @@ var PlayerController = (function () {
         }
 
         var foundSmth = false;
-        this.world.heads.forEach(function (snakeHead) {
+        this.world.getHeads().forEach(function (snakeHead) {
             if (foundSmth)
                 return;
 
