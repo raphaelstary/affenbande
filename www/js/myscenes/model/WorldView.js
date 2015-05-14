@@ -86,6 +86,15 @@ var WorldView = (function (calcCantorPairing) {
                 callbacks++;
             } else if (change.type == 'reversed') {
                 this.__reverseSnake(onlyChanged(array));
+
+            } else if (change.type == 'removed') {
+                this.newParts[calcCantorPairing(change.oldU, change.oldV)] = this.gridViewHelper.createRect(change.oldU,
+                    change.oldV, 'grey');
+
+            } else if (change.type == 'new') {
+                var forRemoval = this.snake[change.tile];
+                this.stage.remove(forRemoval);
+                delete this.snake[change.tile];
             }
         }, this);
     };

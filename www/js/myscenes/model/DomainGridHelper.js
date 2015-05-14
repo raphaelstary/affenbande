@@ -98,8 +98,8 @@ var DomainGridHelper = (function () {
             return false;
         var complement = this.gridHelper.complement(neighbors, snake);
         return complement.length != 0 && complement.every(function (tile) {
-            return tile.type === Tile.SKY;
-        });
+                return tile.type === Tile.SKY;
+            });
     };
 
     DomainGridHelper.prototype.isSnakeJustOverSpike = function (snake) {
@@ -113,8 +113,8 @@ var DomainGridHelper = (function () {
         var neighbors = this.gridHelper.getBottomNeighbors(snake);
         var isOut = neighbors.length < snake.length;
         return isOut && this.gridHelper.complement(neighbors, snake).every(function (tile) {
-            return tile.type === Tile.SKY;
-        });
+                return tile.type === Tile.SKY;
+            });
     };
 
     DomainGridHelper.prototype.canSnakeMoveHead = function (snake, u, v) {
@@ -237,7 +237,7 @@ var DomainGridHelper = (function () {
 
     DomainGridHelper.prototype.undo = function (changeSet, snake) {
         changeSet.forEach(function (change) {
-            if (change.type != History.REVERSED && change.type != History.REMOVED) {
+            if (change.type != History.REVERSED && change.type != History.REMOVED && change.type != History.NEW) {
                 this.grid.set(change.newU, change.newV, Tile.SKY);
                 var tile = getSnakeTile(change.tile);
                 tile.u = change.oldU;
@@ -254,10 +254,15 @@ var DomainGridHelper = (function () {
         }
 
         changeSet.slice().reverse().forEach(function (change) {
-            if (change.type == History.NEW)
-                return;
-            if (change.type == History.REVERSED) {
+            if (change.type == History.NEW) {
+                snake.pop();
+
+            } else if (change.type == History.REMOVED) {
+                this.grid.set(change.oldU, change.oldV, change.tile);
+
+            } else if (change.type == History.REVERSED) {
                 this.__reverseSnake(snake);
+
             } else {
                 this.grid.set(change.oldU, change.oldV, change.tile);
             }
