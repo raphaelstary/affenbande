@@ -1,4 +1,4 @@
-var DomainGridHelper = (function () {
+var DomainGridHelper = (function (iterateSomeEntries) {
     "use strict";
 
     function DomainGridHelper(gridHelper, grid, xTiles, yTiles) {
@@ -91,6 +91,43 @@ var DomainGridHelper = (function () {
         return snakes;
     };
 
+    //DomainGridHelper.prototype.getOthersJustOnSnake = function (snake, snakes) {
+    //    var neighbors = this.gridHelper.getTopNeighborsComplement(snake);
+    //    var otherSnakes = [];
+    //    var usedHead = {};
+    //    neighbors.forEach(function (tile) {
+    //        var foundOther = !iterateSomeEntries(Tile, function (type) {
+    //            return tile.type === type;
+    //        });
+    //        if (foundOther) {
+    //            var snake = getSnake(snakes, tile);
+    //            if (!usedHead[snake[0].type]) {
+    //                usedHead[snake[0].type] = true;
+    //                otherSnakes.push(snake);
+    //            }
+    //        }
+    //    });
+    //    if (otherSnakes.length > 0) {
+    //        var othersNeighbors = this.gridHelper.getBottomNeighborsComplement(otherSnakes);
+    //        var possibleGround = this.gridHelper.complement(othersNeighbors, snake);
+    //        return possibleGround.every(function (tile) {
+    //            return tile.type === Tile.SKY || tile.type === Tile.SPIKE; // case for out of map
+    //        });
+    //    }
+    //    return false;
+    //};
+    //
+    //function getSnake(snakes, tile) {
+    //    for (var i = 0; i < snakes.length; i++) {
+    //        var snake = snakes[i];
+    //        for (var j = 0; j < snake.length; j++) {
+    //            var body = snake[j];
+    //            if (body.type == tile.type)
+    //                return snake;
+    //        }
+    //    }
+    //}
+
     DomainGridHelper.prototype.isSnakeInAir = function (snake) {
         var neighbors = this.gridHelper.getBottomNeighbors(snake);
         var isOutNext = neighbors.length < snake.length;
@@ -102,7 +139,16 @@ var DomainGridHelper = (function () {
             });
     };
 
-    DomainGridHelper.prototype.isSnakeJustOverSpike = function (snake) {
+    DomainGridHelper.prototype.getSnakesInAir = function (snakes) {
+        var airSnakes = [];
+        snakes.forEach(function (snake) {
+            if (this.isSnakeInAir(snake))
+                airSnakes.push(snake);
+        }, this);
+        return airSnakes;
+    };
+
+    DomainGridHelper.prototype.isSnakeJustOnSpike = function (snake) {
         var neighbors = this.gridHelper.getBottomNeighborsComplement(snake);
         return neighbors.every(function (tile) {
             return tile.type === Tile.SKY || tile.type === Tile.SPIKE;
@@ -312,4 +358,4 @@ var DomainGridHelper = (function () {
     };
 
     return DomainGridHelper;
-})();
+})(iterateSomeEntries);

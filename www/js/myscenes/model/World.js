@@ -69,20 +69,36 @@ var World = (function () {
             return false;
 
         var self = this;
+        var counter = 0;
+        var movedSnakes = [snake];
+
+        function getCallbackWithCounter(callback) {
+            counter++;
+            return function () {
+                if (--counter === 0 && callback)
+                    callback();
+            };
+        }
 
         function postMove() {
-            if (self.domainGridHelper.isSnakeInAir(snake)) {
-                var gravityHistory = self.domainGridHelper.applyGravity(snake);
-                self.history.push(gravityHistory);
-                self.worldView.moveSnake(gravityHistory.changes, postMove);
+            var airSnakes = self.domainGridHelper.getSnakesInAir(self.snakes);
+            if (airSnakes.length > 0) {
+                airSnakes.forEach(function (airSnake) {
+                    self.__applyGravity(airSnake, getCallbackWithCounter(postMove));
+                    if (movedSnakes[0].type != airSnake[0].type)
+                        movedSnakes.push(airSnake);
+                });
 
-            } else if (self.domainGridHelper.isSnakeJustOverSpike(snake) ||
-                self.domainGridHelper.isSnakeOutOfMapNext(snake)) {
-
-                self.undoLastMove(callback);
-
-            } else if (callback)
-                callback();
+            } else {
+                var someUndo = movedSnakes.some(function (snake) {
+                    return self.domainGridHelper.isSnakeJustOnSpike(snake) ||
+                        self.domainGridHelper.isSnakeOutOfMapNext(snake);
+                });
+                if (someUndo) {
+                    self.undoLastMove(callback);
+                } else if (callback)
+                    callback();
+            }
         }
 
         var historyEntry = (tailMove && !headMove) ? this.domainGridHelper.moveSnakeReverse(snake, u, v) :
@@ -90,6 +106,12 @@ var World = (function () {
         this.history.push(historyEntry);
         this.worldView.moveSnake(historyEntry.changes, postMove);
         return true;
+    };
+
+    World.prototype.__applyGravity = function (snake, callback) {
+        var gravityHistory = this.domainGridHelper.applyGravity(snake);
+        this.history.push(gravityHistory);
+        this.worldView.moveSnake(gravityHistory.changes, callback);
     };
 
     World.prototype.undoLastMove = function (callback) {
