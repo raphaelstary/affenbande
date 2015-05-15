@@ -1,4 +1,4 @@
-var DomainGridHelper = (function (iterateSomeEntries) {
+var DomainGridHelper = (function () {
     "use strict";
 
     function DomainGridHelper(gridHelper, grid, xTiles, yTiles) {
@@ -117,16 +117,6 @@ var DomainGridHelper = (function (iterateSomeEntries) {
     //    return false;
     //};
     //
-    //function getSnake(snakes, tile) {
-    //    for (var i = 0; i < snakes.length; i++) {
-    //        var snake = snakes[i];
-    //        for (var j = 0; j < snake.length; j++) {
-    //            var body = snake[j];
-    //            if (body.type == tile.type)
-    //                return snake;
-    //        }
-    //    }
-    //}
 
     DomainGridHelper.prototype.isSnakeInAir = function (snake) {
         var neighbors = this.gridHelper.getBottomNeighbors(snake);
@@ -285,19 +275,11 @@ var DomainGridHelper = (function (iterateSomeEntries) {
         changeSet.forEach(function (change) {
             if (change.type != History.REVERSED && change.type != History.REMOVED && change.type != History.NEW) {
                 this.grid.set(change.newU, change.newV, Tile.SKY);
-                var tile = getSnakeTile(change.tile);
+                var tile = this.gridHelper.getTileFromSetByType(snake, change.tile);
                 tile.u = change.oldU;
                 tile.v = change.oldV;
             }
         }, this);
-
-        function getSnakeTile(type) {
-            for (var i = 0; i < snake.length; i++) {
-                var snakeTile = snake[i];
-                if (snakeTile.type == type)
-                    return snakeTile;
-            }
-        }
 
         changeSet.slice().reverse().forEach(function (change) {
             if (change.type == History.NEW) {
@@ -358,4 +340,4 @@ var DomainGridHelper = (function (iterateSomeEntries) {
     };
 
     return DomainGridHelper;
-})(iterateSomeEntries);
+})();

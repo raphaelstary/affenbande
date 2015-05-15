@@ -11,6 +11,8 @@ var WorldView = (function (calcCantorPairing) {
         this.snake = {};
     }
 
+    var colors = ['green', 'lightgreen', 'darkgreen', 'blue', 'lightblue', 'darkblue'];
+
     WorldView.prototype.drawLevel = function (snakes, groundTiles, newParts, spikes) {
         groundTiles.forEach(function (ground) {
             this.ground.push(this.gridViewHelper.createRect(ground.u, ground.v, 'brown'));
@@ -21,9 +23,9 @@ var WorldView = (function (calcCantorPairing) {
                 newPart.v, 'grey');
         }, this);
 
-        snakes.forEach(function (snakeParts) {
+        snakes.forEach(function (snakeParts, index) {
             snakeParts.forEach(function (part) {
-                this.snake[part.type] = this.gridViewHelper.createRect(part.u, part.v, 'green');
+                this.snake[part.type] = this.gridViewHelper.createRect(part.u, part.v, colors[index]);
             }, this);
         }, this);
 

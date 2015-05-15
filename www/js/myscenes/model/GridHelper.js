@@ -112,6 +112,35 @@ var GridHelper = (function (Math, calcCantorPairing) {
 
     GridHelper.prototype.complement = complement;
 
+    function getSetFromAllSetsByTile(allSets, tile) {
+        for (var i = 0; i < allSets.length; i++) {
+            var snake = allSets[i];
+            for (var j = 0; j < snake.length; j++) {
+                var body = snake[j];
+                if (body.type == tile.type)
+                    return snake;
+            }
+        }
+    }
+
+    GridHelper.prototype.getSetFromAllSetsByTile = getSetFromAllSetsByTile;
+
+    function getSetFromAllSetsByType(allSets, type) {
+        return getSetFromAllSetsByTile(allSets, {type: type});
+    }
+
+    GridHelper.prototype.getSetFromAllSetsByType = getSetFromAllSetsByType;
+
+    function getTileFromSetByType(snake, type) {
+        for (var i = 0; i < snake.length; i++) {
+            var snakeTile = snake[i];
+            if (snakeTile.type == type)
+                return snakeTile;
+        }
+    }
+
+    GridHelper.prototype.getTileFromSetByType = getTileFromSetByType;
+
     GridHelper.prototype.isNeighbor = function (a_u, a_v, b_u, b_v) {
         var deltaX = Math.abs(a_u - b_u);
         if (deltaX > 1 || (a_u === b_u && a_v === b_v))
