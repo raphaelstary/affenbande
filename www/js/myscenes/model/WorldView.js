@@ -8,7 +8,7 @@ var WorldView = (function (calcCantorPairing) {
         this.newParts = {};
         this.ground = [];
         this.spikes = [];
-        this.snake = {};
+        this.bodyParts = {};
     }
 
     var colors = ['green', 'lightgreen', 'darkgreen', 'blue', 'lightblue', 'darkblue'];
@@ -25,7 +25,7 @@ var WorldView = (function (calcCantorPairing) {
 
         snakes.forEach(function (snakeParts, index) {
             snakeParts.forEach(function (part) {
-                this.snake[part.type] = this.gridViewHelper.createRect(part.u, part.v, colors[index]);
+                this.bodyParts[part.type] = this.gridViewHelper.createRect(part.u, part.v, colors[index]);
             }, this);
         }, this);
 
@@ -48,7 +48,7 @@ var WorldView = (function (calcCantorPairing) {
                 this.__reverseSnake(onlyChanged(array));
 
             } else if (change.type == 'changed') {
-                this.gridViewHelper.move(this.snake[change.tile], change.newU, change.newV, 30, itIsOver);
+                this.gridViewHelper.move(this.bodyParts[change.tile], change.newU, change.newV, 30, itIsOver);
                 callbacks++;
 
             } else if (change.type == 'removed') {
@@ -58,7 +58,7 @@ var WorldView = (function (calcCantorPairing) {
                 delete this.newParts[hash];
 
             } else if (change.type == 'new') {
-                this.snake[change.tile] = this.gridViewHelper.createRect(change.newU, change.newV, 'green');
+                this.bodyParts[change.tile] = this.gridViewHelper.createRect(change.newU, change.newV, 'green');
             }
         }, this);
     };
@@ -66,9 +66,9 @@ var WorldView = (function (calcCantorPairing) {
     WorldView.prototype.__reverseSnake = function (changeSetCopy) {
         var head = changeSetCopy.shift();
         var tail = changeSetCopy.pop();
-        var temp = this.snake[head.tile];
-        this.snake[head.tile] = this.snake[tail.tile];
-        this.snake[tail.tile] = temp;
+        var temp = this.bodyParts[head.tile];
+        this.bodyParts[head.tile] = this.bodyParts[tail.tile];
+        this.bodyParts[tail.tile] = temp;
         if (changeSetCopy.length > 1)
             this.__reverseSnake(changeSetCopy);
     };
@@ -84,7 +84,7 @@ var WorldView = (function (calcCantorPairing) {
 
         changeSet.slice().reverse().forEach(function (change, index, array) {
             if (change.type == 'changed') {
-                this.gridViewHelper.move(this.snake[change.tile], change.oldU, change.oldV, 10, itIsOver);
+                this.gridViewHelper.move(this.bodyParts[change.tile], change.oldU, change.oldV, 10, itIsOver);
                 callbacks++;
             } else if (change.type == 'reversed') {
                 this.__reverseSnake(onlyChanged(array));
@@ -94,9 +94,9 @@ var WorldView = (function (calcCantorPairing) {
                     change.oldV, 'grey');
 
             } else if (change.type == 'new') {
-                var forRemoval = this.snake[change.tile];
+                var forRemoval = this.bodyParts[change.tile];
                 this.stage.remove(forRemoval);
-                delete this.snake[change.tile];
+                delete this.bodyParts[change.tile];
             }
         }, this);
     };

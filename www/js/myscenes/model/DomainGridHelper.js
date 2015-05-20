@@ -1,4 +1,4 @@
-var DomainGridHelper = (function () {
+var DomainGridHelper = (function (iterateSomeEntries) {
     "use strict";
 
     function DomainGridHelper(gridHelper, grid, xTiles, yTiles) {
@@ -170,6 +170,89 @@ var DomainGridHelper = (function () {
         return false;
     };
 
+    DomainGridHelper.prototype.canSnakePushHead = function (snake, u, v, snakes) {
+        return this.__canSnakePush(snake, snake[0], u, v, snakes);
+    };
+
+    DomainGridHelper.prototype.canSnakePushTail = function (snake, u, v, snakes) {
+        return this.__canSnakePush(snake, snake[snake.length - 1], u, v, snakes);
+    };
+
+    DomainGridHelper.prototype.__canSnakePush = function (snake, head, u, v, snakes) {
+        var isNeighborOfHead = this.gridHelper.isNeighbor(head.u, head.v, u, v);
+        if (!isNeighborOfHead)
+            return false;
+        var isPushToBottom = v > head.v;
+        if (isPushToBottom)
+            return false;
+
+        var tileType = this.grid.get(u, v);
+        var foundOtherTileType = !iterateSomeEntries(Tile, function (type) {
+            return tileType === type;
+        });
+        if (!foundOtherTileType)
+            return false;
+
+        var itIsNotMe = this.gridHelper.getTileFromSetByType(snake, tileType) === undefined;
+        if (!itIsNotMe)
+            return false;
+
+        var otherSnake = this.gridHelper.getSetFromAllSetsByType(snakes, tileType);
+        if (!otherSnake)
+            return false;
+
+        var snakesToPushNext = [];
+        var pushedSnakes = [otherSnake];
+        var usedHeads = {};
+        usedHeads[snake[0].type] = true;
+        usedHeads[otherSnake[0].type] = true;
+        var initialSnakeHitsItsTailCounter = 1;
+        var neighborsFn;
+        if (u < head.u) {
+            neighborsFn = this.gridHelper.getLeftNeighborsComplement.bind(this.gridHelper);
+        } else if (v < head.v) {
+            neighborsFn = this.gridHelper.getTopNeighborsComplement.bind(this.gridHelper);
+        } else if (u > head.u)
+            neighborsFn = this.gridHelper.getRightNeighborsComplement.bind(this.gridHelper);
+
+        var self = this;
+
+        function checkAllNeighborsForPushing(givenSnake) {
+            var neighborsOfGivenSnake = neighborsFn(givenSnake);
+            var moveForGivenSnakeIsPossible = neighborsOfGivenSnake.every(function (neighbor) {
+                var tileIsEmpty = neighbor.type === Tile.SKY;
+                if (!tileIsEmpty) {
+                    var possibleTouchingSnake = this.gridHelper.getSetFromAllSetsByTile(snakes, neighbor);
+                    if (!possibleTouchingSnake)
+                        return false;
+                    if (!usedHeads[possibleTouchingSnake[0].type]) {
+                        usedHeads[possibleTouchingSnake[0].type] = true;
+                        snakesToPushNext.push(possibleTouchingSnake);
+                        pushedSnakes.push(possibleTouchingSnake);
+                    } else {
+                        var itIsTheInitialPushingSnake = snake[0].type == possibleTouchingSnake[0].type;
+                        if (itIsTheInitialPushingSnake)
+                            return --initialSnakeHitsItsTailCounter >= 0;
+                    }
+                }
+                return true;
+            }, self);
+
+            if (moveForGivenSnakeIsPossible) {
+                if (snakesToPushNext.length > 0)
+                    return checkAllNeighborsForPushing(snakesToPushNext.shift());
+                return true;
+            }
+            return false;
+        }
+
+        var success = checkAllNeighborsForPushing(otherSnake);
+        if (success) {
+            return pushedSnakes;
+        }
+        return false;
+    };
+
     var History = {
         NEW: 'new',
         CHANGED: 'changed',
@@ -214,58 +297,86 @@ var DomainGridHelper = (function () {
     };
 
     DomainGridHelper.prototype.moveSnake = function (snake, u, v) {
-        var snakeIsJoining = this.grid.get(u, v) == Tile.NEW_PART;
         var changeSet = [];
-        var self = this;
-
-        function moveTiles(tiles, u, v) {
-            var head = tiles.shift();
-            self.grid.set(u, v, head.type);
-            var change = {
-                oldU: head.u,
-                oldV: head.v,
-                newU: u,
-                newV: v,
-                tile: head.type,
-                type: History.CHANGED
-            };
-            changeSet.push(change);
-            head.u = u;
-            head.v = v;
-
-            if (tiles.length > 0) {
-                moveTiles(tiles, change.oldU, change.oldV);
-            } else {
-                if (snakeIsJoining) {
-                    var newPart = {
-                        u: change.oldU,
-                        v: change.oldV,
-                        type: head.type + 1
-                    };
-                    self.grid.set(newPart.u, newPart.v, newPart.type);
-                    snake.push(newPart);
-                    changeSet.push({
-                        newU: newPart.u,
-                        newV: newPart.v,
-                        tile: newPart.type,
-                        type: History.NEW
-                    });
-                    changeSet.push({
-                        oldU: snake[0].u,
-                        oldV: snake[0].v,
-                        tile: Tile.NEW_PART,
-                        type: History.REMOVED
-                    });
-                } else {
-                    self.grid.set(change.oldU, change.oldV, Tile.SKY);
-                }
-            }
-        }
-
-        moveTiles(snake.slice(), u, v);
+        var snakeIsJoining = this.grid.get(u, v) == Tile.NEW_PART;
+        this.__moveTiles(snake.slice(), u, v, changeSet, snake, snakeIsJoining);
 
         return {
             type: Interaction.USER,
+            entity: snake,
+            changes: changeSet
+        };
+    };
+
+    DomainGridHelper.prototype.__moveTiles = function moveTiles(tiles, u, v, changeSet, snake, isSnakeJoining) {
+        var head = tiles.shift();
+        this.grid.set(u, v, head.type);
+        var change = {
+            oldU: head.u,
+            oldV: head.v,
+            newU: u,
+            newV: v,
+            tile: head.type,
+            type: History.CHANGED
+        };
+        changeSet.push(change);
+        head.u = u;
+        head.v = v;
+
+        if (tiles.length > 0) {
+            this.__moveTiles(tiles, change.oldU, change.oldV, changeSet, snake, isSnakeJoining);
+        } else {
+            if (isSnakeJoining) {
+                var newPart = {
+                    u: change.oldU,
+                    v: change.oldV,
+                    type: head.type + 1
+                };
+                this.grid.set(newPart.u, newPart.v, newPart.type);
+                snake.push(newPart);
+                changeSet.push({
+                    newU: newPart.u,
+                    newV: newPart.v,
+                    tile: newPart.type,
+                    type: History.NEW
+                });
+                changeSet.push({
+                    oldU: snake[0].u,
+                    oldV: snake[0].v,
+                    tile: Tile.NEW_PART,
+                    type: History.REMOVED
+                });
+            } else if (this.grid.get(change.oldU, change.oldV) == change.tile) {
+                this.grid.set(change.oldU, change.oldV, Tile.SKY);
+            }
+        }
+    };
+
+    DomainGridHelper.prototype.pushSnake = function (snake, deltaU, deltaV) {
+        var changeSet = [];
+
+        snake.forEach(function (tile) {
+            this.grid.set(tile.u, tile.v, Tile.SKY);
+        }, this);
+
+        snake.forEach(function (tile) {
+            var newU = tile.u + deltaU;
+            var newV = tile.v + deltaV;
+            changeSet.push({
+                oldU: tile.u,
+                oldV: tile.v,
+                newU: newU,
+                newV: newV,
+                tile: tile.type,
+                type: History.CHANGED
+            });
+            this.grid.set(newU, newV, tile.type);
+            tile.u = newU;
+            tile.v = newV;
+        }, this);
+
+        return {
+            type: Interaction.PUSH,
             entity: snake,
             changes: changeSet
         };
@@ -340,4 +451,4 @@ var DomainGridHelper = (function () {
     };
 
     return DomainGridHelper;
-})();
+})(iterateSomeEntries);

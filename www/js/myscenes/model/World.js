@@ -65,8 +65,13 @@ var World = (function () {
     World.prototype.__moveSnake = function (u, v, snake, callback) {
         var headMove = this.domainGridHelper.canSnakeMoveHead(snake, u, v);
         var tailMove = this.domainGridHelper.canSnakeMoveTail(snake, u, v);
-        if (!(headMove || tailMove))
-            return false;
+        if (!(headMove || tailMove)) {
+            var snakesToPushByHead = this.domainGridHelper.canSnakePushHead(snake, u, v, this.snakes);
+            var snakesToPushByTail = this.domainGridHelper.canSnakePushTail(snake, u, v, this.snakes);
+
+            if (!(snakesToPushByHead || snakesToPushByTail))
+                return false;
+        }
 
         var self = this;
         var counter = 0;
@@ -75,8 +80,10 @@ var World = (function () {
         function getCallbackWithCounter(callback) {
             counter++;
             return function () {
-                if (--counter === 0 && callback)
+                if (--counter === 0 && callback) {
+                    counter = 0;
                     callback();
+                }
             };
         }
 
@@ -101,10 +108,47 @@ var World = (function () {
             }
         }
 
-        var historyEntry = (tailMove && !headMove) ? this.domainGridHelper.moveSnakeReverse(snake, u, v) :
-            this.domainGridHelper.moveSnake(snake, u, v);
-        this.history.push(historyEntry);
-        this.worldView.moveSnake(historyEntry.changes, postMove);
+        var deltaU;
+        var deltaV;
+        var historyEntry;
+        if (headMove) {
+            historyEntry = this.domainGridHelper.moveSnake(snake, u, v);
+            this.history.push(historyEntry);
+            this.worldView.moveSnake(historyEntry.changes, postMove);
+
+        } else if (tailMove) {
+            historyEntry = this.domainGridHelper.moveSnakeReverse(snake, u, v);
+            this.history.push(historyEntry);
+            this.worldView.moveSnake(historyEntry.changes, postMove);
+
+        } else if (snakesToPushByHead) {
+            deltaU = u - snake[0].u;
+            deltaV = v - snake[0].v;
+            historyEntry = this.domainGridHelper.moveSnake(snake, u, v);
+            this.history.push(historyEntry);
+            this.worldView.moveSnake(historyEntry.changes, getCallbackWithCounter(postMove));
+            snakesToPushByHead.forEach(function (snakeToPush) {
+                var historyEntry = this.domainGridHelper.pushSnake(snakeToPush, deltaU, deltaV);
+                movedSnakes.push(snakeToPush);
+                this.history.push(historyEntry);
+                this.worldView.moveSnake(historyEntry.changes, getCallbackWithCounter(postMove));
+            }, this);
+
+        } else if (snakesToPushByTail) {
+            deltaU = u - snake[0].u;
+            deltaV = v - snake[0].v;
+            historyEntry = this.domainGridHelper.moveSnakeReverse(snake, u, v);
+            this.history.push(historyEntry);
+            this.worldView.moveSnake(historyEntry.changes, getCallbackWithCounter(postMove));
+            snakesToPushByTail.forEach(function (snakeToPush) {
+                var historyEntry = this.domainGridHelper.pushSnake(snakeToPush, deltaU, deltaV);
+                movedSnakes.push(snakeToPush);
+                this.history.push(historyEntry);
+                this.worldView.moveSnake(historyEntry.changes, getCallbackWithCounter(postMove));
+            }, this);
+
+        }
+
         return true;
     };
 

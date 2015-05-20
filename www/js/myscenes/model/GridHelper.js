@@ -114,11 +114,11 @@ var GridHelper = (function (Math, calcCantorPairing) {
 
     function getSetFromAllSetsByTile(allSets, tile) {
         for (var i = 0; i < allSets.length; i++) {
-            var snake = allSets[i];
-            for (var j = 0; j < snake.length; j++) {
-                var body = snake[j];
+            var mySet = allSets[i];
+            for (var j = 0; j < mySet.length; j++) {
+                var body = mySet[j];
                 if (body.type == tile.type)
-                    return snake;
+                    return mySet;
             }
         }
     }
@@ -131,11 +131,11 @@ var GridHelper = (function (Math, calcCantorPairing) {
 
     GridHelper.prototype.getSetFromAllSetsByType = getSetFromAllSetsByType;
 
-    function getTileFromSetByType(snake, type) {
-        for (var i = 0; i < snake.length; i++) {
-            var snakeTile = snake[i];
-            if (snakeTile.type == type)
-                return snakeTile;
+    function getTileFromSetByType(mySet, type) {
+        for (var i = 0; i < mySet.length; i++) {
+            var tile = mySet[i];
+            if (tile.type == type)
+                return tile;
         }
     }
 
