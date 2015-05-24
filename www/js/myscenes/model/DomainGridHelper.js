@@ -91,33 +91,6 @@ var DomainGridHelper = (function (iterateSomeEntries) {
         return snakes;
     };
 
-    //DomainGridHelper.prototype.getOthersJustOnSnake = function (snake, snakes) {
-    //    var neighbors = this.gridHelper.getTopNeighborsComplement(snake);
-    //    var otherSnakes = [];
-    //    var usedHead = {};
-    //    neighbors.forEach(function (tile) {
-    //        var foundOther = !iterateSomeEntries(Tile, function (type) {
-    //            return tile.type === type;
-    //        });
-    //        if (foundOther) {
-    //            var snake = getSnake(snakes, tile);
-    //            if (!usedHead[snake[0].type]) {
-    //                usedHead[snake[0].type] = true;
-    //                otherSnakes.push(snake);
-    //            }
-    //        }
-    //    });
-    //    if (otherSnakes.length > 0) {
-    //        var othersNeighbors = this.gridHelper.getBottomNeighborsComplement(otherSnakes);
-    //        var possibleGround = this.gridHelper.complement(othersNeighbors, snake);
-    //        return possibleGround.every(function (tile) {
-    //            return tile.type === Tile.SKY || tile.type === Tile.SPIKE; // case for out of map
-    //        });
-    //    }
-    //    return false;
-    //};
-    //
-
     DomainGridHelper.prototype.isSnakeInAir = function (snake) {
         var neighbors = this.gridHelper.getBottomNeighbors(snake);
         var isOutNext = neighbors.length < snake.length;
@@ -206,7 +179,6 @@ var DomainGridHelper = (function (iterateSomeEntries) {
         var usedHeads = {};
         usedHeads[snake[0].type] = true;
         usedHeads[otherSnake[0].type] = true;
-        var initialSnakeHitsItsTailCounter = 1;
         var neighborsFn;
         if (u < head.u) {
             neighborsFn = this.gridHelper.getLeftNeighborsComplement.bind(this.gridHelper);
@@ -231,8 +203,10 @@ var DomainGridHelper = (function (iterateSomeEntries) {
                         pushedSnakes.push(possibleTouchingSnake);
                     } else {
                         var itIsTheInitialPushingSnake = snake[0].type == possibleTouchingSnake[0].type;
-                        if (itIsTheInitialPushingSnake)
-                            return --initialSnakeHitsItsTailCounter >= 0;
+                        var tailType = head.type == snake[0].type ? snake[snake.length - 1].type : snake[0].type;
+                        var itIsNotItsTail = neighbor.type != tailType;
+                        if (itIsTheInitialPushingSnake && itIsNotItsTail)
+                            return false;
                     }
                 }
                 return true;
@@ -346,7 +320,7 @@ var DomainGridHelper = (function (iterateSomeEntries) {
                     tile: Tile.NEW_PART,
                     type: History.REMOVED
                 });
-            } else if (this.grid.get(change.oldU, change.oldV) == change.tile) {
+            } else if (this.grid.get(change.oldU, change.oldV) === change.tile) {
                 this.grid.set(change.oldU, change.oldV, Tile.SKY);
             }
         }
@@ -356,7 +330,8 @@ var DomainGridHelper = (function (iterateSomeEntries) {
         var changeSet = [];
 
         snake.forEach(function (tile) {
-            this.grid.set(tile.u, tile.v, Tile.SKY);
+            if (tile.type === this.grid.get(tile.u, tile.v))
+                this.grid.set(tile.u, tile.v, Tile.SKY);
         }, this);
 
         snake.forEach(function (tile) {
@@ -385,7 +360,8 @@ var DomainGridHelper = (function (iterateSomeEntries) {
     DomainGridHelper.prototype.undo = function (changeSet, snake) {
         changeSet.forEach(function (change) {
             if (change.type != History.REVERSED && change.type != History.REMOVED && change.type != History.NEW) {
-                this.grid.set(change.newU, change.newV, Tile.SKY);
+                if (change.tile === this.grid.get(change.newU, change.newV))
+                    this.grid.set(change.newU, change.newV, Tile.SKY);
                 var tile = this.gridHelper.getTileFromSetByType(snake, change.tile);
                 tile.u = change.oldU;
                 tile.v = change.oldV;
@@ -426,7 +402,8 @@ var DomainGridHelper = (function (iterateSomeEntries) {
         function getToGround(snake) {
             if (self.isSnakeInAir(snake)) {
                 snake.forEach(function (tile) {
-                    self.grid.set(tile.u, tile.v, Tile.SKY);
+                    if (tile.type === self.grid.get(tile.u, tile.v))
+                        self.grid.set(tile.u, tile.v, Tile.SKY);
                 });
                 snake.forEach(function (tile) {
                     tile.v++;

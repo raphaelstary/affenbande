@@ -135,8 +135,8 @@ var World = (function () {
             }, this);
 
         } else if (snakesToPushByTail) {
-            deltaU = u - snake[0].u;
-            deltaV = v - snake[0].v;
+            deltaU = u - snake[snake.length - 1].u;
+            deltaV = v - snake[snake.length - 1].v;
             historyEntry = this.domainGridHelper.moveSnakeReverse(snake, u, v);
             this.history.push(historyEntry);
             this.worldView.moveSnake(historyEntry.changes, getCallbackWithCounter(postMove));
