@@ -1,12 +1,13 @@
 var World = (function () {
     "use strict";
 
-    function World(worldView, grid, gridHelper, domainGridHelper, gridViewHelper) {
+    function World(worldView, grid, gridHelper, domainGridHelper, gridViewHelper, gameOverFn) {
         this.worldView = worldView;
         this.grid = grid;
         this.gridHelper = gridHelper;
         this.domainGridHelper = domainGridHelper;
         this.gridViewHelper = gridViewHelper;
+        this.gameOver = gameOverFn;
 
         this.history = [];
     }
@@ -125,7 +126,11 @@ var World = (function () {
                             array.splice(index, 1);
                         return found;
                     });
-                    self.worldView.moveSnake(historyEntry.changes, postMove);
+                    if (self.snakes.length == 0) {
+                        self.__gameOver();
+                    } else {
+                        self.worldView.moveSnake(historyEntry.changes, postMove);
+                    }
                 });
             } else {
                 this.worldView.moveSnake(historyEntry.changes, postMove);
@@ -145,7 +150,11 @@ var World = (function () {
                             array.splice(index, 1);
                         return found;
                     });
-                    self.worldView.moveSnake(historyEntry.changes, postMove);
+                    if (self.snakes.length == 0) {
+                        self.__gameOver();
+                    } else {
+                        self.worldView.moveSnake(historyEntry.changes, postMove);
+                    }
                 });
             } else {
                 this.worldView.moveSnake(historyEntry.changes, postMove);
@@ -212,6 +221,10 @@ var World = (function () {
 
         undo();
         return true
+    };
+
+    World.prototype.__gameOver = function () {
+        this.gameOver();
     };
 
     return World;

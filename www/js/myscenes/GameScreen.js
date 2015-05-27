@@ -10,7 +10,9 @@ var GameScreen = (function () {
 
     GameScreen.prototype.show = function (next) {
         var level = Level[1];
-        var world = PlayFactory.createWorld(this.stage, this.timer, this.device, level);
+        var world = PlayFactory.createWorld(this.stage, this.timer, this.device, level, function () {
+            console.log('IT IS OVER :)');
+        });
         world.init();
         var playerController = PlayFactory.createPlayerController(world);
         var pointerHandler = this.events.subscribe(Event.POINTER, function (pointer) {
