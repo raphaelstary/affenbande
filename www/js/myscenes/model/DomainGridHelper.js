@@ -12,6 +12,7 @@ var DomainGridHelper = (function (iterateSomeEntries) {
         SKY: 0,
         GROUND: 1,
         SPIKE: 2,
+        GOAL: 3,
         NEW_PART: 9
     };
 
@@ -21,6 +22,10 @@ var DomainGridHelper = (function (iterateSomeEntries) {
 
     DomainGridHelper.prototype.getNewParts = function () {
         return this.__getTiles(Tile.NEW_PART);
+    };
+
+    DomainGridHelper.prototype.getGoal = function () {
+        return this.__getTiles(Tile.GOAL)[0];
     };
 
     DomainGridHelper.prototype.getGround = function () {
@@ -138,7 +143,7 @@ var DomainGridHelper = (function (iterateSomeEntries) {
         var isNeighborOfHead = this.gridHelper.isNeighbor(head.u, head.v, u, v);
         if (isNeighborOfHead) {
             var tileType = this.grid.get(u, v);
-            return tileType === Tile.SKY || tileType === Tile.NEW_PART;
+            return tileType === Tile.SKY || tileType === Tile.NEW_PART || tileType === Tile.GOAL;
         }
         return false;
     };
@@ -236,7 +241,8 @@ var DomainGridHelper = (function (iterateSomeEntries) {
     var Interaction = {
         USER: 'user',
         GRAVITY: 'gravity',
-        PUSH: 'push'
+        PUSH: 'push',
+        REMOVE: 'remove'
     };
 
     DomainGridHelper.prototype.__reverseSnake = function (snake) {
@@ -272,17 +278,64 @@ var DomainGridHelper = (function (iterateSomeEntries) {
 
     DomainGridHelper.prototype.moveSnake = function (snake, u, v) {
         var changeSet = [];
-        var snakeIsJoining = this.grid.get(u, v) == Tile.NEW_PART;
-        this.__moveTiles(snake.slice(), u, v, changeSet, snake, snakeIsJoining);
-
+        var tileType = this.grid.get(u, v);
+        var action = 'move';
+        var snakeReachesGoal = tileType == Tile.GOAL;
+        if (snakeReachesGoal) {
+            action = 'goal';
+            this.__moveToGoal(snake, u, v, changeSet);
+        } else {
+            var snakeIsJoining = tileType == Tile.NEW_PART;
+            if (snakeIsJoining)
+                action = 'join';
+            this.__moveTiles(snake.slice(), u, v, changeSet, snake, snakeIsJoining);
+        }
         return {
             type: Interaction.USER,
             entity: snake,
-            changes: changeSet
+            changes: changeSet,
+            action: action
         };
     };
 
-    DomainGridHelper.prototype.__moveTiles = function moveTiles(tiles, u, v, changeSet, snake, isSnakeJoining) {
+    DomainGridHelper.prototype.removeSnakeFromGoalState = function (snake) {
+        return {
+            type: Interaction.REMOVE,
+            entity: snake,
+            changes: this.__remove(snake, []),
+            action: 'remove'
+        };
+    };
+
+    DomainGridHelper.prototype.__remove = function (tiles, changeSet) {
+        tiles.forEach(function (tile) {
+            changeSet.push({
+                oldU: tile.u,
+                oldV: tile.v,
+                tile: tile.type,
+                type: History.REMOVED
+            });
+        });
+        return changeSet;
+    };
+
+    DomainGridHelper.prototype.__moveToGoal = function (tiles, u, v, changeSet) {
+        tiles.forEach(function (tile) {
+            changeSet.push({
+                oldU: tile.u,
+                oldV: tile.v,
+                newU: u,
+                newV: v,
+                tile: tile.type,
+                type: History.CHANGED
+            });
+            this.grid.set(tile.u, tile.v, Tile.SKY);
+            tile.u = u;
+            tile.v = v;
+        }, this);
+    };
+
+    DomainGridHelper.prototype.__moveTiles = function (tiles, u, v, changeSet, snake, isSnakeJoining) {
         var head = tiles.shift();
         this.grid.set(u, v, head.type);
         var change = {
@@ -373,7 +426,8 @@ var DomainGridHelper = (function (iterateSomeEntries) {
                 snake.pop();
 
             } else if (change.type == History.REMOVED) {
-                this.grid.set(change.oldU, change.oldV, change.tile);
+                if (change.tile == Tile.NEW_PART)
+                    this.grid.set(change.oldU, change.oldV, change.tile);
 
             } else if (change.type == History.REVERSED) {
                 this.__reverseSnake(snake);

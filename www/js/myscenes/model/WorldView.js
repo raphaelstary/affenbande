@@ -13,7 +13,7 @@ var WorldView = (function (calcCantorPairing) {
 
     var colors = ['green', 'lightgreen', 'darkgreen', 'blue', 'lightblue', 'darkblue'];
 
-    WorldView.prototype.drawLevel = function (snakes, groundTiles, newParts, spikes) {
+    WorldView.prototype.drawLevel = function (snakes, groundTiles, newParts, spikes, goal) {
         groundTiles.forEach(function (ground) {
             this.ground.push(this.gridViewHelper.createRect(ground.u, ground.v, 'brown'));
         }, this);
@@ -32,15 +32,16 @@ var WorldView = (function (calcCantorPairing) {
         spikes.forEach(function (spike) {
             this.spikes.push(this.gridViewHelper.createRect(spike.u, spike.v, 'red'));
         }, this);
+
+        this.goal = this.gridViewHelper.createRect(goal.u, goal.v, 'yellow');
     };
 
     WorldView.prototype.moveSnake = function (changeSet, callback) {
         var callbacks = 0;
 
         function itIsOver() {
-            if (--callbacks == 0)
-                if (callback)
-                    callback();
+            if (--callbacks == 0 && callback)
+                callback();
         }
 
         changeSet.forEach(function (change, index, array) {
@@ -52,10 +53,17 @@ var WorldView = (function (calcCantorPairing) {
                 callbacks++;
 
             } else if (change.type == 'removed') {
-                var hash = calcCantorPairing(change.oldU, change.oldV);
-                var forDeletion = this.newParts[hash];
-                this.stage.remove(forDeletion);
-                delete this.newParts[hash];
+                if (change.tile == 9) {
+                    var hash = calcCantorPairing(change.oldU, change.oldV);
+                    var forDeletion = this.newParts[hash];
+                    this.stage.remove(forDeletion);
+                    delete this.newParts[hash];
+                } else {
+                    this.stage.remove(this.bodyParts[change.tile]);
+                    delete this.bodyParts[change.tile];
+                    if (array.length - 1 == index && callback)
+                        callback();
+                }
 
             } else if (change.type == 'new') {
                 this.bodyParts[change.tile] = this.gridViewHelper.createRect(change.newU, change.newV, 'green');
@@ -90,8 +98,14 @@ var WorldView = (function (calcCantorPairing) {
                 this.__reverseSnake(onlyChanged(array));
 
             } else if (change.type == 'removed') {
-                this.newParts[calcCantorPairing(change.oldU, change.oldV)] = this.gridViewHelper.createRect(change.oldU,
-                    change.oldV, 'grey');
+                if (change.tile == 9) {
+                    this.newParts[calcCantorPairing(change.oldU,
+                        change.oldV)] = this.gridViewHelper.createRect(change.oldU, change.oldV, 'grey');
+                } else {
+                    this.bodyParts[change.tile] = this.gridViewHelper.createRect(change.oldU, change.oldV, 'green');
+                    if (array.length - 1 == index && callback)
+                        callback();
+                }
 
             } else if (change.type == 'new') {
                 var forRemoval = this.bodyParts[change.tile];

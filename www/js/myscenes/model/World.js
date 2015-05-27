@@ -14,7 +14,7 @@ var World = (function () {
     World.prototype.init = function () {
         this.snakes = this.domainGridHelper.getSnakes();
         this.worldView.drawLevel(this.snakes, this.domainGridHelper.getGround(), this.domainGridHelper.getNewParts(),
-            this.domainGridHelper.getSpikes());
+            this.domainGridHelper.getSpikes(), this.domainGridHelper.getGoal());
     };
 
     World.prototype.getHeads = function () {
@@ -92,7 +92,7 @@ var World = (function () {
             if (airSnakes.length > 0) {
                 airSnakes.forEach(function (airSnake) {
                     self.__applyGravity(airSnake, getCallbackWithCounter(postMove));
-                    if (movedSnakes[0].type != airSnake[0].type)
+                    if (movedSnakes.length == 0 || movedSnakes[0].type != airSnake[0].type)
                         movedSnakes.push(airSnake);
                 });
 
@@ -114,12 +114,42 @@ var World = (function () {
         if (headMove) {
             historyEntry = this.domainGridHelper.moveSnake(snake, u, v);
             this.history.push(historyEntry);
-            this.worldView.moveSnake(historyEntry.changes, postMove);
+            if (historyEntry.action == 'goal') {
+                this.worldView.moveSnake(historyEntry.changes, function () {
+                    var historyEntry = self.domainGridHelper.removeSnakeFromGoalState(snake);
+                    self.history.push(historyEntry);
+                    movedSnakes = [];
+                    self.snakes.some(function (mySnake, index, array) {
+                        var found = mySnake[0].type == snake[0].type;
+                        if (found)
+                            array.splice(index, 1);
+                        return found;
+                    });
+                    self.worldView.moveSnake(historyEntry.changes, postMove);
+                });
+            } else {
+                this.worldView.moveSnake(historyEntry.changes, postMove);
+            }
 
         } else if (tailMove) {
             historyEntry = this.domainGridHelper.moveSnakeReverse(snake, u, v);
             this.history.push(historyEntry);
-            this.worldView.moveSnake(historyEntry.changes, postMove);
+            if (historyEntry.action == 'goal') {
+                this.worldView.moveSnake(historyEntry.changes, function () {
+                    var historyEntry = self.domainGridHelper.removeSnakeFromGoalState(snake);
+                    self.history.push(historyEntry);
+                    movedSnakes = [];
+                    self.snakes.some(function (mySnake, index, array) {
+                        var found = mySnake[0].type == snake[0].type;
+                        if (found)
+                            array.splice(index, 1);
+                        return found;
+                    });
+                    self.worldView.moveSnake(historyEntry.changes, postMove);
+                });
+            } else {
+                this.worldView.moveSnake(historyEntry.changes, postMove);
+            }
 
         } else if (snakesToPushByHead) {
             deltaU = u - snake[0].u;
@@ -166,6 +196,8 @@ var World = (function () {
         var last;
 
         function extendedCallback() {
+            if (last.action == 'goal')
+                self.snakes.push(last.entity);
             if (last.type != 'user') {
                 undo();
             } else if (callback)
@@ -176,7 +208,6 @@ var World = (function () {
             last = self.history.pop();
             self.domainGridHelper.undo(last.changes, last.entity);
             self.worldView.undoMove(last.changes, extendedCallback);
-            return last;
         }
 
         undo();
