@@ -143,7 +143,9 @@ var DomainGridHelper = (function (iterateSomeEntries) {
         var isNeighborOfHead = this.gridHelper.isNeighbor(head.u, head.v, u, v);
         if (isNeighborOfHead) {
             var tileType = this.grid.get(u, v);
-            return tileType === Tile.SKY || tileType === Tile.NEW_PART || tileType === Tile.GOAL;
+            var tailType = head.type == snake[0].type ? snake[snake.length - 1].type : snake[0].type;
+            return tileType === Tile.SKY || tileType === Tile.NEW_PART || tileType === Tile.GOAL ||
+                tileType === tailType;
         }
         return false;
     };
