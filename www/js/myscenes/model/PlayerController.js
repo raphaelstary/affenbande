@@ -25,16 +25,22 @@ var PlayerController = (function () {
         }
 
         var target = this.gridViewHelper.getCoordinates(x, y);
-
+        var newHead;
         if (this.gridHelper.isNeighbor(target.u, target.v, this.selectedHead.u, this.selectedHead.v)) {
             if (this.selectedHead.u == target.u + 1) {
-                this.moving = this.world.moveSnakeLeft(this.selectedHead, myCallback);
+                newHead = this.world.moveSnakeLeft(this.selectedHead, myCallback);
             } else if (this.selectedHead.u == target.u - 1) {
-                this.moving = this.world.moveSnakeRight(this.selectedHead, myCallback);
+                newHead = this.world.moveSnakeRight(this.selectedHead, myCallback);
             } else if (this.selectedHead.v == target.v + 1) {
-                this.moving = this.world.moveSnakeTop(this.selectedHead, myCallback);
+                newHead = this.world.moveSnakeTop(this.selectedHead, myCallback);
             } else if (this.selectedHead.v == target.v - 1) {
-                this.moving = this.world.moveSnakeBottom(this.selectedHead, myCallback);
+                newHead = this.world.moveSnakeBottom(this.selectedHead, myCallback);
+            }
+            if (newHead) {
+                this.moving = true;
+                this.worldView.deselectHead(this.selectedHead);
+                this.selectedHead = newHead;
+                this.worldView.selectHead(this.selectedHead);
             }
         }
     };

@@ -31,8 +31,12 @@ var World = (function () {
         for (var i = 0; i < this.snakes.length; i++) {
             var snake = this.snakes[i];
             var reversed = this.gridHelper.equals(snake[snake.length - 1], head);
-            if (this.gridHelper.equals(snake[0], head) || reversed)
-                return this.__moveSnake(head.u - 1, head.v, snake, reversed, callback);
+            if (this.gridHelper.equals(snake[0], head) || reversed) {
+                var success = this.__moveSnake(head.u - 1, head.v, snake, reversed, callback);
+                if (success)
+                    return snake[0];
+                return false;
+            }
         }
         return false;
     };
@@ -41,8 +45,12 @@ var World = (function () {
         for (var i = 0; i < this.snakes.length; i++) {
             var snake = this.snakes[i];
             var reversed = this.gridHelper.equals(snake[snake.length - 1], head);
-            if (this.gridHelper.equals(snake[0], head) || reversed)
-                return this.__moveSnake(head.u + 1, head.v, snake, reversed, callback);
+            if (this.gridHelper.equals(snake[0], head) || reversed) {
+                var success = this.__moveSnake(head.u + 1, head.v, snake, reversed, callback);
+                if (success)
+                    return snake[0];
+                return false;
+            }
         }
         return false;
     };
@@ -51,8 +59,12 @@ var World = (function () {
         for (var i = 0; i < this.snakes.length; i++) {
             var snake = this.snakes[i];
             var reversed = this.gridHelper.equals(snake[snake.length - 1], head);
-            if (this.gridHelper.equals(snake[0], head) || reversed)
-                return this.__moveSnake(head.u, head.v - 1, snake, reversed, callback);
+            if (this.gridHelper.equals(snake[0], head) || reversed) {
+                var success = this.__moveSnake(head.u, head.v - 1, snake, reversed, callback);
+                if (success)
+                    return snake[0];
+                return false;
+            }
         }
         return false;
     };
@@ -61,8 +73,12 @@ var World = (function () {
         for (var i = 0; i < this.snakes.length; i++) {
             var snake = this.snakes[i];
             var reversed = this.gridHelper.equals(snake[snake.length - 1], head);
-            if (this.gridHelper.equals(snake[0], head) || reversed)
-                return this.__moveSnake(head.u, head.v + 1, snake, reversed, callback);
+            if (this.gridHelper.equals(snake[0], head) || reversed) {
+                var success = this.__moveSnake(head.u, head.v + 1, snake, reversed, callback);
+                if (success)
+                    return snake[0];
+                return false;
+            }
         }
         return false;
     };
