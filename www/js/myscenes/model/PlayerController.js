@@ -14,9 +14,11 @@ var PlayerController = (function () {
     }
 
     PlayerController.prototype.handlePointerMove = function (x, y) {
-        console.log('move');
-        if (this.moving || !this.pressedHead)
+        if (this.moving)
             return;
+
+        if (!this.pressedHead)
+            this.handlePointerDown(x, y);
 
         var self = this;
 
@@ -45,8 +47,7 @@ var PlayerController = (function () {
         }
     };
 
-    PlayerController.prototype.handlePointerUp = function () {
-        console.log('up');
+    PlayerController.prototype.handlePointerUp = function (x, y) {
         if (!this.pressedHead)
             return;
 
@@ -56,7 +57,6 @@ var PlayerController = (function () {
     };
 
     PlayerController.prototype.handlePointerDown = function (x, y) {
-        console.log('down');
         if (this.pressedHead)
             return;
 
