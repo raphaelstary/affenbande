@@ -13,7 +13,7 @@ var PlayFactory = (function (Level, Grid, GridHelper, GridViewHelper, DomainGrid
             return new World(worldView, grid, gridHelper, domainGridHelper, gridViewHelper, callback);
         },
         createPlayerController: function (world) {
-            return new PlayerController(world, world.gridViewHelper, world.gridHelper);
+            return new PlayerController(world, world.gridViewHelper, world.gridHelper, world.worldView);
         }
     };
 })(Level, Grid, GridHelper, GridViewHelper, DomainGridHelper, World, WorldView, PlayerController);

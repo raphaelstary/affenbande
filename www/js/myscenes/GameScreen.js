@@ -17,7 +17,11 @@ var GameScreen = (function () {
         var playerController = PlayFactory.createPlayerController(world);
         var pointerHandler = this.events.subscribe(Event.POINTER, function (pointer) {
             if (pointer.type == 'down')
-                playerController.handlePointer(pointer.x, pointer.y);
+                playerController.handlePointerDown(pointer.x, pointer.y);
+            if (pointer.type == 'up')
+                playerController.handlePointerUp(pointer.x, pointer.y);
+            if (pointer.type == 'move')
+                playerController.handlePointerMove(pointer.x, pointer.y);
         });
 
     };

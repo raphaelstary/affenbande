@@ -36,6 +36,16 @@ var WorldView = (function (calcCantorPairing) {
         this.goal = this.gridViewHelper.createRect(goal.u, goal.v, 'yellow');
     };
 
+    WorldView.prototype.selectHead = function (head) {
+        var drawable = this.bodyParts[head.type];
+        drawable.scale = 1.1;
+    };
+
+    WorldView.prototype.deselectHead = function (head) {
+        var drawable = this.bodyParts[head.type];
+        drawable.scale = 1;
+    };
+
     WorldView.prototype.moveSnake = function (changeSet, callback) {
         var callbacks = 0;
 
