@@ -51,6 +51,9 @@ var resolveAtlasPaths = (function () {
             size: 1280,
             count: 1
         }, {
+            size: 1334,
+            count: 1
+        }, {
             size: 1366,
             count: 1
         }, {
@@ -60,25 +63,25 @@ var resolveAtlasPaths = (function () {
             size: 1600,
             count: 1
         }, {
+            size: 1680,
+            count: 1
+        }, {
             size: 1716,
-            count: 2
+            count: 1
+        }, {
+            size: 1800,
+            count: 1
         }, {
             size: 1920,
-            count: 2
+            count: 1
         }, {
             size: 2048,
-            count: 2
+            count: 1
         }, {
             size: 2160,
             count: 1
         }, {
-            size: 2560,
-            count: 1
-        }, {
-            size: 3200,
-            count: 1
-        }, {
-            size: 3840,
+            size: 2208,
             count: 1
         }
     ];

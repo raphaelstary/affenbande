@@ -1,16 +1,38 @@
-var installMyScenes = (function (SceneManager) {
+var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory, StartScreen, GameScreen, Font,
+    GoFullScreen, RotateDevice, ShowMenuEvented) {
     "use strict";
 
+    var BLACK = '#283032';
+    var WHITE = '#fff';
+    var FONT = 'GameFont';
+
     function installMyScenes(sceneServices) {
-        // create your scenes and add them to the scene manager
+
+        var tap = new TapManager();
+        sceneServices.tap = tap;
+        sceneServices.events.subscribe(Event.POINTER, tap.inputChanged.bind(tap));
+
+        sceneServices.buttons = new ButtonFactory(sceneServices.stage, tap, sceneServices.timer, FONT, function () {
+            //sceneServices.sounds.play(CLICK);
+        }, WHITE, BLACK, Font._30, 3, WHITE, WHITE, Font._40, 2);
+
+        var goFullScreen = new GoFullScreen(sceneServices);
+        var rotateDevice = new RotateDevice(sceneServices);
+        var menuEvented = new ShowMenuEvented(sceneServices);
 
         var sceneManager = new SceneManager();
+        var startScreen = new StartScreen(sceneServices);
+        var playScreen = new GameScreen(sceneServices);
 
-        var gameScreen = new GameScreen(sceneServices);
-        sceneManager.add(gameScreen.show.bind(gameScreen));
+        sceneManager.add(goFullScreen.show.bind(goFullScreen), true);
+        sceneManager.add(rotateDevice.show.bind(rotateDevice), true);
+        sceneManager.add(menuEvented.show.bind(menuEvented), true);
+        sceneManager.add(startScreen.show.bind(startScreen), true);
+        sceneManager.add(playScreen.show.bind(playScreen));
 
         return sceneManager;
     }
 
     return installMyScenes;
-})(SceneManager);
+})(SceneManager, TapManager, Event, ButtonFactory, StartScreen, GameScreen, Font, GoFullScreen, RotateDevice,
+    ShowMenuEvented);
