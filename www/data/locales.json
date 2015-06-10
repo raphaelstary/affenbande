@@ -41,6 +41,10 @@
         "common_buttons": {
             "back": "back",
             "resume": "resume"
+        },
+        "play": {
+            "undo": "undo",
+            "back_to_map": "back"
         }
     },
     "de": {
@@ -85,6 +89,10 @@
         "common_buttons": {
             "back": "zur\u00FCck",
             "resume": "weiter"
+        },
+        "play": {
+            "undo": "r\u00FCckg\u00E4ngig",
+            "back_to_map": "zur\u00FCck"
         }
     }
 }

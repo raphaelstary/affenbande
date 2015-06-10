@@ -92,7 +92,11 @@ var LevelOverview = (function (drawIcons, drawClouds, Width, Height, GameScreen)
                     timer: self.timer,
                     device: self.device,
                     events: self.events,
-                    sceneStorage: self.sceneStorage
+                    sceneStorage: self.sceneStorage,
+                    tap: self.tap,
+                    buttons: self.buttons,
+                    messages: self.messages,
+                    sound: self.sounds
                 });
                 self.sceneStorage.currentLevel = levelNr;
 
