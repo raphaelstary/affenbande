@@ -28,26 +28,32 @@ var StartScreen = (function (drawClouds, drawIcons, Width, Height, Font, drawBut
         var logo = this.stage.drawText(Width.HALF, Height.get(48, 12), 'Monkey Gang', Font._15, 'GameFont', 'black');
         drawables.push(logo);
 
-        // full screen hack for IE11, it accepts only calls from some DOM elements like button, link or div NOT canvas
-        var screenElement = document.getElementsByTagName('canvas')[0];
-        var parent = screenElement.parentNode;
-        var wrapper = document.createElement('div');
-        parent.replaceChild(wrapper, screenElement);
-        wrapper.appendChild(screenElement);
+        function installFullScreen() {
+            // full screen hack for IE11, it accepts only calls from some DOM elements like button, link or div NOT
+            // canvas
+            var screenElement = document.getElementsByTagName('canvas')[0];
+            var parent = screenElement.parentNode;
+            var wrapper = document.createElement('div');
+            parent.replaceChild(wrapper, screenElement);
+            wrapper.appendChild(screenElement);
+            var startButton = self.buttons.createPrimaryButton(Width.HALF, Height.THREE_QUARTER,
+                self.messages.get('start', 'start'), function () {
+                    // sadly not working on IE11
+                }, 3);
+            installOneTimeTap(wrapper, function () {
+                wrapper.parentNode.replaceChild(screenElement, wrapper);
+                goFullScreen();
+            });
+            return startButton;
+        }
 
-        var startButton = self.buttons.createPrimaryButton(Width.HALF, Height.THREE_QUARTER,
-            self.messages.get('start', 'start'), function () {
-                // sadly not working on IE11
-            }, 3);
+        var startButton; // = installFullScreen();
 
-        installOneTimeTap(wrapper, function () {
-
-            wrapper.parentNode.replaceChild(screenElement, wrapper);
-            goFullScreen();
-        });
+        goFullScreen(); // todo remove
 
         function goFullScreen() {
-            self.buttons.remove(startButton);
+            if (startButton)
+                self.buttons.remove(startButton);
             self.timer.doLater(function () {
                 drawButtons(self.buttons, self.messages, self.timer, toNextScene).forEach(function (elem) {
                     buttons.push(elem);
