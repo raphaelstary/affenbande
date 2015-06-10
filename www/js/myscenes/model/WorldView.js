@@ -1,4 +1,4 @@
-var WorldView = (function (calcCantorPairing) {
+var WorldView = (function (calcCantorPairing, iterateEntries) {
     "use strict";
 
     function WorldView(stage, gridViewHelper) {
@@ -12,6 +12,22 @@ var WorldView = (function (calcCantorPairing) {
     }
 
     var colors = ['green', 'lightgreen', 'darkgreen', 'blue', 'lightblue', 'darkblue'];
+
+    WorldView.prototype.preDestroy = function () {
+        iterateEntries(this.newParts, function (part) {
+            this.stage.remove(part);
+        }, this);
+        iterateEntries(this.bodyParts, function (part) {
+            this.stage.remove(part);
+        }, this);
+        this.ground.forEach(function (tile) {
+            this.stage.remove(tile);
+        }, this);
+        this.spikes.forEach(function (tile) {
+            this.stage.remove(tile);
+        }, this);
+        this.stage.remove(this.goal);
+    };
 
     WorldView.prototype.drawLevel = function (snakes, groundTiles, newParts, spikes, goal) {
         groundTiles.forEach(function (ground) {
@@ -132,4 +148,4 @@ var WorldView = (function (calcCantorPairing) {
     }
 
     return WorldView;
-})(calcCantorPairing);
+})(calcCantorPairing, iterateEntries);

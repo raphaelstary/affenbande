@@ -1,5 +1,5 @@
 var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory, StartScreen, GameScreen, Font,
-    GoFullScreen, RotateDevice, ShowMenuEvented) {
+    GoFullScreen, RotateDevice, ShowMenuEvented, LevelOverview) {
     "use strict";
 
     var BLACK = '#283032';
@@ -22,12 +22,14 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
 
         var sceneManager = new SceneManager();
         var startScreen = new StartScreen(sceneServices);
+        var levelOverview = new LevelOverview(sceneServices);
         var playScreen = new GameScreen(sceneServices);
 
         sceneManager.add(goFullScreen.show.bind(goFullScreen), true);
         sceneManager.add(rotateDevice.show.bind(rotateDevice), true);
         sceneManager.add(menuEvented.show.bind(menuEvented), true);
         sceneManager.add(startScreen.show.bind(startScreen), true);
+        sceneManager.add(levelOverview.show.bind(levelOverview));
         sceneManager.add(playScreen.show.bind(playScreen));
 
         return sceneManager;
@@ -35,4 +37,4 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
 
     return installMyScenes;
 })(SceneManager, TapManager, Event, ButtonFactory, StartScreen, GameScreen, Font, GoFullScreen, RotateDevice,
-    ShowMenuEvented);
+    ShowMenuEvented, LevelOverview);
