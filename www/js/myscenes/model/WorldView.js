@@ -31,25 +31,25 @@ var WorldView = (function (calcCantorPairing, iterateEntries) {
 
     WorldView.prototype.drawLevel = function (snakes, groundTiles, newParts, spikes, goal) {
         groundTiles.forEach(function (ground) {
-            this.ground.push(this.gridViewHelper.createRect(ground.u, ground.v, 'brown'));
+            this.ground.push(this.gridViewHelper.create(ground.u, ground.v, 'leave'));
         }, this);
 
         newParts.forEach(function (newPart) {
-            this.newParts[calcCantorPairing(newPart.u, newPart.v)] = this.gridViewHelper.createRect(newPart.u,
-                newPart.v, 'grey');
+            this.newParts[calcCantorPairing(newPart.u, newPart.v)] = this.gridViewHelper.create(newPart.u, newPart.v,
+                'monkey_grey');
         }, this);
 
         snakes.forEach(function (snakeParts, index) {
             snakeParts.forEach(function (part) {
-                this.bodyParts[part.type] = this.gridViewHelper.createRect(part.u, part.v, colors[index]);
+                this.bodyParts[part.type] = this.gridViewHelper.create(part.u, part.v, 'monkey');
             }, this);
         }, this);
 
         spikes.forEach(function (spike) {
-            this.spikes.push(this.gridViewHelper.createRect(spike.u, spike.v, 'red'));
+            this.spikes.push(this.gridViewHelper.create(spike.u, spike.v, 'spike'));
         }, this);
 
-        this.goal = this.gridViewHelper.createRect(goal.u, goal.v, 'yellow');
+        this.goal = this.gridViewHelper.create(goal.u, goal.v, 'coconut');
     };
 
     WorldView.prototype.selectHead = function (head) {
@@ -92,7 +92,7 @@ var WorldView = (function (calcCantorPairing, iterateEntries) {
                 }
 
             } else if (change.type == 'new') {
-                this.bodyParts[change.tile] = this.gridViewHelper.createRect(change.newU, change.newV, 'green');
+                this.bodyParts[change.tile] = this.gridViewHelper.create(change.newU, change.newV, 'monkey');
             }
         }, this);
     };
@@ -125,10 +125,10 @@ var WorldView = (function (calcCantorPairing, iterateEntries) {
 
             } else if (change.type == 'removed') {
                 if (change.tile == 9) {
-                    this.newParts[calcCantorPairing(change.oldU,
-                        change.oldV)] = this.gridViewHelper.createRect(change.oldU, change.oldV, 'grey');
+                    this.newParts[calcCantorPairing(change.oldU, change.oldV)] = this.gridViewHelper.create(change.oldU,
+                        change.oldV, 'monkey_grey');
                 } else {
-                    this.bodyParts[change.tile] = this.gridViewHelper.createRect(change.oldU, change.oldV, 'green');
+                    this.bodyParts[change.tile] = this.gridViewHelper.create(change.oldU, change.oldV, 'monkey');
                     if (array.length - 1 == index && callback)
                         callback();
                 }
