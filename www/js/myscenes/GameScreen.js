@@ -1,4 +1,4 @@
-var GameScreen = (function (Level, PlayFactory, Event, drawIcons, ScreenShaker) {
+var GameScreen = (function (Level, PlayFactory, Event, drawIcons, ScreenShaker, drawClouds) {
     "use strict";
 
     function GameScreen(services) {
@@ -26,6 +26,10 @@ var GameScreen = (function (Level, PlayFactory, Event, drawIcons, ScreenShaker) 
         });
         icons.taps.forEach(function (elem) {
             taps.push(elem);
+        });
+
+        drawClouds(this.stage).forEach(function (elem) {
+            drawables.push(elem);
         });
 
         function getButtonWidth(width, height) {
@@ -97,4 +101,4 @@ var GameScreen = (function (Level, PlayFactory, Event, drawIcons, ScreenShaker) 
     };
 
     return GameScreen;
-})(Level, PlayFactory, Event, drawIcons, ScreenShaker);
+})(Level, PlayFactory, Event, drawIcons, ScreenShaker, drawClouds);
