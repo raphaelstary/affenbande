@@ -15,7 +15,8 @@ var World = (function () {
     World.prototype.init = function () {
         this.snakes = this.domainGridHelper.getSnakes();
         this.worldView.drawLevel(this.snakes, this.domainGridHelper.getGround(), this.domainGridHelper.getNewParts(),
-            this.domainGridHelper.getSpikes(), this.domainGridHelper.getGoal());
+            this.domainGridHelper.getSpikes(), this.domainGridHelper.getGoal(), this.domainGridHelper.getTreeUpTiles(),
+            this.domainGridHelper.getTreeDownTiles(), this.domainGridHelper.getTreeSmallTiles());
     };
 
     World.prototype.getHeads = function () {

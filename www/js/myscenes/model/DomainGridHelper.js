@@ -13,6 +13,9 @@ var DomainGridHelper = (function (iterateSomeEntries) {
         GROUND: 1,
         SPIKE: 2,
         GOAL: 3,
+        TREE_UP: 4,
+        TREE_DOWN: 5,
+        TREE_SMALL: 6,
         NEW_PART: 9
     };
 
@@ -32,12 +35,24 @@ var DomainGridHelper = (function (iterateSomeEntries) {
         return this.__getTiles(Tile.GROUND);
     };
 
-    DomainGridHelper.prototype.__getTiles = function (name) {
+    DomainGridHelper.prototype.getTreeUpTiles = function () {
+        return this.__getTiles(Tile.TREE_UP, true);
+    };
+
+    DomainGridHelper.prototype.getTreeDownTiles = function () {
+        return this.__getTiles(Tile.TREE_DOWN, true);
+    };
+
+    DomainGridHelper.prototype.getTreeSmallTiles = function () {
+        return this.__getTiles(Tile.TREE_SMALL, true);
+    };
+
+    DomainGridHelper.prototype.__getTiles = function (name, isBackground) {
         var parts = [];
 
         for (var y = 0; y < this.yTiles; y++) {
             for (var x = 0; x < this.xTiles; x++) {
-                var tile = this.grid.get(x, y);
+                var tile = !isBackground ? this.grid.get(x, y) : this.grid.getBackground(x, y);
                 if (tile === name)
                     parts.push({
                         u: x,

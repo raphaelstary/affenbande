@@ -9,6 +9,8 @@ var WorldView = (function (calcCantorPairing, iterateEntries) {
         this.ground = [];
         this.spikes = [];
         this.bodyParts = {};
+
+        this.tree = [];
     }
 
     var colors = ['green', 'lightgreen', 'darkgreen', 'blue', 'lightblue', 'darkblue'];
@@ -27,9 +29,11 @@ var WorldView = (function (calcCantorPairing, iterateEntries) {
             this.stage.remove(tile);
         }, this);
         this.stage.remove(this.goal);
+        this.tree.forEach(this.stage.remove.bind(this.stage));
     };
 
-    WorldView.prototype.drawLevel = function (snakes, groundTiles, newParts, spikes, goal) {
+    WorldView.prototype.drawLevel = function (snakes, groundTiles, newParts, spikes, goal, treeUpTiles, treeDownTiles,
+        treeSmallTiles) {
         groundTiles.forEach(function (ground) {
             this.ground.push(this.gridViewHelper.create(ground.u, ground.v, 'leave'));
         }, this);
@@ -50,6 +54,19 @@ var WorldView = (function (calcCantorPairing, iterateEntries) {
         }, this);
 
         this.goal = this.gridViewHelper.create(goal.u, goal.v, 'coconut');
+
+        treeUpTiles.forEach(function (treeUpTile) {
+            this.tree.push(this.gridViewHelper.createBackground(treeUpTile.u, treeUpTile.v, 'tree_up', 3, 1.1));
+        }, this);
+
+        treeDownTiles.forEach(function (treeDownTile) {
+            this.tree.push(this.gridViewHelper.createBackground(treeDownTile.u, treeDownTile.v, 'tree_down', 3, 1.1));
+        }, this);
+
+        treeSmallTiles.forEach(function (treeSmallTile) {
+            this.tree.push(this.gridViewHelper.createBackground(treeSmallTile.u, treeSmallTile.v, 'tree_small', 2));
+        }, this);
+
     };
 
     WorldView.prototype.selectHead = function (head) {

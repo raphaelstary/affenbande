@@ -3,8 +3,9 @@ var Grid = (function () {
 
     function Grid(level) {
         this.map = [];
-        for (var y = 0; y < level.length; y++) {
-            var levelRow = level[y];
+        var foreground = level.foreground;
+        for (var y = 0; y < foreground.length; y++) {
+            var levelRow = foreground[y];
             var row = [];
             for (var x = 0; x < levelRow.length; x++) {
                 row.push(levelRow[x]);
@@ -12,14 +13,31 @@ var Grid = (function () {
             this.map.push(row);
         }
 
-        this.xTiles = level[0].length;
-        this.yTiles = level.length;
+        this.xTiles = foreground[0].length;
+        this.yTiles = foreground.length;
+
+        this.backgroundMap = [];
+        var background = level.background;
+        for (y = 0; y < background.length; y++) {
+            levelRow = background[y];
+            row = [];
+            for (x = 0; x < levelRow.length; x++) {
+                row.push(levelRow[x]);
+            }
+            this.backgroundMap.push(row);
+        }
     }
 
     Grid.prototype.get = function (u, v) {
         if (u < 0 || u >= this.xTiles || v < 0 || v >= this.yTiles)
             return;
         return this.map[v][u];
+    };
+
+    Grid.prototype.getBackground = function (u, v) {
+        if (u < 0 || u >= this.xTiles || v < 0 || v >= this.yTiles)
+            return;
+        return this.backgroundMap[v][u];
     };
 
     Grid.prototype.set = function (u, v, load) {

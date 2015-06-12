@@ -44,7 +44,7 @@
         },
         "play": {
             "undo": "undo",
-            "back_to_map": "back"
+            "back_to_map": "menu"
         }
     },
     "de": {
@@ -91,8 +91,8 @@
             "resume": "weiter"
         },
         "play": {
-            "undo": "r\u00FCckg\u00E4ngig",
-            "back_to_map": "zur\u00FCck"
+            "undo": "zur\u00FCck",
+            "back_to_map": "Men\u00FC"
         }
     }
 }

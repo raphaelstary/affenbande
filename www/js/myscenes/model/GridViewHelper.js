@@ -25,7 +25,12 @@ var GridViewHelper = (function (Height, Transition, Math) {
     };
 
     GridViewHelper.prototype.create = function (u, v, name) {
-        return this.stage.drawFresh(this.__getX(u), this.__getY(v), name);
+        return this.stage.drawFresh(this.__getX(u), this.__getY(v), name, 4);
+    };
+
+    GridViewHelper.prototype.createBackground = function (u, v, name, zIndex, scale) {
+        return this.stage.drawFresh(this.__getX(u), this.__getY(v), name, zIndex, undefined, undefined, undefined,
+            scale);
     };
 
     GridViewHelper.prototype.createRect = function (u, v, color) {
