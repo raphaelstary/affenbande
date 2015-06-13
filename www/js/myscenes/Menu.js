@@ -78,7 +78,7 @@ var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, Pa
                 sceneStorage: self.sceneStorage,
                 sounds: self.sounds,
                 events: self.events,
-                device: self.device,
+                device: self.device
             });
             pauseMenu.show(hideMenu);
         }
@@ -91,7 +91,7 @@ var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, Pa
                 sceneStorage: self.sceneStorage,
                 sounds: self.sounds,
                 events: self.events,
-                device: self.device,
+                device: self.device
             });
             credits.show(hideMenu);
         }

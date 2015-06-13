@@ -18,6 +18,8 @@ var GameScreen = (function (Level, PlayFactory, Event, drawIcons, ScreenShaker, 
         var drawables = [];
         var taps = [];
         var buttons = [];
+        drawables.push(this.stage.drawRectangle(Width.HALF, Height.get(48, 2), Width.FULL, Height.get(45, 5), '#000',
+            true, undefined, 2, 0.8));
         var icons = drawIcons(self.stage, self.sceneStorage, self.events, self.buttons, self.messages, self.device,
             self.sounds, self.tap, true);
 
@@ -39,26 +41,29 @@ var GameScreen = (function (Level, PlayFactory, Event, drawIcons, ScreenShaker, 
             return Width.get(32, 4)(width);
         }
 
-        var back = self.buttons.createPrimaryButton(Width.get(32, 7), Height.get(48, 2),
+        var back = self.buttons.createSecondaryButton(Width.get(32, 8), Height.get(48, 2),
             self.messages.get('play', 'back_to_map'), function () {
                 self.timer.doLater(nextScene, 6);
-            }, 3, false, getButtonWidth);
-        back.background.scale = 0.75;
+            }, 3, false);//, getButtonWidth);
+        //back.background.scale = 0.75;
         buttons.push(back);
-        var undo = self.buttons.createPrimaryButton(Width.HALF, Height.get(48, 2), self.messages.get('play', 'undo'),
+        var undo = self.buttons.createSecondaryButton(Width.get(32, 28), Height.get(48, 2),
+            self.messages.get('play', 'undo'),
             function () {
                 undo.used = true;
                 if (!world.undoLastMove(function () {
-                        undo.background.alpha = 0.5;
+                        undo.text.alpha = 0.5;
+                        undo.background.data.filled = false;
                         undo.used = false;
                     })) {
-                    undo.background.alpha = 0.5;
+                    undo.text.alpha = 0.5;
+                    undo.background.data.filled = false;
                     undo.used = false;
                     shaker.startSmallShake();
                 }
-            }, 3, true, getButtonWidth);
+            }, 3, true);//, getButtonWidth);
         buttons.push(undo);
-        undo.background.scale = 0.9;
+        //undo.background.scale = 0.75;
         undo.reset = false;
         var shaker = new ScreenShaker(self.device);
         var shakerResizeId = self.events.subscribe(Event.RESIZE, shaker.resize.bind(shaker));

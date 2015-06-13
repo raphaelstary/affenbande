@@ -10,10 +10,11 @@ var GridViewHelper = (function (Height, Transition, Math) {
     }
 
     GridViewHelper.prototype.getCoordinates = function (x, y) {
+
         var length = this.__edgeLength(this.device.height);
         return {
             u: Math.floor((x - this.__xOffset(this.device.width, length) + length / 2) / length),
-            v: Math.floor(y / length)
+            v: Math.floor((y - length) / length)
         };
     };
 
@@ -49,7 +50,7 @@ var GridViewHelper = (function (Height, Transition, Math) {
     };
 
     GridViewHelper.prototype.__edgeLength = function (height) {
-        return Height.get(this.yTiles)(height);
+        return Height.get(this.yTiles + 1)(height);
     };
 
     GridViewHelper.prototype.__xOffset = function (width, length) {
@@ -69,7 +70,7 @@ var GridViewHelper = (function (Height, Transition, Math) {
         var self = this;
         return function (height) {
             var length = self.__edgeLength(height);
-            return v * length + Math.floor(length / 2);
+            return (v + 1) * length + Math.floor(length / 2);
         };
     };
 
