@@ -21,7 +21,7 @@ function exportLevels() {
         var sheet = sheets[i];
         var sheetName = sheet.getName();
         if (sheetName.indexOf('Level') === 0) {
-            sheetsData[parseInt(sheetName.substring(5))] = getRows(sheet);
+            sheetsData[sheetName.substring(5)] = getRows(sheet);
         }
     }
     return displayText_(JSON.stringify(sheetsData));
