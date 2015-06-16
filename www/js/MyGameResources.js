@@ -5,13 +5,14 @@ var MyGameResources = (function (addFontToDOM, UniversalTranslator, SoundSpriteM
     var FONT = 'GameFont';
     var LOGO_FONT = 'LogoFont';
 
-    var gameFont, logoFont, locales, atlases = [], images = {}, moreGames;
+    var gameFont, logoFont, locales, atlases = [], images = {}, moreGames, levels;
 
     function registerFiles(resourceLoader) {
         gameFont = resourceLoader.addFont('data/gamefont.woff');
         logoFont = resourceLoader.addFont('data/dooodleista.woff');
         locales = resourceLoader.addJSON('data/locales.json');
         moreGames = resourceLoader.addJSON('data/more_games.json');
+        levels = resourceLoader.addJSON('data/levels.json');
 
         var isMobile = new DeviceInfo(userAgent, 1, 1, 1).isMobile;
 
@@ -38,7 +39,8 @@ var MyGameResources = (function (addFontToDOM, UniversalTranslator, SoundSpriteM
 
         return {
             messages: new UniversalTranslator(locales),
-            gfxCache: AtlasResourceHelper.process(atlases, width, height)
+            gfxCache: AtlasResourceHelper.process(atlases, width, height),
+            levels: levels
         };
     }
 

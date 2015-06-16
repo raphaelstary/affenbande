@@ -60,8 +60,8 @@ var Tiles = {
 
 function getRows(sheet) {
     var returnObject = {
-        background: [],
-        foreground: []
+        back: [],
+        front: []
     };
     var values = sheet.getSheetValues(1, 1, sheet.getMaxRows(), sheet.getMaxColumns());
 
@@ -75,8 +75,8 @@ function getRows(sheet) {
             foregroundRow.push(getTileCode(cell));
             backgroundRow.push(getBackgroundTileCode(cell));
         }
-        returnObject.foreground.push(foregroundRow);
-        returnObject.background.push(backgroundRow);
+        returnObject.front.push(foregroundRow);
+        returnObject.back.push(backgroundRow);
     }
     return returnObject;
 }

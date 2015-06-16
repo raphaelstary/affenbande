@@ -23,14 +23,12 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
         var sceneManager = new SceneManager();
         var startScreen = new StartScreen(sceneServices);
         var levelOverview = new LevelOverview(sceneServices);
-        var playScreen = new GameScreen(sceneServices);
 
         sceneManager.add(goFullScreen.show.bind(goFullScreen), true);
         sceneManager.add(rotateDevice.show.bind(rotateDevice), true);
         sceneManager.add(menuEvented.show.bind(menuEvented), true);
         sceneManager.add(startScreen.show.bind(startScreen), true);
         sceneManager.add(levelOverview.show.bind(levelOverview));
-        sceneManager.add(playScreen.show.bind(playScreen));
 
         return sceneManager;
     }

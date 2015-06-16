@@ -11,6 +11,7 @@ var LevelOverview = (function (drawIcons, drawClouds, Width, Height, GameScreen)
         this.device = services.device;
         this.sounds = services.sounds;
         this.timer = services.timer;
+        this.levels = services.levels;
     }
 
     LevelOverview.prototype.show = function (next) {
@@ -36,7 +37,7 @@ var LevelOverview = (function (drawIcons, drawClouds, Width, Height, GameScreen)
                 taps.push(elem);
             });
 
-            for (var i = 1; i < 13; i++) {
+            for (var i = 1; i <= 18; i++) {
                 createLevelDrawable(i);
             }
         }
@@ -55,8 +56,10 @@ var LevelOverview = (function (drawIcons, drawClouds, Width, Height, GameScreen)
                 return Height.get(40)(height);
             }
 
-            var goldCoconut = self.stage.drawRectangle(Width.HALF, Height.get(15, 1 + levelNr), getCoconutWidth,
-                getCoconutHeight, 'brown', true, undefined, 4);
+            var positionX = ((levelNr - 1) % 4) + 1;
+
+            var goldCoconut = self.stage.drawRectangle(Width.get(5, positionX), Height.get(6, Math.ceil(levelNr / 4)),
+                getCoconutWidth, getCoconutHeight, 'brown', true, undefined, 4);
 
             function getX() {
                 return goldCoconut.x;
@@ -74,10 +77,14 @@ var LevelOverview = (function (drawIcons, drawClouds, Width, Height, GameScreen)
                 return goldCoconut.getHeight() * 2;
             }
 
+            var numberLabel = self.stage.drawText(getX, getY, levelNr.toString(), Font._20, 'GameFont', 'black', 5,
+                [goldCoconut]);
+
             var wrapper = self.stage.drawRectangleWithInput(getX, getY, getWidth, getHeight, 'white', true, undefined,
-                3, 0.5);
+                3, 0.5, undefined, undefined, [goldCoconut]);
             self.tap.add(wrapper.input, getLevelCallback(levelNr));
             drawables.push(goldCoconut);
+            drawables.push(numberLabel);
             drawables.push(wrapper.drawable);
             taps.push(wrapper.input);
 
@@ -96,7 +103,8 @@ var LevelOverview = (function (drawIcons, drawClouds, Width, Height, GameScreen)
                     tap: self.tap,
                     buttons: self.buttons,
                     messages: self.messages,
-                    sound: self.sounds
+                    sound: self.sounds,
+                    levels: self.levels
                 });
                 self.sceneStorage.currentLevel = levelNr;
 

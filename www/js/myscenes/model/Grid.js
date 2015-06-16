@@ -3,7 +3,7 @@ var Grid = (function () {
 
     function Grid(level) {
         this.map = [];
-        var foreground = level.foreground;
+        var foreground = level.front;
         for (var y = 0; y < foreground.length; y++) {
             var levelRow = foreground[y];
             var row = [];
@@ -17,7 +17,7 @@ var Grid = (function () {
         this.yTiles = foreground.length;
 
         this.backgroundMap = [];
-        var background = level.background;
+        var background = level.back;
         for (y = 0; y < background.length; y++) {
             levelRow = background[y];
             row = [];

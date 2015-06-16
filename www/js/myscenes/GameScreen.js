@@ -1,4 +1,4 @@
-var GameScreen = (function (Level, PlayFactory, Event, drawIcons, ScreenShaker, drawClouds) {
+var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClouds) {
     "use strict";
 
     function GameScreen(services) {
@@ -11,6 +11,7 @@ var GameScreen = (function (Level, PlayFactory, Event, drawIcons, ScreenShaker, 
         this.messages = services.messages;
         this.sounds = services.sounds;
         this.tap = services.tap;
+        this.levels = services.levels;
     }
 
     GameScreen.prototype.show = function (next) {
@@ -71,7 +72,7 @@ var GameScreen = (function (Level, PlayFactory, Event, drawIcons, ScreenShaker, 
         shaker.add(undo.background);
         shaker.add(undo.text);
 
-        var level = Level[this.sceneStorage.currentLevel];
+        var level = this.levels[this.sceneStorage.currentLevel];
         var world = PlayFactory.createWorld(this.stage, this.timer, this.device, level, function () {
             self.timer.doLater(nextScene, 30);
         });
@@ -106,4 +107,4 @@ var GameScreen = (function (Level, PlayFactory, Event, drawIcons, ScreenShaker, 
     };
 
     return GameScreen;
-})(Level, PlayFactory, Event, drawIcons, ScreenShaker, drawClouds);
+})(PlayFactory, Event, drawIcons, ScreenShaker, drawClouds);
