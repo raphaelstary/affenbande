@@ -16,11 +16,12 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
             //sceneServices.sounds.play(CLICK);
         }, WHITE, BLACK, Font._30, 3, WHITE, WHITE, Font._40, 2);
 
+        var sceneManager = new SceneManager();
+
         var goFullScreen = new GoFullScreen(sceneServices);
         var rotateDevice = new RotateDevice(sceneServices);
         var menuEvented = new ShowMenuEvented(sceneServices);
 
-        var sceneManager = new SceneManager();
         var startScreen = new StartScreen(sceneServices);
         var levelOverview = new LevelOverview(sceneServices);
 
