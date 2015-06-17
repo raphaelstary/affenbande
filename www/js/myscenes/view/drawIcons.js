@@ -1,11 +1,11 @@
 var drawIcons = (function (Width, Height, Font, Event, showMenu) {
     "use strict";
 
-    function drawIcons(stage, sceneStorage, events, buttons, messages, device, sounds, tap, isInGame) {
+    function drawIcons(stage, sceneStorage, events, buttons, messages, device, sounds, tap, isInGame, topY) {
         var drawables = [];
         var taps = [];
 
-        var icon = stage.drawFresh(Width.get(32, 2), Height.get(96, 5), isInGame ? 'pause' : 'settings', 4);
+        var icon = stage.drawFresh(Width.get(32, 2), topY || Height.get(48, 2), isInGame ? 'pause' : 'settings', 4);
 
         function getX() {
             return icon.x;

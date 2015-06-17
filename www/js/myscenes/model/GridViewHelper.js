@@ -1,12 +1,13 @@
 var GridViewHelper = (function (Height, Transition, Math) {
     "use strict";
 
-    function GridViewHelper(stage, timer, device, xTilesCount, yTilesCount) {
+    function GridViewHelper(stage, timer, device, xTilesCount, yTilesCount, topOffset) {
         this.stage = stage;
         this.timer = timer;
         this.device = device;
         this.xTiles = xTilesCount;
         this.yTiles = yTilesCount;
+        this.topOffset = topOffset;
     }
 
     GridViewHelper.prototype.getCoordinates = function (x, y) {
@@ -14,7 +15,7 @@ var GridViewHelper = (function (Height, Transition, Math) {
         var length = this.__edgeLength(this.device.height);
         return {
             u: Math.floor((x - this.__xOffset(this.device.width, length) + length / 2) / length),
-            v: Math.floor((y - length) / length)
+            v: Math.floor((y - this.__getTopOffset(this.device.height)) / length)
         };
     };
 
@@ -26,12 +27,28 @@ var GridViewHelper = (function (Height, Transition, Math) {
     };
 
     GridViewHelper.prototype.create = function (u, v, name) {
-        return this.stage.drawFresh(this.__getX(u), this.__getY(v), name, 4);
+        var drawable = this.stage.drawFresh(this.__getX(u), this.__getY(v), name, 4);
+        if (name == 'monkey') {
+            drawable.scale = this.__calcBaseScale(drawable.getHeight() * 0.9);
+        } else {
+            drawable.scale = this.__calcBaseScale(drawable.getHeight());
+        }
+        return drawable;
     };
 
-    GridViewHelper.prototype.createBackground = function (u, v, name, zIndex, scale) {
-        return this.stage.drawFresh(this.__getX(u), this.__getY(v), name, zIndex, undefined, undefined, undefined,
-            scale);
+    GridViewHelper.prototype.createBackground = function (u, v, name, zIndex) {
+        var drawable = this.stage.drawFresh(this.__getX(u), this.__getY(v), name, zIndex);
+        if (name == 'tree_up' || name == 'tree_down') {
+            drawable.scale = this.__calcBaseScale(drawable.getHeight()) * 1.1;
+        } else {
+            drawable.scale = this.__calcBaseScale(drawable.getHeight());
+        }
+        return drawable;
+    };
+
+    GridViewHelper.prototype.__calcBaseScale = function (drawableHeight) {
+        var length = this.__edgeLength(this.device.height);
+        return length / drawableHeight;
     };
 
     GridViewHelper.prototype.createRect = function (u, v, color) {
@@ -50,7 +67,7 @@ var GridViewHelper = (function (Height, Transition, Math) {
     };
 
     GridViewHelper.prototype.__edgeLength = function (height) {
-        return Height.get(this.yTiles + 1)(height);
+        return Height.get(this.yTiles)(height - this.__getTopOffset(height));
     };
 
     GridViewHelper.prototype.__xOffset = function (width, length) {
@@ -70,8 +87,12 @@ var GridViewHelper = (function (Height, Transition, Math) {
         var self = this;
         return function (height) {
             var length = self.__edgeLength(height);
-            return (v + 1) * length + Math.floor(length / 2);
+            return v * length + Math.floor(length / 2) + self.__getTopOffset(height);
         };
+    };
+
+    GridViewHelper.prototype.__getTopOffset = function (height) {
+        return this.topOffset(height);
     };
 
     return GridViewHelper;

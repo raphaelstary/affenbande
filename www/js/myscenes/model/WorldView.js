@@ -56,11 +56,11 @@ var WorldView = (function (calcCantorPairing, iterateEntries) {
         this.goal = this.gridViewHelper.create(goal.u, goal.v, 'coconut');
 
         treeUpTiles.forEach(function (treeUpTile) {
-            this.tree.push(this.gridViewHelper.createBackground(treeUpTile.u, treeUpTile.v, 'tree_up', 3, 1.1));
+            this.tree.push(this.gridViewHelper.createBackground(treeUpTile.u, treeUpTile.v, 'tree_up', 3));
         }, this);
 
         treeDownTiles.forEach(function (treeDownTile) {
-            this.tree.push(this.gridViewHelper.createBackground(treeDownTile.u, treeDownTile.v, 'tree_down', 3, 1.1));
+            this.tree.push(this.gridViewHelper.createBackground(treeDownTile.u, treeDownTile.v, 'tree_down', 3));
         }, this);
 
         treeSmallTiles.forEach(function (treeSmallTile) {
@@ -71,12 +71,12 @@ var WorldView = (function (calcCantorPairing, iterateEntries) {
 
     WorldView.prototype.selectHead = function (head) {
         var drawable = this.bodyParts[head.type];
-        drawable.scale = 1.1;
+        drawable.scale *= 1.25;
     };
 
     WorldView.prototype.deselectHead = function (head) {
         var drawable = this.bodyParts[head.type];
-        drawable.scale = 1;
+        drawable.scale /= 1.25;
     };
 
     WorldView.prototype.moveSnake = function (changeSet, callback) {

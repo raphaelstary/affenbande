@@ -19,10 +19,13 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
         var drawables = [];
         var taps = [];
         var buttons = [];
-        drawables.push(this.stage.drawRectangle(Width.HALF, Height.get(48, 2), Width.FULL, Height.get(45, 5), '#000',
+        var topY = Height.get(96, 5);
+        var topOffset = Height.get(48, 5)
+        drawables.push(this.stage.drawRectangle(Width.HALF, topY, Width.FULL, topOffset, '#000',
             true, undefined, 2, 0.8));
+
         var icons = drawIcons(self.stage, self.sceneStorage, self.events, self.buttons, self.messages, self.device,
-            self.sounds, self.tap, true);
+            self.sounds, self.tap, true, topY);
 
         icons.drawables.forEach(function (elem) {
             drawables.push(elem);
@@ -35,12 +38,12 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
             drawables.push(elem);
         });
 
-        var back = self.buttons.createSecondaryButton(Width.get(32, 8), Height.get(96, 5),
+        var back = self.buttons.createSecondaryButton(Width.get(32, 8), topY,
             self.messages.get('play', 'back_to_map'), function () {
                 self.timer.doLater(nextScene, 6);
             }, 3, false);
         buttons.push(back);
-        var undo = self.buttons.createPrimaryButton(Width.get(32, 25), Height.get(96, 5),
+        var undo = self.buttons.createPrimaryButton(Width.get(32, 25), topY,
             self.messages.get('play', 'undo'),
             function () {
                 undo.used = true;
@@ -66,7 +69,7 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
         var level = this.levels[this.sceneStorage.currentLevel];
         var world = PlayFactory.createWorld(this.stage, this.timer, this.device, level, function () {
             self.timer.doLater(nextScene, 30);
-        });
+        }, topOffset);
         world.init();
         var playerController = PlayFactory.createPlayerController(world);
         var pointerHandler = this.events.subscribe(Event.POINTER, function (pointer) {
