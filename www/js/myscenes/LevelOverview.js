@@ -37,7 +37,7 @@ var LevelOverview = (function (drawIcons, drawClouds, Width, Height, GameScreen)
                 taps.push(elem);
             });
 
-            for (var i = 1; i <= 18; i++) {
+            for (var i = 1; i <= 20; i++) {
                 createLevelDrawable(i);
             }
         }

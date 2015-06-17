@@ -35,36 +35,27 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
             drawables.push(elem);
         });
 
-        function getButtonWidth(width, height) {
-            if (width < height) {
-                return Width.get(32, 7)(width);
-            }
-            return Width.get(32, 4)(width);
-        }
-
-        var back = self.buttons.createSecondaryButton(Width.get(32, 8), Height.get(48, 2),
+        var back = self.buttons.createSecondaryButton(Width.get(32, 8), Height.get(96, 5),
             self.messages.get('play', 'back_to_map'), function () {
                 self.timer.doLater(nextScene, 6);
-            }, 3, false);//, getButtonWidth);
-        //back.background.scale = 0.75;
+            }, 3, false);
         buttons.push(back);
-        var undo = self.buttons.createSecondaryButton(Width.get(32, 28), Height.get(48, 2),
+        var undo = self.buttons.createPrimaryButton(Width.get(32, 25), Height.get(96, 5),
             self.messages.get('play', 'undo'),
             function () {
                 undo.used = true;
                 if (!world.undoLastMove(function () {
-                        undo.text.alpha = 0.5;
-                        undo.background.data.filled = false;
+                        undo.background.alpha = 0.5;
+                        //undo.background.data.filled = false;
                         undo.used = false;
                     })) {
-                    undo.text.alpha = 0.5;
-                    undo.background.data.filled = false;
+                    undo.background.alpha = 0.5;
+                    //undo.background.data.filled = false;
                     undo.used = false;
                     shaker.startSmallShake();
                 }
-            }, 3, true);//, getButtonWidth);
+            }, 3, true);
         buttons.push(undo);
-        //undo.background.scale = 0.75;
         undo.reset = false;
         var shaker = new ScreenShaker(self.device);
         var shakerResizeId = self.events.subscribe(Event.RESIZE, shaker.resize.bind(shaker));

@@ -5,7 +5,7 @@ var drawIcons = (function (Width, Height, Font, Event, showMenu) {
         var drawables = [];
         var taps = [];
 
-        var icon = stage.drawFresh(Width.get(32, 2), Height.get(48, 2), isInGame ? 'pause' : 'settings', 4);
+        var icon = stage.drawFresh(Width.get(32, 2), Height.get(96, 5), isInGame ? 'pause' : 'settings', 4);
 
         function getX() {
             return icon.x;
