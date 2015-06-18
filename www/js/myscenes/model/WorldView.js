@@ -71,12 +71,12 @@ var WorldView = (function (calcCantorPairing, iterateEntries) {
 
     WorldView.prototype.selectHead = function (head) {
         var drawable = this.bodyParts[head.type];
-        drawable.scale *= 1.25;
+        drawable.scale = 1.2 * this.gridViewHelper.getMonkeyBaseScale();
     };
 
     WorldView.prototype.deselectHead = function (head) {
         var drawable = this.bodyParts[head.type];
-        drawable.scale /= 1.25;
+        drawable.scale = this.gridViewHelper.getMonkeyBaseScale();
     };
 
     WorldView.prototype.moveSnake = function (changeSet, callback) {

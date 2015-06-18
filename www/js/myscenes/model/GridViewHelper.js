@@ -8,6 +8,8 @@ var GridViewHelper = (function (Height, Transition, Math) {
         this.xTiles = xTilesCount;
         this.yTiles = yTilesCount;
         this.topOffset = topOffset;
+
+        this.monkeyBaseScale = 1;
     }
 
     GridViewHelper.prototype.getCoordinates = function (x, y) {
@@ -30,6 +32,7 @@ var GridViewHelper = (function (Height, Transition, Math) {
         var drawable = this.stage.drawFresh(this.__getX(u), this.__getY(v), name, 4);
         if (name == 'monkey') {
             drawable.scale = this.__calcBaseScale(drawable.getHeight() * 0.9);
+            this.monkeyBaseScale = drawable.scale;
         } else {
             drawable.scale = this.__calcBaseScale(drawable.getHeight());
         }
@@ -93,6 +96,10 @@ var GridViewHelper = (function (Height, Transition, Math) {
 
     GridViewHelper.prototype.__getTopOffset = function (height) {
         return this.topOffset(height);
+    };
+
+    GridViewHelper.prototype.getMonkeyBaseScale = function () {
+        return this.monkeyBaseScale;
     };
 
     return GridViewHelper;
