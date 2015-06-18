@@ -57,8 +57,8 @@ var GoFullScreen = (function (Event, Width, Height, installOneTimeTap, isHit) {
             installOneTimeTap(wrapper, function (event) {
                 wrapper.parentNode.replaceChild(screenElement, wrapper);
                 if (event.clientX != undefined && event.clientY != undefined && isHit({
-                        x: event.clientX,
-                        y: event.clientY
+                        x: event.clientX * self.device.devicePixelRatio,
+                        y: event.clientY * self.device.devicePixelRatio
                     }, cancelBtn.input)) {
                     return;
                 } else {
@@ -67,8 +67,8 @@ var GoFullScreen = (function (Event, Width, Height, installOneTimeTap, isHit) {
                         for (var i = 0; i < touches.length; i++) {
                             var touch = touches[i];
                             if (isHit({
-                                    x: touch.clientX,
-                                    y: touch.clientY
+                                    x: touch.clientX * self.device.devicePixelRatio,
+                                    y: touch.clientY * self.device.devicePixelRatio
                                 }, cancelBtn.input)) {
                                 return;
                             }

@@ -1,5 +1,5 @@
 var StartScreen = (function (drawClouds, drawIcons, Width, Height, Font, drawButtons, document, installOneTimeTap,
-    Event, window, Orientation) {
+    Event, window, Orientation, getDevicePixelRatio, Math) {
     "use strict";
 
     function StartScreen(services) {
@@ -47,14 +47,24 @@ var StartScreen = (function (drawClouds, drawIcons, Width, Height, Font, drawBut
             return startButton;
         }
 
-        var startButton; // = installFullScreen();
+        var startButton = installFullScreen();
 
-        goFullScreen(); // todo remove
+        //goFullScreen(); // todo remove
 
         function goFullScreen() {
             if (startButton)
                 self.buttons.remove(startButton);
             self.timer.doLater(function () {
+
+                // only good knows why
+                var devicePixelRatio = getDevicePixelRatio();
+                self.device.width = Math.floor(window.innerWidth * devicePixelRatio);
+                self.device.height = Math.floor(window.innerHeight * devicePixelRatio);
+                self.device.cssHeight = window.innerHeight;
+                self.device.cssWidth = window.innerWidth;
+                self.device.devicePixelRatio = devicePixelRatio;
+                self.device.forceResize();
+
                 drawButtons(self.buttons, self.messages, self.timer, toNextScene).forEach(function (elem) {
                     buttons.push(elem);
                 });
@@ -203,4 +213,4 @@ var StartScreen = (function (drawClouds, drawIcons, Width, Height, Font, drawBut
 
     return StartScreen;
 })(drawClouds, drawIcons, Width, Height, Font, drawButtons, window.document, installOneTimeTap, Event, window,
-    Orientation);
+    Orientation, getDevicePixelRatio, Math);

@@ -11,6 +11,9 @@ var WorldView = (function (calcCantorPairing, iterateEntries) {
         this.bodyParts = {};
 
         this.tree = [];
+
+        this.moveSpeed = 10;
+        this.revertSpeed = 10;
     }
 
     var colors = ['green', 'lightgreen', 'darkgreen', 'blue', 'lightblue', 'darkblue'];
@@ -92,7 +95,8 @@ var WorldView = (function (calcCantorPairing, iterateEntries) {
                 this.__reverseSnake(onlyChanged(array));
 
             } else if (change.type == 'changed') {
-                this.gridViewHelper.move(this.bodyParts[change.tile], change.newU, change.newV, 30, itIsOver);
+                this.gridViewHelper.move(this.bodyParts[change.tile], change.newU, change.newV, this.moveSpeed,
+                    itIsOver);
                 callbacks++;
 
             } else if (change.type == 'removed') {
@@ -135,7 +139,8 @@ var WorldView = (function (calcCantorPairing, iterateEntries) {
 
         changeSet.slice().reverse().forEach(function (change, index, array) {
             if (change.type == 'changed') {
-                this.gridViewHelper.move(this.bodyParts[change.tile], change.oldU, change.oldV, 10, itIsOver);
+                this.gridViewHelper.move(this.bodyParts[change.tile], change.oldU, change.oldV, this.revertSpeed,
+                    itIsOver);
                 callbacks++;
             } else if (change.type == 'reversed') {
                 this.__reverseSnake(onlyChanged(array));
