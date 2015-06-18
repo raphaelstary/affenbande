@@ -215,7 +215,11 @@ var World = (function () {
     World.prototype.__applyGravity = function (snake, callback) {
         var gravityHistory = this.domainGridHelper.applyGravity(snake);
         this.history.push(gravityHistory);
-        this.worldView.moveSnake(gravityHistory.changes, callback);
+        if (this.domainGridHelper.isSnakeOutOfMapNext(snake)) {
+            this.worldView.fallDown(gravityHistory.changes, callback);
+        } else {
+            this.worldView.moveSnake(gravityHistory.changes, callback);
+        }
     };
 
     World.prototype.undoLastMove = function (callback) {

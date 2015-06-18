@@ -82,6 +82,22 @@ var WorldView = (function (calcCantorPairing, iterateEntries) {
         drawable.scale = this.gridViewHelper.getMonkeyBaseScale();
     };
 
+    WorldView.prototype.fallDown = function (changeSet, callback) {
+        var callbacks = 0;
+
+        function itIsOver() {
+            if (--callbacks == 0 && callback)
+                callback();
+        }
+
+        changeSet.forEach(function (change) {
+            this.gridViewHelper.move(this.bodyParts[change.tile], change.newU, change.newV + 10, this.moveSpeed + 10,
+                itIsOver);
+            callbacks++;
+
+        }, this);
+    };
+
     WorldView.prototype.moveSnake = function (changeSet, callback) {
         var callbacks = 0;
 
