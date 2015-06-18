@@ -46,9 +46,13 @@ var WorldView = (function (calcCantorPairing, iterateEntries) {
                 'monkey_grey');
         }, this);
 
-        snakes.forEach(function (snakeParts, index) {
-            snakeParts.forEach(function (part) {
-                this.bodyParts[part.type] = this.gridViewHelper.create(part.u, part.v, 'monkey');
+        snakes.forEach(function (snake) {
+            snake.forEach(function (part, index, array) {
+                if (index == 0 || index == array.length - 1) {
+                    this.bodyParts[part.type] = this.gridViewHelper.create(part.u, part.v, 'monkey_head');
+                } else {
+                    this.bodyParts[part.type] = this.gridViewHelper.create(part.u, part.v, 'monkey');
+                }
             }, this);
         }, this);
 
