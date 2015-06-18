@@ -133,7 +133,9 @@ var WorldView = (function (calcCantorPairing, iterateEntries) {
                 }
 
             } else if (change.type == 'new') {
-                this.bodyParts[change.tile] = this.gridViewHelper.create(change.newU, change.newV, 'monkey');
+                this.bodyParts[change.tile] = this.gridViewHelper.create(change.newU, change.newV, 'monkey_head');
+                if (change.tile - 1 % 20 != 0)
+                    this.bodyParts[change.tile - 1].data = this.stage.getGraphic('monkey');
             }
         }, this);
     };
@@ -177,6 +179,7 @@ var WorldView = (function (calcCantorPairing, iterateEntries) {
 
             } else if (change.type == 'new') {
                 var forRemoval = this.bodyParts[change.tile];
+                this.bodyParts[change.tile - 1].data = this.stage.getGraphic('monkey_head');
                 this.stage.remove(forRemoval);
                 delete this.bodyParts[change.tile];
             }
