@@ -58,8 +58,10 @@ var LevelOverview = (function (drawIcons, drawClouds, Width, Height, GameScreen)
 
             var positionX = ((levelNr - 1) % 4) + 1;
 
-            var goldCoconut = self.stage.drawRectangle(Width.get(5, positionX), Height.get(6, Math.ceil(levelNr / 4)),
-                getCoconutWidth, getCoconutHeight, 'brown', true, undefined, 4);
+            var goldCoconut = self.stage.drawFresh(Width.get(5, positionX), Height.get(6, Math.ceil(levelNr / 4)),
+                'coconut', 4, undefined, 0.5);
+            //var goldCoconut = self.stage.drawRectangle(Width.get(5, positionX), Height.get(6, Math.ceil(levelNr / 4)),
+            //    getCoconutWidth, getCoconutHeight, 'brown', true, undefined, 4);
 
             function getX() {
                 return goldCoconut.x;
@@ -69,19 +71,20 @@ var LevelOverview = (function (drawIcons, drawClouds, Width, Height, GameScreen)
                 return goldCoconut.y;
             }
 
-            function getWidth() {
-                return goldCoconut.getHeight() * 2;
+            function getWidth(width) {
+                return Width.get(5)(width);
             }
 
-            function getHeight() {
-                return goldCoconut.getHeight() * 2;
+            function getHeight(height) {
+                return Height.get(6)(height);
             }
 
-            var numberLabel = self.stage.drawText(getX, getY, levelNr.toString(), Font._20, 'GameFont', 'black', 5,
+            var numberLabel = self.stage.drawText(getX, getY, levelNr.toString(), Font._15, 'GameFont', 'black', 5,
                 [goldCoconut]);
 
             var wrapper = self.stage.drawRectangleWithInput(getX, getY, getWidth, getHeight, 'white', true, undefined,
                 3, 0.5, undefined, undefined, [goldCoconut]);
+            self.stage.hide(wrapper.drawable);
             self.tap.add(wrapper.input, getLevelCallback(levelNr));
             drawables.push(goldCoconut);
             drawables.push(numberLabel);
