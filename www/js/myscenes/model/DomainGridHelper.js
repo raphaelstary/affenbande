@@ -133,9 +133,19 @@ var DomainGridHelper = (function (iterateSomeEntries) {
 
     DomainGridHelper.prototype.isSnakeJustOnSpike = function (snake) {
         var neighbors = this.gridHelper.getBottomNeighborsComplement(snake);
-        return neighbors.every(function (tile) {
-            return tile.type === Tile.SKY || tile.type === Tile.SPIKE;
+        return neighbors.length > 0 && neighbors.every(function (tile) {
+                return tile.type === Tile.SKY || tile.type === Tile.SPIKE;
+            });
+    };
+
+    DomainGridHelper.prototype.getHurtingSpikes = function (snake) {
+        var neighbors = this.gridHelper.getBottomNeighborsComplement(snake);
+        var spikes = [];
+        neighbors.forEach(function (tile) {
+            if (tile.type === Tile.SPIKE)
+                spikes.push(tile);
         });
+        return spikes;
     };
 
     DomainGridHelper.prototype.isSnakeOutOfMapNext = function (snake) {

@@ -8,7 +8,7 @@ var WorldView = (function (calcCantorPairing, iterateEntries, Transition, wrap) 
 
         this.newParts = {};
         this.ground = [];
-        this.spikes = [];
+        this.spikes = {};
         this.bodyParts = {};
 
         this.tree = [];
@@ -19,6 +19,7 @@ var WorldView = (function (calcCantorPairing, iterateEntries, Transition, wrap) 
         this.highlightFadeOutSpeed = is30fps ? 14 : 29;
         this.flashFadeInSpeed = is30fps ? 1 : 2;
         this.flashFadeOutSpeed = is30fps ? 2 : 4;
+        this.flashDuration = is30fps ? 15 : 30;
     }
 
     WorldView.prototype.preDestroy = function () {
@@ -31,8 +32,8 @@ var WorldView = (function (calcCantorPairing, iterateEntries, Transition, wrap) 
         this.ground.forEach(function (tile) {
             this.stage.remove(tile);
         }, this);
-        this.spikes.forEach(function (tile) {
-            this.stage.remove(tile);
+        iterateEntries(this.spikes, function (part) {
+            this.stage.remove(part);
         }, this);
         this.stage.remove(this.goal);
         this.tree.forEach(this.stage.remove.bind(this.stage));
@@ -59,8 +60,9 @@ var WorldView = (function (calcCantorPairing, iterateEntries, Transition, wrap) 
             }, this);
         }, this);
 
-        spikes.forEach(function (spike) {
-            this.spikes.push(this.gridViewHelper.create(spike.u, spike.v, 'spike'));
+        spikes.forEach(function (newPart) {
+            this.spikes[calcCantorPairing(newPart.u, newPart.v)] = this.gridViewHelper.create(newPart.u, newPart.v,
+                'spike');
         }, this);
 
         this.goal = this.gridViewHelper.create(goal.u, goal.v, 'coconut');
@@ -209,10 +211,12 @@ var WorldView = (function (calcCantorPairing, iterateEntries, Transition, wrap) 
         }
 
         snake.forEach(function (tile) {
-            var drawable = getBodyDrawable(tile);
+            var drawable = this.bodyParts[tile.type];
             var dep = [drawable];
             var white = this.stage.drawFresh(wrap(drawable, 'x'), wrap(drawable, 'y'), 'monkey_white', 6, dep);
+            white.scale = drawable.scale;
             var black = this.stage.drawFresh(wrap(drawable, 'x'), wrap(drawable, 'y'), 'monkey_black', 7, dep, 0);
+            black.scale = drawable.scale;
             this.stage.animateAlphaPattern(black, [
                 {
                     value: 1,
@@ -230,7 +234,7 @@ var WorldView = (function (calcCantorPairing, iterateEntries, Transition, wrap) 
                 self.stage.remove(white);
                 self.stage.remove(black);
                 myCallback();
-            }, 30);
+            }, this.flashDuration);
         }, this);
     };
 
@@ -242,13 +246,14 @@ var WorldView = (function (calcCantorPairing, iterateEntries, Transition, wrap) 
             return function () {
                 if (--counter === 0 && callback) {
                     counter = 0;
-                    callback();
+                    if (callback)
+                        callback();
                 }
             };
         }
 
         spikes.forEach(function (spikeTile) {
-            var spike = getSpikeDrawable(spikeTile);
+            var spike = this.spikes[calcCantorPairing(spikeTile.u, spikeTile.v)];
 
             function getX() {
                 return spike.x;
@@ -259,6 +264,7 @@ var WorldView = (function (calcCantorPairing, iterateEntries, Transition, wrap) 
             }
 
             var white = this.stage.drawFresh(getX, getY, 'spike_white', 6, [spike], 0);
+            white.scale = spike.scale;
             this.stage.animateAlphaPattern(white, [
                 {
                     value: 1,

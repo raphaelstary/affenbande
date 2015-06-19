@@ -119,12 +119,25 @@ var World = (function () {
                 });
 
             } else {
+                var badSnake;
+                var badSpikes = false;
                 var someUndo = movedSnakes.some(function (snake) {
-                    return self.domainGridHelper.isSnakeJustOnSpike(snake) ||
-                        self.domainGridHelper.isSnakeOutOfMapNext(snake);
+                    badSpikes = self.domainGridHelper.isSnakeJustOnSpike(snake);
+                    var undoWillHappen = badSpikes || self.domainGridHelper.isSnakeOutOfMapNext(snake);
+                    if (undoWillHappen)
+                        badSnake = snake;
+                    return undoWillHappen;
                 });
                 if (someUndo) {
-                    self.undoLastMove(callback);
+                    if (badSpikes) {
+                        self.worldView.highlightSpikes(self.domainGridHelper.getHurtingSpikes(badSnake), undefined);
+                        self.worldView.flashHighlightSnake(badSnake, function () {
+                            self.undoLastMove(callback);
+                        });
+                    } else {
+                        self.undoLastMove(callback);
+                    }
+
                 } else if (callback)
                     callback();
             }

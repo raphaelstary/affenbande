@@ -30,7 +30,7 @@ var GridViewHelper = (function (Height, Transition, Math) {
 
     GridViewHelper.prototype.create = function (u, v, name) {
         var drawable = this.stage.drawFresh(this.__getX(u), this.__getY(v), name, 4);
-        if (name == 'monkey') {
+        if (name == 'monkey' || name == 'monkey_head' || name == 'monkey_white' || name == 'monkey_black') {
             drawable.scale = this.__calcBaseScale(drawable.getHeight() * 0.9);
             this.monkeyBaseScale = drawable.scale;
         } else {
