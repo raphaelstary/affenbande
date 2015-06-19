@@ -19,7 +19,7 @@ var WorldView = (function (calcCantorPairing, iterateEntries, Transition, wrap) 
         this.highlightFadeOutSpeed = is30fps ? 14 : 29;
         this.flashFadeInSpeed = is30fps ? 1 : 2;
         this.flashFadeOutSpeed = is30fps ? 2 : 4;
-        this.flashDuration = is30fps ? 15 : 30;
+        this.flashDuration = is30fps ? 10 : 20;
     }
 
     WorldView.prototype.preDestroy = function () {
