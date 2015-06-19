@@ -20,9 +20,9 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
         var taps = [];
         var buttons = [];
         var topY = Height.get(96, 5);
-        var topOffset = Height.get(48, 5)
-        drawables.push(this.stage.drawRectangle(Width.HALF, topY, Width.FULL, topOffset, '#000',
-            true, undefined, 2, 0.8));
+        var topOffset = Height.get(48, 5);
+        drawables.push(this.stage.drawRectangle(Width.HALF, topY, Width.FULL, topOffset, '#000', true, undefined, 3,
+            0.8));
 
         var icons = drawIcons(self.stage, self.sceneStorage, self.events, self.buttons, self.messages, self.device,
             self.sounds, self.tap, true, topY);
@@ -41,7 +41,7 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
         var back = self.buttons.createSecondaryButton(Width.get(32, 8), topY,
             self.messages.get('play', 'back_to_map'), function () {
                 self.timer.doLater(nextScene, 6);
-            }, 3, false);
+            }, 4, false);
         buttons.push(back);
         var undo = self.buttons.createPrimaryButton(Width.get(32, 25), topY,
             self.messages.get('play', 'undo'),
@@ -57,7 +57,7 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
                     undo.used = false;
                     shaker.startSmallShake();
                 }
-            }, 3, true);
+            }, 4, true);
         buttons.push(undo);
         undo.reset = false;
         var shaker = new ScreenShaker(self.device);

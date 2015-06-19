@@ -43,6 +43,8 @@ var GridViewHelper = (function (Height, Transition, Math) {
         var drawable = this.stage.drawFresh(this.__getX(u), this.__getY(v), name, zIndex);
         if (name == 'tree_up' || name == 'tree_down') {
             drawable.scale = this.__calcBaseScale(drawable.getHeight()) * 1.1;
+        } else if (name == 'tree_small') {
+            drawable.scale = this.__calcBaseScale(drawable.getHeight()) * 0.75;
         } else {
             drawable.scale = this.__calcBaseScale(drawable.getHeight());
         }

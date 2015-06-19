@@ -1,8 +1,9 @@
-var WorldView = (function (calcCantorPairing, iterateEntries) {
+var WorldView = (function (calcCantorPairing, iterateEntries, Transition, wrap) {
     "use strict";
 
-    function WorldView(stage, gridViewHelper) {
+    function WorldView(stage, timer, gridViewHelper, is30fps) {
         this.stage = stage;
+        this.timer = timer;
         this.gridViewHelper = gridViewHelper;
 
         this.newParts = {};
@@ -12,11 +13,13 @@ var WorldView = (function (calcCantorPairing, iterateEntries) {
 
         this.tree = [];
 
-        this.moveSpeed = 10;
-        this.revertSpeed = 10;
+        this.moveSpeed = is30fps ? 5 : 10;
+        this.revertSpeed = is30fps ? 5 : 10;
+        this.highlightFadeInSpeed = is30fps ? 4 : 8;
+        this.highlightFadeOutSpeed = is30fps ? 14 : 29;
+        this.flashFadeInSpeed = is30fps ? 1 : 2;
+        this.flashFadeOutSpeed = is30fps ? 2 : 4;
     }
-
-    var colors = ['green', 'lightgreen', 'darkgreen', 'blue', 'lightblue', 'darkblue'];
 
     WorldView.prototype.preDestroy = function () {
         iterateEntries(this.newParts, function (part) {
@@ -63,15 +66,15 @@ var WorldView = (function (calcCantorPairing, iterateEntries) {
         this.goal = this.gridViewHelper.create(goal.u, goal.v, 'coconut');
 
         treeUpTiles.forEach(function (treeUpTile) {
-            this.tree.push(this.gridViewHelper.createBackground(treeUpTile.u, treeUpTile.v, 'tree_up', 3));
+            this.tree.push(this.gridViewHelper.createBackground(treeUpTile.u, treeUpTile.v, 'tree_up', 2));
         }, this);
 
         treeDownTiles.forEach(function (treeDownTile) {
-            this.tree.push(this.gridViewHelper.createBackground(treeDownTile.u, treeDownTile.v, 'tree_down', 3));
+            this.tree.push(this.gridViewHelper.createBackground(treeDownTile.u, treeDownTile.v, 'tree_down', 2));
         }, this);
 
         treeSmallTiles.forEach(function (treeSmallTile) {
-            this.tree.push(this.gridViewHelper.createBackground(treeSmallTile.u, treeSmallTile.v, 'tree_small', 2));
+            this.tree.push(this.gridViewHelper.createBackground(treeSmallTile.u, treeSmallTile.v, 'tree_small', 1));
         }, this);
 
     };
@@ -192,5 +195,84 @@ var WorldView = (function (calcCantorPairing, iterateEntries) {
         });
     }
 
+    WorldView.prototype.flashHighlightSnake = function (snake, callback) {
+        var counter = 0;
+
+        function getCallbackWithCounter(callback) {
+            counter++;
+            return function () {
+                if (--counter === 0 && callback) {
+                    counter = 0;
+                    callback();
+                }
+            };
+        }
+
+        snake.forEach(function (tile) {
+            var drawable = getBodyDrawable(tile);
+            var dep = [drawable];
+            var white = this.stage.drawFresh(wrap(drawable, 'x'), wrap(drawable, 'y'), 'monkey_white', 6, dep);
+            var black = this.stage.drawFresh(wrap(drawable, 'x'), wrap(drawable, 'y'), 'monkey_black', 7, dep, 0);
+            this.stage.animateAlphaPattern(black, [
+                {
+                    value: 1,
+                    duration: this.flashFadeInSpeed,
+                    easing: Transition.LINEAR
+                }, {
+                    value: 0,
+                    duration: this.flashFadeOutSpeed,
+                    easing: Transition.LINEAR
+                }
+            ], true);
+            var myCallback = getCallbackWithCounter(callback);
+            var self = this;
+            this.timer.doLater(function () {
+                self.stage.remove(white);
+                self.stage.remove(black);
+                myCallback();
+            }, 30);
+        }, this);
+    };
+
+    WorldView.prototype.highlightSpikes = function (spikes, callback) {
+        var counter = 0;
+
+        function getCallbackWithCounter(callback) {
+            counter++;
+            return function () {
+                if (--counter === 0 && callback) {
+                    counter = 0;
+                    callback();
+                }
+            };
+        }
+
+        spikes.forEach(function (spikeTile) {
+            var spike = getSpikeDrawable(spikeTile);
+
+            function getX() {
+                return spike.x;
+            }
+
+            function getY() {
+                return spike.y;
+            }
+
+            var white = this.stage.drawFresh(getX, getY, 'spike_white', 6, [spike], 0);
+            this.stage.animateAlphaPattern(white, [
+                {
+                    value: 1,
+                    duration: this.highlightFadeInSpeed,
+                    easing: Transition.LINEAR
+                }, {
+                    value: 0,
+                    duration: this.highlightFadeOutSpeed,
+                    easing: Transition.LINEAR,
+                    callback: getCallbackWithCounter(callback)
+                }
+            ]);
+        }, this);
+    };
+
     return WorldView;
-})(calcCantorPairing, iterateEntries);
+})(calcCantorPairing, iterateEntries, Transition, wrap);

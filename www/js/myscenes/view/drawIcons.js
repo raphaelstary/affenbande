@@ -5,7 +5,7 @@ var drawIcons = (function (Width, Height, Font, Event, showMenu) {
         var drawables = [];
         var taps = [];
 
-        var icon = stage.drawFresh(Width.get(32, 2), topY || Height.get(48, 2), isInGame ? 'pause' : 'settings', 4);
+        var icon = stage.drawFresh(Width.get(32, 2), topY || Height.get(48, 2), isInGame ? 'pause' : 'settings', 5);
 
         function getX() {
             return icon.x;
@@ -23,7 +23,7 @@ var drawIcons = (function (Width, Height, Font, Event, showMenu) {
             return icon.getHeight() * 2;
         }
 
-        var wrapper = stage.drawRectangleWithInput(getX, getY, getWidth, getHeight, '#fff', true, undefined, 3, 0.5,
+        var wrapper = stage.drawRectangleWithInput(getX, getY, getWidth, getHeight, '#fff', true, undefined, 4, 0.5,
             undefined, undefined, [icon]);
         tap.add(wrapper.input, goToSettings);
         drawables.push(icon);
