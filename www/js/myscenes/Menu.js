@@ -1,4 +1,5 @@
-var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, PauseMenu, Credits) {
+var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, PauseMenu, Credits, MoveTutorial,
+    SpikeTutorial, UndoTutorial) {
     "use strict";
 
     function Menu(services) {
@@ -14,7 +15,10 @@ var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, Pa
     var SubScenes = {
         SETTINGS: 'settings',
         PAUSE_MENU: 'pause_menu',
-        CREDITS: 'credits'
+        CREDITS: 'credits',
+        MOVE_TUTORIAL: 'move_tutorial',
+        SPIKE_TUTORIAL: 'spike_tutorial',
+        UNDO_TUTORIAL: 'undo_tutorial'
     };
 
     Menu.prototype.show = function (next) {
@@ -39,6 +43,12 @@ var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, Pa
                 callback = showPauseMenu;
             } else if (self.sceneStorage.menuScene == SubScenes.CREDITS) {
                 callback = showCredits;
+            } else if (self.sceneStorage.menuScene == SubScenes.MOVE_TUTORIAL) {
+                callback = showMoveTutorial;
+            } else if (self.sceneStorage.menuScene == SubScenes.SPIKE_TUTORIAL) {
+                callback = showSpikeTutorial;
+            } else if (self.sceneStorage.menuScene == SubScenes.UNDO_TUTORIAL) {
+                callback = showUndoTutorial;
             }
             self.stage.move(backBlur, Width.HALF, Height.HALF, 15, Transition.EASE_IN_EXPO, false, callback);
         }
@@ -95,7 +105,38 @@ var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, Pa
             });
             credits.show(hideMenu);
         }
+
+        function showMoveTutorial() {
+            var tutorial = new MoveTutorial({
+                stage: self.stage,
+                buttons: self.buttons,
+                messages: self.messages,
+                sceneStorage: self.sceneStorage
+            });
+            tutorial.show(hideMenu);
+        }
+
+        function showSpikeTutorial() {
+            var tutorial = new SpikeTutorial({
+                stage: self.stage,
+                buttons: self.buttons,
+                messages: self.messages,
+                sceneStorage: self.sceneStorage
+            });
+            tutorial.show(hideMenu);
+        }
+
+        function showUndoTutorial() {
+            var tutorial = new UndoTutorial({
+                stage: self.stage,
+                buttons: self.buttons,
+                messages: self.messages,
+                sceneStorage: self.sceneStorage
+            });
+            tutorial.show(hideMenu);
+        }
     };
 
     return Menu;
-})(Width, Height, changeSign, Transition, Event, Settings, PauseMenu, Credits);
+})(Width, Height, changeSign, Transition, Event, Settings, PauseMenu, Credits, MoveTutorial, SpikeTutorial,
+    UndoTutorial);

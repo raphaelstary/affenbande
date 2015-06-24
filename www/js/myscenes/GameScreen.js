@@ -1,4 +1,4 @@
-var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClouds) {
+var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClouds, showMenu) {
     "use strict";
 
     function GameScreen(services) {
@@ -47,13 +47,12 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
             }, 4, false, undefined, undefined, undefined, topOffset);
         buttons.push(revert);
 
-        var back = self.buttons.createSecondaryButton(Width.get(32, 8), topY,
-            self.messages.get('play', 'back_to_map'), function () {
+        var back = self.buttons.createSecondaryButton(Width.get(32, 8), topY, self.messages.get('play', 'back_to_map'),
+            function () {
                 self.timer.doLater(nextScene, 6);
             }, 4, false, undefined, undefined, undefined, topOffset);
         buttons.push(back);
-        var undo = self.buttons.createPrimaryButton(Width.get(32, 25), topY,
-            self.messages.get('play', 'undo'),
+        var undo = self.buttons.createPrimaryButton(Width.get(32, 25), topY, self.messages.get('play', 'undo'),
             function () {
                 undo.used = true;
                 if (!world.undoLastMove(function () {
@@ -109,7 +108,30 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
                 next();
             }
         }
+
+        if (this.sceneStorage.currentLevel == 1) {
+            self.sceneStorage.menuScene = 'move_tutorial';
+            self.events.fireSync(Event.PAUSE);
+            showMenu(self.stage, self.buttons, self.messages, self.events, self.sceneStorage, self.device, self.sounds,
+                function () {
+                    // next callback
+                });
+        } else if (this.sceneStorage.currentLevel == 11) {
+            self.sceneStorage.menuScene = 'spike_tutorial';
+            self.events.fireSync(Event.PAUSE);
+            showMenu(self.stage, self.buttons, self.messages, self.events, self.sceneStorage, self.device, self.sounds,
+                function () {
+                    // next callback
+                });
+        } else if (this.sceneStorage.currentLevel == 6) {
+            self.sceneStorage.menuScene = 'undo_tutorial';
+            self.events.fireSync(Event.PAUSE);
+            showMenu(self.stage, self.buttons, self.messages, self.events, self.sceneStorage, self.device, self.sounds,
+                function () {
+                    // next callback
+                });
+        }
     };
 
     return GameScreen;
-})(PlayFactory, Event, drawIcons, ScreenShaker, drawClouds);
+})(PlayFactory, Event, drawIcons, ScreenShaker, drawClouds, showMenu);
