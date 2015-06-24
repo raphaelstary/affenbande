@@ -14,7 +14,8 @@ var Grid = (function () {
         }
 
         this.xTiles = foreground[0].length;
-        this.yTiles = foreground.length;
+        this.yTiles = foreground.length - 1;
+        this.__yTiles = foreground.length;
 
         this.backgroundMap = [];
         var background = level.back;
@@ -29,13 +30,13 @@ var Grid = (function () {
     }
 
     Grid.prototype.get = function (u, v) {
-        if (u < 0 || u >= this.xTiles || v < 0 || v >= this.yTiles)
+        if (u < 0 || u >= this.xTiles || v < 0 || v >= this.__yTiles)
             return;
         return this.map[v][u];
     };
 
     Grid.prototype.getBackground = function (u, v) {
-        if (u < 0 || u >= this.xTiles || v < 0 || v >= this.yTiles)
+        if (u < 0 || u >= this.xTiles || v < 0 || v >= this.__yTiles)
             return;
         return this.backgroundMap[v][u];
     };
