@@ -37,6 +37,15 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
         drawClouds(this.stage).forEach(function (elem) {
             drawables.push(elem);
         });
+        var itIsARevert = false;
+        var revert = self.buttons.createSecondaryButton(Width.get(32, 16), topY,
+            self.messages.get('play', 'revert_level'), function () {
+                self.timer.doLater(function () {
+                    itIsARevert = true;
+                    nextScene();
+                }, 6);
+            }, 4, false, undefined, undefined, undefined, topOffset);
+        buttons.push(revert);
 
         var back = self.buttons.createSecondaryButton(Width.get(32, 8), topY,
             self.messages.get('play', 'back_to_map'), function () {
@@ -94,7 +103,11 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
             drawables.forEach(self.stage.remove.bind(self.stage));
             buttons.forEach(self.buttons.remove.bind(self.buttons));
 
-            next();
+            if (itIsARevert) {
+                self.show(next);
+            } else {
+                next();
+            }
         }
     };
 

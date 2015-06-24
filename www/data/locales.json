@@ -44,7 +44,8 @@
         },
         "play": {
             "undo": "undo",
-            "back_to_map": "menu"
+            "back_to_map": "menu",
+            "revert_level": "revert"
         }
     },
     "de": {
@@ -92,7 +93,8 @@
         },
         "play": {
             "undo": "zur\u00FCck",
-            "back_to_map": "Men\u00FC"
+            "back_to_map": "Men\u00FC",
+            "revert_level": "r\u00FCcksetzen"
         }
     }
 }
