@@ -41,7 +41,7 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
         var back = self.buttons.createSecondaryButton(Width.get(32, 8), topY,
             self.messages.get('play', 'back_to_map'), function () {
                 self.timer.doLater(nextScene, 6);
-            }, 4, false);
+            }, 4, false, undefined, undefined, undefined, topOffset);
         buttons.push(back);
         var undo = self.buttons.createPrimaryButton(Width.get(32, 25), topY,
             self.messages.get('play', 'undo'),
@@ -49,15 +49,13 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
                 undo.used = true;
                 if (!world.undoLastMove(function () {
                         undo.background.alpha = 0.5;
-                        //undo.background.data.filled = false;
                         undo.used = false;
                     })) {
                     undo.background.alpha = 0.5;
-                    //undo.background.data.filled = false;
                     undo.used = false;
                     shaker.startSmallShake();
                 }
-            }, 4, true);
+            }, 4, true, undefined, undefined, undefined, topOffset);
         buttons.push(undo);
         undo.reset = false;
         var shaker = new ScreenShaker(self.device);

@@ -24,7 +24,7 @@ var drawIcons = (function (Width, Height, Font, Event, showMenu) {
         }
 
         var wrapper = stage.drawRectangleWithInput(getX, getY, getWidth, getHeight, '#fff', true, undefined, 4, 0.5,
-            undefined, undefined, [icon]);
+            undefined, undefined, [icon], undefined, Height.get(48, 5));
         tap.add(wrapper.input, goToSettings);
         drawables.push(icon);
         drawables.push(wrapper.drawable);
