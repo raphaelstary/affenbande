@@ -38,19 +38,19 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
             drawables.push(elem);
         });
         var itIsARevert = false;
-        var revert = self.buttons.createSecondaryButton(Width.get(32, 16), topY,
+        var revert = self.buttons.createSecondaryButton(Width.get(32, 13), topY,
             self.messages.get('play', 'revert_level'), function () {
                 self.timer.doLater(function () {
                     itIsARevert = true;
                     nextScene();
                 }, 6);
-            }, 4, false, undefined, undefined, undefined, topOffset);
+            }, 4, false, Width.get(32, 5), undefined, undefined, topOffset);
         buttons.push(revert);
 
-        var back = self.buttons.createSecondaryButton(Width.get(32, 8), topY, self.messages.get('play', 'back_to_map'),
+        var back = self.buttons.createSecondaryButton(Width.get(32, 7), topY, self.messages.get('play', 'back_to_map'),
             function () {
                 self.timer.doLater(nextScene, 6);
-            }, 4, false, undefined, undefined, undefined, topOffset);
+            }, 4, false, Width.get(32, 5), undefined, undefined, topOffset);
         buttons.push(back);
         var undo = self.buttons.createPrimaryButton(Width.get(32, 25), topY, self.messages.get('play', 'undo'),
             function () {
@@ -116,7 +116,7 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
                 function () {
                     // next callback
                 });
-        } else if (this.sceneStorage.currentLevel == 11) {
+        } else if (this.sceneStorage.currentLevel == 11111) {
             self.sceneStorage.menuScene = 'spike_tutorial';
             self.events.fireSync(Event.PAUSE);
             showMenu(self.stage, self.buttons, self.messages, self.events, self.sceneStorage, self.device, self.sounds,

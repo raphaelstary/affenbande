@@ -16,12 +16,15 @@ var MoveTutorial = (function (Width, Height, Font) {
         var self = this;
         var drawables = [];
 
-        drawables.push(self.stage.drawText(Width.HALF, Height.get(48, 16), "Test", Font._15, FONT, LIGHT_GREY, 7));
+        drawables.push(self.stage.animateFresh(Height.HALF, Width.HALF, 'move_tutorial/move_tutorial', 62, true,
+            undefined, 7).drawable);
 
-        drawables.push(self.stage.drawText(Width.HALF, Height.get(48, 20), "Welcome", Font._40, FONT, WHITE, 7,
-            undefined, undefined, undefined, Width.get(10, 8), Height.get(80, 3)));
-        drawables.push(self.stage.drawText(Width.HALF, Height.get(48, 24), "super test", Font._40, FONT, WHITE, 7,
-            undefined, undefined, undefined, Width.get(10, 8), Height.get(80, 3)));
+        //drawables.push(self.stage.drawText(Width.HALF, Height.get(48, 16), "Test", Font._15, FONT, LIGHT_GREY, 7));
+
+        //drawables.push(self.stage.drawText(Width.HALF, Height.get(48, 20), "Welcome", Font._40, FONT, WHITE, 7,
+        //    undefined, undefined, undefined, Width.get(10, 8), Height.get(80, 3)));
+        //drawables.push(self.stage.drawText(Width.HALF, Height.get(48, 24), "super test", Font._40, FONT, WHITE, 7,
+        //    undefined, undefined, undefined, Width.get(10, 8), Height.get(80, 3)));
 
         self.sceneStorage.menuSceneButtons.push(self.buttons.createPrimaryButton(Width.HALF, Height.get(48, 34),
             self.messages.get('common_buttons', 'resume'), endScene, 7, false, getButtonWidth));

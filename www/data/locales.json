@@ -44,8 +44,8 @@
         },
         "play": {
             "undo": "undo",
-            "back_to_map": "menu",
-            "revert_level": "revert"
+            "back_to_map": "back",
+            "revert_level": "restart"
         }
     },
     "de": {
