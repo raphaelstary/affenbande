@@ -1,4 +1,4 @@
-var LevelOverview = (function (drawIcons, drawClouds, Width, Height, GameScreen) {
+var LevelOverview = (function (drawIcons, drawClouds, Width, Height, GameScreen, Event) {
     "use strict";
 
     function LevelOverview(services) {
@@ -97,6 +97,11 @@ var LevelOverview = (function (drawIcons, drawClouds, Width, Height, GameScreen)
             return function () {
                 deconstructScene();
 
+                self.events.fire(Event.ANALYTICS, {
+                    type: 'level_start',
+                    level: levelNr
+                });
+
                 var level = new GameScreen({
                     stage: self.stage,
                     timer: self.timer,
@@ -119,4 +124,4 @@ var LevelOverview = (function (drawIcons, drawClouds, Width, Height, GameScreen)
     };
 
     return LevelOverview;
-})(drawIcons, drawClouds, Width, Height, GameScreen);
+})(drawIcons, drawClouds, Width, Height, GameScreen, Event);

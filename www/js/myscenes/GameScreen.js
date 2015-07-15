@@ -49,6 +49,12 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
 
         var back = self.buttons.createSecondaryButton(Width.get(32, 7), topY, self.messages.get('play', 'back_to_map'),
             function () {
+                self.events.fire(Event.ANALYTICS, {
+                    type: 'level_end',
+                    action: 'abort',
+                    summary: 'missing',
+                    level: self.sceneStorage.currentLevel
+                });
                 self.timer.doLater(nextScene, 6);
             }, 4, false, Width.get(32, 5), undefined, undefined, topOffset);
         buttons.push(back);
@@ -74,6 +80,12 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
 
         var level = this.levels[this.sceneStorage.currentLevel];
         var world = PlayFactory.createWorld(this.stage, this.timer, this.device, level, function () {
+            self.events.fire(Event.ANALYTICS, {
+                type: 'level_end',
+                action: 'success',
+                summary: 'missing',
+                level: self.sceneStorage.currentLevel
+            });
             self.timer.doLater(nextScene, 30);
         }, topOffset);
         world.init();

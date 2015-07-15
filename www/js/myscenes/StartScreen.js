@@ -1,5 +1,5 @@
 var StartScreen = (function (drawClouds, drawIcons, Width, Height, Font, drawButtons, document, installOneTimeTap,
-    Event, window, Orientation, getDevicePixelRatio, Math) {
+    Event, window, Orientation, getDevicePixelRatio, Math, sendSystemEvent, Stats, checkAndSet30fps) {
     "use strict";
 
     function StartScreen(services) {
@@ -17,6 +17,26 @@ var StartScreen = (function (drawClouds, drawIcons, Width, Height, Font, drawBut
 
     StartScreen.prototype.show = function (next) {
         var self = this;
+
+        var ms = this.stage.drawText(Width.get(10), Height.get(15), '0', Font._60, 'GameFont', 'white', 11);
+        var fps = this.stage.drawText(Width.get(10), Height.get(12), '0', Font._60, 'GameFont', 'white', 11);
+        var statsStart = this.events.subscribe(Event.TICK_START, Stats.start);
+        self.sceneStorage.msTotal = 0;
+        self.sceneStorage.msCount = 0;
+        self.sceneStorage.fpsTotal = 0;
+        self.sceneStorage.fpsCount = 0;
+        var statsRender = this.events.subscribe(Event.TICK_DRAW, function () {
+            ms.data.msg = Stats.getMs().toString() + " ms";
+            fps.data.msg = Stats.getFps().toString() + " fps";
+            self.sceneStorage.msTotal += Stats.getMs();
+            self.sceneStorage.msCount++;
+            self.sceneStorage.fpsTotal += Stats.getFps();
+            self.sceneStorage.fpsCount++;
+        });
+        var statsEnd = this.events.subscribe(Event.TICK_END, Stats.end);
+
+        sendSystemEvent(this.device, this.messages, this.events);
+
         var drawables = [];
         var buttons = [];
         var taps = [];
@@ -55,8 +75,13 @@ var StartScreen = (function (drawClouds, drawIcons, Width, Height, Font, drawBut
             if (startButton)
                 self.buttons.remove(startButton);
             self.timer.doLater(function () {
+                self.events.fire(Event.ANALYTICS, {
+                    type: 'pressed_start',
+                    fullScreen: self.device.isFullScreen(),
+                    orientation: self.device.orientation
+                });
 
-                // only good knows why
+                // only god knows why
                 var devicePixelRatio = getDevicePixelRatio();
                 self.device.width = Math.floor(window.innerWidth * devicePixelRatio);
                 self.device.height = Math.floor(window.innerHeight * devicePixelRatio);
@@ -199,6 +224,14 @@ var StartScreen = (function (drawClouds, drawIcons, Width, Height, Font, drawBut
         var itIsOver = false;
 
         function toNextScene() {
+            var fps = checkAndSet30fps(self.sceneStorage, self.stage);
+            self.events.fire(Event.ANALYTICS, {
+                type: 'pressed_play',
+                fullScreen: self.device.isFullScreen(),
+                orientation: self.device.orientation,
+                fps: fps.fps,
+                ms: fps.ms
+            });
             if (itIsOver)
                 return;
             itIsOver = true;
@@ -213,4 +246,4 @@ var StartScreen = (function (drawClouds, drawIcons, Width, Height, Font, drawBut
 
     return StartScreen;
 })(drawClouds, drawIcons, Width, Height, Font, drawButtons, window.document, installOneTimeTap, Event, window,
-    Orientation, getDevicePixelRatio, Math);
+    Orientation, getDevicePixelRatio, Math, sendSystemEvent, Stats, checkAndSet30fps);
