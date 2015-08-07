@@ -144,7 +144,7 @@ var StartScreen = (function (drawClouds, drawIcons, Width, Height, Font, drawBut
             });
 
             var isFs = self.device.requestFullScreen();
-            var locked = self.device.lockOrientation('portrait-primary');
+            var locked = self.device.isMobile ? self.device.lockOrientation('portrait-primary') : false;
 
             if (!locked && self.device.isMobile) {
 
