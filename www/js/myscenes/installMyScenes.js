@@ -23,6 +23,10 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
                     "tags": [
                         {
                             "id": "monkey1"
+                        }, {
+                            "position": "relativeToSize"
+                        }, {
+                            "anchor": "widthHalf"
                         }
                     ],
                     "viewId": "monkey1",
@@ -37,6 +41,10 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
                     "tags": [
                         {
                             "id": "monkey2"
+                        }, {
+                            "position": "relativeToSize"
+                        }, {
+                            "anchor": "widthHalf"
                         }
                     ],
                     "viewId": "monkey2",
@@ -51,6 +59,10 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
                     "tags": [
                         {
                             "id": "monkey3"
+                        }, {
+                            "position": "relativeToSize"
+                        }, {
+                            "anchor": "widthHalf"
                         }
                     ],
                     "viewId": "monkey3",
@@ -65,6 +77,10 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
                     "tags": [
                         {
                             "id": "monkey4"
+                        }, {
+                            "position": "relativeToSize"
+                        }, {
+                            "anchor": "widthHalf"
                         }
                     ],
                     "viewId": "monkey4",
@@ -79,6 +95,10 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
                     "tags": [
                         {
                             "id": "monkey5"
+                        }, {
+                            "position": "relativeToSize"
+                        }, {
+                            "anchor": "widthHalf"
                         }
                     ],
                     "viewId": "monkey5",
@@ -100,7 +120,14 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
                     "width": 237,
                     "height": 235,
                     "filename": "leave.png",
-                    "scale": 0.99
+                    "scale": 0.99,
+                    "tags": [
+                        {
+                            "position": "relativeToSize"
+                        }, {
+                            "anchor": "widthHalf"
+                        }
+                    ]
                 }, {
                     "type": "image",
                     "x": 734,
@@ -108,7 +135,14 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
                     "width": 237,
                     "height": 235,
                     "filename": "leave.png",
-                    "scale": 0.99
+                    "scale": 0.99,
+                    "tags": [
+                        {
+                            "position": "relativeToSize"
+                        }, {
+                            "anchor": "widthHalf"
+                        }
+                    ]
                 }, {
                     "type": "image",
                     "x": 514,
@@ -116,7 +150,14 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
                     "width": 237,
                     "height": 235,
                     "filename": "leave.png",
-                    "scale": 0.99
+                    "scale": 0.99,
+                    "tags": [
+                        {
+                            "position": "relativeToSize"
+                        }, {
+                            "anchor": "widthHalf"
+                        }
+                    ]
                 }
             ],
             "layer1": [
