@@ -6,6 +6,7 @@ var drawIcons = (function (Width, Height, Font, Event, showMenu) {
         var taps = [];
 
         var icon = stage.drawFresh(Width.get(32, 2), topY || Height.get(48, 2), isInGame ? 'pause' : 'settings', 5);
+        drawables.push(icon);
 
         function getX() {
             return icon.x;
@@ -26,7 +27,7 @@ var drawIcons = (function (Width, Height, Font, Event, showMenu) {
         var wrapper = stage.drawRectangleWithInput(getX, getY, getWidth, getHeight, '#fff', true, undefined, 4, 0.5,
             undefined, undefined, [icon], undefined, Height.get(48, 5));
         tap.add(wrapper.input, goToSettings);
-        drawables.push(icon);
+
         drawables.push(wrapper.drawable);
         taps.push(wrapper.input);
 

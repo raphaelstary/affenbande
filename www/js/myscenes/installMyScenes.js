@@ -108,8 +108,28 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
             "layer2": [
                 {
                     "type": "image",
-                    "x": 618,
-                    "y": 324,
+                    "x": 149,
+                    "y": 141,
+                    "width": 153,
+                    "height": 153,
+                    "filename": "settings.png"
+                }, {
+                    "type": "rectangle",
+                    "x": 201,
+                    "y": 192,
+                    "width": 402,
+                    "height": 385,
+                    "tags": [
+                        "input", {
+                            "tap": "goSettings"
+                        }
+                    ],
+                    "filled": false,
+                    "color": "#000000"
+                }, {
+                    "type": "image",
+                    "x": 621,
+                    "y": 327,
                     "width": 952,
                     "height": 157,
                     "filename": "logo.png"
@@ -167,7 +187,7 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
                     "text": {
                         "type": "text",
                         "x": 621,
-                        "y": 1606,
+                        "y": 1605,
                         "width": 154,
                         "height": 76,
                         "msg": "play",
@@ -178,27 +198,27 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
                     "input": {
                         "type": "rectangle",
                         "x": 621,
-                        "y": 1493,
+                        "y": 1492,
                         "width": 1191,
                         "height": 453,
                         "tags": [
-                            "input"
+                            "input", {
+                                "tap": "pressPlay"
+                            }
                         ],
                         "filled": false,
                         "color": "#000000"
                     },
                     "background": {
-                        "type": "rectangle",
+                        "type": "image",
                         "x": 621,
-                        "y": 1605,
+                        "y": 1604,
                         "width": 666,
                         "height": 169,
+                        "filename": "button.png",
                         "tags": [
                             "background"
-                        ],
-                        "alpha": 0.5,
-                        "filled": true,
-                        "color": "#ffffff"
+                        ]
                     }
                 }, {
                     "type": "button",
@@ -206,7 +226,7 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
                     "text": {
                         "type": "text",
                         "x": 620,
-                        "y": 1830,
+                        "y": 1829,
                         "width": 467,
                         "height": 81,
                         "msg": "more games",
@@ -217,27 +237,27 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
                     "input": {
                         "type": "rectangle",
                         "x": 621,
-                        "y": 1876,
+                        "y": 1875,
                         "width": 1191,
                         "height": 301,
                         "tags": [
-                            "input"
+                            "input", {
+                                "tap": "pressMore"
+                            }
                         ],
                         "filled": false,
                         "color": "#000000"
                     },
                     "background": {
-                        "type": "rectangle",
+                        "type": "image",
                         "x": 621,
-                        "y": 1831,
+                        "y": 1830,
                         "width": 666,
                         "height": 169,
+                        "filename": "button.png",
                         "tags": [
                             "background"
-                        ],
-                        "alpha": 0.5,
-                        "filled": true,
-                        "color": "#ffffff"
+                        ]
                     }
                 }
             ],
@@ -249,12 +269,6 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
                     "width": 329,
                     "height": 215,
                     "filename": "cloud_1.png",
-                    "tags": [
-                        {
-                            "id": "cloud1"
-                        }
-                    ],
-                    "viewId": "cloud1",
                     "scale": 1
                 }, {
                     "type": "image",
@@ -263,12 +277,6 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
                     "width": 237,
                     "height": 144,
                     "filename": "cloud_4.png",
-                    "tags": [
-                        {
-                            "id": "cloud2"
-                        }
-                    ],
-                    "viewId": "cloud2",
                     "scale": 1
                 }, {
                     "type": "image",
@@ -277,12 +285,6 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
                     "width": 251,
                     "height": 142,
                     "filename": "cloud_3.png",
-                    "tags": [
-                        {
-                            "id": "cloud3"
-                        }
-                    ],
-                    "viewId": "cloud3",
                     "scale": 1
                 }, {
                     "type": "image",
@@ -291,12 +293,6 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
                     "width": 390,
                     "height": 238,
                     "filename": "cloud_2.png",
-                    "tags": [
-                        {
-                            "id": "cloud4"
-                        }
-                    ],
-                    "viewId": "cloud4",
                     "scale": 1
                 }, {
                     "type": "image",
@@ -305,12 +301,6 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
                     "width": 329,
                     "height": 215,
                     "filename": "cloud_1.png",
-                    "tags": [
-                        {
-                            "id": "cloud5"
-                        }
-                    ],
-                    "viewId": "cloud5",
                     "scale": 1
                 }
             ]
@@ -333,8 +323,22 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
         var rotateDevice = new RotateDevice(sceneServices);
         var menuEvented = new ShowMenuEvented(sceneServices);
 
-        var viewModel = function () {
-            console.log('todo implement');
+        var viewModel = {
+            postConstruct: function () {
+                console.log('scene started');
+            },
+            preDestroy: function () {
+                console.log('scene ended');
+            },
+            pressPlay: function () {
+                this.nextScene();
+            },
+            pressMore: function () {
+                console.log('press more');
+            },
+            goSettings: function () {
+                console.log('go settings');
+            }
         };
         //var startScreen = new StartScreen(sceneServices);
         var startScreen = new MVVMScene(sceneServices, scenes.start_screen, viewModel);
