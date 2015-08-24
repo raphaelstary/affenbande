@@ -387,7 +387,7 @@
                 "tags": [
                     "input",
                     {
-                        "tap": "goSettings"
+                        "up": "goSettings"
                     },
                     {
                         "zIndex": "2"
@@ -503,7 +503,7 @@
                     "tags": [
                         "input",
                         {
-                            "tap": "pressPlay"
+                            "up": "pressPlay"
                         }
                     ],
                     "filled": false,
@@ -553,7 +553,7 @@
                     "tags": [
                         "input",
                         {
-                            "tap": "pressMore"
+                            "up": "pressMore"
                         }
                     ],
                     "filled": false,
