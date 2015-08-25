@@ -38,6 +38,12 @@
                 "animations": {
                     "transform": [
                         {
+                            "time": 0,
+                            "x": 515,
+                            "y": 894,
+                            "scale": 1
+                        },
+                        {
                             "time": 20,
                             "x": 515,
                             "y": 674,
@@ -104,6 +110,12 @@
                 "zIndex": 3,
                 "animations": {
                     "transform": [
+                        {
+                            "time": 0,
+                            "x": 295,
+                            "y": 894,
+                            "scale": 1
+                        },
                         {
                             "time": 20,
                             "x": 515,
@@ -178,6 +190,12 @@
                 "animations": {
                     "transform": [
                         {
+                            "time": 0,
+                            "x": 295,
+                            "y": 1114,
+                            "scale": 1
+                        },
+                        {
                             "time": 20,
                             "x": 294,
                             "y": 894,
@@ -251,6 +269,12 @@
                 "animations": {
                     "transform": [
                         {
+                            "time": 0,
+                            "x": 295,
+                            "y": 1334,
+                            "scale": 1
+                        },
+                        {
                             "time": 20,
                             "x": 294,
                             "y": 1114,
@@ -323,6 +347,12 @@
                 "zIndex": 3,
                 "animations": {
                     "transform": [
+                        {
+                            "time": 0,
+                            "x": 295,
+                            "y": 1555,
+                            "scale": 1
+                        },
                         {
                             "time": 20,
                             "x": 294,
@@ -629,6 +659,12 @@
                 "zIndex": 0,
                 "animations": {
                     "transform": [
+                        {
+                            "time": 0,
+                            "x": -112,
+                            "y": 1423,
+                            "scale": 1
+                        },
                         {
                             "time": 100,
                             "x": 1352,
