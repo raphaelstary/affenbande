@@ -1,4 +1,1678 @@
 {
+    "move_tutorial": {
+        "screen": {
+            "top": 966,
+            "left": 2470,
+            "bottom": 3174,
+            "right": 3712,
+            "width": 1242,
+            "height": 2208
+        },
+        "drawables": [
+            {
+                "type": "image",
+                "x": 913,
+                "y": 1056,
+                "width": 181,
+                "height": 282,
+                "referenceId": 466,
+                "filename": "finger.png",
+                "tags": [
+                    {
+                        "zIndex": "7"
+                    },
+                    "animation",
+                    {
+                        "time": "330"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    },
+                    {
+                        "anchor": "widthHalf"
+                    }
+                ],
+                "zIndex": 7,
+                "rotation": -0.3856170651546515,
+                "scale": 1,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 1,
+                            "time": 90
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 109
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 110
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 170
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 189
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 190
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 250
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 270
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 30,
+                            "x": 913,
+                            "y": 1056
+                        },
+                        {
+                            "time": 50,
+                            "x": 790,
+                            "y": 855
+                        },
+                        {
+                            "time": 70,
+                            "x": 786,
+                            "y": 855
+                        },
+                        {
+                            "time": 90,
+                            "x": 947,
+                            "y": 855
+                        },
+                        {
+                            "time": 109,
+                            "x": 953,
+                            "y": 865
+                        },
+                        {
+                            "time": 110,
+                            "x": 1074,
+                            "y": 1057
+                        },
+                        {
+                            "time": 130,
+                            "x": 947,
+                            "y": 855
+                        },
+                        {
+                            "time": 150,
+                            "x": 947,
+                            "y": 855
+                        },
+                        {
+                            "time": 170,
+                            "x": 947,
+                            "y": 694
+                        },
+                        {
+                            "time": 189,
+                            "x": 947,
+                            "y": 694
+                        },
+                        {
+                            "time": 190,
+                            "x": 1074,
+                            "y": 973
+                        },
+                        {
+                            "time": 210,
+                            "x": 947,
+                            "y": 694
+                        },
+                        {
+                            "time": 230,
+                            "x": 947,
+                            "y": 694
+                        },
+                        {
+                            "time": 250,
+                            "x": 1108,
+                            "y": 694
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 732,
+                "y": 579,
+                "width": 84,
+                "height": 122,
+                "referenceId": 507,
+                "filename": "arrow.png",
+                "rotation": -1.5789928645448092,
+                "scale": 1,
+                "alpha": 0.75,
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    },
+                    "animation",
+                    {
+                        "time": "330"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    },
+                    {
+                        "anchor": "widthHalf"
+                    }
+                ],
+                "zIndex": 5,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 0.75,
+                            "time": 0
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 5
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 50
+                        },
+                        {
+                            "opacity": 0.5,
+                            "time": 90
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 91
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 109
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 110
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 115
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 140
+                        },
+                        {
+                            "opacity": 0.5,
+                            "time": 170
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 171
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 189
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 190
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 195
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 220
+                        },
+                        {
+                            "opacity": 0.5,
+                            "time": 250
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 251
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 269
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 270
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 275
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 300
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 108,
+                            "x": 732,
+                            "y": 579
+                        },
+                        {
+                            "time": 109,
+                            "x": 893,
+                            "y": 579
+                        },
+                        {
+                            "time": 171,
+                            "x": 893,
+                            "y": 579
+                        },
+                        {
+                            "time": 189,
+                            "x": 893,
+                            "y": 418
+                        },
+                        {
+                            "time": 251,
+                            "x": 893,
+                            "y": 418
+                        },
+                        {
+                            "time": 269,
+                            "x": 1054,
+                            "y": 418
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 246,
+                "y": 579,
+                "width": 84,
+                "height": 122,
+                "referenceId": 506,
+                "filename": "arrow.png",
+                "rotation": -1.5789928645448092,
+                "scale": 1,
+                "alpha": 0.75,
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    },
+                    "animation",
+                    {
+                        "time": "330"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    },
+                    {
+                        "anchor": "widthHalf"
+                    }
+                ],
+                "zIndex": 5,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 0.75,
+                            "time": 0
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 5
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 50
+                        },
+                        {
+                            "opacity": 0.5,
+                            "time": 90
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 91
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 109
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 110
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 115
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 140
+                        },
+                        {
+                            "opacity": 0.5,
+                            "time": 170
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 171
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 189
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 190
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 195
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 220
+                        },
+                        {
+                            "opacity": 0.5,
+                            "time": 250
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 251
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 269
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 270
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 275
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 300
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 108,
+                            "x": 246,
+                            "y": 579
+                        },
+                        {
+                            "time": 109,
+                            "x": 407,
+                            "y": 579
+                        },
+                        {
+                            "time": 171,
+                            "x": 407,
+                            "y": 579
+                        },
+                        {
+                            "time": 189,
+                            "x": 568,
+                            "y": 579
+                        },
+                        {
+                            "time": 251,
+                            "x": 568,
+                            "y": 579
+                        },
+                        {
+                            "time": 269,
+                            "x": 729,
+                            "y": 579
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 732,
+                "y": 904,
+                "width": 84,
+                "height": 122,
+                "referenceId": 505,
+                "filename": "arrow.png",
+                "rotation": 1.5789928645448092,
+                "scale": 1,
+                "alpha": 0.75,
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    },
+                    "animation",
+                    {
+                        "time": "330"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    },
+                    {
+                        "anchor": "widthHalf"
+                    }
+                ],
+                "zIndex": 5,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 0.75,
+                            "time": 0
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 5
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 50
+                        },
+                        {
+                            "opacity": 0.5,
+                            "time": 90
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 91
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 109
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 110
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 115
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 140
+                        },
+                        {
+                            "opacity": 0.5,
+                            "time": 170
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 171
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 189
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 190
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 195
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 220
+                        },
+                        {
+                            "opacity": 0.5,
+                            "time": 250
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 251
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 269
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 270
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 275
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 300
+                        }
+                    ],
+                    "rotation": [
+                        {
+                            "time": 171,
+                            "rotation": 1.5789928645448092
+                        },
+                        {
+                            "time": 189,
+                            "rotation": -3.1333961158398806
+                        },
+                        {
+                            "time": 251,
+                            "rotation": -3.1333961158398806
+                        },
+                        {
+                            "time": 269,
+                            "rotation": 1.562599789044984
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 108,
+                            "x": 732,
+                            "y": 904
+                        },
+                        {
+                            "time": 109,
+                            "x": 893,
+                            "y": 904
+                        },
+                        {
+                            "time": 171,
+                            "x": 893,
+                            "y": 904
+                        },
+                        {
+                            "time": 189,
+                            "x": 726,
+                            "y": 570
+                        },
+                        {
+                            "time": 251,
+                            "x": 726,
+                            "y": 570
+                        },
+                        {
+                            "time": 269,
+                            "x": 1054,
+                            "y": 737
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 246,
+                "y": 904,
+                "width": 84,
+                "height": 122,
+                "referenceId": 504,
+                "filename": "arrow.png",
+                "rotation": 1.5789928645448092,
+                "scale": 1,
+                "alpha": 0.75,
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    },
+                    "animation",
+                    {
+                        "time": "330"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    },
+                    {
+                        "anchor": "widthHalf"
+                    }
+                ],
+                "zIndex": 5,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 0.75,
+                            "time": 0
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 5
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 50
+                        },
+                        {
+                            "opacity": 0.5,
+                            "time": 90
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 91
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 109
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 110
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 115
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 140
+                        },
+                        {
+                            "opacity": 0.5,
+                            "time": 170
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 171
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 189
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 190
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 195
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 220
+                        },
+                        {
+                            "opacity": 0.5,
+                            "time": 250
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 251
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 269
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 270
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 275
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 300
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 108,
+                            "x": 246,
+                            "y": 904
+                        },
+                        {
+                            "time": 109,
+                            "x": 407,
+                            "y": 904
+                        },
+                        {
+                            "time": 171,
+                            "x": 407,
+                            "y": 904
+                        },
+                        {
+                            "time": 189,
+                            "x": 568,
+                            "y": 904
+                        },
+                        {
+                            "time": 251,
+                            "x": 568,
+                            "y": 904
+                        },
+                        {
+                            "time": 269,
+                            "x": 729,
+                            "y": 904
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 79,
+                "y": 734,
+                "width": 122,
+                "height": 84,
+                "referenceId": 503,
+                "filename": "arrow.png",
+                "rotation": 3.1333961158398806,
+                "scale": 1,
+                "alpha": 0.75,
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    },
+                    "animation",
+                    {
+                        "time": "330"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    },
+                    {
+                        "anchor": "widthHalf"
+                    }
+                ],
+                "zIndex": 5,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 0.75,
+                            "time": 0
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 5
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 50
+                        },
+                        {
+                            "opacity": 0.5,
+                            "time": 90
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 91
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 109
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 110
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 115
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 140
+                        },
+                        {
+                            "opacity": 0.5,
+                            "time": 170
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 171
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 189
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 190
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 195
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 220
+                        },
+                        {
+                            "opacity": 0.5,
+                            "time": 250
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 251
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 269
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 270
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 275
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 300
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 108,
+                            "x": 79,
+                            "y": 734
+                        },
+                        {
+                            "time": 109,
+                            "x": 240,
+                            "y": 734
+                        },
+                        {
+                            "time": 171,
+                            "x": 240,
+                            "y": 734
+                        },
+                        {
+                            "time": 189,
+                            "x": 401,
+                            "y": 734
+                        },
+                        {
+                            "time": 251,
+                            "x": 401,
+                            "y": 734
+                        },
+                        {
+                            "time": 269,
+                            "x": 562,
+                            "y": 734
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 900,
+                "y": 731,
+                "width": 122,
+                "height": 84,
+                "referenceId": 502,
+                "filename": "arrow.png",
+                "scale": 1,
+                "alpha": 0.75,
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    },
+                    "animation",
+                    {
+                        "time": "330"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    },
+                    {
+                        "anchor": "widthHalf"
+                    }
+                ],
+                "zIndex": 5,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 0.75,
+                            "time": 0
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 5
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 50
+                        },
+                        {
+                            "opacity": 0.5,
+                            "time": 90
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 91
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 109
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 110
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 115
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 140
+                        },
+                        {
+                            "opacity": 0.5,
+                            "time": 170
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 171
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 189
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 190
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 195
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 220
+                        },
+                        {
+                            "opacity": 0.5,
+                            "time": 250
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 251
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 269
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 270
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 275
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 300
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 108,
+                            "x": 900,
+                            "y": 731
+                        },
+                        {
+                            "time": 109,
+                            "x": 1061,
+                            "y": 731
+                        },
+                        {
+                            "time": 171,
+                            "x": 1061,
+                            "y": 731
+                        },
+                        {
+                            "time": 189,
+                            "x": 1061,
+                            "y": 570
+                        },
+                        {
+                            "time": 251,
+                            "x": 1061,
+                            "y": 570
+                        },
+                        {
+                            "time": 269,
+                            "x": 1222,
+                            "y": 570
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 732,
+                "y": 736,
+                "width": 173,
+                "height": 173,
+                "referenceId": 499,
+                "filename": "monkey_white.png",
+                "rotation": 0,
+                "scale": 0.72,
+                "alpha": 0,
+                "tags": [
+                    {
+                        "zIndex": "7"
+                    },
+                    "animation",
+                    {
+                        "time": "330"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    },
+                    {
+                        "anchor": "widthHalf"
+                    }
+                ],
+                "zIndex": 7,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 0,
+                            "time": 0
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 5
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 30
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 109
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 110
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 115
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 120
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 189
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 190
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 195
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 200
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 269
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 270
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 275
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 280
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 108,
+                            "x": 732,
+                            "y": 736
+                        },
+                        {
+                            "time": 109,
+                            "x": 893,
+                            "y": 736
+                        },
+                        {
+                            "time": 120,
+                            "x": 893,
+                            "y": 736
+                        },
+                        {
+                            "time": 189,
+                            "x": 893,
+                            "y": 575
+                        },
+                        {
+                            "time": 200,
+                            "x": 893,
+                            "y": 575
+                        },
+                        {
+                            "time": 269,
+                            "x": 1054,
+                            "y": 575
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 246,
+                "y": 736,
+                "width": 173,
+                "height": 173,
+                "referenceId": 497,
+                "filename": "monkey_white.png",
+                "rotation": 0,
+                "scale": 0.72,
+                "alpha": 0,
+                "tags": [
+                    {
+                        "zIndex": "7"
+                    },
+                    "animation",
+                    {
+                        "time": "330"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    },
+                    {
+                        "anchor": "widthHalf"
+                    }
+                ],
+                "zIndex": 7,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 0,
+                            "time": 0
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 5
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 30
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 109
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 110
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 115
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 120
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 189
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 190
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 195
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 200
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 269
+                        },
+                        {
+                            "opacity": 0.75,
+                            "time": 270
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 275
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 280
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 108,
+                            "x": 246,
+                            "y": 736
+                        },
+                        {
+                            "time": 109,
+                            "x": 407,
+                            "y": 736
+                        },
+                        {
+                            "time": 120,
+                            "x": 407,
+                            "y": 736
+                        },
+                        {
+                            "time": 189,
+                            "x": 568,
+                            "y": 736
+                        },
+                        {
+                            "time": 200,
+                            "x": 568,
+                            "y": 736
+                        },
+                        {
+                            "time": 269,
+                            "x": 729,
+                            "y": 736
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 732,
+                "y": 738,
+                "width": 181,
+                "height": 181,
+                "referenceId": 491,
+                "filename": "monkey_head.png",
+                "tags": [
+                    {
+                        "zIndex": "6"
+                    },
+                    "animation",
+                    {
+                        "time": "330"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    },
+                    {
+                        "anchor": "widthHalf"
+                    }
+                ],
+                "zIndex": 6,
+                "scale": 0.72,
+                "animations": {
+                    "psType": "smartObject",
+                    "scale": [
+                        {
+                            "time": 50,
+                            "scale": 0.72
+                        },
+                        {
+                            "time": 55,
+                            "scale": 0.86
+                        },
+                        {
+                            "time": 90,
+                            "scale": 0.85
+                        },
+                        {
+                            "time": 110,
+                            "scale": 0.72
+                        },
+                        {
+                            "time": 130,
+                            "scale": 0.72
+                        },
+                        {
+                            "time": 135,
+                            "scale": 0.85
+                        },
+                        {
+                            "time": 170,
+                            "scale": 0.85
+                        },
+                        {
+                            "time": 190,
+                            "scale": 0.72
+                        },
+                        {
+                            "time": 210,
+                            "scale": 0.72
+                        },
+                        {
+                            "time": 215,
+                            "scale": 0.85
+                        },
+                        {
+                            "time": 250,
+                            "scale": 0.85
+                        },
+                        {
+                            "time": 270,
+                            "scale": 0.72
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 50,
+                            "x": 732,
+                            "y": 738
+                        },
+                        {
+                            "time": 55,
+                            "x": 733,
+                            "y": 737
+                        },
+                        {
+                            "time": 90,
+                            "x": 732,
+                            "y": 737
+                        },
+                        {
+                            "time": 110,
+                            "x": 893,
+                            "y": 738
+                        },
+                        {
+                            "time": 170,
+                            "x": 893,
+                            "y": 738
+                        },
+                        {
+                            "time": 190,
+                            "x": 893,
+                            "y": 577
+                        },
+                        {
+                            "time": 250,
+                            "x": 893,
+                            "y": 577
+                        },
+                        {
+                            "time": 270,
+                            "x": 1054,
+                            "y": 577
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 250,
+                "y": 738,
+                "width": 181,
+                "height": 181,
+                "referenceId": 494,
+                "filename": "monkey_head.png",
+                "tags": [
+                    {
+                        "zIndex": "6"
+                    },
+                    "animation",
+                    {
+                        "time": "330"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    },
+                    {
+                        "anchor": "widthHalf"
+                    }
+                ],
+                "zIndex": 6,
+                "scale": 0.72,
+                "animations": {
+                    "psType": "smartObject",
+                    "position": [
+                        {
+                            "time": 90,
+                            "x": 250,
+                            "y": 738
+                        },
+                        {
+                            "time": 110,
+                            "x": 411,
+                            "y": 738
+                        },
+                        {
+                            "time": 170,
+                            "x": 411,
+                            "y": 738
+                        },
+                        {
+                            "time": 190,
+                            "x": 572,
+                            "y": 738
+                        },
+                        {
+                            "time": 250,
+                            "x": 572,
+                            "y": 738
+                        },
+                        {
+                            "time": 270,
+                            "x": 733,
+                            "y": 738
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 571,
+                "y": 738,
+                "width": 181,
+                "height": 181,
+                "referenceId": 492,
+                "filename": "monkey.png",
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    },
+                    "animation",
+                    {
+                        "time": "330"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    },
+                    {
+                        "anchor": "widthHalf"
+                    }
+                ],
+                "zIndex": 5,
+                "scale": 0.72,
+                "animations": {
+                    "psType": "smartObject",
+                    "position": [
+                        {
+                            "time": 90,
+                            "x": 571,
+                            "y": 738
+                        },
+                        {
+                            "time": 110,
+                            "x": 732,
+                            "y": 738
+                        },
+                        {
+                            "time": 170,
+                            "x": 732,
+                            "y": 738
+                        },
+                        {
+                            "time": 190,
+                            "x": 893,
+                            "y": 738
+                        },
+                        {
+                            "time": 250,
+                            "x": 893,
+                            "y": 738
+                        },
+                        {
+                            "time": 270,
+                            "x": 893,
+                            "y": 577
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 411,
+                "y": 738,
+                "width": 181,
+                "height": 181,
+                "referenceId": 493,
+                "filename": "monkey.png",
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    },
+                    "animation",
+                    {
+                        "time": "330"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    },
+                    {
+                        "anchor": "widthHalf"
+                    }
+                ],
+                "zIndex": 5,
+                "scale": 0.72,
+                "animations": {
+                    "psType": "smartObject",
+                    "position": [
+                        {
+                            "time": 90,
+                            "x": 411,
+                            "y": 738
+                        },
+                        {
+                            "time": 110,
+                            "x": 572,
+                            "y": 738
+                        },
+                        {
+                            "time": 170,
+                            "x": 572,
+                            "y": 738
+                        },
+                        {
+                            "time": 190,
+                            "x": 733,
+                            "y": 738
+                        },
+                        {
+                            "time": 250,
+                            "x": 733,
+                            "y": 738
+                        },
+                        {
+                            "time": 270,
+                            "x": 894,
+                            "y": 738
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "button",
+                "zIndex": 5,
+                "text": {
+                    "type": "text",
+                    "x": 621,
+                    "y": 1602,
+                    "width": 99,
+                    "height": 64,
+                    "referenceId": 464,
+                    "msg": "ok",
+                    "font": "Janda Silly Monkey",
+                    "size": 85,
+                    "color": "#515349"
+                },
+                "input": {
+                    "type": "rectangle",
+                    "x": 621,
+                    "y": 1492,
+                    "width": 1191,
+                    "height": 453,
+                    "referenceId": 463,
+                    "tags": [
+                        "input",
+                        {
+                            "up": "pressOk"
+                        }
+                    ],
+                    "filled": false,
+                    "color": "#000000"
+                },
+                "background": {
+                    "type": "image",
+                    "x": 621,
+                    "y": 1604,
+                    "width": 666,
+                    "height": 169,
+                    "referenceId": 462,
+                    "filename": "button.png",
+                    "tags": [
+                        "background"
+                    ]
+                }
+            },
+            {
+                "type": "rectangle",
+                "x": 621,
+                "y": 1104,
+                "width": 1242,
+                "height": 2208,
+                "referenceId": 489,
+                "tags": [
+                    {
+                        "zIndex": "4"
+                    }
+                ],
+                "zIndex": 4,
+                "alpha": 0.8,
+                "filled": true,
+                "color": "#000000"
+            }
+        ]
+    },
     "start_screen": {
         "screen": {
             "top": 966,
@@ -36,48 +1710,42 @@
                 "scale": 1,
                 "zIndex": 3,
                 "animations": {
-                    "transform": [
+                    "psType": "smartObject",
+                    "position": [
                         {
                             "time": 0,
                             "x": 515,
-                            "y": 894,
-                            "scale": 1
+                            "y": 894
                         },
                         {
                             "time": 20,
                             "x": 515,
-                            "y": 674,
-                            "scale": 1
+                            "y": 674
                         },
                         {
                             "time": 40,
                             "x": 515,
-                            "y": 454,
-                            "scale": 1
+                            "y": 454
                         },
                         {
                             "time": 60,
                             "x": 735,
-                            "y": 454,
-                            "scale": 1
+                            "y": 454
                         },
                         {
                             "time": 80,
                             "x": 955,
-                            "y": 454,
-                            "scale": 1
+                            "y": 454
                         },
                         {
                             "time": 120,
                             "x": 513,
-                            "y": 454,
-                            "scale": 1
+                            "y": 454
                         },
                         {
                             "time": 160,
                             "x": 515,
-                            "y": 894,
-                            "scale": 1
+                            "y": 894
                         }
                     ]
                 }
@@ -109,54 +1777,47 @@
                 "scale": 1,
                 "zIndex": 3,
                 "animations": {
-                    "transform": [
+                    "psType": "smartObject",
+                    "position": [
                         {
                             "time": 0,
                             "x": 295,
-                            "y": 894,
-                            "scale": 1
+                            "y": 894
                         },
                         {
                             "time": 20,
                             "x": 515,
-                            "y": 893,
-                            "scale": 1
+                            "y": 893
                         },
                         {
                             "time": 40,
                             "x": 515,
-                            "y": 674,
-                            "scale": 1
+                            "y": 674
                         },
                         {
                             "time": 60,
                             "x": 515,
-                            "y": 454,
-                            "scale": 1
+                            "y": 454
                         },
                         {
                             "time": 80,
                             "x": 735,
-                            "y": 454,
-                            "scale": 1
+                            "y": 454
                         },
                         {
                             "time": 100,
                             "x": 513,
-                            "y": 454,
-                            "scale": 1
+                            "y": 454
                         },
                         {
                             "time": 140,
                             "x": 515,
-                            "y": 894,
-                            "scale": 1
+                            "y": 894
                         },
                         {
                             "time": 160,
                             "x": 295,
-                            "y": 894,
-                            "scale": 1
+                            "y": 894
                         }
                     ]
                 }
@@ -188,54 +1849,47 @@
                 "scale": 1,
                 "zIndex": 3,
                 "animations": {
-                    "transform": [
+                    "psType": "smartObject",
+                    "position": [
                         {
                             "time": 0,
                             "x": 295,
-                            "y": 1114,
-                            "scale": 1
+                            "y": 1114
                         },
                         {
                             "time": 20,
                             "x": 294,
-                            "y": 894,
-                            "scale": 1
+                            "y": 894
                         },
                         {
                             "time": 40,
                             "x": 515,
-                            "y": 894,
-                            "scale": 1
+                            "y": 894
                         },
                         {
                             "time": 60,
                             "x": 513,
-                            "y": 674,
-                            "scale": 1
+                            "y": 674
                         },
                         {
                             "time": 80,
                             "x": 513,
-                            "y": 454,
-                            "scale": 1
+                            "y": 454
                         },
                         {
                             "time": 120,
                             "x": 515,
-                            "y": 894,
-                            "scale": 1
+                            "y": 894
                         },
                         {
                             "time": 140,
                             "x": 295,
-                            "y": 894,
-                            "scale": 1
+                            "y": 894
                         },
                         {
                             "time": 160,
                             "x": 295,
-                            "y": 1114,
-                            "scale": 1
+                            "y": 1114
                         }
                     ]
                 }
@@ -267,54 +1921,47 @@
                 "scale": 1,
                 "zIndex": 3,
                 "animations": {
-                    "transform": [
+                    "psType": "smartObject",
+                    "position": [
                         {
                             "time": 0,
                             "x": 295,
-                            "y": 1334,
-                            "scale": 1
+                            "y": 1334
                         },
                         {
                             "time": 20,
                             "x": 294,
-                            "y": 1114,
-                            "scale": 1
+                            "y": 1114
                         },
                         {
                             "time": 40,
                             "x": 294,
-                            "y": 894,
-                            "scale": 1
+                            "y": 894
                         },
                         {
                             "time": 60,
                             "x": 515,
-                            "y": 894,
-                            "scale": 1
+                            "y": 894
                         },
                         {
                             "time": 80,
                             "x": 513,
-                            "y": 674,
-                            "scale": 1
+                            "y": 674
                         },
                         {
                             "time": 100,
                             "x": 515,
-                            "y": 894,
-                            "scale": 1
+                            "y": 894
                         },
                         {
                             "time": 120,
                             "x": 295,
-                            "y": 893,
-                            "scale": 1
+                            "y": 893
                         },
                         {
                             "time": 160,
                             "x": 295,
-                            "y": 1334,
-                            "scale": 1
+                            "y": 1334
                         }
                     ]
                 }
@@ -346,48 +1993,42 @@
                 "scale": 1,
                 "zIndex": 3,
                 "animations": {
-                    "transform": [
+                    "psType": "smartObject",
+                    "position": [
                         {
                             "time": 0,
                             "x": 295,
-                            "y": 1555,
-                            "scale": 1
+                            "y": 1555
                         },
                         {
                             "time": 20,
                             "x": 294,
-                            "y": 1334,
-                            "scale": 1
+                            "y": 1334
                         },
                         {
                             "time": 40,
                             "x": 294,
-                            "y": 1114,
-                            "scale": 1
+                            "y": 1114
                         },
                         {
                             "time": 60,
                             "x": 295,
-                            "y": 894,
-                            "scale": 1
+                            "y": 894
                         },
                         {
                             "time": 80,
                             "x": 515,
-                            "y": 894,
-                            "scale": 1
+                            "y": 894
                         },
                         {
                             "time": 100,
                             "x": 295,
-                            "y": 894,
-                            "scale": 1
+                            "y": 894
                         },
                         {
                             "time": 160,
                             "x": 295,
-                            "y": 1555,
-                            "scale": 1
+                            "y": 1555
                         }
                     ]
                 }
@@ -625,18 +2266,17 @@
                 ],
                 "zIndex": 0,
                 "animations": {
-                    "transform": [
+                    "psType": "smartObject",
+                    "position": [
                         {
                             "time": 60,
                             "x": -152,
-                            "y": 2044,
-                            "scale": 1
+                            "y": 2044
                         },
                         {
-                            "time": 162,
+                            "time": 249,
                             "x": 1396,
-                            "y": 2044,
-                            "scale": 1
+                            "y": 2044
                         }
                     ]
                 }
@@ -658,18 +2298,17 @@
                 ],
                 "zIndex": 0,
                 "animations": {
-                    "transform": [
+                    "psType": "smartObject",
+                    "position": [
                         {
                             "time": 0,
                             "x": -112,
-                            "y": 1423,
-                            "scale": 1
+                            "y": 1423
                         },
                         {
-                            "time": 100,
+                            "time": 215,
                             "x": 1352,
-                            "y": 1423,
-                            "scale": 1
+                            "y": 1423
                         }
                     ]
                 }
@@ -691,18 +2330,17 @@
                 ],
                 "zIndex": 0,
                 "animations": {
-                    "transform": [
+                    "psType": "smartObject",
+                    "position": [
                         {
                             "time": 97,
                             "x": -124,
-                            "y": 1268,
-                            "scale": 1
+                            "y": 1268
                         },
                         {
-                            "time": 169,
+                            "time": 299,
                             "x": 1364,
-                            "y": 1268,
-                            "scale": 1
+                            "y": 1268
                         }
                     ]
                 }
@@ -724,18 +2362,17 @@
                 ],
                 "zIndex": 0,
                 "animations": {
-                    "transform": [
+                    "psType": "smartObject",
+                    "position": [
                         {
                             "time": 15,
                             "x": -193,
-                            "y": 830,
-                            "scale": 1
+                            "y": 830
                         },
                         {
-                            "time": 120,
+                            "time": 224,
                             "x": 1435,
-                            "y": 830,
-                            "scale": 1
+                            "y": 830
                         }
                     ]
                 }
@@ -757,18 +2394,17 @@
                 ],
                 "zIndex": 0,
                 "animations": {
-                    "transform": [
+                    "psType": "smartObject",
+                    "position": [
                         {
                             "time": 70,
                             "x": -162,
-                            "y": 207,
-                            "scale": 1
+                            "y": 207
                         },
                         {
-                            "time": 150,
+                            "time": 267,
                             "x": 1402,
-                            "y": 207,
-                            "scale": 1
+                            "y": 207
                         }
                     ]
                 }

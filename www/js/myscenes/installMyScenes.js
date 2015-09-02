@@ -37,10 +37,13 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
             },
             goSettings: function () {
                 console.log('go settings');
+            },
+            pressOk: function () {
+                this.nextScene();
             }
         };
         //var startScreen = new StartScreen(sceneServices);
-        var startScreen = new MVVMScene(sceneServices, sceneServices.scenes['start_screen'], viewModel);
+        var startScreen = new MVVMScene(sceneServices, sceneServices.scenes['move_tutorial'], viewModel);
         var levelOverview = new LevelOverview(sceneServices);
 
         sceneManager.add(goFullScreen.show.bind(goFullScreen), true);
