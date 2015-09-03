@@ -19,7 +19,7 @@
                 "filename": "finger.png",
                 "tags": [
                     {
-                        "zIndex": "7"
+                        "zIndex": "8"
                     },
                     "animation",
                     {
@@ -32,7 +32,7 @@
                         "anchor": "widthHalf"
                     }
                 ],
-                "zIndex": 7,
+                "zIndex": 8,
                 "rotation": -0.3856170651546515,
                 "scale": 1,
                 "animations": {
@@ -1069,7 +1069,7 @@
                 "alpha": 0,
                 "tags": [
                     {
-                        "zIndex": "7"
+                        "zIndex": "8"
                     },
                     "animation",
                     {
@@ -1082,7 +1082,7 @@
                         "anchor": "widthHalf"
                     }
                 ],
-                "zIndex": 7,
+                "zIndex": 8,
                 "animations": {
                     "psType": "smartObject",
                     "opacity": [
@@ -1194,7 +1194,7 @@
                 "alpha": 0,
                 "tags": [
                     {
-                        "zIndex": "7"
+                        "zIndex": "8"
                     },
                     "animation",
                     {
@@ -1207,7 +1207,7 @@
                         "anchor": "widthHalf"
                     }
                 ],
-                "zIndex": 7,
+                "zIndex": 8,
                 "animations": {
                     "psType": "smartObject",
                     "opacity": [
@@ -1316,7 +1316,7 @@
                 "filename": "monkey_head.png",
                 "tags": [
                     {
-                        "zIndex": "6"
+                        "zIndex": "7"
                     },
                     "animation",
                     {
@@ -1329,7 +1329,7 @@
                         "anchor": "widthHalf"
                     }
                 ],
-                "zIndex": 6,
+                "zIndex": 7,
                 "scale": 0.72,
                 "animations": {
                     "psType": "smartObject",
@@ -1437,7 +1437,7 @@
                 "filename": "monkey_head.png",
                 "tags": [
                     {
-                        "zIndex": "6"
+                        "zIndex": "7"
                     },
                     "animation",
                     {
@@ -1450,7 +1450,7 @@
                         "anchor": "widthHalf"
                     }
                 ],
-                "zIndex": 6,
+                "zIndex": 7,
                 "scale": 0.72,
                 "animations": {
                     "psType": "smartObject",
@@ -1498,7 +1498,7 @@
                 "filename": "monkey.png",
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "6"
                     },
                     "animation",
                     {
@@ -1511,7 +1511,7 @@
                         "anchor": "widthHalf"
                     }
                 ],
-                "zIndex": 5,
+                "zIndex": 6,
                 "scale": 0.72,
                 "animations": {
                     "psType": "smartObject",
@@ -1559,7 +1559,7 @@
                 "filename": "monkey.png",
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "6"
                     },
                     "animation",
                     {
@@ -1572,7 +1572,7 @@
                         "anchor": "widthHalf"
                     }
                 ],
-                "zIndex": 5,
+                "zIndex": 6,
                 "scale": 0.72,
                 "animations": {
                     "psType": "smartObject",
@@ -1655,6 +1655,234 @@
                 }
             },
             {
+                "type": "line",
+                "x": 652,
+                "y": 976,
+                "width": 1020,
+                "height": 1,
+                "referenceId": 734,
+                "length": 1020,
+                "rotation": 0,
+                "filled": true,
+                "lineWidth": 3,
+                "color": "#000000",
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    }
+                ],
+                "zIndex": 5
+            },
+            {
+                "type": "line",
+                "x": 652,
+                "y": 815,
+                "width": 1020,
+                "height": 1,
+                "referenceId": 733,
+                "length": 1020,
+                "rotation": 0,
+                "filled": true,
+                "lineWidth": 3,
+                "color": "#000000",
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    }
+                ],
+                "zIndex": 5
+            },
+            {
+                "type": "line",
+                "x": 651,
+                "y": 654,
+                "width": 1022,
+                "height": 1,
+                "referenceId": 732,
+                "length": 1022,
+                "rotation": 0,
+                "filled": true,
+                "lineWidth": 3,
+                "color": "#000000",
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    }
+                ],
+                "zIndex": 5
+            },
+            {
+                "type": "line",
+                "x": 650,
+                "y": 493,
+                "width": 1023,
+                "height": 1,
+                "referenceId": 731,
+                "length": 1023,
+                "rotation": 0,
+                "filled": true,
+                "lineWidth": 3,
+                "color": "#000000",
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    }
+                ],
+                "zIndex": 5
+            },
+            {
+                "type": "line",
+                "x": 652,
+                "y": 332,
+                "width": 1020,
+                "height": 1,
+                "referenceId": 730,
+                "length": 1020,
+                "rotation": 0,
+                "filled": true,
+                "lineWidth": 3,
+                "color": "#000000",
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    }
+                ],
+                "zIndex": 5
+            },
+            {
+                "type": "line",
+                "x": 1133,
+                "y": 659,
+                "width": 1,
+                "height": 700,
+                "referenceId": 729,
+                "length": 700,
+                "rotation": 1.5707963267948966,
+                "filled": true,
+                "lineWidth": 3,
+                "color": "#000000",
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    }
+                ],
+                "zIndex": 5
+            },
+            {
+                "type": "line",
+                "x": 972,
+                "y": 659,
+                "width": 1,
+                "height": 699,
+                "referenceId": 728,
+                "length": 699,
+                "rotation": 1.5707963267948966,
+                "filled": true,
+                "lineWidth": 3,
+                "color": "#000000",
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    }
+                ],
+                "zIndex": 5
+            },
+            {
+                "type": "line",
+                "x": 811,
+                "y": 659,
+                "width": 1,
+                "height": 699,
+                "referenceId": 727,
+                "length": 699,
+                "rotation": 1.5707963267948966,
+                "filled": true,
+                "lineWidth": 3,
+                "color": "#000000",
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    }
+                ],
+                "zIndex": 5
+            },
+            {
+                "type": "line",
+                "x": 650,
+                "y": 659,
+                "width": 1,
+                "height": 700,
+                "referenceId": 726,
+                "length": 700,
+                "rotation": 1.5707963267948966,
+                "filled": true,
+                "lineWidth": 3,
+                "color": "#000000",
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    }
+                ],
+                "zIndex": 5
+            },
+            {
+                "type": "line",
+                "x": 489,
+                "y": 659,
+                "width": 1,
+                "height": 700,
+                "referenceId": 725,
+                "length": 700,
+                "rotation": 1.5707963267948966,
+                "filled": true,
+                "lineWidth": 3,
+                "color": "#000000",
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    }
+                ],
+                "zIndex": 5
+            },
+            {
+                "type": "line",
+                "x": 328,
+                "y": 659,
+                "width": 1,
+                "height": 700,
+                "referenceId": 724,
+                "length": 700,
+                "rotation": 1.5707963267948966,
+                "filled": true,
+                "lineWidth": 3,
+                "color": "#000000",
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    }
+                ],
+                "zIndex": 5
+            },
+            {
+                "type": "line",
+                "x": 167,
+                "y": 659,
+                "width": 1,
+                "height": 699,
+                "referenceId": 723,
+                "length": 699,
+                "rotation": 1.5707963267948966,
+                "filled": true,
+                "lineWidth": 3,
+                "color": "#000000",
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    }
+                ],
+                "zIndex": 5
+            },
+            {
                 "type": "rectangle",
                 "x": 621,
                 "y": 1104,
@@ -1669,6 +1897,7 @@
                 "zIndex": 4,
                 "alpha": 0.8,
                 "filled": true,
+                "lineWidth": 3,
                 "color": "#000000"
             }
         ]
@@ -2065,6 +2294,7 @@
                     }
                 ],
                 "filled": false,
+                "lineWidth": 1,
                 "color": "#000000",
                 "zIndex": 2
             },
