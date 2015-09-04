@@ -27,9 +27,6 @@
                     },
                     {
                         "position": "relativeToSize"
-                    },
-                    {
-                        "anchor": "widthHalf"
                     }
                 ],
                 "zIndex": 8,
@@ -166,9 +163,6 @@
                     },
                     {
                         "position": "relativeToSize"
-                    },
-                    {
-                        "anchor": "widthHalf"
                     }
                 ],
                 "zIndex": 5,
@@ -315,9 +309,6 @@
                     },
                     {
                         "position": "relativeToSize"
-                    },
-                    {
-                        "anchor": "widthHalf"
                     }
                 ],
                 "zIndex": 5,
@@ -464,9 +455,6 @@
                     },
                     {
                         "position": "relativeToSize"
-                    },
-                    {
-                        "anchor": "widthHalf"
                     }
                 ],
                 "zIndex": 5,
@@ -631,9 +619,6 @@
                     },
                     {
                         "position": "relativeToSize"
-                    },
-                    {
-                        "anchor": "widthHalf"
                     }
                 ],
                 "zIndex": 5,
@@ -780,9 +765,6 @@
                     },
                     {
                         "position": "relativeToSize"
-                    },
-                    {
-                        "anchor": "widthHalf"
                     }
                 ],
                 "zIndex": 5,
@@ -928,9 +910,6 @@
                     },
                     {
                         "position": "relativeToSize"
-                    },
-                    {
-                        "anchor": "widthHalf"
                     }
                 ],
                 "zIndex": 5,
@@ -1077,9 +1056,6 @@
                     },
                     {
                         "position": "relativeToSize"
-                    },
-                    {
-                        "anchor": "widthHalf"
                     }
                 ],
                 "zIndex": 8,
@@ -1202,9 +1178,6 @@
                     },
                     {
                         "position": "relativeToSize"
-                    },
-                    {
-                        "anchor": "widthHalf"
                     }
                 ],
                 "zIndex": 8,
@@ -1324,9 +1297,6 @@
                     },
                     {
                         "position": "relativeToSize"
-                    },
-                    {
-                        "anchor": "widthHalf"
                     }
                 ],
                 "zIndex": 7,
@@ -1445,9 +1415,6 @@
                     },
                     {
                         "position": "relativeToSize"
-                    },
-                    {
-                        "anchor": "widthHalf"
                     }
                 ],
                 "zIndex": 7,
@@ -1506,9 +1473,6 @@
                     },
                     {
                         "position": "relativeToSize"
-                    },
-                    {
-                        "anchor": "widthHalf"
                     }
                 ],
                 "zIndex": 6,
@@ -1567,9 +1531,6 @@
                     },
                     {
                         "position": "relativeToSize"
-                    },
-                    {
-                        "anchor": "widthHalf"
                     }
                 ],
                 "zIndex": 6,
@@ -1663,12 +1624,15 @@
                 "referenceId": 734,
                 "length": 1020,
                 "rotation": 0,
-                "filled": true,
+                "filled": false,
                 "lineWidth": 3,
-                "color": "#000000",
+                "color": "#ffffff",
                 "tags": [
                     {
                         "zIndex": "5"
+                    },
+                    {
+                        "position": "relativeToSize"
                     }
                 ],
                 "zIndex": 5
@@ -1682,12 +1646,15 @@
                 "referenceId": 733,
                 "length": 1020,
                 "rotation": 0,
-                "filled": true,
+                "filled": false,
                 "lineWidth": 3,
-                "color": "#000000",
+                "color": "#ffffff",
                 "tags": [
                     {
                         "zIndex": "5"
+                    },
+                    {
+                        "position": "relativeToSize"
                     }
                 ],
                 "zIndex": 5
@@ -1701,12 +1668,15 @@
                 "referenceId": 732,
                 "length": 1022,
                 "rotation": 0,
-                "filled": true,
+                "filled": false,
                 "lineWidth": 3,
-                "color": "#000000",
+                "color": "#ffffff",
                 "tags": [
                     {
                         "zIndex": "5"
+                    },
+                    {
+                        "position": "relativeToSize"
                     }
                 ],
                 "zIndex": 5
@@ -1720,12 +1690,15 @@
                 "referenceId": 731,
                 "length": 1023,
                 "rotation": 0,
-                "filled": true,
+                "filled": false,
                 "lineWidth": 3,
-                "color": "#000000",
+                "color": "#ffffff",
                 "tags": [
                     {
                         "zIndex": "5"
+                    },
+                    {
+                        "position": "relativeToSize"
                     }
                 ],
                 "zIndex": 5
@@ -1739,12 +1712,15 @@
                 "referenceId": 730,
                 "length": 1020,
                 "rotation": 0,
-                "filled": true,
+                "filled": false,
                 "lineWidth": 3,
-                "color": "#000000",
+                "color": "#ffffff",
                 "tags": [
                     {
                         "zIndex": "5"
+                    },
+                    {
+                        "position": "relativeToSize"
                     }
                 ],
                 "zIndex": 5
@@ -1758,12 +1734,15 @@
                 "referenceId": 729,
                 "length": 700,
                 "rotation": 1.5707963267948966,
-                "filled": true,
+                "filled": false,
                 "lineWidth": 3,
-                "color": "#000000",
+                "color": "#ffffff",
                 "tags": [
                     {
                         "zIndex": "5"
+                    },
+                    {
+                        "position": "relativeToSize"
                     }
                 ],
                 "zIndex": 5
@@ -1777,12 +1756,15 @@
                 "referenceId": 728,
                 "length": 699,
                 "rotation": 1.5707963267948966,
-                "filled": true,
+                "filled": false,
                 "lineWidth": 3,
-                "color": "#000000",
+                "color": "#ffffff",
                 "tags": [
                     {
                         "zIndex": "5"
+                    },
+                    {
+                        "position": "relativeToSize"
                     }
                 ],
                 "zIndex": 5
@@ -1796,12 +1778,15 @@
                 "referenceId": 727,
                 "length": 699,
                 "rotation": 1.5707963267948966,
-                "filled": true,
+                "filled": false,
                 "lineWidth": 3,
-                "color": "#000000",
+                "color": "#ffffff",
                 "tags": [
                     {
                         "zIndex": "5"
+                    },
+                    {
+                        "position": "relativeToSize"
                     }
                 ],
                 "zIndex": 5
@@ -1815,12 +1800,15 @@
                 "referenceId": 726,
                 "length": 700,
                 "rotation": 1.5707963267948966,
-                "filled": true,
+                "filled": false,
                 "lineWidth": 3,
-                "color": "#000000",
+                "color": "#ffffff",
                 "tags": [
                     {
                         "zIndex": "5"
+                    },
+                    {
+                        "position": "relativeToSize"
                     }
                 ],
                 "zIndex": 5
@@ -1834,12 +1822,15 @@
                 "referenceId": 725,
                 "length": 700,
                 "rotation": 1.5707963267948966,
-                "filled": true,
+                "filled": false,
                 "lineWidth": 3,
-                "color": "#000000",
+                "color": "#ffffff",
                 "tags": [
                     {
                         "zIndex": "5"
+                    },
+                    {
+                        "position": "relativeToSize"
                     }
                 ],
                 "zIndex": 5
@@ -1853,12 +1844,15 @@
                 "referenceId": 724,
                 "length": 700,
                 "rotation": 1.5707963267948966,
-                "filled": true,
+                "filled": false,
                 "lineWidth": 3,
-                "color": "#000000",
+                "color": "#ffffff",
                 "tags": [
                     {
                         "zIndex": "5"
+                    },
+                    {
+                        "position": "relativeToSize"
                     }
                 ],
                 "zIndex": 5
@@ -1872,12 +1866,15 @@
                 "referenceId": 723,
                 "length": 699,
                 "rotation": 1.5707963267948966,
-                "filled": true,
+                "filled": false,
                 "lineWidth": 3,
-                "color": "#000000",
+                "color": "#ffffff",
                 "tags": [
                     {
                         "zIndex": "5"
+                    },
+                    {
+                        "position": "relativeToSize"
                     }
                 ],
                 "zIndex": 5
@@ -1926,9 +1923,6 @@
                     },
                     {
                         "position": "relativeToSize"
-                    },
-                    {
-                        "anchor": "widthHalf"
                     },
                     "animation",
                     {
@@ -1993,9 +1987,6 @@
                     },
                     {
                         "position": "relativeToSize"
-                    },
-                    {
-                        "anchor": "widthHalf"
                     },
                     "animation",
                     {
@@ -2066,9 +2057,6 @@
                     {
                         "position": "relativeToSize"
                     },
-                    {
-                        "anchor": "widthHalf"
-                    },
                     "animation",
                     {
                         "zIndex": "3"
@@ -2138,9 +2126,6 @@
                     {
                         "position": "relativeToSize"
                     },
-                    {
-                        "anchor": "widthHalf"
-                    },
                     "animation",
                     {
                         "zIndex": "3"
@@ -2209,9 +2194,6 @@
                     },
                     {
                         "position": "relativeToSize"
-                    },
-                    {
-                        "anchor": "widthHalf"
                     },
                     "animation",
                     {
@@ -2327,9 +2309,6 @@
                         "position": "relativeToSize"
                     },
                     {
-                        "anchor": "widthHalf"
-                    },
-                    {
                         "zIndex": "2"
                     }
                 ],
@@ -2349,9 +2328,6 @@
                         "position": "relativeToSize"
                     },
                     {
-                        "anchor": "widthHalf"
-                    },
-                    {
                         "zIndex": "2"
                     }
                 ],
@@ -2369,9 +2345,6 @@
                 "tags": [
                     {
                         "position": "relativeToSize"
-                    },
-                    {
-                        "anchor": "widthHalf"
                     },
                     {
                         "zIndex": "2"
