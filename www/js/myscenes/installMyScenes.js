@@ -40,10 +40,13 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
             },
             pressOk: function () {
                 this.nextScene();
+            },
+            doSkip: function () {
+                this.nextScene();
             }
         };
         //var startScreen = new StartScreen(sceneServices);
-        var startScreen = new MVVMScene(sceneServices, sceneServices.scenes['move_tutorial'], viewModel);
+        var startScreen = new MVVMScene(sceneServices, sceneServices.scenes['finish_level'], viewModel);
         var levelOverview = new LevelOverview(sceneServices);
 
         sceneManager.add(goFullScreen.show.bind(goFullScreen), true);

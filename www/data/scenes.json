@@ -1,4 +1,1532 @@
 {
+    "finish_level": {
+        "screen": {
+            "top": 966,
+            "left": 4064,
+            "bottom": 3174,
+            "right": 5306,
+            "width": 1242,
+            "height": 2208
+        },
+        "drawables": [
+            {
+                "type": "text",
+                "x": 634,
+                "y": 1205,
+                "width": 736,
+                "height": 253,
+                "referenceId": 926,
+                "tags": [
+                    {
+                        "loop": "false"
+                    },
+                    {
+                        "zIndex": "9"
+                    },
+                    "animation"
+                ],
+                "zIndex": 9,
+                "msg": "well done",
+                "alpha": 0,
+                "rotation": 0.17698071473396326,
+                "scale": 1.5149133265203656,
+                "font": "Janda Silly Monkey",
+                "size": 120,
+                "color": "#ffffff",
+                "animations": {
+                    "psType": "text",
+                    "opacity": [
+                        {
+                            "opacity": 0,
+                            "time": 109
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 114
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 119
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 129
+                        }
+                    ],
+                    "firstFrame": 109,
+                    "lastFrame": 129
+                }
+            },
+            {
+                "type": "text",
+                "x": 618,
+                "y": 1220,
+                "width": 244,
+                "height": 149,
+                "referenceId": 817,
+                "tags": [
+                    {
+                        "loop": "false"
+                    },
+                    {
+                        "zIndex": "8"
+                    },
+                    "animation"
+                ],
+                "zIndex": 8,
+                "msg": "well done",
+                "alpha": 0,
+                "rotation": -0.46633332814734996,
+                "scale": 0.512535014523886,
+                "font": "Janda Silly Monkey",
+                "size": 120,
+                "color": "#000000",
+                "animations": {
+                    "psType": "text",
+                    "opacity": [
+                        {
+                            "opacity": 0,
+                            "time": 90
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 96
+                        }
+                    ],
+                    "firstFrame": 90,
+                    "lastFrame": 109,
+                    "rotation": [
+                        {
+                            "time": 90,
+                            "rotation": -0.46633386822237
+                        },
+                        {
+                            "time": 109,
+                            "rotation": 0.17698035270503
+                        }
+                    ],
+                    "scale": [
+                        {
+                            "time": 90,
+                            "scale": -0.51253503668007
+                        },
+                        {
+                            "time": 109,
+                            "scale": 1.51491440643183
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 90,
+                            "x": 618,
+                            "y": 1220
+                        },
+                        {
+                            "time": 109,
+                            "x": 634,
+                            "y": 1205
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 621,
+                "y": 872,
+                "width": 212,
+                "height": 186,
+                "referenceId": 819,
+                "filename": "coconut_white.png",
+                "tags": [
+                    "animation",
+                    {
+                        "loop": "false"
+                    },
+                    {
+                        "zIndex": "9"
+                    }
+                ],
+                "zIndex": 9,
+                "rotation": 0,
+                "scale": 1,
+                "alpha": 0,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 0,
+                            "time": 20
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 21
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 26
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 29
+                        }
+                    ],
+                    "firstFrame": 20,
+                    "lastFrame": 29
+                }
+            },
+            {
+                "type": "image",
+                "x": 622,
+                "y": 883,
+                "width": 89,
+                "height": 80,
+                "referenceId": 810,
+                "filename": "coconut.png",
+                "tags": [
+                    "animation",
+                    {
+                        "loop": "false"
+                    },
+                    {
+                        "zIndex": "8"
+                    }
+                ],
+                "zIndex": 8,
+                "rotation": 0,
+                "scale": 0.42,
+                "animations": {
+                    "psType": "smartObject",
+                    "firstFrame": 12,
+                    "lastFrame": 20,
+                    "scale": [
+                        {
+                            "time": 12,
+                            "scale": 0.42
+                        },
+                        {
+                            "time": 18,
+                            "scale": 0.71
+                        },
+                        {
+                            "time": 19,
+                            "scale": 0.86
+                        },
+                        {
+                            "time": 20,
+                            "scale": 1
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 12,
+                            "x": 622,
+                            "y": 883
+                        },
+                        {
+                            "time": 18,
+                            "x": 621,
+                            "y": 882
+                        },
+                        {
+                            "time": 19,
+                            "x": 621,
+                            "y": 881
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 620,
+                "y": 881,
+                "width": 758,
+                "height": 758,
+                "referenceId": 851,
+                "filename": "shine.png",
+                "tags": [
+                    "animation",
+                    {
+                        "zIndex": "6"
+                    }
+                ],
+                "zIndex": 6,
+                "rotation": -3.132309100669347,
+                "scale": 1,
+                "animations": {
+                    "psType": "smartObject",
+                    "firstFrame": 0,
+                    "lastFrame": 119,
+                    "rotation": [
+                        {
+                            "time": 0,
+                            "rotation": -3.132309100669347
+                        },
+                        {
+                            "time": 119,
+                            "rotation": 3.140266394420458
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 620,
+                "y": 855,
+                "width": 197,
+                "height": 187,
+                "referenceId": 921,
+                "filename": "star.png",
+                "rotation": 0,
+                "scale": 1,
+                "tags": [
+                    "animation",
+                    {
+                        "initialDelay": "false"
+                    },
+                    {
+                        "zIndex": "7"
+                    }
+                ],
+                "zIndex": 7,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 1,
+                            "time": 56
+                        },
+                        {
+                            "opacity": 0.25,
+                            "time": 94
+                        }
+                    ],
+                    "firstFrame": 56,
+                    "lastFrame": 94,
+                    "rotation": [
+                        {
+                            "time": 56,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 94,
+                            "rotation": 2.693889023705579
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 56,
+                            "x": 620,
+                            "y": 855
+                        },
+                        {
+                            "time": 94,
+                            "x": 1073,
+                            "y": 314
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 620,
+                "y": 855,
+                "width": 197,
+                "height": 187,
+                "referenceId": 920,
+                "filename": "star.png",
+                "rotation": 0,
+                "scale": 1,
+                "tags": [
+                    "animation",
+                    {
+                        "initialDelay": "false"
+                    },
+                    {
+                        "zIndex": "7"
+                    }
+                ],
+                "zIndex": 7,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 1,
+                            "time": 40
+                        },
+                        {
+                            "opacity": 0.25,
+                            "time": 78
+                        }
+                    ],
+                    "firstFrame": 40,
+                    "lastFrame": 78,
+                    "rotation": [
+                        {
+                            "time": 40,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 78,
+                            "rotation": 2.693889023705579
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 40,
+                            "x": 620,
+                            "y": 855
+                        },
+                        {
+                            "time": 78,
+                            "x": 1133,
+                            "y": 574
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 620,
+                "y": 855,
+                "width": 197,
+                "height": 187,
+                "referenceId": 919,
+                "filename": "star.png",
+                "rotation": 0,
+                "scale": 1,
+                "tags": [
+                    "animation",
+                    {
+                        "initialDelay": "false"
+                    },
+                    {
+                        "zIndex": "7"
+                    }
+                ],
+                "zIndex": 7,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 1,
+                            "time": 29
+                        },
+                        {
+                            "opacity": 0.25,
+                            "time": 67
+                        }
+                    ],
+                    "firstFrame": 29,
+                    "lastFrame": 67,
+                    "rotation": [
+                        {
+                            "time": 29,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 67,
+                            "rotation": 2.693889023705579
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 29,
+                            "x": 620,
+                            "y": 855
+                        },
+                        {
+                            "time": 67,
+                            "x": 1133,
+                            "y": 949
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 620,
+                "y": 855,
+                "width": 197,
+                "height": 187,
+                "referenceId": 918,
+                "filename": "star.png",
+                "rotation": 0,
+                "scale": 1,
+                "tags": [
+                    "animation",
+                    {
+                        "initialDelay": "false"
+                    },
+                    {
+                        "zIndex": "7"
+                    }
+                ],
+                "zIndex": 7,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 1,
+                            "time": 51
+                        },
+                        {
+                            "opacity": 0.25,
+                            "time": 89
+                        }
+                    ],
+                    "firstFrame": 51,
+                    "lastFrame": 89,
+                    "rotation": [
+                        {
+                            "time": 51,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 89,
+                            "rotation": 2.693889023705579
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 51,
+                            "x": 620,
+                            "y": 855
+                        },
+                        {
+                            "time": 89,
+                            "x": 995,
+                            "y": 1257
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 620,
+                "y": 855,
+                "width": 197,
+                "height": 187,
+                "referenceId": 925,
+                "filename": "star.png",
+                "rotation": 0,
+                "scale": 1,
+                "tags": [
+                    "animation",
+                    {
+                        "initialDelay": "false"
+                    },
+                    {
+                        "zIndex": "7"
+                    }
+                ],
+                "zIndex": 7,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 1,
+                            "time": 44
+                        },
+                        {
+                            "opacity": 0.25,
+                            "time": 82
+                        }
+                    ],
+                    "firstFrame": 44,
+                    "lastFrame": 82,
+                    "rotation": [
+                        {
+                            "time": 44,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 82,
+                            "rotation": 2.693889023705579
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 44,
+                            "x": 620,
+                            "y": 855
+                        },
+                        {
+                            "time": 82,
+                            "x": 168,
+                            "y": 767
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 620,
+                "y": 855,
+                "width": 197,
+                "height": 187,
+                "referenceId": 917,
+                "filename": "star.png",
+                "rotation": 0,
+                "scale": 1,
+                "tags": [
+                    "animation",
+                    {
+                        "initialDelay": "false"
+                    },
+                    {
+                        "zIndex": "7"
+                    }
+                ],
+                "zIndex": 7,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 1,
+                            "time": 22
+                        },
+                        {
+                            "opacity": 0.25,
+                            "time": 60
+                        }
+                    ],
+                    "firstFrame": 22,
+                    "lastFrame": 60,
+                    "rotation": [
+                        {
+                            "time": 22,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 60,
+                            "rotation": 2.693889023705579
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 22,
+                            "x": 620,
+                            "y": 855
+                        },
+                        {
+                            "time": 60,
+                            "x": 687,
+                            "y": 1230
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 620,
+                "y": 855,
+                "width": 197,
+                "height": 187,
+                "referenceId": 924,
+                "filename": "star.png",
+                "rotation": 0,
+                "scale": 1,
+                "tags": [
+                    "animation",
+                    {
+                        "initialDelay": "false"
+                    },
+                    {
+                        "zIndex": "7"
+                    }
+                ],
+                "zIndex": 7,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 1,
+                            "time": 51
+                        },
+                        {
+                            "opacity": 0.25,
+                            "time": 89
+                        }
+                    ],
+                    "firstFrame": 51,
+                    "lastFrame": 89,
+                    "rotation": [
+                        {
+                            "time": 51,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 89,
+                            "rotation": 2.693889023705579
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 51,
+                            "x": 620,
+                            "y": 855
+                        },
+                        {
+                            "time": 89,
+                            "x": 442,
+                            "y": 1329
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 620,
+                "y": 855,
+                "width": 197,
+                "height": 187,
+                "referenceId": 916,
+                "filename": "star.png",
+                "rotation": 0,
+                "scale": 1,
+                "tags": [
+                    "animation",
+                    {
+                        "initialDelay": "false"
+                    },
+                    {
+                        "zIndex": "7"
+                    }
+                ],
+                "zIndex": 7,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 1,
+                            "time": 36
+                        },
+                        {
+                            "opacity": 0.25,
+                            "time": 74
+                        }
+                    ],
+                    "firstFrame": 36,
+                    "lastFrame": 74,
+                    "rotation": [
+                        {
+                            "time": 36,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 74,
+                            "rotation": 2.693889023705579
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 36,
+                            "x": 620,
+                            "y": 855
+                        },
+                        {
+                            "time": 74,
+                            "x": 247,
+                            "y": 1146
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 620,
+                "y": 855,
+                "width": 197,
+                "height": 187,
+                "referenceId": 915,
+                "filename": "star.png",
+                "rotation": 0,
+                "scale": 1,
+                "tags": [
+                    "animation",
+                    {
+                        "initialDelay": "false"
+                    },
+                    {
+                        "zIndex": "7"
+                    }
+                ],
+                "zIndex": 7,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 1,
+                            "time": 40
+                        },
+                        {
+                            "opacity": 0.25,
+                            "time": 78
+                        }
+                    ],
+                    "firstFrame": 40,
+                    "lastFrame": 78,
+                    "rotation": [
+                        {
+                            "time": 40,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 78,
+                            "rotation": 2.693889023705579
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 40,
+                            "x": 620,
+                            "y": 855
+                        },
+                        {
+                            "time": 78,
+                            "x": 110,
+                            "y": 923
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 620,
+                "y": 855,
+                "width": 197,
+                "height": 187,
+                "referenceId": 922,
+                "filename": "star.png",
+                "rotation": 0,
+                "scale": 1,
+                "tags": [
+                    "animation",
+                    {
+                        "initialDelay": "false"
+                    },
+                    {
+                        "zIndex": "7"
+                    }
+                ],
+                "zIndex": 7,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 1,
+                            "time": 56
+                        },
+                        {
+                            "opacity": 0.25,
+                            "time": 94
+                        }
+                    ],
+                    "firstFrame": 56,
+                    "lastFrame": 94,
+                    "rotation": [
+                        {
+                            "time": 56,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 94,
+                            "rotation": 2.693889023705579
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 56,
+                            "x": 620,
+                            "y": 855
+                        },
+                        {
+                            "time": 94,
+                            "x": 205,
+                            "y": 431
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 620,
+                "y": 855,
+                "width": 197,
+                "height": 187,
+                "referenceId": 923,
+                "filename": "star.png",
+                "rotation": 0,
+                "scale": 1,
+                "tags": [
+                    "animation",
+                    {
+                        "initialDelay": "false"
+                    },
+                    {
+                        "zIndex": "7"
+                    }
+                ],
+                "zIndex": 7,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 1,
+                            "time": 26
+                        },
+                        {
+                            "opacity": 0.25,
+                            "time": 64
+                        }
+                    ],
+                    "firstFrame": 26,
+                    "lastFrame": 64,
+                    "rotation": [
+                        {
+                            "time": 26,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 64,
+                            "rotation": 2.693889023705579
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 26,
+                            "x": 620,
+                            "y": 855
+                        },
+                        {
+                            "time": 64,
+                            "x": 841,
+                            "y": 286
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 620,
+                "y": 855,
+                "width": 197,
+                "height": 187,
+                "referenceId": 847,
+                "filename": "star.png",
+                "rotation": 0,
+                "scale": 1,
+                "tags": [
+                    "animation",
+                    {
+                        "initialDelay": "false"
+                    },
+                    {
+                        "zIndex": "7"
+                    }
+                ],
+                "zIndex": 7,
+                "animations": {
+                    "psType": "smartObject",
+                    "opacity": [
+                        {
+                            "opacity": 1,
+                            "time": 42
+                        },
+                        {
+                            "opacity": 0.25,
+                            "time": 80
+                        }
+                    ],
+                    "firstFrame": 42,
+                    "lastFrame": 80,
+                    "rotation": [
+                        {
+                            "time": 42,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 80,
+                            "rotation": 2.693889023705579
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 42,
+                            "x": 620,
+                            "y": 855
+                        },
+                        {
+                            "time": 80,
+                            "x": 555,
+                            "y": 225
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 993,
+                "y": 896,
+                "width": 252,
+                "height": 252,
+                "referenceId": 816,
+                "filename": "monkey.png",
+                "rotation": 0,
+                "scale": 1,
+                "tags": [
+                    "animation",
+                    {
+                        "initialDelay": "false"
+                    },
+                    {
+                        "zIndex": "5"
+                    }
+                ],
+                "zIndex": 5,
+                "animations": {
+                    "psType": "smartObject",
+                    "firstFrame": 4,
+                    "lastFrame": 44,
+                    "rotation": [
+                        {
+                            "time": 4,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 14,
+                            "rotation": -0.3518166794456865
+                        },
+                        {
+                            "time": 24,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 34,
+                            "rotation": 0.34809326732711865
+                        },
+                        {
+                            "time": 44,
+                            "rotation": 0
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 4,
+                            "x": 993,
+                            "y": 896
+                        },
+                        {
+                            "time": 14,
+                            "x": 940,
+                            "y": 860
+                        },
+                        {
+                            "time": 24,
+                            "x": 993,
+                            "y": 896
+                        },
+                        {
+                            "time": 34,
+                            "x": 1045,
+                            "y": 860
+                        },
+                        {
+                            "time": 44,
+                            "x": 993,
+                            "y": 896
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 249,
+                "y": 899,
+                "width": 252,
+                "height": 252,
+                "referenceId": 815,
+                "filename": "monkey.png",
+                "rotation": 0,
+                "scale": 1,
+                "tags": [
+                    "animation",
+                    {
+                        "initialDelay": "false"
+                    },
+                    {
+                        "zIndex": "5"
+                    }
+                ],
+                "zIndex": 5,
+                "animations": {
+                    "psType": "smartObject",
+                    "firstFrame": 0,
+                    "lastFrame": 40,
+                    "rotation": [
+                        {
+                            "time": 0,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 10,
+                            "rotation": -0.34674534801556234
+                        },
+                        {
+                            "time": 20,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 30,
+                            "rotation": 0.34674534801556234
+                        },
+                        {
+                            "time": 40,
+                            "rotation": 0
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 0,
+                            "x": 249,
+                            "y": 899
+                        },
+                        {
+                            "time": 10,
+                            "x": 196,
+                            "y": 863
+                        },
+                        {
+                            "time": 20,
+                            "x": 249,
+                            "y": 899
+                        },
+                        {
+                            "time": 30,
+                            "x": 301,
+                            "y": 863
+                        },
+                        {
+                            "time": 40,
+                            "x": 249,
+                            "y": 899
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 939,
+                "y": 731,
+                "width": 252,
+                "height": 252,
+                "referenceId": 814,
+                "filename": "monkey.png",
+                "rotation": 0,
+                "scale": 1,
+                "tags": [
+                    "animation",
+                    {
+                        "initialDelay": "false"
+                    },
+                    {
+                        "zIndex": "5"
+                    }
+                ],
+                "zIndex": 5,
+                "animations": {
+                    "psType": "smartObject",
+                    "firstFrame": 12,
+                    "lastFrame": 52,
+                    "rotation": [
+                        {
+                            "time": 12,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 22,
+                            "rotation": -0.34674534801556234
+                        },
+                        {
+                            "time": 32,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 42,
+                            "rotation": 0.34674534801556234
+                        },
+                        {
+                            "time": 52,
+                            "rotation": 0
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 12,
+                            "x": 939,
+                            "y": 731
+                        },
+                        {
+                            "time": 22,
+                            "x": 886,
+                            "y": 695
+                        },
+                        {
+                            "time": 32,
+                            "x": 939,
+                            "y": 731
+                        },
+                        {
+                            "time": 42,
+                            "x": 991,
+                            "y": 695
+                        },
+                        {
+                            "time": 52,
+                            "x": 939,
+                            "y": 731
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 303,
+                "y": 755,
+                "width": 252,
+                "height": 252,
+                "referenceId": 813,
+                "filename": "monkey.png",
+                "rotation": 0,
+                "scale": 1,
+                "tags": [
+                    "animation",
+                    {
+                        "initialDelay": "false"
+                    },
+                    {
+                        "zIndex": "5"
+                    }
+                ],
+                "zIndex": 5,
+                "animations": {
+                    "psType": "smartObject",
+                    "firstFrame": 8,
+                    "lastFrame": 48,
+                    "rotation": [
+                        {
+                            "time": 8,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 18,
+                            "rotation": -0.34674534801556234
+                        },
+                        {
+                            "time": 28,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 38,
+                            "rotation": 0.34674534801556234
+                        },
+                        {
+                            "time": 48,
+                            "rotation": 0
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 8,
+                            "x": 303,
+                            "y": 755
+                        },
+                        {
+                            "time": 18,
+                            "x": 250,
+                            "y": 719
+                        },
+                        {
+                            "time": 28,
+                            "x": 303,
+                            "y": 755
+                        },
+                        {
+                            "time": 38,
+                            "x": 355,
+                            "y": 719
+                        },
+                        {
+                            "time": 48,
+                            "x": 303,
+                            "y": 755
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 429,
+                "y": 608,
+                "width": 252,
+                "height": 252,
+                "referenceId": 812,
+                "filename": "monkey.png",
+                "rotation": 0,
+                "scale": 1,
+                "tags": [
+                    "animation",
+                    {
+                        "initialDelay": "false"
+                    },
+                    {
+                        "zIndex": "5"
+                    }
+                ],
+                "zIndex": 5,
+                "animations": {
+                    "psType": "smartObject",
+                    "firstFrame": 2,
+                    "lastFrame": 42,
+                    "rotation": [
+                        {
+                            "time": 2,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 12,
+                            "rotation": -0.34674534801556234
+                        },
+                        {
+                            "time": 22,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 32,
+                            "rotation": 0.34809326732711865
+                        },
+                        {
+                            "time": 42,
+                            "rotation": 0
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 2,
+                            "x": 429,
+                            "y": 608
+                        },
+                        {
+                            "time": 12,
+                            "x": 376,
+                            "y": 572
+                        },
+                        {
+                            "time": 22,
+                            "x": 429,
+                            "y": 608
+                        },
+                        {
+                            "time": 32,
+                            "x": 481,
+                            "y": 572
+                        },
+                        {
+                            "time": 42,
+                            "x": 429,
+                            "y": 608
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 813,
+                "y": 608,
+                "width": 252,
+                "height": 252,
+                "referenceId": 811,
+                "filename": "monkey.png",
+                "rotation": 0,
+                "scale": 1,
+                "tags": [
+                    "animation",
+                    {
+                        "initialDelay": "false"
+                    },
+                    {
+                        "zIndex": "5"
+                    }
+                ],
+                "zIndex": 5,
+                "animations": {
+                    "psType": "smartObject",
+                    "firstFrame": 6,
+                    "lastFrame": 46,
+                    "rotation": [
+                        {
+                            "time": 6,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 16,
+                            "rotation": -0.3518166794456865
+                        },
+                        {
+                            "time": 26,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 36,
+                            "rotation": 0.34674534801556234
+                        },
+                        {
+                            "time": 46,
+                            "rotation": 0
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 6,
+                            "x": 813,
+                            "y": 608
+                        },
+                        {
+                            "time": 16,
+                            "x": 760,
+                            "y": 572
+                        },
+                        {
+                            "time": 26,
+                            "x": 813,
+                            "y": 608
+                        },
+                        {
+                            "time": 36,
+                            "x": 865,
+                            "y": 572
+                        },
+                        {
+                            "time": 46,
+                            "x": 813,
+                            "y": 608
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "image",
+                "x": 621,
+                "y": 547,
+                "width": 252,
+                "height": 252,
+                "referenceId": 818,
+                "filename": "monkey.png",
+                "rotation": 0,
+                "scale": 1,
+                "tags": [
+                    "animation",
+                    {
+                        "initialDelay": "false"
+                    },
+                    {
+                        "zIndex": "5"
+                    }
+                ],
+                "zIndex": 5,
+                "animations": {
+                    "psType": "smartObject",
+                    "firstFrame": 10,
+                    "lastFrame": 50,
+                    "rotation": [
+                        {
+                            "time": 10,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 20,
+                            "rotation": -0.34674534801556234
+                        },
+                        {
+                            "time": 30,
+                            "rotation": 0
+                        },
+                        {
+                            "time": 40,
+                            "rotation": 0.34809326732711865
+                        },
+                        {
+                            "time": 50,
+                            "rotation": 0
+                        }
+                    ],
+                    "position": [
+                        {
+                            "time": 10,
+                            "x": 621,
+                            "y": 547
+                        },
+                        {
+                            "time": 20,
+                            "x": 568,
+                            "y": 511
+                        },
+                        {
+                            "time": 30,
+                            "x": 621,
+                            "y": 547
+                        },
+                        {
+                            "time": 40,
+                            "x": 674,
+                            "y": 511
+                        },
+                        {
+                            "time": 50,
+                            "x": 621,
+                            "y": 547
+                        }
+                    ]
+                }
+            },
+            {
+                "type": "rectangle",
+                "x": 1012,
+                "y": 2055,
+                "width": 454,
+                "height": 304,
+                "referenceId": 850,
+                "tags": [
+                    "input",
+                    {
+                        "up": "doSkip"
+                    }
+                ],
+                "filled": false,
+                "lineWidth": 1,
+                "color": "#ffffff"
+            },
+            {
+                "type": "text",
+                "x": 1034,
+                "y": 2044,
+                "width": 163,
+                "height": 59,
+                "referenceId": 849,
+                "tags": [
+                    {
+                        "zIndex": "5"
+                    }
+                ],
+                "zIndex": 5,
+                "msg": "skip >",
+                "rotation": 0,
+                "font": "Janda Silly Monkey",
+                "size": 72,
+                "color": "#000000"
+            }
+        ]
+    },
     "move_tutorial": {
         "screen": {
             "top": 966,
@@ -68,6 +1596,8 @@
                             "time": 270
                         }
                     ],
+                    "firstFrame": 30,
+                    "lastFrame": 270,
                     "position": [
                         {
                             "time": 30,
@@ -254,6 +1784,8 @@
                             "time": 300
                         }
                     ],
+                    "firstFrame": 0,
+                    "lastFrame": 300,
                     "position": [
                         {
                             "time": 108,
@@ -400,6 +1932,8 @@
                             "time": 300
                         }
                     ],
+                    "firstFrame": 0,
+                    "lastFrame": 300,
                     "position": [
                         {
                             "time": 108,
@@ -546,6 +2080,8 @@
                             "time": 300
                         }
                     ],
+                    "firstFrame": 0,
+                    "lastFrame": 300,
                     "rotation": [
                         {
                             "time": 171,
@@ -710,6 +2246,8 @@
                             "time": 300
                         }
                     ],
+                    "firstFrame": 0,
+                    "lastFrame": 300,
                     "position": [
                         {
                             "time": 108,
@@ -856,6 +2394,8 @@
                             "time": 300
                         }
                     ],
+                    "firstFrame": 0,
+                    "lastFrame": 300,
                     "position": [
                         {
                             "time": 108,
@@ -898,6 +2438,7 @@
                 "height": 84,
                 "referenceId": 502,
                 "filename": "arrow.png",
+                "rotation": 0,
                 "scale": 1,
                 "alpha": 0.75,
                 "tags": [
@@ -1001,6 +2542,8 @@
                             "time": 300
                         }
                     ],
+                    "firstFrame": 0,
+                    "lastFrame": 300,
                     "position": [
                         {
                             "time": 108,
@@ -1123,6 +2666,8 @@
                             "time": 280
                         }
                     ],
+                    "firstFrame": 0,
+                    "lastFrame": 280,
                     "position": [
                         {
                             "time": 108,
@@ -1245,6 +2790,8 @@
                             "time": 280
                         }
                     ],
+                    "firstFrame": 0,
+                    "lastFrame": 280,
                     "position": [
                         {
                             "time": 108,
@@ -1300,9 +2847,12 @@
                     }
                 ],
                 "zIndex": 7,
+                "rotation": 0,
                 "scale": 0.72,
                 "animations": {
                     "psType": "smartObject",
+                    "firstFrame": 50,
+                    "lastFrame": 270,
                     "scale": [
                         {
                             "time": 50,
@@ -1310,7 +2860,7 @@
                         },
                         {
                             "time": 55,
-                            "scale": 0.86
+                            "scale": 0.85
                         },
                         {
                             "time": 90,
@@ -1418,9 +2968,12 @@
                     }
                 ],
                 "zIndex": 7,
+                "rotation": 0,
                 "scale": 0.72,
                 "animations": {
                     "psType": "smartObject",
+                    "firstFrame": 90,
+                    "lastFrame": 270,
                     "position": [
                         {
                             "time": 90,
@@ -1476,9 +3029,12 @@
                     }
                 ],
                 "zIndex": 6,
+                "rotation": 0,
                 "scale": 0.72,
                 "animations": {
                     "psType": "smartObject",
+                    "firstFrame": 90,
+                    "lastFrame": 270,
                     "position": [
                         {
                             "time": 90,
@@ -1534,9 +3090,12 @@
                     }
                 ],
                 "zIndex": 6,
+                "rotation": 0,
                 "scale": 0.72,
                 "animations": {
                     "psType": "smartObject",
+                    "firstFrame": 90,
+                    "lastFrame": 270,
                     "position": [
                         {
                             "time": 90,
@@ -1582,6 +3141,7 @@
                     "height": 64,
                     "referenceId": 464,
                     "msg": "ok",
+                    "rotation": 0,
                     "font": "Janda Silly Monkey",
                     "size": 85,
                     "color": "#515349"
@@ -1930,10 +3490,13 @@
                     }
                 ],
                 "viewId": "monkey1",
+                "rotation": 0,
                 "scale": 1,
                 "zIndex": 3,
                 "animations": {
                     "psType": "smartObject",
+                    "firstFrame": 0,
+                    "lastFrame": 160,
                     "position": [
                         {
                             "time": 0,
@@ -1994,10 +3557,13 @@
                     }
                 ],
                 "viewId": "monkey2",
+                "rotation": 0,
                 "scale": 1,
                 "zIndex": 3,
                 "animations": {
                     "psType": "smartObject",
+                    "firstFrame": 0,
+                    "lastFrame": 160,
                     "position": [
                         {
                             "time": 0,
@@ -2063,10 +3629,13 @@
                     }
                 ],
                 "viewId": "monkey3",
+                "rotation": 0,
                 "scale": 1,
                 "zIndex": 3,
                 "animations": {
                     "psType": "smartObject",
+                    "firstFrame": 0,
+                    "lastFrame": 160,
                     "position": [
                         {
                             "time": 0,
@@ -2132,10 +3701,13 @@
                     }
                 ],
                 "viewId": "monkey4",
+                "rotation": 0,
                 "scale": 1,
                 "zIndex": 3,
                 "animations": {
                     "psType": "smartObject",
+                    "firstFrame": 0,
+                    "lastFrame": 160,
                     "position": [
                         {
                             "time": 0,
@@ -2201,10 +3773,13 @@
                     }
                 ],
                 "viewId": "monkey5",
+                "rotation": 0,
                 "scale": 1,
                 "zIndex": 3,
                 "animations": {
                     "psType": "smartObject",
+                    "firstFrame": 0,
+                    "lastFrame": 160,
                     "position": [
                         {
                             "time": 0,
@@ -2303,6 +3878,7 @@
                 "height": 235,
                 "referenceId": 59,
                 "filename": "leave.png",
+                "rotation": 0,
                 "scale": 0.99,
                 "tags": [
                     {
@@ -2322,6 +3898,7 @@
                 "height": 235,
                 "referenceId": 58,
                 "filename": "leave.png",
+                "rotation": 0,
                 "scale": 0.99,
                 "tags": [
                     {
@@ -2341,6 +3918,7 @@
                 "height": 235,
                 "referenceId": 56,
                 "filename": "leave.png",
+                "rotation": 0,
                 "scale": 0.99,
                 "tags": [
                     {
@@ -2363,6 +3941,7 @@
                     "height": 76,
                     "referenceId": 24,
                     "msg": "play",
+                    "rotation": 0,
                     "font": "Janda Silly Monkey",
                     "size": 85,
                     "color": "#515349"
@@ -2413,6 +3992,7 @@
                     "height": 81,
                     "referenceId": 36,
                     "msg": "more games",
+                    "rotation": 0,
                     "font": "Janda Silly Monkey",
                     "size": 85,
                     "color": "#515349"
@@ -2460,6 +4040,7 @@
                 "height": 215,
                 "referenceId": 33,
                 "filename": "cloud_1.png",
+                "rotation": 0,
                 "scale": 1,
                 "tags": [
                     "animation",
@@ -2470,6 +4051,8 @@
                 "zIndex": 0,
                 "animations": {
                     "psType": "smartObject",
+                    "firstFrame": 60,
+                    "lastFrame": 249,
                     "position": [
                         {
                             "time": 60,
@@ -2492,6 +4075,7 @@
                 "height": 144,
                 "referenceId": 32,
                 "filename": "cloud_4.png",
+                "rotation": 0,
                 "scale": 1,
                 "tags": [
                     "animation",
@@ -2502,6 +4086,8 @@
                 "zIndex": 0,
                 "animations": {
                     "psType": "smartObject",
+                    "firstFrame": 0,
+                    "lastFrame": 215,
                     "position": [
                         {
                             "time": 0,
@@ -2524,6 +4110,7 @@
                 "height": 142,
                 "referenceId": 31,
                 "filename": "cloud_3.png",
+                "rotation": 0,
                 "scale": 1,
                 "tags": [
                     "animation",
@@ -2534,6 +4121,8 @@
                 "zIndex": 0,
                 "animations": {
                     "psType": "smartObject",
+                    "firstFrame": 97,
+                    "lastFrame": 299,
                     "position": [
                         {
                             "time": 97,
@@ -2556,6 +4145,7 @@
                 "height": 238,
                 "referenceId": 30,
                 "filename": "cloud_2.png",
+                "rotation": 0,
                 "scale": 1,
                 "tags": [
                     "animation",
@@ -2566,6 +4156,8 @@
                 "zIndex": 0,
                 "animations": {
                     "psType": "smartObject",
+                    "firstFrame": 15,
+                    "lastFrame": 224,
                     "position": [
                         {
                             "time": 15,
@@ -2588,6 +4180,7 @@
                 "height": 215,
                 "referenceId": 29,
                 "filename": "cloud_1.png",
+                "rotation": 0,
                 "scale": 1,
                 "tags": [
                     "animation",
@@ -2598,6 +4191,8 @@
                 "zIndex": 0,
                 "animations": {
                     "psType": "smartObject",
+                    "firstFrame": 70,
+                    "lastFrame": 267,
                     "position": [
                         {
                             "time": 70,
