@@ -11,6 +11,52 @@
         "drawables": [
             {
                 "type": "text",
+                "x": 265,
+                "y": 1162,
+                "width": -0.15999999999985448,
+                "height": 166.15999999999985,
+                "referenceId": 1252,
+                "tags": [
+                    {
+                        "zIndex": "9"
+                    },
+                    "mask",
+                    "animation"
+                ],
+                "zIndex": 9,
+                "mask": {
+                    "width": 32,
+                    "height": 227,
+                    "rotation": 0.16808837995790105,
+                    "x": 195,
+                    "y": 1097
+                },
+                "msg": "well done",
+                "rotation": 0.17698071473396326,
+                "scale": 1.5149133265203656,
+                "font": "Janda Silly Monkey",
+                "size": 120,
+                "color": "#ffffff",
+                "animations": {
+                    "mask": [
+                        {
+                            "x": 266,
+                            "y": 1162,
+                            "time": 150
+                        },
+                        {
+                            "x": 997,
+                            "y": 1245,
+                            "time": 210
+                        }
+                    ],
+                    "psType": "text",
+                    "firstFrame": 150,
+                    "lastFrame": 210
+                }
+            },
+            {
+                "type": "text",
                 "x": 634,
                 "y": 1205,
                 "width": 736,
@@ -34,7 +80,6 @@
                 "size": 120,
                 "color": "#ffffff",
                 "animations": {
-                    "psType": "text",
                     "opacity": [
                         {
                             "opacity": 0,
@@ -53,6 +98,7 @@
                             "time": 129
                         }
                     ],
+                    "psType": "text",
                     "firstFrame": 109,
                     "lastFrame": 129
                 }
@@ -82,7 +128,6 @@
                 "size": 120,
                 "color": "#000000",
                 "animations": {
-                    "psType": "text",
                     "opacity": [
                         {
                             "opacity": 0,
@@ -93,6 +138,7 @@
                             "time": 96
                         }
                     ],
+                    "psType": "text",
                     "firstFrame": 90,
                     "lastFrame": 109,
                     "rotation": [
@@ -151,7 +197,6 @@
                 "scale": 1,
                 "alpha": 0,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 0,
@@ -170,6 +215,7 @@
                             "time": 29
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 20,
                     "lastFrame": 29
                 }
@@ -289,7 +335,6 @@
                 ],
                 "zIndex": 7,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 1,
@@ -300,6 +345,7 @@
                             "time": 94
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 56,
                     "lastFrame": 94,
                     "rotation": [
@@ -347,7 +393,6 @@
                 ],
                 "zIndex": 7,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 1,
@@ -358,6 +403,7 @@
                             "time": 78
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 40,
                     "lastFrame": 78,
                     "rotation": [
@@ -405,7 +451,6 @@
                 ],
                 "zIndex": 7,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 1,
@@ -416,6 +461,7 @@
                             "time": 67
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 29,
                     "lastFrame": 67,
                     "rotation": [
@@ -463,7 +509,6 @@
                 ],
                 "zIndex": 7,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 1,
@@ -474,6 +519,7 @@
                             "time": 89
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 51,
                     "lastFrame": 89,
                     "rotation": [
@@ -521,7 +567,6 @@
                 ],
                 "zIndex": 7,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 1,
@@ -532,6 +577,7 @@
                             "time": 82
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 44,
                     "lastFrame": 82,
                     "rotation": [
@@ -579,7 +625,6 @@
                 ],
                 "zIndex": 7,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 1,
@@ -590,6 +635,7 @@
                             "time": 60
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 22,
                     "lastFrame": 60,
                     "rotation": [
@@ -637,7 +683,6 @@
                 ],
                 "zIndex": 7,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 1,
@@ -648,6 +693,7 @@
                             "time": 89
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 51,
                     "lastFrame": 89,
                     "rotation": [
@@ -695,7 +741,6 @@
                 ],
                 "zIndex": 7,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 1,
@@ -706,6 +751,7 @@
                             "time": 74
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 36,
                     "lastFrame": 74,
                     "rotation": [
@@ -753,7 +799,6 @@
                 ],
                 "zIndex": 7,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 1,
@@ -764,6 +809,7 @@
                             "time": 78
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 40,
                     "lastFrame": 78,
                     "rotation": [
@@ -811,7 +857,6 @@
                 ],
                 "zIndex": 7,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 1,
@@ -822,6 +867,7 @@
                             "time": 94
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 56,
                     "lastFrame": 94,
                     "rotation": [
@@ -869,7 +915,6 @@
                 ],
                 "zIndex": 7,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 1,
@@ -880,6 +925,7 @@
                             "time": 64
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 26,
                     "lastFrame": 64,
                     "rotation": [
@@ -927,7 +973,6 @@
                 ],
                 "zIndex": 7,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 1,
@@ -938,6 +983,7 @@
                             "time": 80
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 42,
                     "lastFrame": 80,
                     "rotation": [
@@ -1502,6 +1548,13 @@
                         "up": "doSkip"
                     }
                 ],
+                "mask": {
+                    "width": 454,
+                    "height": 304,
+                    "rotation": 0,
+                    "x": 1012,
+                    "y": 2055
+                },
                 "filled": false,
                 "lineWidth": 1,
                 "color": "#ffffff"
@@ -1561,7 +1614,6 @@
                 "rotation": -0.3856170651546515,
                 "scale": 1,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 1,
@@ -1596,6 +1648,7 @@
                             "time": 270
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 30,
                     "lastFrame": 270,
                     "position": [
@@ -1697,7 +1750,6 @@
                 ],
                 "zIndex": 5,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 0.75,
@@ -1784,6 +1836,7 @@
                             "time": 300
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 0,
                     "lastFrame": 300,
                     "position": [
@@ -1845,7 +1898,6 @@
                 ],
                 "zIndex": 5,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 0.75,
@@ -1932,6 +1984,7 @@
                             "time": 300
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 0,
                     "lastFrame": 300,
                     "position": [
@@ -1993,7 +2046,6 @@
                 ],
                 "zIndex": 5,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 0.75,
@@ -2080,6 +2132,7 @@
                             "time": 300
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 0,
                     "lastFrame": 300,
                     "rotation": [
@@ -2159,7 +2212,6 @@
                 ],
                 "zIndex": 5,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 0.75,
@@ -2246,6 +2298,7 @@
                             "time": 300
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 0,
                     "lastFrame": 300,
                     "position": [
@@ -2307,7 +2360,6 @@
                 ],
                 "zIndex": 5,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 0.75,
@@ -2394,6 +2446,7 @@
                             "time": 300
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 0,
                     "lastFrame": 300,
                     "position": [
@@ -2455,7 +2508,6 @@
                 ],
                 "zIndex": 5,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 0.75,
@@ -2542,6 +2594,7 @@
                             "time": 300
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 0,
                     "lastFrame": 300,
                     "position": [
@@ -2603,7 +2656,6 @@
                 ],
                 "zIndex": 8,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 0,
@@ -2666,6 +2718,7 @@
                             "time": 280
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 0,
                     "lastFrame": 280,
                     "position": [
@@ -2727,7 +2780,6 @@
                 ],
                 "zIndex": 8,
                 "animations": {
-                    "psType": "smartObject",
                     "opacity": [
                         {
                             "opacity": 0,
@@ -2790,6 +2842,7 @@
                             "time": 280
                         }
                     ],
+                    "psType": "smartObject",
                     "firstFrame": 0,
                     "lastFrame": 280,
                     "position": [
@@ -3159,6 +3212,13 @@
                             "up": "pressOk"
                         }
                     ],
+                    "mask": {
+                        "width": 1191,
+                        "height": 453,
+                        "rotation": 0,
+                        "x": 621,
+                        "y": 1492
+                    },
                     "filled": false,
                     "color": "#000000"
                 },
@@ -3172,7 +3232,14 @@
                     "filename": "button.png",
                     "tags": [
                         "background"
-                    ]
+                    ],
+                    "mask": {
+                        "width": 666,
+                        "height": 169,
+                        "rotation": 0,
+                        "x": 621,
+                        "y": 1604
+                    }
                 }
             },
             {
@@ -3441,7 +3508,7 @@
             },
             {
                 "type": "rectangle",
-                "x": 621,
+                "x": -587,
                 "y": 1104,
                 "width": 1242,
                 "height": 2208,
@@ -3449,13 +3516,51 @@
                 "tags": [
                     {
                         "zIndex": "4"
+                    },
+                    "animation",
+                    {
+                        "loop": "false"
                     }
                 ],
                 "zIndex": 4,
+                "mask": {
+                    "width": 1242,
+                    "height": 2208,
+                    "rotation": 0,
+                    "x": -587,
+                    "y": 1104
+                },
                 "alpha": 0.8,
                 "filled": true,
                 "lineWidth": 3,
-                "color": "#000000"
+                "color": "#000000",
+                "animations": {
+                    "psType": "shape",
+                    "firstFrame": 0,
+                    "lastFrame": 10,
+                    "position": [
+                        {
+                            "time": 0,
+                            "x": -587,
+                            "y": 1104
+                        },
+                        {
+                            "time": 7,
+                            "x": 17,
+                            "y": 1104
+                        },
+                        {
+                            "time": 9,
+                            "x": 258,
+                            "y": 1104
+                        },
+                        {
+                            "time": 10,
+                            "x": 621,
+                            "y": 1104
+                        }
+                    ]
+                }
             }
         ]
     },
@@ -3850,10 +3955,62 @@
                         "zIndex": "2"
                     }
                 ],
+                "mask": {
+                    "width": 402,
+                    "height": 385,
+                    "rotation": 0,
+                    "x": 201,
+                    "y": 192
+                },
                 "filled": false,
                 "lineWidth": 1,
                 "color": "#000000",
                 "zIndex": 2
+            },
+            {
+                "type": "text",
+                "x": 147,
+                "y": 323,
+                "width": -8,
+                "height": 143,
+                "referenceId": 171,
+                "tags": [
+                    "animation",
+                    "mask",
+                    {
+                        "zIndex": "2"
+                    }
+                ],
+                "mask": {
+                    "width": 22,
+                    "height": 173,
+                    "rotation": 0,
+                    "x": 117,
+                    "y": 293
+                },
+                "msg": "Monkey Gang",
+                "rotation": 0,
+                "font": "Janda Silly Monkey",
+                "size": 150,
+                "color": "#fefffe",
+                "zIndex": 2,
+                "animations": {
+                    "mask": [
+                        {
+                            "x": -876,
+                            "y": -966,
+                            "time": 120
+                        },
+                        {
+                            "x": -876,
+                            "y": -966,
+                            "time": 180
+                        }
+                    ],
+                    "psType": "text",
+                    "firstFrame": 120,
+                    "lastFrame": 180
+                }
             },
             {
                 "type": "image",
@@ -3959,6 +4116,13 @@
                             "up": "pressPlay"
                         }
                     ],
+                    "mask": {
+                        "width": 1191,
+                        "height": 453,
+                        "rotation": 0,
+                        "x": 621,
+                        "y": 1492
+                    },
                     "filled": false,
                     "color": "#000000"
                 },
@@ -3972,7 +4136,14 @@
                     "filename": "button.png",
                     "tags": [
                         "background"
-                    ]
+                    ],
+                    "mask": {
+                        "width": 666,
+                        "height": 169,
+                        "rotation": 0,
+                        "x": 621,
+                        "y": 1604
+                    }
                 },
                 "tags": [
                     {
@@ -4010,6 +4181,13 @@
                             "up": "pressMore"
                         }
                     ],
+                    "mask": {
+                        "width": 1191,
+                        "height": 301,
+                        "rotation": 0,
+                        "x": 621,
+                        "y": 1875
+                    },
                     "filled": false,
                     "color": "#000000"
                 },
@@ -4023,7 +4201,14 @@
                     "filename": "button.png",
                     "tags": [
                         "background"
-                    ]
+                    ],
+                    "mask": {
+                        "width": 666,
+                        "height": 169,
+                        "rotation": 0,
+                        "x": 621,
+                        "y": 1830
+                    }
                 },
                 "tags": [
                     {
