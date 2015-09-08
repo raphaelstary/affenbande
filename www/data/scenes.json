@@ -38,18 +38,20 @@
                 "size": 120,
                 "color": "#ffffff",
                 "animations": {
-                    "mask": [
-                        {
-                            "x": 266,
-                            "y": 1162,
-                            "time": 150
-                        },
-                        {
-                            "x": 997,
-                            "y": 1245,
-                            "time": 210
-                        }
-                    ],
+                    "mask": {
+                        "position": [
+                            {
+                                "time": 150,
+                                "x": 230,
+                                "y": 1129
+                            },
+                            {
+                                "time": 210,
+                                "x": 1028,
+                                "y": 1273
+                            }
+                        ]
+                    },
                     "psType": "text",
                     "firstFrame": 150,
                     "lastFrame": 210
@@ -144,7 +146,7 @@
                     "rotation": [
                         {
                             "time": 90,
-                            "rotation": -0.46633386822237
+                            "rotation": -0.46633386822236
                         },
                         {
                             "time": 109,
@@ -1548,13 +1550,6 @@
                         "up": "doSkip"
                     }
                 ],
-                "mask": {
-                    "width": 454,
-                    "height": 304,
-                    "rotation": 0,
-                    "x": 1012,
-                    "y": 2055
-                },
                 "filled": false,
                 "lineWidth": 1,
                 "color": "#ffffff"
@@ -3212,13 +3207,6 @@
                             "up": "pressOk"
                         }
                     ],
-                    "mask": {
-                        "width": 1191,
-                        "height": 453,
-                        "rotation": 0,
-                        "x": 621,
-                        "y": 1492
-                    },
                     "filled": false,
                     "color": "#000000"
                 },
@@ -3232,14 +3220,7 @@
                     "filename": "button.png",
                     "tags": [
                         "background"
-                    ],
-                    "mask": {
-                        "width": 666,
-                        "height": 169,
-                        "rotation": 0,
-                        "x": 621,
-                        "y": 1604
-                    }
+                    ]
                 }
             },
             {
@@ -3523,13 +3504,6 @@
                     }
                 ],
                 "zIndex": 4,
-                "mask": {
-                    "width": 1242,
-                    "height": 2208,
-                    "rotation": 0,
-                    "x": -587,
-                    "y": 1104
-                },
                 "alpha": 0.8,
                 "filled": true,
                 "lineWidth": 3,
@@ -3955,13 +3929,6 @@
                         "zIndex": "2"
                     }
                 ],
-                "mask": {
-                    "width": 402,
-                    "height": 385,
-                    "rotation": 0,
-                    "x": 201,
-                    "y": 192
-                },
                 "filled": false,
                 "lineWidth": 1,
                 "color": "#000000",
@@ -3995,18 +3962,20 @@
                 "color": "#fefffe",
                 "zIndex": 2,
                 "animations": {
-                    "mask": [
-                        {
-                            "x": -876,
-                            "y": -966,
-                            "time": 120
-                        },
-                        {
-                            "x": -876,
-                            "y": -966,
-                            "time": 180
-                        }
-                    ],
+                    "mask": {
+                        "position": [
+                            {
+                                "time": 120,
+                                "x": 131,
+                                "y": 308
+                            },
+                            {
+                                "time": 180,
+                                "x": 1131,
+                                "y": 308
+                            }
+                        ]
+                    },
                     "psType": "text",
                     "firstFrame": 120,
                     "lastFrame": 180
@@ -4116,13 +4085,6 @@
                             "up": "pressPlay"
                         }
                     ],
-                    "mask": {
-                        "width": 1191,
-                        "height": 453,
-                        "rotation": 0,
-                        "x": 621,
-                        "y": 1492
-                    },
                     "filled": false,
                     "color": "#000000"
                 },
@@ -4136,14 +4098,7 @@
                     "filename": "button.png",
                     "tags": [
                         "background"
-                    ],
-                    "mask": {
-                        "width": 666,
-                        "height": 169,
-                        "rotation": 0,
-                        "x": 621,
-                        "y": 1604
-                    }
+                    ]
                 },
                 "tags": [
                     {
@@ -4181,13 +4136,6 @@
                             "up": "pressMore"
                         }
                     ],
-                    "mask": {
-                        "width": 1191,
-                        "height": 301,
-                        "rotation": 0,
-                        "x": 621,
-                        "y": 1875
-                    },
                     "filled": false,
                     "color": "#000000"
                 },
@@ -4201,14 +4149,7 @@
                     "filename": "button.png",
                     "tags": [
                         "background"
-                    ],
-                    "mask": {
-                        "width": 666,
-                        "height": 169,
-                        "rotation": 0,
-                        "x": 621,
-                        "y": 1830
-                    }
+                    ]
                 },
                 "tags": [
                     {
