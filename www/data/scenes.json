@@ -11,10 +11,10 @@
         "drawables": [
             {
                 "type": "text",
-                "x": 265,
-                "y": 1162,
-                "width": -0.15999999999985448,
-                "height": 166.15999999999985,
+                "x": 634,
+                "y": 1205,
+                "width": 736,
+                "height": 253,
                 "referenceId": 1252,
                 "tags": [
                     {
@@ -28,8 +28,8 @@
                     "width": 32,
                     "height": 227,
                     "rotation": 0.16808837995790105,
-                    "x": 195,
-                    "y": 1097
+                    "x": 563,
+                    "y": 1141
                 },
                 "msg": "well done",
                 "rotation": 0.17698071473396326,
@@ -146,7 +146,7 @@
                     "rotation": [
                         {
                             "time": 90,
-                            "rotation": -0.46633386822236
+                            "rotation": -0.46633386822237
                         },
                         {
                             "time": 109,
@@ -3936,10 +3936,10 @@
             },
             {
                 "type": "text",
-                "x": 147,
-                "y": 323,
-                "width": -8,
-                "height": 143,
+                "x": 620,
+                "y": 324,
+                "width": 939,
+                "height": 144,
                 "referenceId": 171,
                 "tags": [
                     "animation",
@@ -3952,15 +3952,15 @@
                     "width": 22,
                     "height": 173,
                     "rotation": 0,
-                    "x": 117,
-                    "y": 293
+                    "x": 590,
+                    "y": 294
                 },
                 "msg": "Monkey Gang",
                 "rotation": 0,
                 "font": "Janda Silly Monkey",
                 "size": 150,
                 "color": "#fefffe",
-                "zIndex": 2,
+                "zIndex": 3,
                 "animations": {
                     "mask": {
                         "position": [
@@ -3989,6 +3989,7 @@
                 "height": 157,
                 "referenceId": 150,
                 "filename": "logo.png",
+                "viewId": "logo",
                 "tags": [
                     {
                         "zIndex": "2"
