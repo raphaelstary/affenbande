@@ -99,6 +99,13 @@ var World = (function () {
         var counter = 0;
         var movedSnakes = [snake];
 
+        var extendedCallback = function () {
+            self.domainGridHelper.triggerEvents(movedSnakes);
+
+            if (callback)
+                callback();
+        };
+
         function getCallbackWithCounter(callback) {
             counter++;
             return function () {
@@ -132,14 +139,14 @@ var World = (function () {
                     if (badSpikes) {
                         self.worldView.highlightSpikes(self.domainGridHelper.getHurtingSpikes(badSnake), undefined);
                         self.worldView.flashHighlightSnake(badSnake, function () {
-                            self.undoLastMove(callback);
+                            self.undoLastMove(extendedCallback);
                         });
                     } else {
-                        self.undoLastMove(callback);
+                        self.undoLastMove(extendedCallback);
                     }
 
-                } else if (callback)
-                    callback();
+                } else if (extendedCallback)
+                    extendedCallback();
             }
         }
 

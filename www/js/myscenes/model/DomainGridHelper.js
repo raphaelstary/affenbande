@@ -1,11 +1,12 @@
 var DomainGridHelper = (function (iterateSomeEntries) {
     "use strict";
 
-    function DomainGridHelper(gridHelper, grid, xTiles, yTiles) {
+    function DomainGridHelper(gridHelper, grid, xTiles, yTiles, eventCallbacks) {
         this.gridHelper = gridHelper;
         this.grid = grid;
         this.xTiles = xTiles;
         this.yTiles = yTiles;
+        this.eventCallbacks = eventCallbacks;
     }
 
     var Tile = {
@@ -462,6 +463,19 @@ var DomainGridHelper = (function (iterateSomeEntries) {
             } else {
                 this.grid.set(change.oldU, change.oldV, change.tile);
             }
+        }, this);
+    };
+
+    DomainGridHelper.prototype.triggerEvents = function (snakes) {
+        var calledDict = {};
+        snakes.forEach(function (snake) {
+            snake.forEach(function (part) {
+                var event = this.grid.getEvent(part.u, part.v);
+                if (event && !calledDict[event]) {
+                    this.eventCallbacks[event]();
+                    calledDict[event] = true;
+                }
+            }, this);
         }, this);
     };
 

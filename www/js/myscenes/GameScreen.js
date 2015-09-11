@@ -58,18 +58,18 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
                 self.timer.doLater(nextScene, 6);
             }, 4, false, Width.get(32, 5), undefined, undefined, topOffset);
         buttons.push(back);
-        var undo = self.buttons.createPrimaryButton(Width.get(32, 25), topY, self.messages.get('play', 'undo'),
-            function () {
-                undo.used = true;
-                if (!world.undoLastMove(function () {
-                        undo.background.alpha = 0.5;
-                        undo.used = false;
-                    })) {
+        var undoX = Width.get(32, 25);
+        var undo = self.buttons.createPrimaryButton(undoX, topY, self.messages.get('play', 'undo'), function () {
+            undo.used = true;
+            if (!world.undoLastMove(function () {
                     undo.background.alpha = 0.5;
                     undo.used = false;
-                    shaker.startSmallShake();
-                }
-            }, 4, true, undefined, undefined, undefined, topOffset);
+                })) {
+                undo.background.alpha = 0.5;
+                undo.used = false;
+                shaker.startSmallShake();
+            }
+        }, 4, true, undefined, undefined, undefined, topOffset);
         buttons.push(undo);
         undo.reset = false;
         var shaker = new ScreenShaker(self.device);
@@ -78,6 +78,55 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
         shaker.add(undo.background);
         shaker.add(undo.text);
 
+        var eventCallbacks = {
+            11: function () {
+                var widthMultiplier = 3;
+
+                function getWidth(width) {
+                    var max = Width.get(10, 9)(width);
+                    var myWidth = undo.text.getWidth() * widthMultiplier;
+                    return myWidth <= max ? myWidth : max;
+                }
+
+                function getHeight() {
+                    return Math.floor(undo.text.getHeight() * 2.5);
+                }
+
+                var $ = {
+                    WAVE_COLOR: '#34FEFF',
+                    WAVE_SCALE_FACTOR_MAX: 2,
+                    WAVE_SCALE_DURATION: 30,
+                    WAVE_AGAIN_DURATION: 60 * 5,
+
+                    SECOND_WAVE_DELAY: 5,
+                    THIRD_WAVE_DELAY: 10
+                };
+                var _0 = undefined;
+                var deps = [undo.text];
+                var one = self.stage.drawRectangle(undoX, topY, getWidth, getHeight, 'white', _0, _0, 5, _0, _0, _0,
+                    deps);
+                var two = self.stage.drawRectangle(undoX, topY, getWidth, getHeight, 'white', _0, _0, 5, _0, _0, _0,
+                    deps);
+                var three = self.stage.drawRectangle(undoX, topY, getWidth, getHeight, 'white', _0, _0, 5, _0, _0, _0,
+                    deps);
+                self.stage.animateScale(one, $.WAVE_SCALE_FACTOR_MAX, $.WAVE_SCALE_DURATION, Transition.LINEAR, false,
+                    function () {
+                        self.stage.remove(one);
+                    });
+                self.timer.doLater(function () {
+                    self.stage.animateScale(two, $.WAVE_SCALE_FACTOR_MAX, $.WAVE_SCALE_DURATION, Transition.LINEAR,
+                        false, function () {
+                            self.stage.remove(two);
+                        });
+                }, $.SECOND_WAVE_DELAY);
+                self.timer.doLater(function () {
+                    self.stage.animateScale(three, $.WAVE_SCALE_FACTOR_MAX, $.WAVE_SCALE_DURATION, Transition.LINEAR,
+                        false, function () {
+                            self.stage.remove(three);
+                        });
+                }, $.THIRD_WAVE_DELAY);
+            }
+        };
         var level = this.levels[this.sceneStorage.currentLevel];
         var world = PlayFactory.createWorld(this.stage, this.timer, this.device, level, function () {
             self.events.fire(Event.ANALYTICS, {
@@ -87,7 +136,7 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
                 level: self.sceneStorage.currentLevel
             });
             self.timer.doLater(nextScene, 30);
-        }, topOffset);
+        }, topOffset, eventCallbacks);
         world.init();
         var playerController = PlayFactory.createPlayerController(world);
         var pointerHandler = this.events.subscribe(Event.POINTER, function (pointer) {
