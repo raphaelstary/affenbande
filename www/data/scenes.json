@@ -1,4 +1,25 @@
 {
+    "sandbox": {
+        "screen": {
+            "top": 964,
+            "left": 5526,
+            "bottom": 3172,
+            "right": 6768,
+            "width": 1242,
+            "height": 2208
+        },
+        "drawables": [
+            {
+                "type": "image",
+                "x": 621,
+                "y": 1104,
+                "width": 1242,
+                "height": 2208,
+                "referenceId": 1590,
+                "filename": "uniform_bg.png"
+            }
+        ]
+    },
     "finish_level": {
         "screen": {
             "top": 966,
@@ -2908,7 +2929,7 @@
                         },
                         {
                             "time": 55,
-                            "scale": 0.85
+                            "scale": 0.86
                         },
                         {
                             "time": 90,
@@ -4102,10 +4123,10 @@
                 },
                 "tags": [
                     {
-                        "zIndex": "1"
+                        "zIndex": "2"
                     }
                 ],
-                "zIndex": 1
+                "zIndex": 2
             },
             {
                 "type": "button",
@@ -4151,6 +4172,21 @@
                         "background"
                     ]
                 },
+                "tags": [
+                    {
+                        "zIndex": "2"
+                    }
+                ],
+                "zIndex": 2
+            },
+            {
+                "type": "image",
+                "x": 725,
+                "y": 1493,
+                "width": 493,
+                "height": 1499,
+                "referenceId": 1514,
+                "filename": "start_tree.png",
                 "tags": [
                     {
                         "zIndex": "1"

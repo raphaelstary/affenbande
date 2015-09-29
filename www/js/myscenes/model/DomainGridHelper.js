@@ -37,15 +37,15 @@ var DomainGridHelper = (function (iterateSomeEntries) {
     };
 
     DomainGridHelper.prototype.getTreeUpTiles = function () {
-        return this.__getTiles(Tile.TREE_UP, true);
+        return []; //this.__getTiles(Tile.TREE_UP, true);
     };
 
     DomainGridHelper.prototype.getTreeDownTiles = function () {
-        return this.__getTiles(Tile.TREE_DOWN, true);
+        return []; // this.__getTiles(Tile.TREE_DOWN, true);
     };
 
     DomainGridHelper.prototype.getTreeSmallTiles = function () {
-        return this.__getTiles(Tile.TREE_SMALL, true);
+        return []; // this.__getTiles(Tile.TREE_SMALL, true);
     };
 
     DomainGridHelper.prototype.__getTiles = function (name, isBackground) {

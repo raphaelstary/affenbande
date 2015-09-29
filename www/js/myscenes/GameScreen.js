@@ -1,4 +1,5 @@
-var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClouds, showMenu) {
+var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClouds, showMenu, Transition, Width,
+    Height) {
     "use strict";
 
     function GameScreen(services) {
@@ -33,6 +34,9 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
         icons.taps.forEach(function (elem) {
             taps.push(elem);
         });
+
+        var myBg = this.stage.drawFresh(Width.HALF, Height.HALF, 'uniform_bg', 1);
+        drawables.push(myBg);
 
         drawClouds(this.stage).forEach(function (elem) {
             drawables.push(elem);
@@ -93,7 +97,6 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
                 }
 
                 var $ = {
-                    WAVE_COLOR: '#34FEFF',
                     WAVE_SCALE_FACTOR_MAX: 2,
                     WAVE_SCALE_DURATION: 30,
                     WAVE_AGAIN_DURATION: 60 * 5,
@@ -195,4 +198,4 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
     };
 
     return GameScreen;
-})(PlayFactory, Event, drawIcons, ScreenShaker, drawClouds, showMenu);
+})(PlayFactory, Event, drawIcons, ScreenShaker, drawClouds, showMenu, Transition, Width, Height);

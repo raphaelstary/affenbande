@@ -40,6 +40,9 @@ var LevelOverview = (function (drawIcons, drawClouds, Width, Height, GameScreen,
             for (var i = 1; i <= 20; i++) {
                 createLevelDrawable(i);
             }
+
+            var myBg = self.stage.drawFresh(Width.HALF, Height.HALF, 'uniform_bg', 1);
+            drawables.push(myBg);
         }
 
         function deconstructScene() {
