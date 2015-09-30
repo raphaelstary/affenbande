@@ -1,5 +1,229 @@
 {
-    "sandbox": {
+    "level_overview": {
+        "screen": {
+            "top": 964,
+            "left": 6988,
+            "bottom": 3172,
+            "right": 8230,
+            "width": 1242,
+            "height": 2208
+        },
+        "drawables": [
+            {
+                "type": "image",
+                "x": 149,
+                "y": 138,
+                "width": 64,
+                "height": 64,
+                "referenceId": 1922,
+                "rotation": 0,
+                "scale": 1,
+                "tags": [
+                    {
+                        "zIndex": "4"
+                    }
+                ],
+                "zIndex": 4
+            },
+            {
+                "type": "rectangle",
+                "x": 149,
+                "y": 138,
+                "width": 140,
+                "height": 140,
+                "referenceId": 1921,
+                "alpha": 0.5,
+                "filled": true,
+                "color": "#ffffff",
+                "tags": [
+                    {
+                        "zIndex": "4"
+                    }
+                ],
+                "zIndex": 4
+            },
+            {
+                "type": "rectangle",
+                "x": 201,
+                "y": 192,
+                "width": 402,
+                "height": 385,
+                "referenceId": 1919,
+                "tags": [
+                    "input",
+                    {
+                        "up": "goSettings"
+                    }
+                ],
+                "filled": false,
+                "lineWidth": 1,
+                "color": "#000000"
+            },
+            {
+                "type": "image",
+                "x": 186,
+                "y": 1103,
+                "width": 254,
+                "height": 2211,
+                "referenceId": 1909,
+                "filename": "bg_tree_one.png",
+                "tags": [
+                    {
+                        "zIndex": "3"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 3
+            },
+            {
+                "type": "image",
+                "x": 598,
+                "y": 1103,
+                "width": 285,
+                "height": 2229,
+                "referenceId": 1908,
+                "filename": "bg_tree_two.png",
+                "tags": [
+                    {
+                        "zIndex": "3"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 3
+            },
+            {
+                "type": "image",
+                "x": 1044,
+                "y": 1105,
+                "width": 338,
+                "height": 2220,
+                "referenceId": 1907,
+                "filename": "bg_tree_three.png",
+                "tags": [
+                    {
+                        "zIndex": "3"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 3
+            },
+            {
+                "type": "image",
+                "x": 1122,
+                "y": 1103,
+                "width": 254,
+                "height": 2211,
+                "referenceId": 1904,
+                "filename": "bg_tree_one.png",
+                "tags": [
+                    {
+                        "zIndex": "2"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 2
+            },
+            {
+                "type": "image",
+                "x": 115,
+                "y": 1103,
+                "width": 285,
+                "height": 2229,
+                "referenceId": 1903,
+                "filename": "bg_tree_two.png",
+                "tags": [
+                    {
+                        "zIndex": "2"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 2
+            },
+            {
+                "type": "image",
+                "x": 465,
+                "y": 1105,
+                "width": 338,
+                "height": 2220,
+                "referenceId": 1902,
+                "filename": "bg_tree_three.png",
+                "tags": [
+                    {
+                        "zIndex": "2"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 2
+            },
+            {
+                "type": "image",
+                "x": 330,
+                "y": 1103,
+                "width": 254,
+                "height": 2211,
+                "referenceId": 1899,
+                "filename": "bg_tree_one.png",
+                "tags": [
+                    {
+                        "zIndex": "1"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 1
+            },
+            {
+                "type": "image",
+                "x": 901,
+                "y": 1103,
+                "width": 285,
+                "height": 2229,
+                "referenceId": 1898,
+                "filename": "bg_tree_two.png",
+                "tags": [
+                    {
+                        "zIndex": "1"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 1
+            },
+            {
+                "type": "image",
+                "x": 747,
+                "y": 1105,
+                "width": 338,
+                "height": 2220,
+                "referenceId": 1897,
+                "filename": "bg_tree_three.png",
+                "tags": [
+                    {
+                        "zIndex": "1"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 1
+            }
+        ]
+    },
+    "level": {
         "screen": {
             "top": 964,
             "left": 5526,
@@ -11,12 +235,374 @@
         "drawables": [
             {
                 "type": "image",
+                "x": 982,
+                "y": 118,
+                "width": 373,
+                "height": 193,
+                "referenceId": 1954,
+                "filename": "step_back.png",
+                "tags": [
+                    {
+                        "anchor": "right"
+                    },
+                    {
+                        "zIndex": "5"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 5
+            },
+            {
+                "type": "rectangle",
+                "x": 992,
+                "y": 115,
+                "width": 500,
+                "height": 230,
+                "referenceId": 1949,
+                "tags": [
+                    "input",
+                    {
+                        "up": "stepBack"
+                    },
+                    {
+                        "anchor": "right"
+                    },
+                    {
+                        "zIndex": "5"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "filled": false,
+                "lineWidth": 1,
+                "color": "#000000",
+                "zIndex": 5
+            },
+            {
+                "type": "image",
+                "x": 540,
+                "y": 120,
+                "width": 153,
+                "height": 153,
+                "referenceId": 1962,
+                "filename": "restart.png",
+                "tags": [
+                    {
+                        "anchor": "left"
+                    },
+                    {
+                        "zIndex": "5"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 5
+            },
+            {
+                "type": "rectangle",
+                "x": 565,
+                "y": 115,
+                "width": 250,
+                "height": 230,
+                "referenceId": 1964,
+                "tags": [
+                    "input",
+                    {
+                        "up": "restart"
+                    },
+                    {
+                        "anchor": "left"
+                    },
+                    {
+                        "zIndex": "5"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "filled": false,
+                "lineWidth": 1,
+                "color": "#000000",
+                "zIndex": 5
+            },
+            {
+                "type": "image",
+                "x": 149,
+                "y": 120,
+                "width": 153,
+                "height": 153,
+                "referenceId": 1945,
+                "filename": "exit_level.png",
+                "tags": [
+                    {
+                        "anchor": "left"
+                    },
+                    {
+                        "zIndex": "5"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 5
+            },
+            {
+                "type": "rectangle",
+                "x": 122,
+                "y": 115,
+                "width": 245,
+                "height": 230,
+                "referenceId": 1946,
+                "tags": [
+                    "input",
+                    {
+                        "up": "goBack"
+                    },
+                    {
+                        "anchor": "left"
+                    },
+                    {
+                        "zIndex": "5"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "filled": false,
+                "lineWidth": 1,
+                "color": "#000000",
+                "zIndex": 5
+            },
+            {
+                "type": "image",
+                "x": 341,
+                "y": 120,
+                "width": 153,
+                "height": 153,
+                "referenceId": 1930,
+                "filename": "settings.png",
+                "tags": [
+                    {
+                        "anchor": "left"
+                    },
+                    {
+                        "zIndex": "5"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 5
+            },
+            {
+                "type": "rectangle",
+                "x": 342,
+                "y": 115,
+                "width": 185,
+                "height": 230,
+                "referenceId": 1925,
+                "tags": [
+                    "input",
+                    {
+                        "up": "goSettings"
+                    },
+                    {
+                        "anchor": "left"
+                    },
+                    {
+                        "zIndex": "5"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "filled": false,
+                "lineWidth": 1,
+                "color": "#000000",
+                "zIndex": 5
+            },
+            {
+                "type": "rectangle",
                 "x": 621,
-                "y": 1104,
+                "y": 115,
                 "width": 1242,
-                "height": 2208,
-                "referenceId": 1590,
-                "filename": "uniform_bg.png"
+                "height": 230,
+                "referenceId": 1957,
+                "tags": [
+                    {
+                        "zIndex": "4"
+                    }
+                ],
+                "zIndex": 4,
+                "alpha": 0.5,
+                "filled": true,
+                "color": "#000000"
+            },
+            {
+                "type": "image",
+                "x": 186,
+                "y": 1103,
+                "width": 254,
+                "height": 2211,
+                "referenceId": 1799,
+                "filename": "bg_tree_one.png",
+                "tags": [
+                    {
+                        "zIndex": "3"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 3
+            },
+            {
+                "type": "image",
+                "x": 598,
+                "y": 1103,
+                "width": 285,
+                "height": 2229,
+                "referenceId": 1800,
+                "filename": "bg_tree_two.png",
+                "tags": [
+                    {
+                        "zIndex": "3"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 3
+            },
+            {
+                "type": "image",
+                "x": 1044,
+                "y": 1105,
+                "width": 338,
+                "height": 2220,
+                "referenceId": 1801,
+                "filename": "bg_tree_three.png",
+                "tags": [
+                    {
+                        "zIndex": "3"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 3
+            },
+            {
+                "type": "image",
+                "x": 1122,
+                "y": 1103,
+                "width": 254,
+                "height": 2211,
+                "referenceId": 1802,
+                "filename": "bg_tree_one.png",
+                "tags": [
+                    {
+                        "zIndex": "2"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 2
+            },
+            {
+                "type": "image",
+                "x": 115,
+                "y": 1103,
+                "width": 285,
+                "height": 2229,
+                "referenceId": 1803,
+                "filename": "bg_tree_two.png",
+                "tags": [
+                    {
+                        "zIndex": "2"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 2
+            },
+            {
+                "type": "image",
+                "x": 465,
+                "y": 1105,
+                "width": 338,
+                "height": 2220,
+                "referenceId": 1804,
+                "filename": "bg_tree_three.png",
+                "tags": [
+                    {
+                        "zIndex": "2"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 2
+            },
+            {
+                "type": "image",
+                "x": 330,
+                "y": 1103,
+                "width": 254,
+                "height": 2211,
+                "referenceId": 1807,
+                "filename": "bg_tree_one.png",
+                "tags": [
+                    {
+                        "zIndex": "1"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 1
+            },
+            {
+                "type": "image",
+                "x": 901,
+                "y": 1103,
+                "width": 285,
+                "height": 2229,
+                "referenceId": 1806,
+                "filename": "bg_tree_two.png",
+                "tags": [
+                    {
+                        "zIndex": "1"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 1
+            },
+            {
+                "type": "image",
+                "x": 747,
+                "y": 1105,
+                "width": 338,
+                "height": 2220,
+                "referenceId": 1805,
+                "filename": "bg_tree_three.png",
+                "tags": [
+                    {
+                        "zIndex": "1"
+                    },
+                    {
+                        "position": "relativeToSize"
+                    }
+                ],
+                "zIndex": 1
             }
         ]
     },
@@ -2929,7 +3515,7 @@
                         },
                         {
                             "time": 55,
-                            "scale": 0.86
+                            "scale": 0.85
                         },
                         {
                             "time": 90,
@@ -3921,8 +4507,8 @@
             },
             {
                 "type": "image",
-                "x": 146,
-                "y": 138,
+                "x": 149,
+                "y": 141,
                 "width": 153,
                 "height": 153,
                 "referenceId": 328,
@@ -4003,19 +4589,26 @@
                 }
             },
             {
-                "type": "image",
-                "x": 618,
+                "type": "text",
+                "x": 620,
                 "y": 324,
-                "width": 952,
-                "height": 157,
-                "referenceId": 150,
-                "filename": "logo.png",
+                "width": 939,
+                "height": 144,
+                "referenceId": 23,
                 "tags": [
+                    {
+                        "zIndex": "1"
+                    },
                     {
                         "zIndex": "2"
                     }
                 ],
-                "zIndex": 2
+                "zIndex": 1,
+                "msg": "Monkey Gang",
+                "rotation": 0,
+                "font": "Janda Silly Monkey",
+                "size": 150,
+                "color": "#51524a"
             },
             {
                 "type": "image",
@@ -4190,6 +4783,9 @@
                 "tags": [
                     {
                         "zIndex": "1"
+                    },
+                    {
+                        "position": "relativeToSize"
                     }
                 ],
                 "zIndex": 1
@@ -4214,7 +4810,7 @@
                 "animations": {
                     "psType": "smartObject",
                     "firstFrame": 60,
-                    "lastFrame": 249,
+                    "lastFrame": 438,
                     "position": [
                         {
                             "time": 60,
@@ -4222,7 +4818,7 @@
                             "y": 2044
                         },
                         {
-                            "time": 249,
+                            "time": 438,
                             "x": 1396,
                             "y": 2044
                         }
@@ -4249,7 +4845,7 @@
                 "animations": {
                     "psType": "smartObject",
                     "firstFrame": 0,
-                    "lastFrame": 215,
+                    "lastFrame": 430,
                     "position": [
                         {
                             "time": 0,
@@ -4257,7 +4853,7 @@
                             "y": 1423
                         },
                         {
-                            "time": 215,
+                            "time": 430,
                             "x": 1352,
                             "y": 1423
                         }
@@ -4284,7 +4880,7 @@
                 "animations": {
                     "psType": "smartObject",
                     "firstFrame": 97,
-                    "lastFrame": 299,
+                    "lastFrame": 510,
                     "position": [
                         {
                             "time": 97,
@@ -4292,7 +4888,7 @@
                             "y": 1268
                         },
                         {
-                            "time": 299,
+                            "time": 510,
                             "x": 1364,
                             "y": 1268
                         }
@@ -4319,7 +4915,7 @@
                 "animations": {
                     "psType": "smartObject",
                     "firstFrame": 15,
-                    "lastFrame": 224,
+                    "lastFrame": 462,
                     "position": [
                         {
                             "time": 15,
@@ -4327,7 +4923,7 @@
                             "y": 830
                         },
                         {
-                            "time": 224,
+                            "time": 462,
                             "x": 1435,
                             "y": 830
                         }
@@ -4354,7 +4950,7 @@
                 "animations": {
                     "psType": "smartObject",
                     "firstFrame": 70,
-                    "lastFrame": 267,
+                    "lastFrame": 390,
                     "position": [
                         {
                             "time": 70,
@@ -4362,7 +4958,7 @@
                             "y": 207
                         },
                         {
-                            "time": 267,
+                            "time": 390,
                             "x": 1402,
                             "y": 207
                         }

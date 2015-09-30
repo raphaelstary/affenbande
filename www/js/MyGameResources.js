@@ -5,7 +5,7 @@ var MyGameResources = (function (addFontToDOM, UniversalTranslator, SoundSpriteM
     var FONT = 'GameFont';
     var LOGO_FONT = 'LogoFont';
 
-    var gameFont, logoFont, locales, atlases = [], images = {}, moreGames, levels, scenes, imgBg;
+    var gameFont, logoFont, locales, atlases = [], images = {}, moreGames, levels, scenes;
 
     function registerFiles(resourceLoader) {
         gameFont = resourceLoader.addFont('data/gamefont.woff');
@@ -14,7 +14,6 @@ var MyGameResources = (function (addFontToDOM, UniversalTranslator, SoundSpriteM
         moreGames = resourceLoader.addJSON('data/more_games.json');
         levels = resourceLoader.addJSON('data/levels.json');
         scenes = resourceLoader.addJSON('data/scenes.json');
-        imgBg = resourceLoader.addImage('gfx/uniform_bg.png');
 
         var isMobile = new DeviceInfo(userAgent, 1, 1, 1).isMobile;
 
@@ -39,24 +38,9 @@ var MyGameResources = (function (addFontToDOM, UniversalTranslator, SoundSpriteM
 
         window.moreGamesLink = moreGames.link;
 
-        // game specific hack
-        var gfxCache = AtlasResourceHelper.process(atlases, width, height);
-        var frame = {
-            x: 0,
-            y: 0,
-            w: imgBg.width,
-            h: imgBg.height
-        };
-        var elem = {
-            frame: frame,
-            sourceSize: frame,
-            spriteSourceSize: frame
-        };
-        gfxCache.atlasDict['uniform_bg'] = gfxCache._createSubImage(elem, imgBg, gfxCache.defaultScaleFactor);
-
         return {
             messages: new UniversalTranslator(locales),
-            gfxCache: gfxCache,
+            gfxCache: AtlasResourceHelper.process(atlases, width, height),
             levels: levels,
             scenes: scenes
         };

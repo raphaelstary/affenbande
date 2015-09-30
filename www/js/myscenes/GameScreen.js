@@ -35,9 +35,6 @@ var GameScreen = (function (PlayFactory, Event, drawIcons, ScreenShaker, drawClo
             taps.push(elem);
         });
 
-        var myBg = this.stage.drawFresh(Width.HALF, Height.HALF, 'uniform_bg', 1);
-        drawables.push(myBg);
-
         drawClouds(this.stage).forEach(function (elem) {
             drawables.push(elem);
         });
