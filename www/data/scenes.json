@@ -1,4 +1,315 @@
 {
+    "unlock_lock": {
+        "screen": {
+            "top": 3502,
+            "left": 1224,
+            "bottom": 3578,
+            "right": 1288,
+            "width": 64,
+            "height": 76
+        },
+        "drawables": [
+            {
+                "type": "image",
+                "x": 32,
+                "y": 38,
+                "width": 64,
+                "height": 76,
+                "referenceId": 2069,
+                "filename": "unlocked_white.png",
+                "tags": [
+                    {
+                        "loop": "false"
+                    },
+                    {
+                        "zIndex": "7"
+                    },
+                    "animation",
+                    {
+                        "end": "itIsOver"
+                    }
+                ],
+                "zIndex": 7,
+                "animations": {
+                    "opacity": [
+                        {
+                            "opacity": 0,
+                            "time": 3
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 4
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 6
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 7
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 9
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 10
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 12
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 13
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 15
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 16
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 18
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 19
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 21
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 22
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 24
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 25
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 27
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 28
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 30
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 31
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 33
+                        }
+                    ],
+                    "firstFrame": 3,
+                    "lastFrame": 33
+                }
+            },
+            {
+                "type": "image",
+                "x": 32,
+                "y": 38,
+                "width": 64,
+                "height": 76,
+                "referenceId": 2065,
+                "filename": "unlocked.png",
+                "tags": [
+                    {
+                        "loop": "false"
+                    },
+                    {
+                        "zIndex": "6"
+                    },
+                    "animation"
+                ],
+                "zIndex": 6,
+                "animations": {
+                    "opacity": [
+                        {
+                            "opacity": 0,
+                            "time": 0
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 3
+                        }
+                    ],
+                    "firstFrame": 0,
+                    "lastFrame": 3
+                }
+            },
+            {
+                "type": "image",
+                "x": 32,
+                "y": 44,
+                "width": 64,
+                "height": 64,
+                "referenceId": 2073,
+                "filename": "locked.png",
+                "tags": [
+                    {
+                        "loop": "false"
+                    },
+                    {
+                        "zIndex": "5"
+                    },
+                    "animation"
+                ],
+                "zIndex": 5,
+                "animations": {
+                    "opacity": [
+                        {
+                            "opacity": 1,
+                            "time": 0
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 3
+                        }
+                    ],
+                    "firstFrame": 0,
+                    "lastFrame": 3
+                }
+            }
+        ]
+    },
+    "golden_coconut": {
+        "screen": {
+            "top": 3502,
+            "left": 876,
+            "bottom": 3688,
+            "right": 1088,
+            "width": 212,
+            "height": 186
+        },
+        "drawables": [
+            {
+                "type": "image",
+                "x": 106,
+                "y": 93,
+                "width": 212,
+                "height": 186,
+                "referenceId": 2059,
+                "filename": "coconut_white.png",
+                "tags": [
+                    {
+                        "loop": "false"
+                    },
+                    {
+                        "zIndex": "6"
+                    },
+                    "animation"
+                ],
+                "zIndex": 6,
+                "animations": {
+                    "opacity": [
+                        {
+                            "opacity": 0,
+                            "time": 0
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 10
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 50
+                        }
+                    ],
+                    "firstFrame": 0,
+                    "lastFrame": 50
+                }
+            },
+            {
+                "type": "image",
+                "x": 106,
+                "y": 93,
+                "width": 212,
+                "height": 186,
+                "referenceId": 2056,
+                "filename": "coconut_gold.png",
+                "tags": [
+                    {
+                        "loop": "false"
+                    },
+                    {
+                        "zIndex": "5"
+                    },
+                    "animation",
+                    {
+                        "end": "itIsOver"
+                    }
+                ],
+                "zIndex": 5,
+                "animations": {
+                    "opacity": [
+                        {
+                            "opacity": 0,
+                            "time": 10
+                        },
+                        {
+                            "opacity": 1,
+                            "time": 51
+                        }
+                    ],
+                    "firstFrame": 10,
+                    "lastFrame": 51
+                }
+            },
+            {
+                "type": "image",
+                "x": 106,
+                "y": 93,
+                "width": 212,
+                "height": 186,
+                "referenceId": 2057,
+                "filename": "coconut.png",
+                "tags": [
+                    {
+                        "loop": "false"
+                    },
+                    {
+                        "zIndex": "4"
+                    },
+                    "animation"
+                ],
+                "zIndex": 4,
+                "rotation": 0,
+                "scale": 1,
+                "animations": {
+                    "opacity": [
+                        {
+                            "opacity": 1,
+                            "time": 10
+                        },
+                        {
+                            "opacity": 0,
+                            "time": 50
+                        }
+                    ],
+                    "psType": "smartObject",
+                    "firstFrame": 10,
+                    "lastFrame": 50
+                }
+            }
+        ]
+    },
     "level_overview": {
         "screen": {
             "top": 964,
@@ -753,7 +1064,7 @@
                     "rotation": [
                         {
                             "time": 90,
-                            "rotation": -0.46633386822237
+                            "rotation": -0.46633386822236
                         },
                         {
                             "time": 109,
