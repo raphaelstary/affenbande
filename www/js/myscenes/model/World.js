@@ -96,7 +96,6 @@ var World = (function () {
         }
 
         var self = this;
-        var counter = 0;
         var movedSnakes = [snake];
 
         var extendedCallback = function () {
@@ -106,6 +105,7 @@ var World = (function () {
                 callback();
         };
 
+        var counter = 0;
         function getCallbackWithCounter(callback) {
             counter++;
             return function () {
