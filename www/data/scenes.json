@@ -322,30 +322,12 @@
         "drawables": [
             {
                 "type": "image",
-                "x": 149,
+                "x": 146,
                 "y": 138,
-                "width": 64,
-                "height": 64,
-                "referenceId": 1922,
-                "rotation": 0,
-                "scale": 1,
-                "tags": [
-                    {
-                        "zIndex": "4"
-                    }
-                ],
-                "zIndex": 4
-            },
-            {
-                "type": "rectangle",
-                "x": 149,
-                "y": 138,
-                "width": 140,
-                "height": 140,
-                "referenceId": 1921,
-                "alpha": 0.5,
-                "filled": true,
-                "color": "#ffffff",
+                "width": 153,
+                "height": 153,
+                "referenceId": 1924,
+                "filename": "settings.png",
                 "tags": [
                     {
                         "zIndex": "4"
@@ -546,8 +528,8 @@
         "drawables": [
             {
                 "type": "image",
-                "x": 982,
-                "y": 118,
+                "x": 979,
+                "y": 115,
                 "width": 373,
                 "height": 193,
                 "referenceId": 1954,
@@ -594,8 +576,8 @@
             },
             {
                 "type": "image",
-                "x": 540,
-                "y": 120,
+                "x": 537,
+                "y": 117,
                 "width": 153,
                 "height": 153,
                 "referenceId": 1962,
@@ -642,8 +624,8 @@
             },
             {
                 "type": "image",
-                "x": 149,
-                "y": 120,
+                "x": 146,
+                "y": 117,
                 "width": 153,
                 "height": 153,
                 "referenceId": 1945,
@@ -690,8 +672,8 @@
             },
             {
                 "type": "image",
-                "x": 341,
-                "y": 120,
+                "x": 338,
+                "y": 117,
                 "width": 153,
                 "height": 153,
                 "referenceId": 1930,
@@ -4818,8 +4800,8 @@
             },
             {
                 "type": "image",
-                "x": 149,
-                "y": 141,
+                "x": 146,
+                "y": 138,
                 "width": 153,
                 "height": 153,
                 "referenceId": 328,

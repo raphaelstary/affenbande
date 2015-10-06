@@ -1,7 +1,7 @@
-var LevelOverview = (function (Width, Height, GameScreen, Event, Constants) {
+var LevelOverviewViewModel = (function (Width, Height, GameScreen, Event, Constants, Font, Math, showMenu) {
     "use strict";
 
-    function LevelOverview(services) {
+    function LevelOverviewViewModel(services) {
         this.stage = services.stage;
         this.tap = services.tap;
         this.sceneStorage = services.sceneStorage;
@@ -14,7 +14,7 @@ var LevelOverview = (function (Width, Height, GameScreen, Event, Constants) {
         this.levels = services.levels;
     }
 
-    LevelOverview.prototype.show = function (next) {
+    LevelOverviewViewModel.prototype.postConstruct = function () {
         var self = this;
         var taps;
         var drawables;
@@ -66,8 +66,7 @@ var LevelOverview = (function (Width, Height, GameScreen, Event, Constants) {
             }
 
             var numberLabel = self.stage.drawText(getX, getY, levelNr.toString(), Font._15, Constants.GAME_FONT,
-                'black', 5,
-                [goldCoconut]);
+                'black', 5, [goldCoconut]);
 
             var wrapper = self.stage.drawRectangleWithInput(getX, getY, getWidth, getHeight, 'white', true, undefined,
                 3, 0.5, undefined, undefined, [goldCoconut]);
@@ -110,5 +109,14 @@ var LevelOverview = (function (Width, Height, GameScreen, Event, Constants) {
         initScene();
     };
 
-    return LevelOverview;
-})(Width, Height, GameScreen, Event, Constants);
+    LevelOverviewViewModel.prototype.goSettings = function () {
+        this.sceneStorage.menuScene = 'settings';
+
+        this.events.fireSync(Event.PAUSE);
+        showMenu(this.stage, this.buttons, this.messages, this.events, this.sceneStorage, this.device, this.sounds,
+            function () {
+            });
+    };
+
+    return LevelOverviewViewModel;
+})(Width, Height, GameScreen, Event, Constants, Font, Math, showMenu);
