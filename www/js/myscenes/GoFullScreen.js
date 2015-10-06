@@ -1,4 +1,4 @@
-var GoFullScreen = (function (Event, Width, Height, installOneTimeTap, isHit) {
+var GoFullScreen = (function (Event, Width, Height, installOneTimeTap, isHit, Constants) {
     "use strict";
 
     function GoFullScreen(services) {
@@ -17,7 +17,7 @@ var GoFullScreen = (function (Event, Width, Height, installOneTimeTap, isHit) {
 
     var BLACK = '#000';
     var WHITE = '#fff';
-    var FONT = 'GameFont';
+    var FONT = Constants.GAME_FONT;
 
     GoFullScreen.prototype.show = function (next) {
         var backBlur, rotateText, self = this, goFsBtn, cancelBtn;
@@ -90,4 +90,4 @@ var GoFullScreen = (function (Event, Width, Height, installOneTimeTap, isHit) {
     };
 
     return GoFullScreen;
-})(Event, Width, Height, installOneTimeTap, isHit);
+})(Event, Width, Height, installOneTimeTap, isHit, Constants);

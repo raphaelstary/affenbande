@@ -8,7 +8,7 @@ var MoveTutorial = (function (Width, Height, Font) {
         this.sceneStorage = services.sceneStorage;
     }
 
-    var FONT = 'GameFont';
+    var FONT = Constants.GAME_FONT;
     var WHITE = '#fff';
     var LIGHT_GREY = '#c4c4c4';
 

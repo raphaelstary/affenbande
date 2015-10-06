@@ -1,4 +1,4 @@
-var LevelOverview = (function (drawIcons, drawClouds, Width, Height, GameScreen, Event) {
+var LevelOverview = (function (Width, Height, GameScreen, Event, Constants) {
     "use strict";
 
     function LevelOverview(services) {
@@ -22,20 +22,6 @@ var LevelOverview = (function (drawIcons, drawClouds, Width, Height, GameScreen,
         function initScene() {
             taps = [];
             drawables = [];
-
-            drawClouds(self.stage).forEach(function (elem) {
-                drawables.push(elem);
-            });
-
-            var icons = drawIcons(self.stage, self.sceneStorage, self.events, self.buttons, self.messages, self.device,
-                self.sounds, self.tap);
-
-            icons.drawables.forEach(function (elem) {
-                drawables.push(elem);
-            });
-            icons.taps.forEach(function (elem) {
-                taps.push(elem);
-            });
 
             for (var i = 1; i <= 20; i++) {
                 createLevelDrawable(i);
@@ -79,7 +65,8 @@ var LevelOverview = (function (drawIcons, drawClouds, Width, Height, GameScreen,
                 return Height.get(6)(height);
             }
 
-            var numberLabel = self.stage.drawText(getX, getY, levelNr.toString(), Font._15, 'GameFont', 'black', 5,
+            var numberLabel = self.stage.drawText(getX, getY, levelNr.toString(), Font._15, Constants.GAME_FONT,
+                'black', 5,
                 [goldCoconut]);
 
             var wrapper = self.stage.drawRectangleWithInput(getX, getY, getWidth, getHeight, 'white', true, undefined,
@@ -124,4 +111,4 @@ var LevelOverview = (function (drawIcons, drawClouds, Width, Height, GameScreen,
     };
 
     return LevelOverview;
-})(drawIcons, drawClouds, Width, Height, GameScreen, Event);
+})(Width, Height, GameScreen, Event, Constants);

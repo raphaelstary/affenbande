@@ -1,9 +1,6 @@
 var MyGameResources = (function (addFontToDOM, UniversalTranslator, SoundSpriteManager, AtlasResourceHelper, URL,
-    document, width, height, userAgent, DeviceInfo, window) {
+    document, width, height, userAgent, DeviceInfo, window, Constants) {
     "use strict";
-
-    var FONT = 'GameFont';
-    var LOGO_FONT = 'LogoFont';
 
     var gameFont, logoFont, locales, atlases = [], images = {}, moreGames, levels, scenes;
 
@@ -27,10 +24,10 @@ var MyGameResources = (function (addFontToDOM, UniversalTranslator, SoundSpriteM
         if (URL) {
             addFontToDOM([
                 {
-                    name: FONT,
+                    name: Constants.GAME_FONT,
                     url: URL.createObjectURL(gameFont.blob)
                 }, {
-                    name: LOGO_FONT,
+                    name: Constants.LOGO_FONT,
                     url: URL.createObjectURL(logoFont.blob)
                 }
             ]);
@@ -51,4 +48,4 @@ var MyGameResources = (function (addFontToDOM, UniversalTranslator, SoundSpriteM
         process: processFiles
     };
 })(addFontToDOM, UniversalTranslator, SoundSpriteManager, AtlasResourceHelper, window.URL || window.webkitURL,
-    window.document, window.innerWidth, window.innerHeight, window.navigator.userAgent, DeviceInfo, window);
+    window.document, window.innerWidth, window.innerHeight, window.navigator.userAgent, DeviceInfo, window, Constants);

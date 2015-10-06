@@ -1,4 +1,4 @@
-var RotateDevice = (function (Width, Height, Font, Event) {
+var RotateDevice = (function (Width, Height, Font, Event, Constants) {
     "use strict";
 
     function RotateDevice(services) {
@@ -9,7 +9,7 @@ var RotateDevice = (function (Width, Height, Font, Event) {
 
     var KEY = 'rotate';
     var ROTATE_DEVICE = 'rotate_device';
-    var FONT = 'GameFont';
+    var FONT = Constants.GAME_FONT;
     var BLACK = '#000';
     var WHITE = '#fff';
 
@@ -39,4 +39,4 @@ var RotateDevice = (function (Width, Height, Font, Event) {
     };
 
     return RotateDevice;
-})(Width, Height, Font, Event);
+})(Width, Height, Font, Event, Constants);

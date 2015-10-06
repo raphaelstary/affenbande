@@ -1,4 +1,4 @@
-var Settings = (function (Width, Height, changeSign, Transition, Event, Credits, localStorage, document) {
+var Settings = (function (Width, Height, changeSign, Transition, Event, Credits, localStorage, document, Constants) {
     "use strict";
 
     function Settings(services) {
@@ -23,7 +23,7 @@ var Settings = (function (Width, Height, changeSign, Transition, Event, Credits,
     var RESET_GAME = 'reset_game';
     var SURE_RESET = 'sure_reset';
 
-    var FONT = 'GameFont';
+    var FONT = Constants.GAME_FONT;
     var WHITE = '#fff';
 
     Settings.prototype.show = function (next) {
@@ -250,4 +250,4 @@ var Settings = (function (Width, Height, changeSign, Transition, Event, Credits,
     };
 
     return Settings;
-})(Width, Height, changeSign, Transition, Event, Credits, lclStorage, document);
+})(Width, Height, changeSign, Transition, Event, Credits, lclStorage, document, Constants);

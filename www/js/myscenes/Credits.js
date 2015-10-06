@@ -1,4 +1,4 @@
-var Credits = (function (Transition, window, calcScreenConst, subtract, add, Width, Height, Font) {
+var Credits = (function (Transition, window, calcScreenConst, subtract, add, Width, Height, Font, Constants) {
     "use strict";
 
     function Credits(services) {
@@ -17,11 +17,11 @@ var Credits = (function (Transition, window, calcScreenConst, subtract, add, Wid
     var TWITTER = 'twitter/RaphaelStary';
     var WWW = 'raphaelstary.com';
 
-    var SPECIAL_FONT = 'GameFont';
+    var SPECIAL_FONT = Constants.GAME_FONT;
     var LIGHT_GREY = '#c4c4c4';
     var WHITE = '#fff';
     var RAPHAEL_STARY = 'RAPHAEL STARY';
-    var LOGO_FONT = 'LogoFont';
+    var LOGO_FONT = Constants.LOGO_FONT;
 
     var TWITTER_URL = 'https://twitter.com/RaphaelStary';
     var FACEBOOK_URL = 'https://facebook.com/RaphaelStary';
@@ -84,4 +84,4 @@ var Credits = (function (Transition, window, calcScreenConst, subtract, add, Wid
     };
 
     return Credits;
-})(Transition, window, calcScreenConst, subtract, add, Width, Height, Font);
+})(Transition, window, calcScreenConst, subtract, add, Width, Height, Font, Constants);
