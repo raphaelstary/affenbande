@@ -4,7 +4,7 @@ var StartScreenViewModel = (function (checkAndSet30fps, Event, window, showMenu)
     function StartScreenViewModel(services) {
         this.timer = services.timer;
         this.sceneStorage = services.sceneStorage;
-        this.stage = services.stage;
+        this.stage = services.newStage;
         this.events = services.events;
         this.device = services.device;
         this.buttons = services.buttons;

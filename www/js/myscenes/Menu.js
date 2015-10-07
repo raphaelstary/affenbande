@@ -30,8 +30,8 @@ var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, Pa
 
         function showMenu() {
 
-            backBlur = self.stage.drawRectangle(changeSign(Width.HALF), Height.HALF, Width.FULL, Height.FULL, '#000',
-                true, undefined, 6, 0.8);
+            backBlur = self.stage.createRectangle(true).setPosition(changeSign(Width.HALF),
+                Height.HALF).setWidth(Width.FULL).setHeight(Height.FULL).setColor('#000').setZIndex(6).setAlpha(0.8);
             var callback;
             if (self.sceneStorage.menuScene == SubScenes.SETTINGS) {
                 callback = showSettings;
@@ -41,7 +41,8 @@ var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, Pa
                 callback = showCredits;
             }
 
-            self.stage.move(backBlur, Width.HALF, Height.HALF, 15, Transition.EASE_IN_EXPO, false, callback);
+            backBlur.moveTo(Width.HALF,
+                Height.HALF).setDuration(15).setSpacing(Transition.EASE_IN_EXPO).setCallback(callback);
         }
 
         function hideMenu() {
@@ -49,9 +50,9 @@ var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, Pa
 
             delete self.sceneStorage.menuSceneButtons;
 
-            self.stage.move(backBlur, changeSign(Width.HALF), Height.HALF, 15, Transition.EASE_OUT_EXPO, false,
-                function () {
-                    self.stage.remove(backBlur);
+            backBlur.moveTo(changeSign(Width.HALF),
+                Height.HALF).setDuration(15).setSpacing(Transition.EASE_OUT_EXPO).setCallback(function () {
+                    backBlur.remove();
                     self.events.fire(Event.RESUME);
                     self.sceneStorage.menuOn = false;
                     next();

@@ -23,7 +23,6 @@ var Settings = (function (Width, Height, changeSign, Transition, Event, Credits,
     var RESET_GAME = 'reset_game';
     var SURE_RESET = 'sure_reset';
 
-    var FONT = Constants.GAME_FONT;
     var WHITE = '#fff';
 
     Settings.prototype.show = function (next) {
@@ -50,7 +49,7 @@ var Settings = (function (Width, Height, changeSign, Transition, Event, Credits,
 
             function removeTxt(drawable) {
                 self.messages.remove(drawable);
-                self.stage.remove(drawable);
+                drawable.remove();
             }
         }
 
@@ -155,8 +154,8 @@ var Settings = (function (Width, Height, changeSign, Transition, Event, Credits,
             }
 
             function getMenuText(yFn, msgKey) {
-                var drawable = self.stage.drawText(Width.THIRD, yFn, self.messages.get(KEY, msgKey), Font._30, FONT,
-                    WHITE, 8);
+                var drawable = self.stage.createText(self.messages.get(KEY, msgKey)).setPosition(Width.THIRD,
+                    yFn).setSize(Font._30).setFont(Constants.GAME_FONT).setColor(WHITE).setZIndex(8);
                 self.messages.add(drawable, drawable.data, KEY, msgKey);
 
                 return drawable;

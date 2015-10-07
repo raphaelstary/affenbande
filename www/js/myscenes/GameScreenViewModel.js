@@ -2,7 +2,7 @@ var GameScreenViewModel = (function (Event) {
     "use strict";
 
     function GameScreenViewModel(services) {
-        this.stage = services.stage;
+        this.stage = services.newStage;
         this.timer = services.timer;
         this.device = services.device;
         this.events = services.events;
@@ -12,7 +12,6 @@ var GameScreenViewModel = (function (Event) {
         this.sounds = services.sounds;
         this.tap = services.tap;
         this.levels = services.levels;
-        this.scenes = services.scenes;
 
         this.services = services;
     }
@@ -82,24 +81,24 @@ var GameScreenViewModel = (function (Event) {
                 var y = wrap(self.stepBackDrawable, 'y');
                 var width = self.stepBackDrawable.getWidth.bind(self.stepBackDrawable);
                 var height = self.stepBackDrawable.getHeight.bind(self.stepBackDrawable);
-                var one = self.stage.drawRectangle(x, y, width, height, 'white', _0, _0, 5, _0, _0, _0, deps);
-                var two = self.stage.drawRectangle(x, y, width, height, 'white', _0, _0, 5, _0, _0, _0, deps);
-                var three = self.stage.drawRectangle(x, y, width, height, 'white', _0, _0, 5, _0, _0, _0, deps);
-                self.stage.animateScale(one, $.WAVE_SCALE_FACTOR_MAX, $.WAVE_SCALE_DURATION, Transition.LINEAR, false,
-                    function () {
-                        self.stage.remove(one);
-                    });
+                var one = self.stage.createRectangle().setPosition(x, y,
+                    deps).setWidth(width).setHeight(height).setColor('white').setZIndex(5);
+                var two = self.stage.createRectangle().setPosition(x, y,
+                    deps).setWidth(width).setHeight(height).setColor('white').setZIndex(5);
+                var three = self.stage.createRectangle().setPosition(x, y,
+                    deps).setWidth(width).setHeight(height).setColor('white').setZIndex(5);
+                one.scaleTo($.WAVE_SCALE_FACTOR_MAX).setDuration($.WAVE_SCALE_DURATION).setSpacing(Transition.LINEAR).setCallback(function () {
+                    one.remove();
+                });
                 self.timer.doLater(function () {
-                    self.stage.animateScale(two, $.WAVE_SCALE_FACTOR_MAX, $.WAVE_SCALE_DURATION, Transition.LINEAR,
-                        false, function () {
-                            self.stage.remove(two);
-                        });
+                    two.scaleTo($.WAVE_SCALE_FACTOR_MAX).setDuration($.WAVE_SCALE_DURATION).setSpacing(Transition.LINEAR).setCallback(function () {
+                        two.remove();
+                    });
                 }, $.SECOND_WAVE_DELAY);
                 self.timer.doLater(function () {
-                    self.stage.animateScale(three, $.WAVE_SCALE_FACTOR_MAX, $.WAVE_SCALE_DURATION, Transition.LINEAR,
-                        false, function () {
-                            self.stage.remove(three);
-                        });
+                    three.scaleTo($.WAVE_SCALE_FACTOR_MAX).setDuration($.WAVE_SCALE_DURATION).setSpacing(Transition.LINEAR).setCallback(function () {
+                        three.remove();
+                    });
                 }, $.THIRD_WAVE_DELAY);
             }
         };
@@ -128,9 +127,10 @@ var GameScreenViewModel = (function (Event) {
         if (this.sceneStorage.currentLevel === 1) {
             self.events.fireSync(Event.PAUSE);
 
-            var tutorial = new MVVMScene(self.services, self.scenes['move_tutorial'],
-                new TutorialViewModel(self.services));
-            tutorial.show(self.events.fireSync.bind(self.events, Event.RESUME));
+            var tutorial = new MVVMScene(self.services, self.services.scenes['move_tutorial'], new TutorialViewModel());
+            tutorial.show(function () {
+                console.log('exit');
+            });
         }
     };
 

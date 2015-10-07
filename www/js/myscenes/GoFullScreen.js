@@ -2,7 +2,7 @@ var GoFullScreen = (function (Event, Width, Height, installOneTimeTap, isHit, Co
     "use strict";
 
     function GoFullScreen(services) {
-        this.stage = services.stage;
+        this.stage = services.newStage;
         this.events = services.events;
         this.buttons = services.buttons;
         this.messages = services.messages;
@@ -17,23 +17,21 @@ var GoFullScreen = (function (Event, Width, Height, installOneTimeTap, isHit, Co
 
     var BLACK = '#000';
     var WHITE = '#fff';
-    var FONT = Constants.GAME_FONT;
-
     GoFullScreen.prototype.show = function (next) {
         var backBlur, rotateText, self = this, goFsBtn, cancelBtn;
 
         this.events.subscribe(Event.SHOW_GO_FULL_SCREEN, function () {
 
-            backBlur = self.stage.drawRectangle(Width.HALF, Height.HALF, Width.FULL, Height.FULL, BLACK, true,
-                undefined, 9, 0.8);
+            backBlur = self.stage.createRectangle(true).setPosition(Width.HALF,
+                Height.HALF).setWidth(Width.FULL).setHeight(Height.FULL).setColor(BLACK).setZIndex(9).setAlpha(0.8);
 
             if (self.sceneStorage.fsUserRequest) {
                 self.sceneStorage.fsUserRequest = false;
-                rotateText = self.stage.drawText(Width.HALF, Height.QUARTER, self.messages.get(KEY, GO_FS), Font._15,
-                    FONT, WHITE, 11, undefined, undefined, undefined, Width.FULL, Height.get(15));
+                rotateText = self.stage.createText(self.messages.get(KEY, GO_FS)).setPosition(Width.HALF,
+                    Height.QUARTER).setSize(Font._15).setFont(Constants.GAME_FONT).setColor(WHITE).setZIndex(11).setLineHeight(Width.FULL).setScale(Height.get(15));
             } else {
-                rotateText = self.stage.drawText(Width.HALF, Height.QUARTER, self.messages.get(KEY, FS_REQUEST),
-                    Font._15, FONT, WHITE, 11, undefined, undefined, undefined, Width.FULL, Height.get(10));
+                rotateText = self.stage.createText(self.messages.get(KEY, FS_REQUEST)).setPosition(Width.HALF,
+                    Height.QUARTER).setSize(Font._15).setFont(Constants.GAME_FONT).setColor(WHITE).setZIndex(11).setLineHeight(Width.FULL).setScale(Height.get(10));
             }
 
             goFsBtn = self.buttons.createPrimaryButton(Width.HALF, Height.HALF, self.messages.get(KEY, GO_FS),
@@ -80,8 +78,8 @@ var GoFullScreen = (function (Event, Width, Height, installOneTimeTap, isHit, Co
         });
 
         this.events.subscribe(Event.REMOVE_GO_FULL_SCREEN, function () {
-            self.stage.remove(backBlur);
-            self.stage.remove(rotateText);
+            backBlur.remove();
+            rotateText.remove();
             self.buttons.remove(goFsBtn);
             self.buttons.remove(cancelBtn);
         });

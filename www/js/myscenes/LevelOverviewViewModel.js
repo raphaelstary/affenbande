@@ -2,8 +2,7 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
     "use strict";
 
     function LevelOverviewViewModel(services) {
-        this.stage = services.stage;
-        this.newStage = services.newStage;
+        this.stage = services.newStage;
         this.tap = services.tap;
         this.sceneStorage = services.sceneStorage;
         this.events = services.events;
@@ -13,11 +12,14 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
         this.sounds = services.sounds;
         this.timer = services.timer;
         this.levels = services.levels;
-        this.scenes = services.scenes;
+
+        this.services = services;
     }
 
     LevelOverviewViewModel.prototype.preDestroy = function () {
-        this.drawables.forEach(this.stage.remove.bind(this.stage));
+        this.drawables.forEach(function (drawable) {
+            drawable.remove();
+        });
         this.taps.forEach(this.tap.remove.bind(this.tap));
     };
 
@@ -35,8 +37,8 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
 
             var positionX = ((levelNr - 1) % 4) + 1;
 
-            var goldCoconut = self.stage.drawFresh(Width.get(5, positionX), Height.get(6, Math.ceil(levelNr / 4)),
-                'coconut', 4, undefined, 0.5);
+            var goldCoconut = self.stage.createImage('coconut').setPosition(Width.get(5, positionX),
+                Height.get(6, Math.ceil(levelNr / 4))).setZIndex(4).setAlpha(0.5);
             //var goldCoconut = self.stage.drawRectangle(Width.get(5, positionX), Height.get(6, Math.ceil(levelNr / 4)),
             //    getCoconutWidth, getCoconutHeight, 'brown', true, undefined, 4);
 
@@ -56,17 +58,19 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
                 return Height.get(6)(height);
             }
 
-            var numberLabel = self.stage.drawText(getX, getY, levelNr.toString(), Font._15, Constants.GAME_FONT,
-                'black', 5, [goldCoconut]);
+            var numberLabel = self.stage.createText(levelNr.toString()).setPosition(getX, getY,
+                [goldCoconut]).setSize(Font._15).setFont(Constants.GAME_FONT).setColor('black').setZIndex(5);
 
-            var wrapper = self.stage.drawRectangleWithInput(getX, getY, getWidth, getHeight, 'white', true, undefined,
-                3, 0.5, undefined, undefined, [goldCoconut]);
-            self.stage.hide(wrapper.drawable);
-            self.tap.add(wrapper.input, getLevelCallback(levelNr));
+            var touchable = self.stage.createRectangle().setPosition(getX, getY,
+                [goldCoconut]).setWidth(getWidth).setHeight(getHeight).setColor('white');
+
+            touchable.hide();
+
+            self.tap.add(touchable, getLevelCallback(levelNr));
             self.drawables.push(goldCoconut);
             self.drawables.push(numberLabel);
-            self.drawables.push(wrapper.drawable);
-            self.taps.push(wrapper.input);
+            self.drawables.push(touchable);
+            self.taps.push(touchable);
 
         }
 
@@ -79,25 +83,9 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
                     level: levelNr
                 });
 
-                var services = {
-                    stage: self.stage,
-                    newStage: self.newStage,
-                    timer: self.timer,
-                    device: self.device,
-                    events: self.events,
-                    sceneStorage: self.sceneStorage,
-                    tap: self.tap,
-                    buttons: self.buttons,
-                    messages: self.messages,
-                    sound: self.sounds,
-                    levels: self.levels,
-                    scenes: self.scenes
-                };
-
-                //var level = new GameScreen(services);
-                var level = new MVVMScene(services, self.scenes['level'], new GameScreenViewModel(services));
+                var level = new MVVMScene(self.services, self.services.scenes['level'],
+                    new GameScreenViewModel(self.services));
                 self.sceneStorage.currentLevel = levelNr;
-
                 level.show(resume);
             };
         }

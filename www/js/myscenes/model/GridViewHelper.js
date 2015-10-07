@@ -29,7 +29,7 @@ var GridViewHelper = (function (Height, Transition, Math) {
     };
 
     GridViewHelper.prototype.create = function (u, v, name) {
-        var drawable = this.stage.drawFresh(this.__getX(u), this.__getY(v), name, 4);
+        var drawable = this.stage.createImage(name).setPosition(this.__getX(u), this.__getY(v)).setZIndex(4);
         if (name == 'monkey' || name == 'monkey_head' || name == 'monkey_white' || name == 'monkey_black') {
             drawable.scale = this.__calcBaseScale(drawable.getHeight() * 0.9);
             this.monkeyBaseScale = drawable.scale;
@@ -40,7 +40,7 @@ var GridViewHelper = (function (Height, Transition, Math) {
     };
 
     GridViewHelper.prototype.createBackground = function (u, v, name, zIndex) {
-        var drawable = this.stage.drawFresh(this.__getX(u), this.__getY(v), name, zIndex);
+        var drawable = this.stage.createImage(name).setPosition(this.__getX(u), this.__getY(v)).setZIndex(zIndex);
         if (name == 'tree_up' || name == 'tree_down') {
             drawable.scale = this.__calcBaseScale(drawable.getHeight()) * 1.1;
         } else if (name == 'tree_small') {
@@ -63,12 +63,13 @@ var GridViewHelper = (function (Height, Transition, Math) {
             return self.__edgeLength(height);
         }
 
-        return this.stage.drawRectangle(this.__getX(u), this.__getY(v), getWidth, this.__edgeLength.bind(this), color,
-            true);
+        return this.stage.createRectangle(true).setPosition(this.__getX(u),
+            this.__getY(v)).setWidth(getWidth).setHeight(this.__edgeLength.bind(this)).setColor(color);
     };
 
     GridViewHelper.prototype.move = function (drawable, u, v, speed, callback) {
-        return this.stage.move(drawable, this.__getX(u), this.__getY(v), speed, Transition.LINEAR, false, callback)
+        return drawable.moveTo(this.__getX(u),
+            this.__getY(v)).setDuration(speed).setSpacing(Transition.LINEAR).setCallback(callback);
     };
 
     GridViewHelper.prototype.__edgeLength = function (height) {

@@ -24,19 +24,21 @@ var WorldView = (function (calcCantorPairing, iterateEntries, Transition, wrap) 
 
     WorldView.prototype.preDestroy = function () {
         iterateEntries(this.newParts, function (part) {
-            this.stage.remove(part);
-        }, this);
+            part.remove();
+        });
         iterateEntries(this.bodyParts, function (part) {
-            this.stage.remove(part);
-        }, this);
+            part.remove();
+        });
         this.ground.forEach(function (tile) {
-            this.stage.remove(tile);
-        }, this);
+            tile.remove();
+        });
         iterateEntries(this.spikes, function (part) {
-            this.stage.remove(part);
-        }, this);
-        this.stage.remove(this.goal);
-        this.tree.forEach(this.stage.remove.bind(this.stage));
+            part.remove();
+        });
+        this.goal.remove();
+        this.tree.forEach(function (part) {
+            part.remove();
+        });
     };
 
     WorldView.prototype.drawLevel = function (snakes, groundTiles, newParts, spikes, goal, treeUpTiles, treeDownTiles,
@@ -128,10 +130,10 @@ var WorldView = (function (calcCantorPairing, iterateEntries, Transition, wrap) 
                 if (change.tile == 9) {
                     var hash = calcCantorPairing(change.oldU, change.oldV);
                     var forDeletion = this.newParts[hash];
-                    this.stage.remove(forDeletion);
+                    forDeletion.remove();
                     delete this.newParts[hash];
                 } else {
-                    this.stage.remove(this.bodyParts[change.tile]);
+                    this.bodyParts[change.tile].remove();
                     delete this.bodyParts[change.tile];
                     if (array.length - 1 == index && callback)
                         callback();
@@ -185,7 +187,7 @@ var WorldView = (function (calcCantorPairing, iterateEntries, Transition, wrap) 
             } else if (change.type == 'new') {
                 var forRemoval = this.bodyParts[change.tile];
                 this.bodyParts[change.tile - 1].data = this.stage.getGraphic('monkey_head');
-                this.stage.remove(forRemoval);
+                forRemoval.remove();
                 delete this.bodyParts[change.tile];
             }
         }, this);
@@ -213,11 +215,11 @@ var WorldView = (function (calcCantorPairing, iterateEntries, Transition, wrap) 
         snake.forEach(function (tile) {
             var drawable = this.bodyParts[tile.type];
             var dep = [drawable];
-            var white = this.stage.drawFresh(wrap(drawable, 'x'), wrap(drawable, 'y'), 'monkey_white', 6, dep);
-            white.scale = drawable.scale;
-            var black = this.stage.drawFresh(wrap(drawable, 'x'), wrap(drawable, 'y'), 'monkey_black', 7, dep, 0);
-            black.scale = drawable.scale;
-            this.stage.animateAlphaPattern(black, [
+            var white = this.stage.createImage('monkey_white').setPosition(wrap(drawable, 'x'), wrap(drawable, 'y'),
+                dep).setZIndex(6).setScale(drawable.scale);
+            var black = this.stage.createImage('monkey_black').setZIndex(7).setPosition(wrap(drawable, 'x'),
+                wrap(drawable, 'y'), dep).setAlpha(0).setScale(drawable.scale);
+            black.opacityPattern([
                 {
                     value: 1,
                     duration: this.flashFadeInSpeed,
@@ -231,8 +233,8 @@ var WorldView = (function (calcCantorPairing, iterateEntries, Transition, wrap) 
             var myCallback = getCallbackWithCounter(callback);
             var self = this;
             this.timer.doLater(function () {
-                self.stage.remove(white);
-                self.stage.remove(black);
+                white.remove();
+                black.remove();
                 myCallback();
             }, this.flashDuration);
         }, this);
@@ -263,9 +265,9 @@ var WorldView = (function (calcCantorPairing, iterateEntries, Transition, wrap) 
                 return spike.y;
             }
 
-            var white = this.stage.drawFresh(getX, getY, 'spike_white', 6, [spike], 0);
-            white.scale = spike.scale;
-            this.stage.animateAlphaPattern(white, [
+            var white = this.stage.createImage('spike_white').setPosition(getX, getY,
+                [spike]).setZIndex(6).setAlpha(0).setScale(spike.scale);
+            white.opacityPattern([
                 {
                     value: 1,
                     duration: this.highlightFadeInSpeed,

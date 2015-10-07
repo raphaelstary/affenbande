@@ -17,11 +17,9 @@ var Credits = (function (Transition, window, calcScreenConst, subtract, add, Wid
     var TWITTER = 'twitter/RaphaelStary';
     var WWW = 'raphaelstary.com';
 
-    var SPECIAL_FONT = Constants.GAME_FONT;
     var LIGHT_GREY = '#c4c4c4';
     var WHITE = '#fff';
     var RAPHAEL_STARY = 'RAPHAEL STARY';
-    var LOGO_FONT = Constants.LOGO_FONT;
 
     var TWITTER_URL = 'https://twitter.com/RaphaelStary';
     var FACEBOOK_URL = 'https://facebook.com/RaphaelStary';
@@ -35,17 +33,18 @@ var Credits = (function (Transition, window, calcScreenConst, subtract, add, Wid
         var backButton = self.buttons.createSecondaryButton(Width.get(32, 7), Height.get(25, 2),
             self.messages.get('common_buttons', BACK_MSG), endScene, 7);
         self.sceneStorage.menuSceneButtons.push(backButton);
-        var game_txt = self.stage.drawText(Width.HALF, Height.QUARTER, self.messages.get(KEY, GAME_MSG), Font._15,
-            SPECIAL_FONT, LIGHT_GREY, 8);
+        var game_txt = self.stage.createText(self.messages.get(KEY, GAME_MSG)).setPosition(Width.HALF,
+            Height.QUARTER).setSize(Font._15).setFont(Constants.GAME_FONT).setColor(LIGHT_GREY).setZIndex(8);
         texts.push(game_txt);
-        var a_txt = self.stage.drawText(Width.HALF, subtract(Height.QUARTER, Font._15.bind(0, 0)),
-            self.messages.get(KEY, A_MSG), Font._30, SPECIAL_FONT, LIGHT_GREY, 8);
+        var a_txt = self.stage.createText(self.messages.get(KEY, A_MSG)).setPosition(Width.HALF,
+            subtract(Height.QUARTER,
+                Font._15.bind(0, 0))).setSize(Font._30).setFont(Constants.GAME_FONT).setColor(LIGHT_GREY).setZIndex(8);
         texts.push(a_txt);
-        var by_txt = self.stage.drawText(Width.HALF, add(Height.QUARTER, Font._15.bind(0, 0)),
-            self.messages.get(KEY, BY_MSG), Font._30, SPECIAL_FONT, LIGHT_GREY, 8);
+        var by_txt = self.stage.createText(self.messages.get(KEY, BY_MSG)).setPosition(Width.HALF, add(Height.QUARTER,
+            Font._15.bind(0, 0))).setSize(Font._30).setFont(Constants.GAME_FONT).setColor(LIGHT_GREY).setZIndex(8);
         texts.push(by_txt);
-        var raphaelStary = self.stage.drawText(Width.HALF, Height.get(48, 22), RAPHAEL_STARY, Font._5, LOGO_FONT, WHITE,
-            8);
+        var raphaelStary = self.stage.createText(RAPHAEL_STARY).setPosition(Width.HALF,
+            Height.get(48, 22)).setSize(Font._5).setFont(Constants.LOGO_FONT).setColor(WHITE).setZIndex(8);
         texts.push(raphaelStary);
         function buttonsWidth(width, height) {
             if (width < height * 1.2) {
@@ -69,7 +68,9 @@ var Credits = (function (Transition, window, calcScreenConst, subtract, add, Wid
 
         function endScene() {
             function removeDrawables() {
-                texts.forEach(self.stage.remove.bind(self.stage));
+                texts.forEach(function (txt) {
+                    txt.remove();
+                });
             }
 
             function removeButtons() {

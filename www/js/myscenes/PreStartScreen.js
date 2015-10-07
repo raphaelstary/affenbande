@@ -1,9 +1,10 @@
 var PreStartScreen = (function (Width, Height, Font, document, installOneTimeTap, Event, window, Orientation,
-    getDevicePixelRatio, Math, sendSystemEvent, Stats, checkAndSet30fps) {
+    getDevicePixelRatio, Math, sendSystemEvent, Stats, checkAndSet30fps, Constants) {
     "use strict";
 
     function PreStartScreen(services) {
-        this.stage = services.stage;
+        this.stage = services.newStage;
+        this.oldStage = services.stage;
         this.sceneStorage = services.sceneStorage;
         this.buttons = services.buttons;
         this.messages = services.messages;
@@ -19,8 +20,10 @@ var PreStartScreen = (function (Width, Height, Font, document, installOneTimeTap
     PreStartScreen.prototype.show = function (next) {
         var self = this;
 
-        var ms = this.stage.drawText(Width.get(10), Height.get(15), '0', Font._60, 'Arial', 'white', 11);
-        var fps = this.stage.drawText(Width.get(10), Height.get(12), '0', Font._60, 'Arial', 'white', 11);
+        var ms = this.stage.createText('0').setPosition(Width.get(10),
+            Height.get(15)).setSize(Font._60).setFont('Arial').setColor('white').setZIndex(11);
+        var fps = this.stage.createText('0').setPosition(Width.get(10),
+            Height.get(12)).setSize(Font._60).setFont('Arial').setColor('white').setZIndex(11);
 
         var statsStart = this.events.subscribe(Event.TICK_START, Stats.start);
 
@@ -44,8 +47,8 @@ var PreStartScreen = (function (Width, Height, Font, document, installOneTimeTap
 
         var drawables = [];
 
-        var logo = this.stage.drawText(Width.HALF, Height.get(48, 12), 'Monkey Gang', Font._15, 'Janda Silly Monkey',
-            'black');
+        var logo = this.stage.createText('Monkey Gang').setPosition(Width.HALF,
+            Height.get(48, 12)).setSize(Font._15).setFont(Constants.GAME_FONT).setColor('black');
         drawables.push(logo);
 
         function installFullScreen() {
@@ -200,6 +203,7 @@ var PreStartScreen = (function (Width, Height, Font, document, installOneTimeTap
 
         self.events.subscribe(Event.PAUSE, function () {
             self.stage.pauseAll();
+            self.oldStage.pauseAll();
             self.buttons.disableAll();
             self.timer.pause();
             self.loop.disableMove();
@@ -208,6 +212,7 @@ var PreStartScreen = (function (Width, Height, Font, document, installOneTimeTap
 
         self.events.subscribe(Event.RESUME, function () {
             self.stage.playAll();
+            self.oldStage.playAll();
             self.buttons.enableAll();
             self.timer.resume();
             self.loop.enableMove();
@@ -231,7 +236,9 @@ var PreStartScreen = (function (Width, Height, Font, document, installOneTimeTap
                 return;
             itIsOver = true;
 
-            drawables.forEach(self.stage.remove.bind(self.stage));
+            drawables.forEach(function (drawable) {
+                drawable.remove();
+            });
 
             self.timer.doLater(next, 16);
         }
@@ -239,4 +246,4 @@ var PreStartScreen = (function (Width, Height, Font, document, installOneTimeTap
 
     return PreStartScreen;
 })(Width, Height, Font, window.document, installOneTimeTap, Event, window, Orientation, getDevicePixelRatio, Math,
-    sendSystemEvent, Stats, checkAndSet30fps);
+    sendSystemEvent, Stats, checkAndSet30fps, Constants);
