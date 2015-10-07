@@ -128,9 +128,11 @@ var GameScreenViewModel = (function (Event) {
             self.events.fireSync(Event.PAUSE);
 
             var tutorial = new MVVMScene(self.services, self.services.scenes['move_tutorial'], new TutorialViewModel());
-            tutorial.show(function () {
-                self.events.fire(Event.RESUME);
-            });
+            self.timer.doLater(function () {
+                tutorial.show(function () {
+                    self.events.fire(Event.RESUME);
+                });
+            }, 10);
         }
     };
 

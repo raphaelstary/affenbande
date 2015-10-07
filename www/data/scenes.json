@@ -4418,14 +4418,14 @@
                 "alpha": 0.8,
                 "tags": [
                     {
-                        "zIndex": "4"
+                        "zIndex": "5"
                     },
                     "animation",
                     {
                         "loop": "false"
                     }
                 ],
-                "zIndex": 4,
+                "zIndex": 6,
                 "filled": true,
                 "lineWidth": 3,
                 "color": "#000000",
