@@ -129,7 +129,7 @@ var GameScreenViewModel = (function (Event) {
 
             var tutorial = new MVVMScene(self.services, self.services.scenes['move_tutorial'], new TutorialViewModel());
             tutorial.show(function () {
-                console.log('exit');
+                self.events.fire(Event.RESUME);
             });
         }
     };
