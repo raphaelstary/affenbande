@@ -67,9 +67,10 @@ var PreStartScreen = (function (Width, Height, Font, document, installOneTimeTap
             return startButton;
         }
 
-        var startButton = installFullScreen();
+        var startButton;
+        //var startButton = installFullScreen();
 
-        //goFullScreen(); // todo remove
+        goFullScreen(); // todo remove
 
         function goFullScreen() {
             if (startButton)

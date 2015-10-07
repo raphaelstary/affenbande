@@ -23,6 +23,10 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
         var menuEvented = new ShowMenuEvented(sceneServices);
         var preStartScreen = new PreStartScreen(sceneServices);
 
+        var tutorial = new MVVMScene(sceneServices, sceneServices.scenes['move_tutorial'],
+            new TutorialViewModel(sceneServices));
+        tutorial.show();
+
         var startScreen = new MVVMScene(sceneServices, sceneServices.scenes['start_screen'],
             new StartScreenViewModel(sceneServices));
         var levelOverview = new MVVMScene(sceneServices, sceneServices.scenes['level_overview'],

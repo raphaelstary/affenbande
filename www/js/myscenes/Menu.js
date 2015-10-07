@@ -1,4 +1,4 @@
-var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, PauseMenu, Credits, MoveTutorial) {
+var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, PauseMenu, Credits) {
     "use strict";
 
     function Menu(services) {
@@ -14,8 +14,7 @@ var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, Pa
     var SubScenes = {
         SETTINGS: 'settings',
         PAUSE_MENU: 'pause_menu',
-        CREDITS: 'credits',
-        MOVE_TUTORIAL: 'move_tutorial'
+        CREDITS: 'credits'
     };
 
     Menu.prototype.show = function (next) {
@@ -40,9 +39,8 @@ var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, Pa
                 callback = showPauseMenu;
             } else if (self.sceneStorage.menuScene == SubScenes.CREDITS) {
                 callback = showCredits;
-            } else if (self.sceneStorage.menuScene == SubScenes.MOVE_TUTORIAL) {
-                callback = showMoveTutorial;
             }
+
             self.stage.move(backBlur, Width.HALF, Height.HALF, 15, Transition.EASE_IN_EXPO, false, callback);
         }
 
@@ -99,17 +97,7 @@ var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, Pa
             credits.show(hideMenu);
         }
 
-        function showMoveTutorial() {
-            var tutorial = new MoveTutorial({
-                stage: self.stage,
-                buttons: self.buttons,
-                messages: self.messages,
-                sceneStorage: self.sceneStorage
-            });
-            tutorial.show(hideMenu);
-        }
-
     };
 
     return Menu;
-})(Width, Height, changeSign, Transition, Event, Settings, PauseMenu, Credits, MoveTutorial);
+})(Width, Height, changeSign, Transition, Event, Settings, PauseMenu, Credits);

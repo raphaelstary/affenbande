@@ -12,6 +12,9 @@ var GameScreenViewModel = (function (Event) {
         this.sounds = services.sounds;
         this.tap = services.tap;
         this.levels = services.levels;
+        this.scenes = services.scenes;
+
+        this.services = services;
     }
 
     GameScreenViewModel.prototype.restart = function () {
@@ -122,13 +125,12 @@ var GameScreenViewModel = (function (Event) {
                 playerController.handlePointerMove(pointer.x, pointer.y);
         });
 
-        if (this.sceneStorage.currentLevel == 1) {
-            self.sceneStorage.menuScene = 'move_tutorial';
+        if (this.sceneStorage.currentLevel === 1) {
             self.events.fireSync(Event.PAUSE);
-            showMenu(self.stage, self.buttons, self.messages, self.events, self.sceneStorage, self.device, self.sounds,
-                function () {
-                    // next callback
-                });
+
+            var tutorial = new MVVMScene(self.services, self.scenes['move_tutorial'],
+                new TutorialViewModel(self.services));
+            tutorial.show(self.events.fireSync.bind(self.events, Event.RESUME));
         }
     };
 
