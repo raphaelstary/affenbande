@@ -16,6 +16,7 @@
                 "width": 64,
                 "height": 76,
                 "referenceId": 2069,
+                "alpha": 0,
                 "filename": "unlocked_white.png",
                 "tags": [
                     {
@@ -128,6 +129,7 @@
                 "width": 64,
                 "height": 76,
                 "referenceId": 2065,
+                "alpha": 0,
                 "filename": "unlocked.png",
                 "tags": [
                     {
@@ -206,6 +208,7 @@
                 "width": 212,
                 "height": 186,
                 "referenceId": 2059,
+                "alpha": 0,
                 "filename": "coconut_white.png",
                 "tags": [
                     {
@@ -243,6 +246,7 @@
                 "width": 212,
                 "height": 186,
                 "referenceId": 2056,
+                "alpha": 0,
                 "filename": "coconut_gold.png",
                 "tags": [
                     {
@@ -413,6 +417,7 @@
                 "width": 254,
                 "height": 2211,
                 "referenceId": 1904,
+                "alpha": 0.5,
                 "filename": "bg_tree_one.png",
                 "tags": [
                     {
@@ -431,6 +436,7 @@
                 "width": 285,
                 "height": 2229,
                 "referenceId": 1903,
+                "alpha": 0.5,
                 "filename": "bg_tree_two.png",
                 "tags": [
                     {
@@ -449,6 +455,7 @@
                 "width": 338,
                 "height": 2220,
                 "referenceId": 1902,
+                "alpha": 0.5,
                 "filename": "bg_tree_three.png",
                 "tags": [
                     {
@@ -467,6 +474,7 @@
                 "width": 254,
                 "height": 2211,
                 "referenceId": 1899,
+                "alpha": 0.25,
                 "filename": "bg_tree_one.png",
                 "tags": [
                     {
@@ -485,6 +493,7 @@
                 "width": 285,
                 "height": 2229,
                 "referenceId": 1898,
+                "alpha": 0.25,
                 "filename": "bg_tree_two.png",
                 "tags": [
                     {
@@ -503,6 +512,7 @@
                 "width": 338,
                 "height": 2220,
                 "referenceId": 1897,
+                "alpha": 0.25,
                 "filename": "bg_tree_three.png",
                 "tags": [
                     {
@@ -536,6 +546,9 @@
                 "filename": "step_back.png",
                 "tags": [
                     {
+                        "id": "stepBackDrawable"
+                    },
+                    {
                         "anchor": "right"
                     },
                     {
@@ -545,6 +558,7 @@
                         "position": "relativeToSize"
                     }
                 ],
+                "viewId": "stepBackDrawable",
                 "zIndex": 5
             },
             {
@@ -725,13 +739,13 @@
                 "width": 1242,
                 "height": 230,
                 "referenceId": 1957,
+                "alpha": 0.5,
                 "tags": [
                     {
                         "zIndex": "4"
                     }
                 ],
                 "zIndex": 4,
-                "alpha": 0.5,
                 "filled": true,
                 "color": "#000000"
             },
@@ -796,6 +810,7 @@
                 "width": 254,
                 "height": 2211,
                 "referenceId": 1802,
+                "alpha": 0.5,
                 "filename": "bg_tree_one.png",
                 "tags": [
                     {
@@ -814,6 +829,7 @@
                 "width": 285,
                 "height": 2229,
                 "referenceId": 1803,
+                "alpha": 0.5,
                 "filename": "bg_tree_two.png",
                 "tags": [
                     {
@@ -832,6 +848,7 @@
                 "width": 338,
                 "height": 2220,
                 "referenceId": 1804,
+                "alpha": 0.5,
                 "filename": "bg_tree_three.png",
                 "tags": [
                     {
@@ -850,6 +867,7 @@
                 "width": 254,
                 "height": 2211,
                 "referenceId": 1807,
+                "alpha": 0.25,
                 "filename": "bg_tree_one.png",
                 "tags": [
                     {
@@ -868,6 +886,7 @@
                 "width": 285,
                 "height": 2229,
                 "referenceId": 1806,
+                "alpha": 0.25,
                 "filename": "bg_tree_two.png",
                 "tags": [
                     {
@@ -886,6 +905,7 @@
                 "width": 338,
                 "height": 2220,
                 "referenceId": 1805,
+                "alpha": 0.25,
                 "filename": "bg_tree_three.png",
                 "tags": [
                     {
@@ -964,6 +984,7 @@
                 "width": 736,
                 "height": 253,
                 "referenceId": 926,
+                "alpha": 0,
                 "tags": [
                     {
                         "loop": "false"
@@ -975,7 +996,6 @@
                 ],
                 "zIndex": 9,
                 "msg": "well done",
-                "alpha": 0,
                 "rotation": 0.17698071473396326,
                 "scale": 1.5149133265203656,
                 "font": "Janda Silly Monkey",
@@ -1012,6 +1032,7 @@
                 "width": 244,
                 "height": 149,
                 "referenceId": 817,
+                "alpha": 0,
                 "tags": [
                     {
                         "loop": "false"
@@ -1023,7 +1044,6 @@
                 ],
                 "zIndex": 8,
                 "msg": "well done",
-                "alpha": 0,
                 "rotation": -0.46633332814734996,
                 "scale": 0.512535014523886,
                 "font": "Janda Silly Monkey",
@@ -1084,6 +1104,7 @@
                 "width": 212,
                 "height": 186,
                 "referenceId": 819,
+                "alpha": 0,
                 "filename": "coconut_white.png",
                 "tags": [
                     "animation",
@@ -1097,7 +1118,6 @@
                 "zIndex": 9,
                 "rotation": 0,
                 "scale": 1,
-                "alpha": 0,
                 "animations": {
                     "opacity": [
                         {
@@ -2627,10 +2647,10 @@
                 "width": 84,
                 "height": 122,
                 "referenceId": 507,
+                "alpha": 0.75,
                 "filename": "arrow.png",
                 "rotation": -1.5789928645448092,
                 "scale": 1,
-                "alpha": 0.75,
                 "tags": [
                     {
                         "zIndex": "5"
@@ -2775,10 +2795,10 @@
                 "width": 84,
                 "height": 122,
                 "referenceId": 506,
+                "alpha": 0.75,
                 "filename": "arrow.png",
                 "rotation": -1.5789928645448092,
                 "scale": 1,
-                "alpha": 0.75,
                 "tags": [
                     {
                         "zIndex": "5"
@@ -2923,10 +2943,10 @@
                 "width": 84,
                 "height": 122,
                 "referenceId": 505,
+                "alpha": 0.75,
                 "filename": "arrow.png",
                 "rotation": 1.5789928645448092,
                 "scale": 1,
-                "alpha": 0.75,
                 "tags": [
                     {
                         "zIndex": "5"
@@ -3089,10 +3109,10 @@
                 "width": 84,
                 "height": 122,
                 "referenceId": 504,
+                "alpha": 0.75,
                 "filename": "arrow.png",
                 "rotation": 1.5789928645448092,
                 "scale": 1,
-                "alpha": 0.75,
                 "tags": [
                     {
                         "zIndex": "5"
@@ -3237,10 +3257,10 @@
                 "width": 122,
                 "height": 84,
                 "referenceId": 503,
+                "alpha": 0.75,
                 "filename": "arrow.png",
                 "rotation": 3.1333961158398806,
                 "scale": 1,
-                "alpha": 0.75,
                 "tags": [
                     {
                         "zIndex": "5"
@@ -3385,10 +3405,10 @@
                 "width": 122,
                 "height": 84,
                 "referenceId": 502,
+                "alpha": 0.75,
                 "filename": "arrow.png",
                 "rotation": 0,
                 "scale": 1,
-                "alpha": 0.75,
                 "tags": [
                     {
                         "zIndex": "5"
@@ -3533,10 +3553,10 @@
                 "width": 173,
                 "height": 173,
                 "referenceId": 499,
+                "alpha": 0,
                 "filename": "monkey_white.png",
                 "rotation": 0,
                 "scale": 0.72,
-                "alpha": 0,
                 "tags": [
                     {
                         "zIndex": "8"
@@ -3657,10 +3677,10 @@
                 "width": 173,
                 "height": 173,
                 "referenceId": 497,
+                "alpha": 0,
                 "filename": "monkey_white.png",
                 "rotation": 0,
                 "scale": 0.72,
-                "alpha": 0,
                 "tags": [
                     {
                         "zIndex": "8"
@@ -4117,6 +4137,7 @@
                     "width": 666,
                     "height": 169,
                     "referenceId": 462,
+                    "alpha": 0.5,
                     "filename": "button.png",
                     "tags": [
                         "background"
@@ -4394,6 +4415,7 @@
                 "width": 1242,
                 "height": 2208,
                 "referenceId": 489,
+                "alpha": 0.8,
                 "tags": [
                     {
                         "zIndex": "4"
@@ -4404,7 +4426,6 @@
                     }
                 ],
                 "zIndex": 4,
-                "alpha": 0.8,
                 "filled": true,
                 "lineWidth": 3,
                 "color": "#000000",
@@ -4965,7 +4986,6 @@
             },
             {
                 "type": "button",
-                "viewId": "playBtn",
                 "text": {
                     "type": "text",
                     "x": 621,
@@ -5002,6 +5022,7 @@
                     "width": 666,
                     "height": 169,
                     "referenceId": 47,
+                    "alpha": 0.5,
                     "filename": "button.png",
                     "tags": [
                         "background"
@@ -5016,7 +5037,6 @@
             },
             {
                 "type": "button",
-                "viewId": "moreBtn",
                 "text": {
                     "type": "text",
                     "x": 620,
@@ -5053,6 +5073,7 @@
                     "width": 666,
                     "height": 169,
                     "referenceId": 44,
+                    "alpha": 0.5,
                     "filename": "button.png",
                     "tags": [
                         "background"

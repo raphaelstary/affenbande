@@ -1,8 +1,9 @@
-var LevelOverviewViewModel = (function (Width, Height, GameScreen, Event, Constants, Font, Math, showMenu) {
+var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, Math, showMenu) {
     "use strict";
 
     function LevelOverviewViewModel(services) {
         this.stage = services.stage;
+        this.newStage = services.newStage;
         this.tap = services.tap;
         this.sceneStorage = services.sceneStorage;
         this.events = services.events;
@@ -12,26 +13,16 @@ var LevelOverviewViewModel = (function (Width, Height, GameScreen, Event, Consta
         this.sounds = services.sounds;
         this.timer = services.timer;
         this.levels = services.levels;
+        this.scenes = services.scenes;
     }
+
+    LevelOverviewViewModel.prototype.preDestroy = function () {
+        this.drawables.forEach(this.stage.remove.bind(this.stage));
+        this.taps.forEach(this.tap.remove.bind(this.tap));
+    };
 
     LevelOverviewViewModel.prototype.postConstruct = function () {
         var self = this;
-        var taps;
-        var drawables;
-
-        function initScene() {
-            taps = [];
-            drawables = [];
-
-            for (var i = 1; i <= 20; i++) {
-                createLevelDrawable(i);
-            }
-        }
-
-        function deconstructScene() {
-            drawables.forEach(self.stage.remove.bind(self.stage));
-            taps.forEach(self.tap.remove.bind(self.tap));
-        }
 
         function createLevelDrawable(levelNr) {
             function getCoconutWidth(width, height) {
@@ -72,24 +63,25 @@ var LevelOverviewViewModel = (function (Width, Height, GameScreen, Event, Consta
                 3, 0.5, undefined, undefined, [goldCoconut]);
             self.stage.hide(wrapper.drawable);
             self.tap.add(wrapper.input, getLevelCallback(levelNr));
-            drawables.push(goldCoconut);
-            drawables.push(numberLabel);
-            drawables.push(wrapper.drawable);
-            taps.push(wrapper.input);
+            self.drawables.push(goldCoconut);
+            self.drawables.push(numberLabel);
+            self.drawables.push(wrapper.drawable);
+            self.taps.push(wrapper.input);
 
         }
 
         function getLevelCallback(levelNr) {
             return function () {
-                deconstructScene();
+                var resume = self.stopScene();
 
                 self.events.fire(Event.ANALYTICS, {
                     type: 'level_start',
                     level: levelNr
                 });
 
-                var level = new GameScreen({
+                var services = {
                     stage: self.stage,
+                    newStage: self.newStage,
                     timer: self.timer,
                     device: self.device,
                     events: self.events,
@@ -98,15 +90,24 @@ var LevelOverviewViewModel = (function (Width, Height, GameScreen, Event, Consta
                     buttons: self.buttons,
                     messages: self.messages,
                     sound: self.sounds,
-                    levels: self.levels
-                });
+                    levels: self.levels,
+                    scenes: self.scenes
+                };
+
+                //var level = new GameScreen(services);
+                var level = new MVVMScene(services, self.scenes['level'], new GameScreenViewModel(services));
                 self.sceneStorage.currentLevel = levelNr;
 
-                level.show(initScene);
+                level.show(resume);
             };
         }
 
-        initScene();
+        this.taps = [];
+        this.drawables = [];
+
+        for (var i = 1; i <= 20; i++) {
+            createLevelDrawable(i);
+        }
     };
 
     LevelOverviewViewModel.prototype.goSettings = function () {
@@ -119,4 +120,4 @@ var LevelOverviewViewModel = (function (Width, Height, GameScreen, Event, Consta
     };
 
     return LevelOverviewViewModel;
-})(Width, Height, GameScreen, Event, Constants, Font, Math, showMenu);
+})(Width, Height, Event, Constants, Font, Math, showMenu);

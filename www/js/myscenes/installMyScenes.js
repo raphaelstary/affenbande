@@ -1,5 +1,5 @@
-var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory, GameScreen, Font, GoFullScreen,
-    RotateDevice, ShowMenuEvented, LevelOverviewViewModel, MVVMScene, StartScreenViewModel, PreStartScreen, Constants) {
+var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory, Font, GoFullScreen, RotateDevice,
+    ShowMenuEvented, LevelOverviewViewModel, MVVMScene, StartScreenViewModel, PreStartScreen, Constants) {
     "use strict";
 
     var BLACK = '#283032';
@@ -39,5 +39,5 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
     }
 
     return installMyScenes;
-})(SceneManager, TapManager, Event, ButtonFactory, GameScreen, Font, GoFullScreen, RotateDevice, ShowMenuEvented,
+})(SceneManager, TapManager, Event, ButtonFactory, Font, GoFullScreen, RotateDevice, ShowMenuEvented,
     LevelOverviewViewModel, MVVMScene, StartScreenViewModel, PreStartScreen, Constants);
