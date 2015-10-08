@@ -2,7 +2,7 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
     "use strict";
 
     function LevelOverviewViewModel(services) {
-        this.stage = services.newStage;
+        this.stage = services.stage;
         this.tap = services.tap;
         this.sceneStorage = services.sceneStorage;
         this.events = services.events;

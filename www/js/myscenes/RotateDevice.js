@@ -2,7 +2,7 @@ var RotateDevice = (function (Width, Height, Font, Event, Constants, Transition)
     "use strict";
 
     function RotateDevice(services) {
-        this.stage = services.newStage;
+        this.stage = services.stage;
         this.events = services.events;
         this.messages = services.messages;
     }

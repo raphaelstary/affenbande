@@ -2,7 +2,7 @@ var GoFullScreen = (function (Event, Width, Height, installOneTimeTap, isHit, Co
     "use strict";
 
     function GoFullScreen(services) {
-        this.stage = services.newStage;
+        this.stage = services.stage;
         this.events = services.events;
         this.buttons = services.buttons;
         this.messages = services.messages;

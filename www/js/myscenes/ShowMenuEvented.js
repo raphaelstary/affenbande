@@ -3,7 +3,7 @@ var ShowMenuEvented = (function (Event, showMenu) {
 
     function ShowMenuEvented(services) {
         this.events = services.events;
-        this.stage = services.newStage;
+        this.stage = services.stage;
         this.buttons = services.buttons;
         this.messages = services.messages;
         this.sceneStorage = services.sceneStorage;

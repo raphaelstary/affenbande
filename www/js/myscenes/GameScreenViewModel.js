@@ -2,7 +2,7 @@ var GameScreenViewModel = (function (Event) {
     "use strict";
 
     function GameScreenViewModel(services) {
-        this.stage = services.newStage;
+        this.stage = services.stage;
         this.timer = services.timer;
         this.device = services.device;
         this.events = services.events;

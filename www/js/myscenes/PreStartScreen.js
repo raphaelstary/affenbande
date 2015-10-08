@@ -3,8 +3,8 @@ var PreStartScreen = (function (Width, Height, Font, document, installOneTimeTap
     "use strict";
 
     function PreStartScreen(services) {
-        this.stage = services.newStage;
-        this.oldStage = services.stage;
+        this.stage = services.stage;
+        this.legacyStage = services.legacyStage;
         this.sceneStorage = services.sceneStorage;
         this.buttons = services.buttons;
         this.messages = services.messages;
@@ -203,7 +203,7 @@ var PreStartScreen = (function (Width, Height, Font, document, installOneTimeTap
 
         self.events.subscribe(Event.PAUSE, function () {
             self.stage.pauseAll();
-            self.oldStage.pauseAll();
+            self.legacyStage.pauseAll();
             self.buttons.disableAll();
             self.timer.pause();
             self.loop.disableMove();
@@ -212,7 +212,7 @@ var PreStartScreen = (function (Width, Height, Font, document, installOneTimeTap
 
         self.events.subscribe(Event.RESUME, function () {
             self.stage.playAll();
-            self.oldStage.playAll();
+            self.legacyStage.playAll();
             self.buttons.enableAll();
             self.timer.resume();
             self.loop.enableMove();
