@@ -11,7 +11,7 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
         sceneServices.tap = tap;
         sceneServices.events.subscribe(Event.POINTER, tap.inputChanged.bind(tap));
 
-        sceneServices.buttons = new ButtonFactory(sceneServices.newStage, tap, sceneServices.timer, Constants.GAME_FONT,
+        sceneServices.buttons = new ButtonFactory(sceneServices.stage, tap, sceneServices.timer, Constants.GAME_FONT,
             function () {
                 //sceneServices.sounds.play(CLICK);
             }, WHITE, BLACK, Font._30, 3, WHITE, WHITE, Font._40, 2);
