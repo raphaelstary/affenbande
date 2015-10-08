@@ -110,7 +110,15 @@ var GameScreenViewModel = (function (Event) {
                 summary: 'missing',
                 level: self.sceneStorage.currentLevel
             });
-            self.timer.doLater(self.nextScene.bind(self), 30);
+
+            var successScreen = new MVVMScene(self.services, self.services.scenes['finish_level'],
+                new SuccessScreenViewModel(self.services));
+            self.timer.doLater(function () {
+                successScreen.show(function () {
+                    self.timer.doLater(self.nextScene.bind(self), 30);
+                });
+            }, 10);
+
         }, topOffset, eventCallbacks);
         this.world.init();
 
