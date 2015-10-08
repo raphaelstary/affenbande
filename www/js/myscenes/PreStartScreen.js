@@ -20,10 +20,8 @@ var PreStartScreen = (function (Width, Height, Font, document, installOneTimeTap
     PreStartScreen.prototype.show = function (next) {
         var self = this;
 
-        var ms = this.stage.createText('0').setPosition(Width.get(10),
-            Height.get(15)).setSize(Font._60).setFont('Arial').setColor('white').setZIndex(11);
-        var fps = this.stage.createText('0').setPosition(Width.get(10),
-            Height.get(12)).setSize(Font._60).setFont('Arial').setColor('white').setZIndex(11);
+        var ms = this.stage.createText('0').setPosition(Width.get(10), Height.get(15)).setSize(Font._60).setZIndex(11);
+        var fps = this.stage.createText('0').setPosition(Width.get(10), Height.get(12)).setSize(Font._60).setZIndex(11);
 
         var statsStart = this.events.subscribe(Event.TICK_START, Stats.start);
 
@@ -48,7 +46,7 @@ var PreStartScreen = (function (Width, Height, Font, document, installOneTimeTap
         var drawables = [];
 
         var logo = this.stage.createText('Monkey Gang').setPosition(Width.HALF,
-            Height.get(48, 12)).setSize(Font._15).setFont(Constants.GAME_FONT).setColor('black');
+            Height.get(48, 12)).setSize(Font._15).setFont(Constants.GAME_FONT);
         drawables.push(logo);
 
         function installFullScreen() {

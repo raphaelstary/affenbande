@@ -18,7 +18,7 @@ var RotateDevice = (function (Width, Height, Font, Event, Constants, Transition)
         this.events.subscribe(Event.SHOW_ROTATE_DEVICE, function () {
 
             backBlur = self.stage.createRectangle(true).setPosition(Width.HALF,
-                Height.HALF).setWidth(Width.FULL).setHeight(Height.FULL).setColor(BLACK).setZIndex(9).setAlpha(0.8);
+                Height.HALF).setWidth(Width.FULL).setHeight(Height.FULL).setZIndex(9).setAlpha(0.8);
 
             rotateText = self.stage.createText(self.messages.get(KEY, ROTATE_DEVICE)).setPosition(Width.HALF,
                 Height.QUARTER).setSize(Font._15).setFont(Constants.GAME_FONT).setColor(WHITE).setZIndex(11).setLineHeight(Width.FULL).setScale(Height.get(10));
@@ -26,7 +26,7 @@ var RotateDevice = (function (Width, Height, Font, Event, Constants, Transition)
             rect = self.stage.createRectangle(true).setPosition(Width.HALF,
                 Height.TWO_THIRD).setWidth(Width.get(7)).setHeight(Height.HALF).setColor(WHITE).setZIndex(11).setAlpha(0.5).setRotation(Math.PI /
                 2);
-            rect.rotateTo(0).setDuration(180).setSpacing(Transition.LINEAR).setLoop(true);
+            rect.rotateTo(0).setDuration(180).setLoop(true);
         });
 
         this.events.subscribe(Event.REMOVE_ROTATE_DEVICE, function () {

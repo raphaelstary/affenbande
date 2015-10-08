@@ -68,8 +68,7 @@ var GridViewHelper = (function (Height, Transition, Math) {
     };
 
     GridViewHelper.prototype.move = function (drawable, u, v, speed, callback) {
-        return drawable.moveTo(this.__getX(u),
-            this.__getY(v)).setDuration(speed).setSpacing(Transition.LINEAR).setCallback(callback);
+        return drawable.moveTo(this.__getX(u), this.__getY(v)).setDuration(speed).setCallback(callback);
     };
 
     GridViewHelper.prototype.__edgeLength = function (height) {

@@ -31,7 +31,7 @@ var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, Pa
         function showMenu() {
 
             backBlur = self.stage.createRectangle(true).setPosition(changeSign(Width.HALF),
-                Height.HALF).setWidth(Width.FULL).setHeight(Height.FULL).setColor('#000').setZIndex(6).setAlpha(0.8);
+                Height.HALF).setWidth(Width.FULL).setHeight(Height.FULL).setZIndex(6).setAlpha(0.8);
             var callback;
             if (self.sceneStorage.menuScene == SubScenes.SETTINGS) {
                 callback = showSettings;

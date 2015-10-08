@@ -23,7 +23,7 @@ var GoFullScreen = (function (Event, Width, Height, installOneTimeTap, isHit, Co
         this.events.subscribe(Event.SHOW_GO_FULL_SCREEN, function () {
 
             backBlur = self.stage.createRectangle(true).setPosition(Width.HALF,
-                Height.HALF).setWidth(Width.FULL).setHeight(Height.FULL).setColor(BLACK).setZIndex(9).setAlpha(0.8);
+                Height.HALF).setWidth(Width.FULL).setHeight(Height.FULL).setZIndex(9).setAlpha(0.8);
 
             if (self.sceneStorage.fsUserRequest) {
                 self.sceneStorage.fsUserRequest = false;

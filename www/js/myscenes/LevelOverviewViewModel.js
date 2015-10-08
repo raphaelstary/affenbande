@@ -59,7 +59,7 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
             }
 
             var numberLabel = self.stage.createText(levelNr.toString()).setPosition(getX, getY,
-                [goldCoconut]).setSize(Font._15).setFont(Constants.GAME_FONT).setColor('black').setZIndex(5);
+                [goldCoconut]).setSize(Font._15).setFont(Constants.GAME_FONT).setZIndex(5);
 
             var touchable = self.stage.createRectangle().setPosition(getX, getY,
                 [goldCoconut]).setWidth(getWidth).setHeight(getHeight).setColor('white');

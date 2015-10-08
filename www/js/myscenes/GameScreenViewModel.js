@@ -87,16 +87,16 @@ var GameScreenViewModel = (function (Event) {
                     deps).setWidth(width).setHeight(height).setColor('white').setZIndex(5);
                 var three = self.stage.createRectangle().setPosition(x, y,
                     deps).setWidth(width).setHeight(height).setColor('white').setZIndex(5);
-                one.scaleTo($.WAVE_SCALE_FACTOR_MAX).setDuration($.WAVE_SCALE_DURATION).setSpacing(Transition.LINEAR).setCallback(function () {
+                one.scaleTo($.WAVE_SCALE_FACTOR_MAX).setDuration($.WAVE_SCALE_DURATION).setCallback(function () {
                     one.remove();
                 });
                 self.timer.doLater(function () {
-                    two.scaleTo($.WAVE_SCALE_FACTOR_MAX).setDuration($.WAVE_SCALE_DURATION).setSpacing(Transition.LINEAR).setCallback(function () {
+                    two.scaleTo($.WAVE_SCALE_FACTOR_MAX).setDuration($.WAVE_SCALE_DURATION).setCallback(function () {
                         two.remove();
                     });
                 }, $.SECOND_WAVE_DELAY);
                 self.timer.doLater(function () {
-                    three.scaleTo($.WAVE_SCALE_FACTOR_MAX).setDuration($.WAVE_SCALE_DURATION).setSpacing(Transition.LINEAR).setCallback(function () {
+                    three.scaleTo($.WAVE_SCALE_FACTOR_MAX).setDuration($.WAVE_SCALE_DURATION).setCallback(function () {
                         three.remove();
                     });
                 }, $.THIRD_WAVE_DELAY);
