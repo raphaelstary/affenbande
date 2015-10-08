@@ -65,41 +65,47 @@ var GameScreenViewModel = (function (Event) {
 
         this.shaker.add(this.stepBackDrawable);
 
-        var eventCallbacks = {
-            11: function () {
-                var $ = {
-                    WAVE_SCALE_FACTOR_MAX: 2,
-                    WAVE_SCALE_DURATION: 30,
-                    WAVE_AGAIN_DURATION: 60 * 5,
+        function buttonScaleAnimation() {
+            var $ = {
+                WAVE_SCALE_FACTOR_MAX: 2,
+                WAVE_SCALE_DURATION: 30,
+                WAVE_AGAIN_DURATION: 60 * 5,
 
-                    SECOND_WAVE_DELAY: 5,
-                    THIRD_WAVE_DELAY: 10
-                };
-                var _0 = undefined;
-                var deps = [self.stepBackDrawable];
-                var x = wrap(self.stepBackDrawable, 'x');
-                var y = wrap(self.stepBackDrawable, 'y');
-                var width = self.stepBackDrawable.getWidth.bind(self.stepBackDrawable);
-                var height = self.stepBackDrawable.getHeight.bind(self.stepBackDrawable);
-                var one = self.stage.createRectangle().setPosition(x, y,
-                    deps).setWidth(width).setHeight(height).setColor('white').setZIndex(5);
-                var two = self.stage.createRectangle().setPosition(x, y,
-                    deps).setWidth(width).setHeight(height).setColor('white').setZIndex(5);
-                var three = self.stage.createRectangle().setPosition(x, y,
-                    deps).setWidth(width).setHeight(height).setColor('white').setZIndex(5);
-                one.scaleTo($.WAVE_SCALE_FACTOR_MAX).setDuration($.WAVE_SCALE_DURATION).setCallback(function () {
-                    one.remove();
+                SECOND_WAVE_DELAY: 5,
+                THIRD_WAVE_DELAY: 10
+            };
+            var _0 = undefined;
+            var deps = [self.stepBackDrawable];
+            var x = wrap(self.stepBackDrawable, 'x');
+            var y = wrap(self.stepBackDrawable, 'y');
+            var width = self.stepBackDrawable.getWidth.bind(self.stepBackDrawable);
+            var height = self.stepBackDrawable.getHeight.bind(self.stepBackDrawable);
+            var one = self.stage.createRectangle().setPosition(x, y,
+                deps).setWidth(width).setHeight(height).setColor('white').setZIndex(5);
+            var two = self.stage.createRectangle().setPosition(x, y,
+                deps).setWidth(width).setHeight(height).setColor('white').setZIndex(5);
+            var three = self.stage.createRectangle().setPosition(x, y,
+                deps).setWidth(width).setHeight(height).setColor('white').setZIndex(5);
+            one.scaleTo($.WAVE_SCALE_FACTOR_MAX).setDuration($.WAVE_SCALE_DURATION).setCallback(function () {
+                one.remove();
+            });
+            self.timer.doLater(function () {
+                two.scaleTo($.WAVE_SCALE_FACTOR_MAX).setDuration($.WAVE_SCALE_DURATION).setCallback(function () {
+                    two.remove();
                 });
-                self.timer.doLater(function () {
-                    two.scaleTo($.WAVE_SCALE_FACTOR_MAX).setDuration($.WAVE_SCALE_DURATION).setCallback(function () {
-                        two.remove();
-                    });
-                }, $.SECOND_WAVE_DELAY);
-                self.timer.doLater(function () {
-                    three.scaleTo($.WAVE_SCALE_FACTOR_MAX).setDuration($.WAVE_SCALE_DURATION).setCallback(function () {
-                        three.remove();
-                    });
-                }, $.THIRD_WAVE_DELAY);
+            }, $.SECOND_WAVE_DELAY);
+            self.timer.doLater(function () {
+                three.scaleTo($.WAVE_SCALE_FACTOR_MAX).setDuration($.WAVE_SCALE_DURATION).setCallback(function () {
+                    three.remove();
+                });
+            }, $.THIRD_WAVE_DELAY);
+        }
+
+        var eventCallbacks = {
+            11: buttonScaleAnimation,
+            12: function () {
+                if (self.world.snakes[0].length < 4)
+                    buttonScaleAnimation();
             }
         };
         var level = this.levels[this.sceneStorage.currentLevel];

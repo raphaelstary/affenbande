@@ -58,10 +58,16 @@ var Tiles = {
     S9: 29
 };
 
+EventTrigger = {
+    E1: 11,
+    E2: 12
+};
+
 function getRows(sheet) {
     var returnObject = {
         back: [],
-        front: []
+        front: [],
+        events: []
     };
     var values = sheet.getSheetValues(1, 1, sheet.getMaxRows(), sheet.getMaxColumns());
 
@@ -69,14 +75,17 @@ function getRows(sheet) {
         var row = values[i];
         var foregroundRow = [];
         var backgroundRow = [];
+        var eventsRow = [];
         for (var j = 0; j < row.length; j++) {
             var cell = row[j];
 
             foregroundRow.push(getTileCode(cell));
             backgroundRow.push(getBackgroundTileCode(cell));
+            eventsRow.push(getEventTriggerCode(cell));
         }
         returnObject.front.push(foregroundRow);
         returnObject.back.push(backgroundRow);
+        returnObject.events.push(eventsRow)
     }
     return returnObject;
 }
@@ -92,6 +101,13 @@ function getBackgroundTileCode(cellValue) {
     for (var key in BackgroundTiles)
         if (contains(cellValue, key))
             return BackgroundTiles[key];
+    return 0;
+}
+
+function getEventTriggerCode(cellValue) {
+    for (var key in EventTrigger)
+        if (contains(cellValue, key))
+            return EventTrigger[key];
     return 0;
 }
 
