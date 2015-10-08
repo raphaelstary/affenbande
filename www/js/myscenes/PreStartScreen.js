@@ -14,7 +14,6 @@ var PreStartScreen = (function (Width, Height, Font, document, installOneTimeTap
         this.events = services.events;
         this.tap = services.tap;
         this.sounds = services.sounds;
-        this.newStage = services.newStage;
     }
 
     PreStartScreen.prototype.show = function (next) {
