@@ -1,4 +1,5 @@
-var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, Math, showMenu) {
+var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, Math, showMenu, MVVMScene,
+    GameScreenViewModel, loadBoolean, localStorage, wrap, ScreenShaker, iterateEntries) {
     "use strict";
 
     function LevelOverviewViewModel(services) {
@@ -12,69 +13,134 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
         this.sounds = services.sounds;
         this.timer = services.timer;
         this.levels = services.levels;
+        this.scenes = services.scenes;
 
         this.services = services;
     }
 
     LevelOverviewViewModel.prototype.preDestroy = function () {
+        iterateEntries(this.shakers, function (shaker) {
+            this.events.unsubscribe(shaker.tickId);
+            this.events.unsubscribe(shaker.resizeId);
+        }, this);
+
         this.drawables.forEach(function (drawable) {
             drawable.remove();
         });
         this.taps.forEach(this.tap.remove.bind(this.tap));
     };
 
+    var GAME_KEY = 'monkey_gang-';
+    var LEVEL_UNLOCKED = GAME_KEY + 'level_unlocked';
+    var LEVEL_UNLOCKING = GAME_KEY + 'level_unlocking';
+    var LEVEL_FINISHED = GAME_KEY + 'level_finished';
+    var LEVEL_FINISHED_NOW = GAME_KEY + 'level_finished_now';
+
     LevelOverviewViewModel.prototype.postConstruct = function () {
         var self = this;
 
         function createLevelDrawable(levelNr) {
-            function getCoconutWidth(width, height) {
-                return Height.get(40)(height);
-            }
-
-            function getCoconutHeight(height) {
-                return Height.get(40)(height);
-            }
+            var levelKey = levelNr < 10 ? '0' + levelNr : levelNr;
+            var isUnlocked = loadBoolean(LEVEL_UNLOCKED + levelKey);
+            var isUnlocking = loadBoolean(LEVEL_UNLOCKING + levelKey);
+            var isFinished = loadBoolean(LEVEL_FINISHED + levelKey);
+            var isFinishedNow = loadBoolean(LEVEL_FINISHED_NOW + levelKey);
 
             var positionX = ((levelNr - 1) % 4) + 1;
+            var xFn = Width.get(5, positionX);
+            var yFn = Height.get(6, Math.ceil(levelNr / 4));
+            var sceneRect = {
+                width: 1242,
+                height: 2208
+            };
+            var coconut;
 
-            var goldCoconut = self.stage.createImage('coconut').setPosition(Width.get(5, positionX),
-                Height.get(6, Math.ceil(levelNr / 4))).setZIndex(4).setAlpha(0.5);
-            //var goldCoconut = self.stage.drawRectangle(Width.get(5, positionX), Height.get(6, Math.ceil(levelNr / 4)),
-            //    getCoconutWidth, getCoconutHeight, 'brown', true, undefined, 4);
+            function getInputCallback(isUnlocked, levelNr) {
+                return function () {
+                    if (isUnlocked) {
+                        var resume = self.stopScene();
 
-            function getX() {
-                return goldCoconut.x;
+                        self.events.fire(Event.ANALYTICS, {
+                            type: 'level_start',
+                            level: levelNr
+                        });
+
+                        var level = new MVVMScene(self.services, self.services.scenes['level'],
+                            new GameScreenViewModel(self.services));
+                        self.sceneStorage.currentLevel = levelNr;
+                        level.show(resume);
+
+                    } else {
+                        // is locked
+                        self.shakers[levelNr].shaker.startSmallShake();
+                    }
+                };
             }
 
-            function getY() {
-                return goldCoconut.y;
+            function addLabel() {
+                var numberLabel = self.stage.createText(levelNr.toString()).setPosition(wrap(coconut, 'x'),
+                    wrap(coconut, 'y'), [coconut]).setSize(Font._15).setFont(Constants.GAME_FONT).setZIndex(5);
+
+                var touchable = self.stage.createRectangle().setPosition(wrap(coconut, 'x'), wrap(coconut, 'y'),
+                    [coconut]).setWidth(Width.get(5)).setHeight(Height.get(6)).setColor('white');
+
+                touchable.hide();
+
+                self.tap.add(touchable, getInputCallback(isUnlocked, levelNr));
+                self.drawables.push(coconut);
+                self.drawables.push(numberLabel);
+                self.drawables.push(touchable);
+                self.taps.push(touchable);
             }
 
-            function getWidth(width) {
-                return Width.get(5)(width);
+            if (isUnlocking) {
+                isUnlocking = false;
+                localStorage.setItem(LEVEL_UNLOCKING + levelKey, false);
+
+                var unlockSubScene = new MVVMScene(self.services, self.scenes['unlock_lock'], {}, sceneRect, xFn, yFn);
+                unlockSubScene.show(function () {
+                    coconut = self.stage.createImage('coconut').setPosition(xFn, yFn).setZIndex(4);
+                    addLabel();
+                });
+
+            } else if (isUnlocked) {
+                if (isFinishedNow) {
+                    isFinishedNow = false;
+                    localStorage.setItem(LEVEL_FINISHED_NOW + levelKey, false);
+
+                    var finishedSubScene = new MVVMScene(self.services, self.scenes['golden_coconut'], {}, sceneRect,
+                        xFn, yFn);
+                    finishedSubScene.show(function () {
+                        coconut = self.stage.createImage('coconut_gold').setPosition(xFn, yFn).setZIndex(4);
+                        addLabel();
+                    });
+
+                } else if (isFinished) {
+                    coconut = self.stage.createImage('coconut_gold').setPosition(xFn, yFn).setZIndex(4);
+                    addLabel();
+
+                } else {
+                    // is unlocked
+                    coconut = self.stage.createImage('coconut').setPosition(xFn, yFn).setZIndex(4);
+                    addLabel();
+                }
+            } else {
+                // is locked
+                coconut = self.stage.createImage('locked').setPosition(xFn, yFn).setZIndex(4);
+
+                var shaker = new ScreenShaker(self.device);
+                self.shakers[levelNr] = {
+                    shaker: shaker,
+                    resizeId: self.events.subscribe(Event.RESIZE, shaker.resize.bind(shaker)),
+                    tickId: self.events.subscribe(Event.TICK_MOVE, shaker.update.bind(shaker))
+                };
+                shaker.add(coconut);
+
+                addLabel();
             }
-
-            function getHeight(height) {
-                return Height.get(6)(height);
-            }
-
-            var numberLabel = self.stage.createText(levelNr.toString()).setPosition(getX, getY,
-                [goldCoconut]).setSize(Font._15).setFont(Constants.GAME_FONT).setZIndex(5);
-
-            var touchable = self.stage.createRectangle().setPosition(getX, getY,
-                [goldCoconut]).setWidth(getWidth).setHeight(getHeight).setColor('white');
-
-            touchable.hide();
-
-            self.tap.add(touchable, getLevelCallback(levelNr));
-            self.drawables.push(goldCoconut);
-            self.drawables.push(numberLabel);
-            self.drawables.push(touchable);
-            self.taps.push(touchable);
-
         }
 
-        function getLevelCallback(levelNr) {
+        function startLevel(levelNr) {
             return function () {
                 var resume = self.stopScene();
 
@@ -92,6 +158,7 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
 
         this.taps = [];
         this.drawables = [];
+        this.shakers = {};
 
         for (var i = 1; i <= 20; i++) {
             createLevelDrawable(i);
@@ -108,4 +175,5 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
     };
 
     return LevelOverviewViewModel;
-})(Width, Height, Event, Constants, Font, Math, showMenu);
+})(Width, Height, Event, Constants, Font, Math, showMenu, MVVMScene, GameScreenViewModel, loadBoolean, lclStorage, wrap,
+    ScreenShaker, iterateEntries);
