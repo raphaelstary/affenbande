@@ -1,4 +1,4 @@
-var GameScreenViewModel = (function (Event) {
+var GameScreenViewModel = (function (Event, localStorage) {
     "use strict";
 
     function GameScreenViewModel(services) {
@@ -117,6 +117,22 @@ var GameScreenViewModel = (function (Event) {
                 level: self.sceneStorage.currentLevel
             });
 
+            var levelNr = self.sceneStorage.currentLevel;
+            var levelKey = levelNr < 10 ? '0' + levelNr : levelNr;
+            var nextLevelNr = levelNr + 1;
+            var nextLevelKey = nextLevelNr < 10 ? '0' + nextLevelNr : nextLevelNr;
+            var isUnlocked = loadBoolean(Constants.LEVEL_UNLOCKED + nextLevelKey);
+            var isFinished = loadBoolean(Constants.LEVEL_FINISHED + levelKey);
+
+            if (!isUnlocked) {
+                localStorage.setItem(Constants.LEVEL_UNLOCKED + nextLevelKey, true);
+                localStorage.setItem(Constants.LEVEL_UNLOCKING + nextLevelKey, true);
+            }
+            if (!isFinished) {
+                localStorage.setItem(Constants.LEVEL_FINISHED + levelKey, true);
+                localStorage.setItem(Constants.LEVEL_FINISHED_NOW + levelKey, true);
+            }
+
             var successScreen = new MVVMScene(self.services, self.services.scenes['finish_level'],
                 new SuccessScreenViewModel(self.services));
             successScreen.show(function () {
@@ -156,4 +172,4 @@ var GameScreenViewModel = (function (Event) {
     };
 
     return GameScreenViewModel;
-})(Event);
+})(Event, lclStorage);

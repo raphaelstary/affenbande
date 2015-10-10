@@ -1,5 +1,6 @@
 var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, Math, showMenu, MVVMScene,
-    GameScreenViewModel, loadBoolean, localStorage, wrap, ScreenShaker, iterateEntries) {
+    GameScreenViewModel, loadBoolean, localStorage, wrap, ScreenShaker, iterateEntries, UnlockLockViewModel,
+    GoldenCoconutViewModel, add) {
     "use strict";
 
     function LevelOverviewViewModel(services) {
@@ -30,21 +31,18 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
         this.taps.forEach(this.tap.remove.bind(this.tap));
     };
 
-    var GAME_KEY = 'monkey_gang-';
-    var LEVEL_UNLOCKED = GAME_KEY + 'level_unlocked';
-    var LEVEL_UNLOCKING = GAME_KEY + 'level_unlocking';
-    var LEVEL_FINISHED = GAME_KEY + 'level_finished';
-    var LEVEL_FINISHED_NOW = GAME_KEY + 'level_finished_now';
-
     LevelOverviewViewModel.prototype.postConstruct = function () {
         var self = this;
 
         function createLevelDrawable(levelNr) {
             var levelKey = levelNr < 10 ? '0' + levelNr : levelNr;
-            var isUnlocked = loadBoolean(LEVEL_UNLOCKED + levelKey);
-            var isUnlocking = loadBoolean(LEVEL_UNLOCKING + levelKey);
-            var isFinished = loadBoolean(LEVEL_FINISHED + levelKey);
-            var isFinishedNow = loadBoolean(LEVEL_FINISHED_NOW + levelKey);
+            var isUnlocked = loadBoolean(Constants.LEVEL_UNLOCKED + levelKey);
+            var isUnlocking = loadBoolean(Constants.LEVEL_UNLOCKING + levelKey);
+            var isFinished = loadBoolean(Constants.LEVEL_FINISHED + levelKey);
+            var isFinishedNow = loadBoolean(Constants.LEVEL_FINISHED_NOW + levelKey);
+            if (levelNr === 1) {
+                isUnlocked = true;
+            }
 
             var positionX = ((levelNr - 1) % 4) + 1;
             var xFn = Width.get(5, positionX);
@@ -77,9 +75,13 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
                 };
             }
 
-            function addLabel() {
-                var numberLabel = self.stage.createText(levelNr.toString()).setPosition(wrap(coconut, 'x'),
-                    wrap(coconut, 'y'), [coconut]).setSize(Font._15).setFont(Constants.GAME_FONT).setZIndex(5);
+            function addLabel(coconut, unlocked, color) {
+                if (unlocked) {
+                    var numberLabel = self.stage.createText(levelNr.toString()).setPosition(add(wrap(coconut, 'x'),
+                            Width.get(64)), add(wrap(coconut, 'y'), Height.get(48 * 2)),
+                        [coconut]).setSize(Font._30).setFont(Constants.GAME_FONT).setZIndex(5).setColor(color);
+                    self.drawables.push(numberLabel);
+                }
 
                 var touchable = self.stage.createRectangle().setPosition(wrap(coconut, 'x'), wrap(coconut, 'y'),
                     [coconut]).setWidth(Width.get(5)).setHeight(Height.get(6)).setColor('white');
@@ -88,45 +90,45 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
 
                 self.tap.add(touchable, getInputCallback(isUnlocked, levelNr));
                 self.drawables.push(coconut);
-                self.drawables.push(numberLabel);
                 self.drawables.push(touchable);
                 self.taps.push(touchable);
             }
 
             if (isUnlocking) {
-                isUnlocking = false;
-                localStorage.setItem(LEVEL_UNLOCKING + levelKey, false);
+                localStorage.setItem(Constants.LEVEL_UNLOCKING + levelKey, false);
 
-                var unlockSubScene = new MVVMScene(self.services, self.scenes['unlock_lock'], {}, sceneRect, xFn, yFn);
-                unlockSubScene.show(function () {
-                    coconut = self.stage.createImage('coconut').setPosition(xFn, yFn).setZIndex(4);
-                    addLabel();
-                });
+                var unlockSubScene = new MVVMScene(self.services, self.scenes['unlock_lock'], new UnlockLockViewModel(),
+                    sceneRect, xFn, yFn);
+                self.timer.doLater(function () {
+                    unlockSubScene.show(function () {
+                        coconut = self.stage.createImage('coconut').setPosition(xFn, yFn).setZIndex(4);
+                        addLabel(coconut, isUnlocked, 'white');
+                    });
+                }, self.sceneStorage.do30fps ? 16 : 30);
 
             } else if (isUnlocked) {
                 if (isFinishedNow) {
-                    isFinishedNow = false;
-                    localStorage.setItem(LEVEL_FINISHED_NOW + levelKey, false);
+                    localStorage.setItem(Constants.LEVEL_FINISHED_NOW + levelKey, false);
 
-                    var finishedSubScene = new MVVMScene(self.services, self.scenes['golden_coconut'], {}, sceneRect,
-                        xFn, yFn);
+                    var finishedSubScene = new MVVMScene(self.services, self.scenes['golden_coconut'],
+                        new GoldenCoconutViewModel(), sceneRect, xFn, yFn);
                     finishedSubScene.show(function () {
                         coconut = self.stage.createImage('coconut_gold').setPosition(xFn, yFn).setZIndex(4);
-                        addLabel();
+                        addLabel(coconut, isUnlocked, 'black');
                     });
 
                 } else if (isFinished) {
                     coconut = self.stage.createImage('coconut_gold').setPosition(xFn, yFn).setZIndex(4);
-                    addLabel();
+                    addLabel(coconut, isUnlocked, 'black');
 
                 } else {
                     // is unlocked
-                    coconut = self.stage.createImage('coconut').setPosition(xFn, yFn).setZIndex(4);
-                    addLabel();
+                    coconut = self.stage.createImage('coconut').setPosition(xFn, yFn).setZIndex(4).setAlpha(0.8);
+                    addLabel(coconut, isUnlocked, 'white');
                 }
             } else {
                 // is locked
-                coconut = self.stage.createImage('locked').setPosition(xFn, yFn).setZIndex(4);
+                coconut = self.stage.createImage('locked').setPosition(xFn, yFn).setZIndex(5);
 
                 var shaker = new ScreenShaker(self.device);
                 self.shakers[levelNr] = {
@@ -135,8 +137,11 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
                     tickId: self.events.subscribe(Event.TICK_MOVE, shaker.update.bind(shaker))
                 };
                 shaker.add(coconut);
+                self.drawables.push(coconut);
 
-                addLabel();
+                coconut = self.stage.createImage('coconut').setPosition(xFn, yFn).setZIndex(4).setAlpha(0.3);
+
+                addLabel(coconut, isUnlocked);
             }
         }
 
@@ -160,6 +165,9 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
         this.drawables = [];
         this.shakers = {};
 
+        this.drawables.push(this.stage.createRectangle(true).setWidth(Width.FULL).setHeight(Height.FULL).setPosition(Width.HALF,
+            Height.HALF).setColor('white').setAlpha(0.3).setZIndex(4));
+
         for (var i = 1; i <= 20; i++) {
             createLevelDrawable(i);
         }
@@ -176,4 +184,4 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
 
     return LevelOverviewViewModel;
 })(Width, Height, Event, Constants, Font, Math, showMenu, MVVMScene, GameScreenViewModel, loadBoolean, lclStorage, wrap,
-    ScreenShaker, iterateEntries);
+    ScreenShaker, iterateEntries, UnlockLockViewModel, GoldenCoconutViewModel, add);

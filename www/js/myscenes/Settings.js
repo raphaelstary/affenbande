@@ -194,7 +194,29 @@ var Settings = (function (Width, Height, changeSign, Transition, Event, Credits,
 
             function resetGameData() {
                 if (forSure) {
-                    localStorage.clear();
+
+                    var baseKeys = [
+                        Constants.LEVEL_FINISHED,
+                        Constants.LEVEL_FINISHED_NOW,
+                        Constants.LEVEL_UNLOCKED,
+                        Constants.LEVEL_UNLOCKING
+                    ];
+                    var keys = [];
+                    for (var i = 0; i <= 21; i++) {
+                        if (i < 10) {
+                            baseKeys.forEach(function (baseKey) {
+                                keys.push(baseKey + '0' + i);
+                            });
+                        } else {
+                            baseKeys.forEach(function (baseKey) {
+                                keys.push(baseKey + i);
+                            });
+                        }
+                    }
+                    keys.forEach(function (key) {
+                        localStorage.removeItem(key);
+                    });
+
                     forSure = false;
                     document.location.reload(true);
                 } else {

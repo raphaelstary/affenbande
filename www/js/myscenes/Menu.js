@@ -1,4 +1,4 @@
-var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, PauseMenu, Credits) {
+var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, Credits) {
     "use strict";
 
     function Menu(services) {
@@ -13,7 +13,6 @@ var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, Pa
 
     var SubScenes = {
         SETTINGS: 'settings',
-        PAUSE_MENU: 'pause_menu',
         CREDITS: 'credits'
     };
 
@@ -35,8 +34,6 @@ var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, Pa
             var callback;
             if (self.sceneStorage.menuScene == SubScenes.SETTINGS) {
                 callback = showSettings;
-            } else if (self.sceneStorage.menuScene == SubScenes.PAUSE_MENU) {
-                callback = showPauseMenu;
             } else if (self.sceneStorage.menuScene == SubScenes.CREDITS) {
                 callback = showCredits;
             }
@@ -72,19 +69,6 @@ var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, Pa
             settings.show(hideMenu);
         }
 
-        function showPauseMenu() {
-            var pauseMenu = new PauseMenu({
-                stage: self.stage,
-                buttons: self.buttons,
-                messages: self.messages,
-                sceneStorage: self.sceneStorage,
-                sounds: self.sounds,
-                events: self.events,
-                device: self.device
-            });
-            pauseMenu.show(hideMenu);
-        }
-
         function showCredits() {
             var credits = new Credits({
                 stage: self.stage,
@@ -101,4 +85,4 @@ var Menu = (function (Width, Height, changeSign, Transition, Event, Settings, Pa
     };
 
     return Menu;
-})(Width, Height, changeSign, Transition, Event, Settings, PauseMenu, Credits);
+})(Width, Height, changeSign, Transition, Event, Settings, Credits);
