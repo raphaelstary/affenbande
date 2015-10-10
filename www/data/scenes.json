@@ -326,8 +326,8 @@
         "drawables": [
             {
                 "type": "image",
-                "x": 146,
-                "y": 138,
+                "x": 149,
+                "y": 141,
                 "width": 153,
                 "height": 153,
                 "referenceId": 1924,
@@ -341,10 +341,10 @@
             },
             {
                 "type": "rectangle",
-                "x": 201,
-                "y": 192,
-                "width": 402,
-                "height": 385,
+                "x": 115,
+                "y": 110,
+                "width": 230,
+                "height": 220,
                 "referenceId": 1919,
                 "tags": [
                     "input",
@@ -538,8 +538,8 @@
         "drawables": [
             {
                 "type": "image",
-                "x": 979,
-                "y": 115,
+                "x": 982,
+                "y": 118,
                 "width": 373,
                 "height": 193,
                 "referenceId": 1954,
@@ -590,8 +590,8 @@
             },
             {
                 "type": "image",
-                "x": 537,
-                "y": 117,
+                "x": 540,
+                "y": 120,
                 "width": 153,
                 "height": 153,
                 "referenceId": 1962,
@@ -638,8 +638,8 @@
             },
             {
                 "type": "image",
-                "x": 146,
-                "y": 117,
+                "x": 149,
+                "y": 120,
                 "width": 153,
                 "height": 153,
                 "referenceId": 1945,
@@ -686,8 +686,8 @@
             },
             {
                 "type": "image",
-                "x": 338,
-                "y": 117,
+                "x": 341,
+                "y": 120,
                 "width": 153,
                 "height": 153,
                 "referenceId": 1930,
@@ -938,12 +938,12 @@
                 "referenceId": 1252,
                 "tags": [
                     {
-                        "zIndex": "9"
+                        "zIndex": "11"
                     },
                     "mask",
                     "animation"
                 ],
-                "zIndex": 9,
+                "zIndex": 11,
                 "mask": {
                     "width": 32,
                     "height": 227,
@@ -990,11 +990,11 @@
                         "loop": "false"
                     },
                     {
-                        "zIndex": "9"
+                        "zIndex": "11"
                     },
                     "animation"
                 ],
-                "zIndex": 9,
+                "zIndex": 11,
                 "msg": "well done",
                 "rotation": 0.17698071473396326,
                 "scale": 1.5149133265203656,
@@ -1038,11 +1038,11 @@
                         "loop": "false"
                     },
                     {
-                        "zIndex": "8"
+                        "zIndex": "10"
                     },
                     "animation"
                 ],
-                "zIndex": 8,
+                "zIndex": 10,
                 "msg": "well done",
                 "rotation": -0.46633332814734996,
                 "scale": 0.512535014523886,
@@ -1112,10 +1112,10 @@
                         "loop": "false"
                     },
                     {
-                        "zIndex": "9"
+                        "zIndex": "11"
                     }
                 ],
-                "zIndex": 9,
+                "zIndex": 11,
                 "rotation": 0,
                 "scale": 1,
                 "animations": {
@@ -1156,10 +1156,10 @@
                         "loop": "false"
                     },
                     {
-                        "zIndex": "8"
+                        "zIndex": "10"
                     }
                 ],
-                "zIndex": 8,
+                "zIndex": 10,
                 "rotation": 0,
                 "scale": 0.42,
                 "animations": {
@@ -1214,10 +1214,10 @@
                 "tags": [
                     "animation",
                     {
-                        "zIndex": "6"
+                        "zIndex": "8"
                     }
                 ],
-                "zIndex": 6,
+                "zIndex": 8,
                 "rotation": -3.132309100669347,
                 "scale": 1,
                 "animations": {
@@ -1252,10 +1252,10 @@
                         "initialDelay": "false"
                     },
                     {
-                        "zIndex": "7"
+                        "zIndex": "9"
                     }
                 ],
-                "zIndex": 7,
+                "zIndex": 9,
                 "animations": {
                     "opacity": [
                         {
@@ -1310,10 +1310,10 @@
                         "initialDelay": "false"
                     },
                     {
-                        "zIndex": "7"
+                        "zIndex": "9"
                     }
                 ],
-                "zIndex": 7,
+                "zIndex": 9,
                 "animations": {
                     "opacity": [
                         {
@@ -1368,10 +1368,10 @@
                         "initialDelay": "false"
                     },
                     {
-                        "zIndex": "7"
+                        "zIndex": "9"
                     }
                 ],
-                "zIndex": 7,
+                "zIndex": 9,
                 "animations": {
                     "opacity": [
                         {
@@ -1426,10 +1426,10 @@
                         "initialDelay": "false"
                     },
                     {
-                        "zIndex": "7"
+                        "zIndex": "9"
                     }
                 ],
-                "zIndex": 7,
+                "zIndex": 9,
                 "animations": {
                     "opacity": [
                         {
@@ -1484,10 +1484,10 @@
                         "initialDelay": "false"
                     },
                     {
-                        "zIndex": "7"
+                        "zIndex": "9"
                     }
                 ],
-                "zIndex": 7,
+                "zIndex": 9,
                 "animations": {
                     "opacity": [
                         {
@@ -1542,10 +1542,10 @@
                         "initialDelay": "false"
                     },
                     {
-                        "zIndex": "7"
+                        "zIndex": "9"
                     }
                 ],
-                "zIndex": 7,
+                "zIndex": 9,
                 "animations": {
                     "opacity": [
                         {
@@ -1600,10 +1600,10 @@
                         "initialDelay": "false"
                     },
                     {
-                        "zIndex": "7"
+                        "zIndex": "9"
                     }
                 ],
-                "zIndex": 7,
+                "zIndex": 9,
                 "animations": {
                     "opacity": [
                         {
@@ -1658,10 +1658,10 @@
                         "initialDelay": "false"
                     },
                     {
-                        "zIndex": "7"
+                        "zIndex": "9"
                     }
                 ],
-                "zIndex": 7,
+                "zIndex": 9,
                 "animations": {
                     "opacity": [
                         {
@@ -1716,10 +1716,10 @@
                         "initialDelay": "false"
                     },
                     {
-                        "zIndex": "7"
+                        "zIndex": "9"
                     }
                 ],
-                "zIndex": 7,
+                "zIndex": 9,
                 "animations": {
                     "opacity": [
                         {
@@ -1774,10 +1774,10 @@
                         "initialDelay": "false"
                     },
                     {
-                        "zIndex": "7"
+                        "zIndex": "9"
                     }
                 ],
-                "zIndex": 7,
+                "zIndex": 9,
                 "animations": {
                     "opacity": [
                         {
@@ -1832,10 +1832,10 @@
                         "initialDelay": "false"
                     },
                     {
-                        "zIndex": "7"
+                        "zIndex": "9"
                     }
                 ],
-                "zIndex": 7,
+                "zIndex": 9,
                 "animations": {
                     "opacity": [
                         {
@@ -1890,10 +1890,10 @@
                         "initialDelay": "false"
                     },
                     {
-                        "zIndex": "7"
+                        "zIndex": "9"
                     }
                 ],
-                "zIndex": 7,
+                "zIndex": 9,
                 "animations": {
                     "opacity": [
                         {
@@ -1948,10 +1948,10 @@
                         "initialDelay": "false"
                     },
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     }
                 ],
-                "zIndex": 5,
+                "zIndex": 7,
                 "animations": {
                     "psType": "smartObject",
                     "firstFrame": 4,
@@ -2023,10 +2023,10 @@
                         "initialDelay": "false"
                     },
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     }
                 ],
-                "zIndex": 5,
+                "zIndex": 7,
                 "animations": {
                     "psType": "smartObject",
                     "firstFrame": 0,
@@ -2098,10 +2098,10 @@
                         "initialDelay": "false"
                     },
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     }
                 ],
-                "zIndex": 5,
+                "zIndex": 7,
                 "animations": {
                     "psType": "smartObject",
                     "firstFrame": 12,
@@ -2173,10 +2173,10 @@
                         "initialDelay": "false"
                     },
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     }
                 ],
-                "zIndex": 5,
+                "zIndex": 7,
                 "animations": {
                     "psType": "smartObject",
                     "firstFrame": 8,
@@ -2248,10 +2248,10 @@
                         "initialDelay": "false"
                     },
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     }
                 ],
-                "zIndex": 5,
+                "zIndex": 7,
                 "animations": {
                     "psType": "smartObject",
                     "firstFrame": 2,
@@ -2323,10 +2323,10 @@
                         "initialDelay": "false"
                     },
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     }
                 ],
-                "zIndex": 5,
+                "zIndex": 7,
                 "animations": {
                     "psType": "smartObject",
                     "firstFrame": 6,
@@ -2398,10 +2398,10 @@
                         "initialDelay": "false"
                     },
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     }
                 ],
-                "zIndex": 5,
+                "zIndex": 7,
                 "animations": {
                     "psType": "smartObject",
                     "firstFrame": 10,
@@ -2458,40 +2458,99 @@
                 }
             },
             {
-                "type": "rectangle",
-                "x": 1012,
-                "y": 2055,
-                "width": 454,
-                "height": 304,
-                "referenceId": 850,
-                "tags": [
-                    "input",
-                    {
-                        "up": "doSkip"
-                    }
-                ],
-                "filled": false,
-                "lineWidth": 1,
-                "color": "#ffffff"
+                "type": "button",
+                "zIndex": 7,
+                "text": {
+                    "type": "text",
+                    "x": 621,
+                    "y": 1602,
+                    "width": 99,
+                    "height": 64,
+                    "referenceId": 2297,
+                    "msg": "ok",
+                    "rotation": 0,
+                    "font": "Janda Silly Monkey",
+                    "size": 85,
+                    "color": "#515349"
+                },
+                "input": {
+                    "type": "rectangle",
+                    "x": 621,
+                    "y": 1492,
+                    "width": 1191,
+                    "height": 453,
+                    "referenceId": 2296,
+                    "tags": [
+                        "input",
+                        {
+                            "up": "doSkip"
+                        }
+                    ],
+                    "filled": false,
+                    "color": "#000000"
+                },
+                "background": {
+                    "type": "image",
+                    "x": 621,
+                    "y": 1604,
+                    "width": 666,
+                    "height": 169,
+                    "referenceId": 2295,
+                    "alpha": 0.5,
+                    "filename": "button.png",
+                    "tags": [
+                        "background"
+                    ]
+                }
             },
             {
-                "type": "text",
-                "x": 1034,
-                "y": 2044,
-                "width": 163,
-                "height": 59,
-                "referenceId": 849,
+                "type": "rectangle",
+                "x": -587,
+                "y": 1104,
+                "width": 1242,
+                "height": 2208,
+                "referenceId": 2299,
+                "alpha": 0.8,
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "6"
+                    },
+                    "animation",
+                    {
+                        "loop": "false"
                     }
                 ],
-                "zIndex": 5,
-                "msg": "skip >",
-                "rotation": 0,
-                "font": "Janda Silly Monkey",
-                "size": 72,
-                "color": "#000000"
+                "zIndex": 6,
+                "filled": true,
+                "lineWidth": 3,
+                "color": "#000000",
+                "animations": {
+                    "psType": "shape",
+                    "firstFrame": 0,
+                    "lastFrame": 10,
+                    "position": [
+                        {
+                            "time": 0,
+                            "x": -2181,
+                            "y": 1104
+                        },
+                        {
+                            "time": 7,
+                            "x": -1577,
+                            "y": 1104
+                        },
+                        {
+                            "time": 9,
+                            "x": -1336,
+                            "y": 1104
+                        },
+                        {
+                            "time": 10,
+                            "x": -973,
+                            "y": 1104
+                        }
+                    ]
+                }
             }
         ]
     },
@@ -2515,7 +2574,7 @@
                 "filename": "finger.png",
                 "tags": [
                     {
-                        "zIndex": "8"
+                        "zIndex": "10"
                     },
                     "animation",
                     {
@@ -2525,7 +2584,7 @@
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 8,
+                "zIndex": 10,
                 "rotation": -0.3856170651546515,
                 "scale": 1,
                 "animations": {
@@ -2653,7 +2712,7 @@
                 "scale": 1,
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     },
                     "animation",
                     {
@@ -2663,7 +2722,7 @@
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 5,
+                "zIndex": 7,
                 "animations": {
                     "opacity": [
                         {
@@ -2801,7 +2860,7 @@
                 "scale": 1,
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     },
                     "animation",
                     {
@@ -2811,7 +2870,7 @@
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 5,
+                "zIndex": 7,
                 "animations": {
                     "opacity": [
                         {
@@ -2949,7 +3008,7 @@
                 "scale": 1,
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     },
                     "animation",
                     {
@@ -2959,7 +3018,7 @@
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 5,
+                "zIndex": 7,
                 "animations": {
                     "opacity": [
                         {
@@ -3115,7 +3174,7 @@
                 "scale": 1,
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     },
                     "animation",
                     {
@@ -3125,7 +3184,7 @@
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 5,
+                "zIndex": 7,
                 "animations": {
                     "opacity": [
                         {
@@ -3263,7 +3322,7 @@
                 "scale": 1,
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     },
                     "animation",
                     {
@@ -3273,7 +3332,7 @@
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 5,
+                "zIndex": 7,
                 "animations": {
                     "opacity": [
                         {
@@ -3411,7 +3470,7 @@
                 "scale": 1,
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     },
                     "animation",
                     {
@@ -3421,7 +3480,7 @@
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 5,
+                "zIndex": 7,
                 "animations": {
                     "opacity": [
                         {
@@ -3559,7 +3618,7 @@
                 "scale": 0.72,
                 "tags": [
                     {
-                        "zIndex": "8"
+                        "zIndex": "10"
                     },
                     "animation",
                     {
@@ -3569,7 +3628,7 @@
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 8,
+                "zIndex": 10,
                 "animations": {
                     "opacity": [
                         {
@@ -3683,7 +3742,7 @@
                 "scale": 0.72,
                 "tags": [
                     {
-                        "zIndex": "8"
+                        "zIndex": "10"
                     },
                     "animation",
                     {
@@ -3693,7 +3752,7 @@
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 8,
+                "zIndex": 10,
                 "animations": {
                     "opacity": [
                         {
@@ -3804,7 +3863,7 @@
                 "filename": "monkey_head.png",
                 "tags": [
                     {
-                        "zIndex": "7"
+                        "zIndex": "9"
                     },
                     "animation",
                     {
@@ -3814,7 +3873,7 @@
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 7,
+                "zIndex": 9,
                 "rotation": 0,
                 "scale": 0.72,
                 "animations": {
@@ -3925,7 +3984,7 @@
                 "filename": "monkey_head.png",
                 "tags": [
                     {
-                        "zIndex": "7"
+                        "zIndex": "9"
                     },
                     "animation",
                     {
@@ -3935,7 +3994,7 @@
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 7,
+                "zIndex": 9,
                 "rotation": 0,
                 "scale": 0.72,
                 "animations": {
@@ -3986,7 +4045,7 @@
                 "filename": "monkey.png",
                 "tags": [
                     {
-                        "zIndex": "6"
+                        "zIndex": "8"
                     },
                     "animation",
                     {
@@ -3996,7 +4055,7 @@
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 6,
+                "zIndex": 8,
                 "rotation": 0,
                 "scale": 0.72,
                 "animations": {
@@ -4047,7 +4106,7 @@
                 "filename": "monkey.png",
                 "tags": [
                     {
-                        "zIndex": "6"
+                        "zIndex": "8"
                     },
                     "animation",
                     {
@@ -4057,7 +4116,7 @@
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 6,
+                "zIndex": 8,
                 "rotation": 0,
                 "scale": 0.72,
                 "animations": {
@@ -4100,7 +4159,7 @@
             },
             {
                 "type": "button",
-                "zIndex": 5,
+                "zIndex": 7,
                 "text": {
                     "type": "text",
                     "x": 621,
@@ -4158,13 +4217,13 @@
                 "color": "#ffffff",
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     },
                     {
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 5
+                "zIndex": 7
             },
             {
                 "type": "line",
@@ -4180,13 +4239,13 @@
                 "color": "#ffffff",
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     },
                     {
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 5
+                "zIndex": 7
             },
             {
                 "type": "line",
@@ -4202,13 +4261,13 @@
                 "color": "#ffffff",
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     },
                     {
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 5
+                "zIndex": 7
             },
             {
                 "type": "line",
@@ -4224,13 +4283,13 @@
                 "color": "#ffffff",
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     },
                     {
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 5
+                "zIndex": 7
             },
             {
                 "type": "line",
@@ -4246,13 +4305,13 @@
                 "color": "#ffffff",
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     },
                     {
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 5
+                "zIndex": 7
             },
             {
                 "type": "line",
@@ -4268,13 +4327,13 @@
                 "color": "#ffffff",
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     },
                     {
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 5
+                "zIndex": 7
             },
             {
                 "type": "line",
@@ -4290,13 +4349,13 @@
                 "color": "#ffffff",
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     },
                     {
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 5
+                "zIndex": 7
             },
             {
                 "type": "line",
@@ -4312,13 +4371,13 @@
                 "color": "#ffffff",
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     },
                     {
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 5
+                "zIndex": 7
             },
             {
                 "type": "line",
@@ -4334,13 +4393,13 @@
                 "color": "#ffffff",
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     },
                     {
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 5
+                "zIndex": 7
             },
             {
                 "type": "line",
@@ -4356,13 +4415,13 @@
                 "color": "#ffffff",
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     },
                     {
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 5
+                "zIndex": 7
             },
             {
                 "type": "line",
@@ -4378,13 +4437,13 @@
                 "color": "#ffffff",
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     },
                     {
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 5
+                "zIndex": 7
             },
             {
                 "type": "line",
@@ -4400,13 +4459,13 @@
                 "color": "#ffffff",
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "7"
                     },
                     {
                         "position": "relativeToSize"
                     }
                 ],
-                "zIndex": 5
+                "zIndex": 7
             },
             {
                 "type": "rectangle",
@@ -4415,10 +4474,10 @@
                 "width": 1242,
                 "height": 2208,
                 "referenceId": 489,
-                "alpha": 0.8,
+                "alpha": 0.5,
                 "tags": [
                     {
-                        "zIndex": "5"
+                        "zIndex": "6"
                     },
                     "animation",
                     {
@@ -4821,8 +4880,8 @@
             },
             {
                 "type": "image",
-                "x": 146,
-                "y": 138,
+                "x": 149,
+                "y": 141,
                 "width": 153,
                 "height": 153,
                 "referenceId": 328,
