@@ -150,7 +150,7 @@ var GameScreenViewModel = (function (Event, localStorage) {
             }
 
             var successScreen = new MVVMScene(self.services, self.services.scenes['finish_level'],
-                new SuccessScreenViewModel(self.services));
+                new SuccessScreenViewModel(self.services), 'finish_level');
 
             //self.world.worldView.setAlphaOfAll();
 
@@ -174,7 +174,8 @@ var GameScreenViewModel = (function (Event, localStorage) {
         if (this.sceneStorage.currentLevel === 1) {
             self.events.fireSync(Event.PAUSE);
 
-            var tutorial = new MVVMScene(self.services, self.services.scenes['move_tutorial'], new TutorialViewModel());
+            var tutorial = new MVVMScene(self.services, self.services.scenes['move_tutorial'], new TutorialViewModel(),
+                'move_tutorial');
             self.timer.doLater(function () {
                 tutorial.show(function () {
                     self.events.fire(Event.RESUME);

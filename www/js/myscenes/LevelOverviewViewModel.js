@@ -64,7 +64,7 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
                         });
 
                         var level = new MVVMScene(self.services, self.services.scenes['level'],
-                            new GameScreenViewModel(self.services));
+                            new GameScreenViewModel(self.services), 'level');
                         self.sceneStorage.currentLevel = levelNr;
                         level.show(resume);
 
@@ -98,7 +98,7 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
                 localStorage.setItem(Constants.LEVEL_UNLOCKING + levelKey, false);
 
                 var unlockSubScene = new MVVMScene(self.services, self.scenes['unlock_lock'], new UnlockLockViewModel(),
-                    sceneRect, xFn, yFn);
+                    'unlock_lock', sceneRect, xFn, yFn);
                 self.timer.doLater(function () {
                     unlockSubScene.show(function () {
                         coconut = self.stage.createImage('coconut').setPosition(xFn, yFn).setZIndex(4);
@@ -111,7 +111,7 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
                     localStorage.setItem(Constants.LEVEL_FINISHED_NOW + levelKey, false);
 
                     var finishedSubScene = new MVVMScene(self.services, self.scenes['golden_coconut'],
-                        new GoldenCoconutViewModel(), sceneRect, xFn, yFn);
+                        new GoldenCoconutViewModel(), 'golden_coconut', sceneRect, xFn, yFn);
                     finishedSubScene.show(function () {
                         coconut = self.stage.createImage('coconut_gold').setPosition(xFn, yFn).setZIndex(4);
                         addLabel(coconut, isUnlocked, 'black');

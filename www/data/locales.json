@@ -1,17 +1,17 @@
 {
     "en": {
         "display_name": "English",
-        "start": {
+        "start_screen": {
             "play": "play",
             "more_games": "more games",
             "start": "start"
         },
-        "end": {
-            "score": "score",
-            "best": "best",
-            "new_record": "new",
-            "play_again": "play again",
-            "more_games": "more games"
+        "finish_level": {
+            "well_done": "well done",
+            "ok": "ok"
+        },
+        "move_tutorial": {
+            "ok": "ok"
         },
         "settings": {
             "ok": "ok",
@@ -41,26 +41,21 @@
         "common_buttons": {
             "back": "back",
             "resume": "resume"
-        },
-        "play": {
-            "undo": "undo",
-            "back_to_map": "back",
-            "revert_level": "restart"
         }
     },
     "de": {
         "display_name": "Deutsch",
-        "start": {
+        "start_screen": {
             "play": "spielen",
             "more_games": "mehr Spiele",
             "start": "start"
         },
-        "end": {
-            "score": "Punkte",
-            "best": "Rekord",
-            "new_record": "NEU",
-            "play_again": "nochmal spielen",
-            "more_games": "mehr Spiele"
+        "finish_level": {
+            "well_done": "sehr gut",
+            "ok": "ok"
+        },
+        "move_tutorial": {
+            "ok": "ok"
         },
         "settings": {
             "ok": "ok",
@@ -90,11 +85,6 @@
         "common_buttons": {
             "back": "zur\u00FCck",
             "resume": "weiter"
-        },
-        "play": {
-            "undo": "zur\u00FCck",
-            "back_to_map": "Men\u00FC",
-            "revert_level": "r\u00FCcksetzen"
         }
     }
 }
