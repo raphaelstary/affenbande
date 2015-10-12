@@ -20,6 +20,10 @@ var GameScreenViewModel = (function (Event, localStorage) {
         this.timer.doLater(this.restartScene.bind(this), 6);
     };
 
+    GameScreenViewModel.prototype.downRestart = function () {
+
+    };
+
     GameScreenViewModel.prototype.goBack = function () {
         this.events.fire(Event.ANALYTICS, {
             type: 'level_end',
@@ -28,6 +32,10 @@ var GameScreenViewModel = (function (Event, localStorage) {
             level: this.sceneStorage.currentLevel
         });
         this.timer.doLater(this.nextScene.bind(this), 6);
+    };
+
+    GameScreenViewModel.prototype.downBack = function () {
+
     };
 
     GameScreenViewModel.prototype.stepBack = function () {
@@ -43,6 +51,10 @@ var GameScreenViewModel = (function (Event, localStorage) {
         }
     };
 
+    GameScreenViewModel.prototype.downStepBack = function () {
+
+    };
+
     GameScreenViewModel.prototype.goSettings = function () {
         this.sceneStorage.menuScene = 'settings';
 
@@ -50,6 +62,10 @@ var GameScreenViewModel = (function (Event, localStorage) {
         showMenu(this.stage, this.buttons, this.messages, this.events, this.sceneStorage, this.device, this.sounds,
             function () {
             });
+    };
+
+    GameScreenViewModel.prototype.downSettings = function () {
+
     };
 
     GameScreenViewModel.prototype.postConstruct = function () {
@@ -135,6 +151,9 @@ var GameScreenViewModel = (function (Event, localStorage) {
 
             var successScreen = new MVVMScene(self.services, self.services.scenes['finish_level'],
                 new SuccessScreenViewModel(self.services));
+
+            //self.world.worldView.setAlphaOfAll();
+
             successScreen.show(function () {
                 self.timer.doLater(self.nextScene.bind(self), 30);
             });

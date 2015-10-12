@@ -145,28 +145,12 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
             }
         }
 
-        function startLevel(levelNr) {
-            return function () {
-                var resume = self.stopScene();
-
-                self.events.fire(Event.ANALYTICS, {
-                    type: 'level_start',
-                    level: levelNr
-                });
-
-                var level = new MVVMScene(self.services, self.services.scenes['level'],
-                    new GameScreenViewModel(self.services));
-                self.sceneStorage.currentLevel = levelNr;
-                level.show(resume);
-            };
-        }
-
         this.taps = [];
         this.drawables = [];
         this.shakers = {};
 
-        this.drawables.push(this.stage.createRectangle(true).setWidth(Width.FULL).setHeight(Height.FULL).setPosition(Width.HALF,
-            Height.HALF).setColor('white').setAlpha(0.3).setZIndex(4));
+        //this.drawables.push(this.stage.createRectangle(true).setWidth(Width.FULL).setHeight(Height.FULL).setPosition(Width.HALF,
+        // Height.HALF).setColor('white').setAlpha(0.3).setZIndex(4));
 
         for (var i = 1; i <= 20; i++) {
             createLevelDrawable(i);
@@ -180,6 +164,10 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
         showMenu(this.stage, this.buttons, this.messages, this.events, this.sceneStorage, this.device, this.sounds,
             function () {
             });
+    };
+
+    LevelOverviewViewModel.prototype.downSettings = function () {
+
     };
 
     return LevelOverviewViewModel;

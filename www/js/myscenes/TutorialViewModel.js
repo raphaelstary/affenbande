@@ -8,5 +8,9 @@ var TutorialViewModel = (function () {
         this.nextScene();
     };
 
+    TutorialViewModel.prototype.downOk = function () {
+
+    };
+
     return TutorialViewModel;
 })();

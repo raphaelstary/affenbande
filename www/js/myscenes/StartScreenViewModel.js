@@ -25,8 +25,16 @@ var StartScreenViewModel = (function (checkAndSet30fps, Event, window, showMenu)
         this.timer.doLater(this.nextScene.bind(this), 16);
     };
 
+    StartScreenViewModel.prototype.downPlay = function () {
+
+    };
+
     StartScreenViewModel.prototype.pressMore = function () {
         window.location.href = window.moreGamesLink;
+    };
+
+    StartScreenViewModel.prototype.downMore = function () {
+
     };
 
     StartScreenViewModel.prototype.goSettings = function () {
@@ -36,6 +44,10 @@ var StartScreenViewModel = (function (checkAndSet30fps, Event, window, showMenu)
         showMenu(this.stage, this.buttons, this.messages, this.events, this.sceneStorage, this.device, this.sounds,
             function () {
             });
+    };
+
+    StartScreenViewModel.prototype.downSettings = function () {
+
     };
 
     return StartScreenViewModel;

@@ -41,6 +41,25 @@ var WorldView = (function (calcCantorPairing, iterateEntries, Transition, wrap) 
         });
     };
 
+    WorldView.prototype.setAlphaOfAll = function () {
+        iterateEntries(this.newParts, function (part) {
+            part.setAlpha(0.5);
+        });
+        iterateEntries(this.bodyParts, function (part) {
+            part.setAlpha(0.5);
+        });
+        this.ground.forEach(function (tile) {
+            tile.setAlpha(0.5);
+        });
+        iterateEntries(this.spikes, function (part) {
+            part.setAlpha(0.5);
+        });
+        this.goal.setAlpha(0.5);
+        this.tree.forEach(function (part) {
+            part.setAlpha(0.5);
+        });
+    };
+
     WorldView.prototype.drawLevel = function (snakes, groundTiles, newParts, spikes, goal, treeUpTiles, treeDownTiles,
         treeSmallTiles) {
         groundTiles.forEach(function (ground) {
