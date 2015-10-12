@@ -26,7 +26,11 @@ var StartScreenViewModel = (function (checkAndSet30fps, Event, window, showMenu)
     };
 
     StartScreenViewModel.prototype.downPlay = function () {
-
+        this.playBtn.data = this.stage.getGraphic('button_white');
+        var self = this;
+        this.timer.doLater(function () {
+            self.playBtn.data = self.stage.getGraphic('button');
+        }, 16);
     };
 
     StartScreenViewModel.prototype.pressMore = function () {
@@ -34,7 +38,11 @@ var StartScreenViewModel = (function (checkAndSet30fps, Event, window, showMenu)
     };
 
     StartScreenViewModel.prototype.downMore = function () {
-
+        this.moreGamesBtn.data = this.stage.getGraphic('button_white');
+        var self = this;
+        this.timer.doLater(function () {
+            self.moreGamesBtn.data = self.stage.getGraphic('button');
+        }, 16);
     };
 
     StartScreenViewModel.prototype.goSettings = function () {
@@ -47,7 +55,11 @@ var StartScreenViewModel = (function (checkAndSet30fps, Event, window, showMenu)
     };
 
     StartScreenViewModel.prototype.downSettings = function () {
-
+        this.settingsBtn.data = this.stage.getGraphic('settings_white');
+        var self = this;
+        this.timer.doLater(function () {
+            self.settingsBtn.data = self.stage.getGraphic('settings');
+        }, 16);
     };
 
     return StartScreenViewModel;

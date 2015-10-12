@@ -21,7 +21,11 @@ var GameScreenViewModel = (function (Event, localStorage) {
     };
 
     GameScreenViewModel.prototype.downRestart = function () {
-
+        this.restartBtn.data = this.stage.getGraphic('restart_white');
+        var self = this;
+        this.timer.doLater(function () {
+            self.restartBtn.data = self.stage.getGraphic('restart');
+        }, 16);
     };
 
     GameScreenViewModel.prototype.goBack = function () {
@@ -35,24 +39,32 @@ var GameScreenViewModel = (function (Event, localStorage) {
     };
 
     GameScreenViewModel.prototype.downBack = function () {
-
+        this.backBtn.data = this.stage.getGraphic('exit_level_white');
+        var self = this;
+        this.timer.doLater(function () {
+            self.backBtn.data = self.stage.getGraphic('exit_level');
+        }, 16);
     };
 
     GameScreenViewModel.prototype.stepBack = function () {
         //undo.used = true;
         var self = this;
         if (!this.world.undoLastMove(function () {
-                //self.stepBackDrawable.alpha = 0.5;
+                //self.stepBackBtn.alpha = 0.5;
                 //undo.used = false;
             })) {
-            //this.stepBackDrawable.alpha = 0.5;
+            //this.stepBackBtn.alpha = 0.5;
             //undo.used = false;
             this.shaker.startSmallShake();
         }
     };
 
     GameScreenViewModel.prototype.downStepBack = function () {
-
+        this.stepBackBtn.data = this.stage.getGraphic('step_back_white');
+        var self = this;
+        this.timer.doLater(function () {
+            self.stepBackBtn.data = self.stage.getGraphic('step_back');
+        }, 16);
     };
 
     GameScreenViewModel.prototype.goSettings = function () {
@@ -65,7 +77,11 @@ var GameScreenViewModel = (function (Event, localStorage) {
     };
 
     GameScreenViewModel.prototype.downSettings = function () {
-
+        this.settingsBtn.data = this.stage.getGraphic('settings_white');
+        var self = this;
+        this.timer.doLater(function () {
+            self.settingsBtn.data = self.stage.getGraphic('settings');
+        }, 16);
     };
 
     GameScreenViewModel.prototype.postConstruct = function () {
@@ -79,7 +95,7 @@ var GameScreenViewModel = (function (Event, localStorage) {
         this.shakerResizeId = self.events.subscribe(Event.RESIZE, this.shaker.resize.bind(this.shaker));
         this.shakerTickId = self.events.subscribe(Event.TICK_MOVE, this.shaker.update.bind(this.shaker));
 
-        this.shaker.add(this.stepBackDrawable);
+        this.shaker.add(this.stepBackBtn);
 
         function buttonScaleAnimation() {
             var $ = {
@@ -92,11 +108,11 @@ var GameScreenViewModel = (function (Event, localStorage) {
             };
             var lineWidth = Font.get(480, 3);
             var _0 = undefined;
-            var deps = [self.stepBackDrawable];
-            var x = wrap(self.stepBackDrawable, 'x');
-            var y = wrap(self.stepBackDrawable, 'y');
-            var width = self.stepBackDrawable.getWidth.bind(self.stepBackDrawable);
-            var height = self.stepBackDrawable.getHeight.bind(self.stepBackDrawable);
+            var deps = [self.stepBackBtn];
+            var x = wrap(self.stepBackBtn, 'x');
+            var y = wrap(self.stepBackBtn, 'y');
+            var width = self.stepBackBtn.getWidth.bind(self.stepBackBtn);
+            var height = self.stepBackBtn.getHeight.bind(self.stepBackBtn);
             var one = self.stage.createRectangle().setPosition(x, y,
                 deps).setWidth(width).setHeight(height).setColor('white').setZIndex(5).setLineWidth(lineWidth);
             var two = self.stage.createRectangle().setPosition(x, y,
@@ -175,8 +191,8 @@ var GameScreenViewModel = (function (Event, localStorage) {
         if (this.sceneStorage.currentLevel === 1) {
             self.events.fireSync(Event.PAUSE);
 
-            var tutorial = new MVVMScene(self.services, self.services.scenes['move_tutorial'], new TutorialViewModel(),
-                'move_tutorial');
+            var tutorial = new MVVMScene(self.services, self.services.scenes['move_tutorial'],
+                new TutorialViewModel(self.services), 'move_tutorial');
             self.timer.doLater(function () {
                 tutorial.show(function () {
                     self.events.fire(Event.RESUME);

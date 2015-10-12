@@ -335,8 +335,12 @@
                 "tags": [
                     {
                         "zIndex": "4"
+                    },
+                    {
+                        "id": "settingsBtn"
                     }
                 ],
+                "viewId": "settingsBtn",
                 "zIndex": 4
             },
             {
@@ -552,7 +556,10 @@
                 "filename": "step_back.png",
                 "tags": [
                     {
-                        "id": "stepBackDrawable"
+                        "id": "stepBackBtn"
+                    },
+                    {
+                        "id": "stepBackBtn"
                     },
                     {
                         "anchor": "right"
@@ -564,7 +571,7 @@
                         "position": "relativeToSize"
                     }
                 ],
-                "viewId": "stepBackDrawable",
+                "viewId": "stepBackBtn",
                 "zIndex": 5
             },
             {
@@ -607,6 +614,9 @@
                 "filename": "restart.png",
                 "tags": [
                     {
+                        "id": "restartBtn"
+                    },
+                    {
                         "anchor": "left"
                     },
                     {
@@ -616,6 +626,7 @@
                         "position": "relativeToSize"
                     }
                 ],
+                "viewId": "restartBtn",
                 "zIndex": 5
             },
             {
@@ -658,6 +669,9 @@
                 "filename": "exit_level.png",
                 "tags": [
                     {
+                        "id": "backBtn"
+                    },
+                    {
                         "anchor": "left"
                     },
                     {
@@ -667,6 +681,7 @@
                         "position": "relativeToSize"
                     }
                 ],
+                "viewId": "backBtn",
                 "zIndex": 5
             },
             {
@@ -716,8 +731,12 @@
                     },
                     {
                         "position": "relativeToSize"
+                    },
+                    {
+                        "viewId": "settingsBtn"
                     }
                 ],
+                "viewId": "settingsBtn",
                 "zIndex": 5
             },
             {
@@ -2524,7 +2543,7 @@
                     "rotation": 0,
                     "font": "Janda Silly Monkey",
                     "size": 85,
-                    "color": "#515349"
+                    "color": "#000100"
                 },
                 "input": {
                     "type": "rectangle",
@@ -2548,15 +2567,18 @@
                 "background": {
                     "type": "image",
                     "x": 621,
-                    "y": 1604,
-                    "width": 666,
-                    "height": 169,
-                    "referenceId": 2295,
-                    "alpha": 0.5,
+                    "y": 1608,
+                    "width": 679,
+                    "height": 182,
+                    "referenceId": 2621,
                     "filename": "button.png",
                     "tags": [
-                        "background"
-                    ]
+                        "background",
+                        {
+                            "id": "okBtn"
+                        }
+                    ],
+                    "viewId": "okBtn"
                 }
             },
             {
@@ -2566,7 +2588,7 @@
                 "width": 1242,
                 "height": 2208,
                 "referenceId": 2299,
-                "alpha": 0.3,
+                "alpha": 0.5,
                 "tags": [
                     {
                         "zIndex": "6"
@@ -2579,7 +2601,7 @@
                 "zIndex": 6,
                 "filled": true,
                 "lineWidth": 3,
-                "color": "#ffffff",
+                "color": "#b5e3ff",
                 "animations": {
                     "psType": "shape",
                     "firstFrame": 0,
@@ -4232,7 +4254,7 @@
                     "rotation": 0,
                     "font": "Janda Silly Monkey",
                     "size": 85,
-                    "color": "#515349"
+                    "color": "#000000"
                 },
                 "input": {
                     "type": "rectangle",
@@ -4256,15 +4278,18 @@
                 "background": {
                     "type": "image",
                     "x": 621,
-                    "y": 1604,
-                    "width": 666,
-                    "height": 169,
-                    "referenceId": 462,
-                    "alpha": 0.5,
+                    "y": 1608,
+                    "width": 679,
+                    "height": 182,
+                    "referenceId": 2615,
                     "filename": "button.png",
                     "tags": [
-                        "background"
-                    ]
+                        "background",
+                        {
+                            "id": "okBtn"
+                        }
+                    ],
+                    "viewId": "okBtn"
                 }
             },
             {
@@ -4967,9 +4992,13 @@
                 "filename": "settings.png",
                 "tags": [
                     {
+                        "id": "settingsBtn"
+                    },
+                    {
                         "zIndex": "2"
                     }
                 ],
+                "viewId": "settingsBtn",
                 "zIndex": 2
             },
             {
@@ -5167,15 +5196,18 @@
                 "background": {
                     "type": "image",
                     "x": 621,
-                    "y": 1604,
-                    "width": 666,
-                    "height": 169,
-                    "referenceId": 47,
-                    "alpha": 0.5,
+                    "y": 1608,
+                    "width": 679,
+                    "height": 182,
+                    "referenceId": 2619,
                     "filename": "button.png",
                     "tags": [
-                        "background"
-                    ]
+                        "background",
+                        {
+                            "id": "playBtn"
+                        }
+                    ],
+                    "viewId": "playBtn"
                 },
                 "tags": [
                     {
@@ -5226,15 +5258,18 @@
                 "background": {
                     "type": "image",
                     "x": 621,
-                    "y": 1830,
-                    "width": 666,
-                    "height": 169,
-                    "referenceId": 44,
-                    "alpha": 0.5,
+                    "y": 1834,
+                    "width": 679,
+                    "height": 182,
+                    "referenceId": 2617,
                     "filename": "button.png",
                     "tags": [
-                        "background"
-                    ]
+                        "background",
+                        {
+                            "id": "moreGamesBtn"
+                        }
+                    ],
+                    "viewId": "moreGamesBtn"
                 },
                 "tags": [
                     {

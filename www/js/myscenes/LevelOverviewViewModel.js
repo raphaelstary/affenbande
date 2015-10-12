@@ -167,7 +167,11 @@ var LevelOverviewViewModel = (function (Width, Height, Event, Constants, Font, M
     };
 
     LevelOverviewViewModel.prototype.downSettings = function () {
-
+        this.settingsBtn.data = this.stage.getGraphic('settings_white');
+        var self = this;
+        this.timer.doLater(function () {
+            self.settingsBtn.data = self.stage.getGraphic('settings');
+        }, 16);
     };
 
     return LevelOverviewViewModel;
