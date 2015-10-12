@@ -83,13 +83,14 @@ var GameScreenViewModel = (function (Event, localStorage) {
 
         function buttonScaleAnimation() {
             var $ = {
-                WAVE_SCALE_FACTOR_MAX: 2,
-                WAVE_SCALE_DURATION: 30,
+                WAVE_SCALE_FACTOR_MAX: 6,
+                WAVE_SCALE_DURATION: 60,
                 WAVE_AGAIN_DURATION: 60 * 5,
 
                 SECOND_WAVE_DELAY: 5,
                 THIRD_WAVE_DELAY: 10
             };
+            var lineWidth = Font.get(480, 3);
             var _0 = undefined;
             var deps = [self.stepBackDrawable];
             var x = wrap(self.stepBackDrawable, 'x');
@@ -97,11 +98,11 @@ var GameScreenViewModel = (function (Event, localStorage) {
             var width = self.stepBackDrawable.getWidth.bind(self.stepBackDrawable);
             var height = self.stepBackDrawable.getHeight.bind(self.stepBackDrawable);
             var one = self.stage.createRectangle().setPosition(x, y,
-                deps).setWidth(width).setHeight(height).setColor('white').setZIndex(5);
+                deps).setWidth(width).setHeight(height).setColor('white').setZIndex(5).setLineWidth(lineWidth);
             var two = self.stage.createRectangle().setPosition(x, y,
-                deps).setWidth(width).setHeight(height).setColor('white').setZIndex(5);
+                deps).setWidth(width).setHeight(height).setColor('white').setZIndex(5).setLineWidth(lineWidth);
             var three = self.stage.createRectangle().setPosition(x, y,
-                deps).setWidth(width).setHeight(height).setColor('white').setZIndex(5);
+                deps).setWidth(width).setHeight(height).setColor('white').setZIndex(5).setLineWidth(lineWidth);
             one.scaleTo($.WAVE_SCALE_FACTOR_MAX).setDuration($.WAVE_SCALE_DURATION).setCallback(function () {
                 one.remove();
             });
