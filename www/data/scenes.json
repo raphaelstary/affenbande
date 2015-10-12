@@ -631,9 +631,9 @@
             },
             {
                 "type": "rectangle",
-                "x": 565,
+                "x": 560,
                 "y": 115,
-                "width": 250,
+                "width": 200,
                 "height": 230,
                 "referenceId": 1964,
                 "tags": [
@@ -686,9 +686,9 @@
             },
             {
                 "type": "rectangle",
-                "x": 122,
+                "x": 115,
                 "y": 115,
-                "width": 245,
+                "width": 230,
                 "height": 230,
                 "referenceId": 1946,
                 "tags": [
@@ -724,6 +724,9 @@
                 "filename": "settings.png",
                 "tags": [
                     {
+                        "id": "settingsBtn"
+                    },
+                    {
                         "anchor": "left"
                     },
                     {
@@ -731,9 +734,6 @@
                     },
                     {
                         "position": "relativeToSize"
-                    },
-                    {
-                        "viewId": "settingsBtn"
                     }
                 ],
                 "viewId": "settingsBtn",
@@ -741,9 +741,9 @@
             },
             {
                 "type": "rectangle",
-                "x": 342,
+                "x": 340,
                 "y": 115,
-                "width": 185,
+                "width": 160,
                 "height": 230,
                 "referenceId": 1925,
                 "tags": [
@@ -1112,7 +1112,7 @@
                     "rotation": [
                         {
                             "time": 90,
-                            "rotation": -0.46633386822237
+                            "rotation": -0.46633386822236
                         },
                         {
                             "time": 109,
@@ -2543,7 +2543,7 @@
                     "rotation": 0,
                     "font": "Janda Silly Monkey",
                     "size": 85,
-                    "color": "#000100"
+                    "color": "#000000"
                 },
                 "input": {
                     "type": "rectangle",
@@ -4563,7 +4563,7 @@
                 "width": 1242,
                 "height": 2208,
                 "referenceId": 489,
-                "alpha": 0.5,
+                "alpha": 0.8,
                 "tags": [
                     {
                         "zIndex": "6"
