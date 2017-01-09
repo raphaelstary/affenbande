@@ -2,7 +2,7 @@ var MyGameResources = (function (addFontToDOM, UniversalTranslator, SoundSpriteM
     document, width, height, userAgent, DeviceInfo, window, Constants) {
     "use strict";
 
-    var gameFont, logoFont, locales, atlases = [], images = {}, moreGames, levels, scenes;
+    var gameFont, logoFont, locales, atlases = [], moreGames, levels, scenes;
 
     function registerFiles(resourceLoader) {
         gameFont = resourceLoader.addFont('data/gamefont.woff');
@@ -16,7 +16,7 @@ var MyGameResources = (function (addFontToDOM, UniversalTranslator, SoundSpriteM
 
         AtlasResourceHelper.register(resourceLoader, atlases, isMobile);
 
-        return 4 + atlases.length;
+        return 6 + atlases.length;
     }
 
     function processFiles() {

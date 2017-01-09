@@ -18,7 +18,7 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
 
         var sceneManager = new SceneManager();
 
-        var goFullScreen = new GoFullScreen(sceneServices);
+        // var goFullScreen = new GoFullScreen(sceneServices);
         var rotateDevice = new RotateDevice(sceneServices);
         var menuEvented = new ShowMenuEvented(sceneServices);
         var preStartScreen = new PreStartScreen(sceneServices);
@@ -28,7 +28,7 @@ var installMyScenes = (function (SceneManager, TapManager, Event, ButtonFactory,
         var levelOverview = new MVVMScene(sceneServices, sceneServices.scenes['level_overview'],
             new LevelOverviewViewModel(sceneServices), 'level_overview');
 
-        sceneManager.add(goFullScreen.show.bind(goFullScreen), true);
+        // sceneManager.add(goFullScreen.show.bind(goFullScreen), true);
         sceneManager.add(rotateDevice.show.bind(rotateDevice), true);
         sceneManager.add(menuEvented.show.bind(menuEvented), true);
         sceneManager.add(preStartScreen.show.bind(preStartScreen), true);
